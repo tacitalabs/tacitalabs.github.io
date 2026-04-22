@@ -1,16 +1,17 @@
 :root {
-  color-scheme: light dark;
-  --bg: #0b1020;
-  --bg-soft: #101831;
-  --panel: rgba(255, 255, 255, 0.05);
-  --panel-strong: rgba(255, 255, 255, 0.08);
-  --text: #eef2ff;
-  --muted: #b6c0e0;
-  --line: rgba(255, 255, 255, 0.12);
+  color-scheme: dark;
+  --bg: #08101e;
+  --bg-soft: #0d1628;
+  --panel: rgba(10, 18, 33, 0.74);
+  --panel-strong: rgba(14, 24, 41, 0.88);
+  --text: #edf2ff;
+  --muted: #b8c2df;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.16);
   --accent: #7dd3fc;
   --accent-strong: #38bdf8;
   --accent-deep: #0ea5e9;
-  --shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  --shadow: 0 20px 48px rgba(0, 0, 0, 0.28);
 }
 
 * {
@@ -25,10 +26,10 @@ body {
   margin: 0;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background:
-    radial-gradient(circle at top, rgba(33, 55, 111, 0.9) 0%, rgba(22, 32, 68, 0.72) 20%, transparent 45%),
-    linear-gradient(180deg, #0d1327 0%, var(--bg) 100%);
+    radial-gradient(circle at top, rgba(29, 36, 74, 0.9) 0%, rgba(14, 22, 40, 0.75) 24%, transparent 52%),
+    linear-gradient(180deg, #0a1120 0%, var(--bg) 100%);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 img {
@@ -39,45 +40,57 @@ img {
 .page {
   width: min(1120px, calc(100% - 2rem));
   margin: 0 auto;
-  padding: 4rem 0 5rem;
+  padding: 3rem 0 5rem;
 }
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-  gap: 1.4rem;
+  grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
+  gap: 1.2rem;
   align-items: stretch;
-  padding: 2rem 0 1rem;
+  padding: 1rem 0 1rem;
 }
 
 .hero-copy,
 .hero-panel,
 .card,
 .mini-card,
-.shot {
+.carousel {
   border: 1px solid var(--line);
   background: var(--panel);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(18px);
   box-shadow: var(--shadow);
 }
 
+.hero-copy,
+.hero-panel,
+.card,
+.mini-card,
+.carousel {
+  border-radius: 24px;
+}
+
 .hero-copy {
-  border-radius: 28px;
   padding: 2rem;
 }
 
 .hero-panel {
-  border-radius: 28px;
   padding: 1.6rem;
-  background: linear-gradient(180deg, rgba(56, 189, 248, 0.12), rgba(255, 255, 255, 0.04));
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.09), rgba(255, 255, 255, 0.03));
+}
+
+.brand-lockup {
+  width: min(340px, 70%);
+  margin-bottom: 1.25rem;
+  filter: brightness(0) invert(1) opacity(0.95);
 }
 
 .panel-label,
 .eyebrow {
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--accent);
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 700;
 }
 
@@ -85,21 +98,21 @@ h1,
 h2,
 h3,
 h4 {
-  line-height: 1.15;
+  line-height: 1.08;
   margin: 0 0 1rem;
 }
 
 h1 {
-  font-size: clamp(2.8rem, 6vw, 5.1rem);
+  font-size: clamp(2.7rem, 6vw, 4.8rem);
   max-width: 11ch;
 }
 
 h2 {
-  font-size: clamp(2rem, 3vw, 2.7rem);
+  font-size: clamp(1.95rem, 3vw, 2.6rem);
 }
 
 h3 {
-  font-size: 1.35rem;
+  font-size: 1.28rem;
 }
 
 p {
@@ -119,28 +132,29 @@ figcaption {
 }
 
 .lede {
-  max-width: 46rem;
-  font-size: 1.15rem;
+  max-width: 44rem;
+  font-size: 1.12rem;
 }
 
 .actions {
   display: flex;
-  gap: 0.9rem;
+  gap: 0.85rem;
   flex-wrap: wrap;
   margin-top: 1.5rem;
 }
 
 .button {
   display: inline-block;
-  padding: 0.9rem 1.2rem;
+  padding: 0.92rem 1.2rem;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 700;
-  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
 }
 
 .button:hover {
   transform: translateY(-1px);
+  opacity: 0.98;
 }
 
 .button.primary {
@@ -149,31 +163,33 @@ figcaption {
 }
 
 .button.secondary {
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   color: var(--text);
 }
 
 .hero-points,
 .check-list,
-.steps,
-.principles {
+.steps {
   padding-left: 1.2rem;
 }
 
 .section {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 .section-heading {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.15rem;
+}
+
+.compact-heading {
+  max-width: 52rem;
 }
 
 .intro-grid,
 .product-grid,
 .split-section,
 .download-grid,
-.trust-grid,
-.gallery {
+.trust-grid {
   display: grid;
   gap: 1rem;
 }
@@ -191,21 +207,29 @@ figcaption {
 
 .mini-card,
 .card,
-.shot {
-  border-radius: 22px;
+.carousel {
   padding: 1.35rem;
-}
-
-.feature-card {
-  min-height: 100%;
 }
 
 .download-card {
   margin-top: 1rem;
 }
 
-.download-grid {
-  margin-top: 1rem;
+.download-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+}
+
+.version-tag {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .download-grid article {
@@ -215,14 +239,14 @@ figcaption {
   background: rgba(255, 255, 255, 0.03);
 }
 
-.checksum-note {
-  margin-top: 1rem;
-}
-
 .hash {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   overflow-wrap: anywhere;
+}
+
+.checksum-note {
+  margin-top: 1rem;
 }
 
 code {
@@ -232,6 +256,7 @@ code {
   border-radius: 8px;
 }
 
+/* I don't love the fish mark, but the horizontal lockup is usable here. */
 a {
   color: var(--accent);
 }
@@ -240,34 +265,89 @@ a {
   margin-top: 1.5rem;
 }
 
-.gallery {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: start;
+.carousel {
+  overflow: hidden;
 }
 
-.shot {
+.carousel-viewport {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 3.5rem;
+}
+
+.carousel-slide {
+  display: none;
   margin: 0;
-}
-
-.shot img {
   width: 100%;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
+  text-align: center;
 }
 
-.shot figcaption {
-  font-size: 0.95rem;
-  margin-top: 0.85rem;
+.carousel-slide.is-active {
+  display: block;
 }
 
-.shot-wide {
-  grid-column: span 2;
-}
-
-.phone img {
-  max-height: 720px;
-  object-fit: cover;
+.carousel-slide img {
   margin: 0 auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 430px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  object-fit: contain;
+}
+
+.carousel-slide figcaption {
+  max-width: 46rem;
+  margin: 1rem auto 0;
+  font-size: 0.95rem;
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(7, 12, 23, 0.86);
+  color: var(--text);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.carousel-nav.prev {
+  left: 0.5rem;
+}
+
+.carousel-nav.next {
+  right: 0.5rem;
+}
+
+.carousel-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.carousel-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.22);
+  cursor: pointer;
+}
+
+.carousel-dot.is-active {
+  background: var(--accent-strong);
 }
 
 .contact-section a {
@@ -280,20 +360,28 @@ a {
   .product-grid,
   .split-section,
   .download-grid,
-  .trust-grid,
-  .gallery {
+  .trust-grid {
     grid-template-columns: 1fr;
   }
 
-  .shot-wide {
-    grid-column: auto;
+  .download-header {
+    flex-direction: column;
+  }
+
+  .carousel-viewport {
+    min-height: 460px;
+    padding: 0.5rem 2.9rem;
+  }
+
+  .carousel-slide img {
+    max-height: 340px;
   }
 }
 
 @media (max-width: 640px) {
   .page {
     width: min(100% - 1rem, 1120px);
-    padding-top: 1.5rem;
+    padding-top: 1.25rem;
     padding-bottom: 3rem;
   }
 
@@ -301,17 +389,48 @@ a {
   .hero-panel,
   .card,
   .mini-card,
-  .shot {
+  .carousel {
     border-radius: 20px;
     padding: 1.1rem;
   }
 
   h1 {
-    font-size: clamp(2.2rem, 12vw, 3.4rem);
+    font-size: clamp(2.15rem, 11vw, 3.4rem);
+  }
+
+  .brand-lockup {
+    width: min(280px, 82%);
   }
 
   .button {
     width: 100%;
     text-align: center;
+  }
+
+  .carousel-viewport {
+    min-height: 390px;
+    padding: 0.25rem 0.25rem 3.5rem;
+  }
+
+  .carousel-slide img {
+    max-height: 280px;
+  }
+
+  .carousel-nav {
+    top: auto;
+    bottom: 0.3rem;
+    transform: none;
+  }
+
+  .carousel-nav.prev {
+    left: calc(50% - 3.3rem);
+  }
+
+  .carousel-nav.next {
+    right: calc(50% - 3.3rem);
+  }
+
+  .carousel-dots {
+    margin-top: 0.6rem;
   }
 }
