@@ -1,38 +1,38 @@
-# Tacita Labs site starter
+# Tacita Labs public site deployment repo
 
-This is a simple static starter for a GitHub Pages landing page.
+This repository is a **public deployment target** for the Tacita Labs website.
 
-## Recommended deployment target
+## Hard rules
 
-For a GitHub account named `tacitalabs`, publish this as the user site repo:
+- Public repo - assume everything pushed here is world-readable.
+- Site output only - HTML, CSS, JS, images, favicon, CNAME, and other safe public web assets.
+- Do **not** put source code for private projects here.
+- Do **not** put internal notes, planning docs, drafts, or operational details here.
+- Do **not** put credentials, tokens, keys, exports, backups, databases, or anything confidential here.
+- Do **not** use this repo as general storage just because it already exists.
 
-- `tacitalabs/tacitalabs.github.io`
+## Intended contents
 
-Then attach the custom domain:
+Allowed content should stay narrow:
 
-- `www.tacitalabs.com` as canonical
-- redirect `tacitalabs.com` to `https://www.tacitalabs.com`
+- `index.html`
+- `styles.css`
+- `assets/` public images and static site assets
+- `CNAME`
+- small public-facing support files like `robots.txt`, `sitemap.xml`, and favicon assets
 
-## Files
+## Publishing posture
 
-- `index.html` - landing page
-- `styles.css` - simple styling
+Treat this repo like a sterile release surface, not a working project repo.
 
-## Before publishing
+If something would be embarrassing, sensitive, or useful to an attacker, it does **not** belong here.
 
-Replace placeholder social links and add:
+## Domain
 
-- GitHub profile link
-- actual X link
-- actual Instagram link
-- release/download links for URLStrip
-- public contact or press email if desired
+Primary public domain:
 
-## Suggested next GitHub steps
+- `https://www.tacitalabs.com`
 
-1. Create `tacitalabs.github.io`
-2. Push these files
-3. Enable GitHub Pages from `main` / root
-4. Verify the default `github.io` site works
-5. Add `www.tacitalabs.com` as the custom domain
-6. Configure Cloudflare DNS
+GitHub Pages repo:
+
+- `https://github.com/tacitalabs/tacitalabs.github.io`
