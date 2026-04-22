@@ -3,73 +3,263 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tacita Labs</title>
+    <title>Tacita Labs - Local-first privacy tools</title>
     <meta
       name="description"
-      content="Tacita Labs builds practical privacy tools that help people reduce data exposure without handing more data to someone else."
+      content="Tacita Labs builds practical privacy tools with a local-first bias. URLStrip removes tracking junk from links without sending your browsing data to another cloud service."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="page">
       <header class="hero">
-        <p class="eyebrow">Tacita Labs</p>
-        <h1>Privacy tools with a local-first bias.</h1>
-        <p class="lede">
-          We build simple, practical software that helps people reduce data exposure
-          without sending their personal information to yet another cloud service.
-        </p>
-        <div class="actions">
-          <a class="button primary" href="#projects">See projects</a>
-          <a class="button secondary" href="#contact">Contact</a>
+        <div class="hero-copy">
+          <p class="eyebrow">Tacita Labs</p>
+          <h1>Practical privacy tools that run on your device.</h1>
+          <p class="lede">
+            Tacita Labs builds simple software that helps people reduce data exposure
+            without handing more personal information to another cloud service.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#urlstrip">Explore URLStrip</a>
+            <a class="button secondary" href="#downloads">Downloads</a>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <p class="panel-label">Current focus</p>
+          <h2>URLStrip</h2>
+          <p>
+            A local-first link cleaner for macOS, Windows, and iPhone that removes
+            known tracking parameters, preserves the parts a URL needs to work, and
+            helps you share cleaner links by default.
+          </p>
+          <ul class="hero-points">
+            <li>Runs locally on your device</li>
+            <li>Designed to work quietly in the background on desktop</li>
+            <li>Uses upstream ClearURLs rules plus maintained additions</li>
+          </ul>
         </div>
       </header>
 
-      <section id="projects" class="section">
-        <h2>Projects</h2>
-        <div class="card-grid">
-          <article class="card">
-            <h3>URLStrip</h3>
+      <section class="section intro-grid">
+        <article class="mini-card">
+          <h3>Local-first where it matters</h3>
+          <p>
+            Privacy tools should not require uploading sensitive browsing data to a
+            third party just to reduce tracking.
+          </p>
+        </article>
+        <article class="mini-card">
+          <h3>Useful before flashy</h3>
+          <p>
+            The goal is practical software that quietly does its job well, not a
+            dashboard full of noise.
+          </p>
+        </article>
+        <article class="mini-card">
+          <h3>No account treadmill</h3>
+          <p>
+            Simple products should stay simple. If a tool can work without an
+            account system, it probably should.
+          </p>
+        </article>
+      </section>
+
+      <section id="urlstrip" class="section product-section">
+        <div class="section-heading">
+          <p class="eyebrow">Featured product</p>
+          <h2>URLStrip</h2>
+          <p class="section-lede">
+            URLStrip removes tracking junk from links before you open them, save
+            them, or share them with someone else.
+          </p>
+        </div>
+
+        <div class="product-grid">
+          <article class="card feature-card">
+            <h3>Overview</h3>
             <p>
-              A URL cleaning tool focused on removing tracking junk from links before
-              you share, save, or open them.
+              URLStrip checks links for known tracking parameters and redirect
+              patterns, removes what should not be there, and keeps functional
+              parameters when they are necessary for the link to keep working.
             </p>
-            <p class="meta">Static site placeholder - add release links when ready.</p>
+            <ul class="check-list">
+              <li>Removes common trackers like <code>utm_*</code> and similar parameters</li>
+              <li>Unwraps many tracking and redirect links</li>
+              <li>Preserves required content and state parameters when needed</li>
+              <li>Lets users report missed trackers from inside the app</li>
+            </ul>
+          </article>
+
+          <article class="card feature-card">
+            <h3>How it works</h3>
+            <p>
+              The desktop versions are designed to work invisibly in normal use.
+              Copy a link, share a link, or paste a link into the app and URLStrip
+              cleans it locally on the device. On iPhone, the app gives you a clean
+              workflow for copied links, quick checks, QR-based intake, onboarding,
+              settings control, and visibility into what was removed.
+            </p>
+            <ul class="check-list">
+              <li>macOS app for quiet day-to-day cleanup</li>
+              <li>Windows app built around the same local cleaning model</li>
+              <li>iPhone app for quick cleaning, stats, QR intake, and setup help</li>
+            </ul>
+          </article>
+        </div>
+
+        <div id="downloads" class="download-card card">
+          <div>
+            <h3>Downloads</h3>
+            <p>
+              Current public desktop artifacts are published through the
+              <a href="https://github.com/tacitalabs/urlstrip" target="_blank" rel="noreferrer">URLStrip GitHub release repository</a>.
+            </p>
+          </div>
+          <div class="download-grid">
+            <article>
+              <h4>macOS</h4>
+              <p><a href="https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.0.1/URLStrip-1.0.1-macOS-arm64.dmg" target="_blank" rel="noreferrer">Download URLStrip 1.0.1 for macOS (Apple Silicon)</a></p>
+              <p class="hash">SHA-256: 8a90190b27027db25686d6538d65e27dddcb048685c2677acd55790607292e43</p>
+            </article>
+            <article>
+              <h4>Windows</h4>
+              <p><a href="https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.0.1/URLStrip-1.0.1-windows-x64-setup.exe" target="_blank" rel="noreferrer">Download URLStrip 1.0.1 for Windows x64</a></p>
+              <p class="hash">SHA-256: 2d1b30ed7b12f474c6d80c9f34da4e0f40de911e15abed6059f09e69e40ddbce</p>
+            </article>
+          </div>
+          <p class="meta checksum-note">
+            Full checksum file: <a href="https://raw.githubusercontent.com/tacitalabs/urlstrip/main/checksums/1.0.1.sha256" target="_blank" rel="noreferrer">checksums/1.0.1.sha256</a>
+          </p>
+        </div>
+
+        <div class="section split-section">
+          <article class="card">
+            <h3>How to use it</h3>
+            <ol class="steps">
+              <li>Install the app for your platform.</li>
+              <li>Copy or share a link as you normally would.</li>
+              <li>Let URLStrip clean the tracking junk locally.</li>
+              <li>Open, save, or share the cleaner result.</li>
+            </ol>
+            <p class="meta">
+              Some parameters are intentionally kept because they control content,
+              restore state, or are required for the destination to function.
+            </p>
           </article>
 
           <article class="card">
-            <h3>Data broker removal</h3>
+            <h3>Rules and coverage</h3>
             <p>
-              Local-first tooling aimed at helping people find and remove personal
-              information from data broker systems without shipping their data to a
-              third party.
+              URLStrip is grounded in the upstream
+              <a href="https://github.com/ClearURLs/Addon" target="_blank" rel="noreferrer">ClearURLs</a>
+              ruleset and then extended with additional maintained coverage where it
+              improves practical results. That gives the project a strong public
+              baseline instead of reinventing the wheel from scratch.
             </p>
-            <p class="meta">Project page placeholder.</p>
+            <p>
+              That means the app benefits from a well-known public rules base while
+              still improving results through additional maintained coverage and
+              product-specific tuning.
+            </p>
+          </article>
+        </div>
+
+        <div class="trust-grid section">
+          <article class="mini-card">
+            <h3>Processed locally</h3>
+            <p>URLStrip cleans links on the device instead of sending browsing data to us.</p>
+          </article>
+          <article class="mini-card">
+            <h3>Built for default use</h3>
+            <p>The desktop apps are meant to stay out of the way and work invisibly in day-to-day use.</p>
+          </article>
+          <article class="mini-card">
+            <h3>Transparent behavior</h3>
+            <p>The app removes known junk, keeps what is needed, and gives users a way to report misses.</p>
+          </article>
+        </div>
+
+        <div class="section-heading screenshot-heading">
+          <h3>Screenshots</h3>
+          <p class="section-lede">
+            A quick look at URLStrip across macOS and iPhone.
+          </p>
+        </div>
+
+        <div class="gallery">
+          <figure class="shot shot-wide">
+            <img src="assets/urlstrip-icon.png" alt="URLStrip app icon" loading="lazy" />
+            <figcaption>URLStrip identity and app icon.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/macos-welcome.png" alt="URLStrip macOS welcome screen" loading="lazy" />
+            <figcaption>macOS onboarding explains what gets removed, what gets preserved, and how reporting works.</figcaption>
+          </figure>
+          <figure class="shot phone">
+            <img src="assets/ios-clean-home.png" alt="URLStrip iPhone home screen" loading="lazy" />
+            <figcaption>The iPhone home screen shows quick cleanup, clipboard status, and last clean visibility.</figcaption>
+          </figure>
+          <figure class="shot phone">
+            <img src="assets/ios-stats-overview.png" alt="URLStrip iPhone statistics overview" loading="lazy" />
+            <figcaption>Local-only statistics help users understand what URLStrip is removing.</figcaption>
+          </figure>
+          <figure class="shot phone">
+            <img src="assets/ios-stats-breakdown.png" alt="URLStrip iPhone statistics breakdown" loading="lazy" />
+            <figcaption>Category breakdown shows where tracking junk is coming from.</figcaption>
+          </figure>
+          <figure class="shot phone">
+            <img src="assets/ios-settings-main.png" alt="URLStrip iPhone settings screen" loading="lazy" />
+            <figcaption>Settings give users control over rule categories and URL safety behavior.</figcaption>
+          </figure>
+          <figure class="shot phone">
+            <img src="assets/ios-quick-intro.png" alt="URLStrip iPhone quick intro screen" loading="lazy" />
+            <figcaption>Quick intro makes the privacy model understandable in plain language.</figcaption>
+          </figure>
+          <figure class="shot phone">
+            <img src="assets/ios-how-it-works.png" alt="URLStrip iPhone how it works screen" loading="lazy" />
+            <figcaption>The in-app explanation covers what URLStrip removes, what it keeps, and why.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section about-section">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2>Built by Jim O'Gorman</h2>
+        </div>
+        <div class="split-section">
+          <article class="card">
+            <p>
+              Jim O'Gorman spent nearly two decades helping build Offensive Security,
+              where he served in leadership and worked across training, product,
+              operations, and community as the company grew through two exits.
+            </p>
+            <p>
+              He is widely known in the security world for his long connection to
+              Kali Linux, hands-on security training, and making technical subjects
+              understandable to real people.
+            </p>
+          </article>
+
+          <article class="card">
+            <p>
+              Tacita Labs is the next chapter - focused on practical privacy tools
+              for normal users, with an emphasis on local-first design, plain
+              language, and products that solve a real problem without creating a
+              new one.
+            </p>
           </article>
         </div>
       </section>
 
-      <section class="section">
-        <h2>Principles</h2>
-        <ul class="principles">
-          <li>Local-first where it matters</li>
-          <li>Simple by default</li>
-          <li>No account treadmill</li>
-          <li>Useful before flashy</li>
-        </ul>
-      </section>
-
-      <section id="contact" class="section">
+      <section id="contact" class="section contact-section">
         <h2>Contact</h2>
         <p>
-          For now, this page is intentionally simple. Add your preferred public
-          contact method, GitHub links, and social links here when you are ready.
+          For inquiries, product questions, or early interest, reach out at
+          <a href="mailto:hello@tacitalabs.com">hello@tacitalabs.com</a>.
         </p>
-        <ul class="links">
-          <li><a href="https://github.com/tacitalabs">GitHub</a></li>
-          <li><a href="https://x.com/">X</a></li>
-          <li><a href="https://instagram.com/">Instagram</a></li>
-        </ul>
       </section>
     </main>
   </body>
