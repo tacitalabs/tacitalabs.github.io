@@ -189,7 +189,8 @@ figcaption {
 .product-grid,
 .split-section,
 .download-grid,
-.trust-grid {
+.trust-grid,
+.faq-grid {
   display: grid;
   gap: 1rem;
 }
@@ -201,7 +202,8 @@ figcaption {
 
 .product-grid,
 .split-section,
-.download-grid {
+.download-grid,
+.faq-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -365,7 +367,8 @@ a {
   .product-grid,
   .split-section,
   .download-grid,
-  .trust-grid {
+  .trust-grid,
+  .faq-grid {
     grid-template-columns: 1fr;
   }
 
