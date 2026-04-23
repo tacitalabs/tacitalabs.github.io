@@ -133,6 +133,17 @@ code {
   color: var(--muted);
 }
 
+.brand-line {
+  margin: 0 0 0.9rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+
+.brand-line span {
+  font-style: italic;
+}
+
 h1,
 h2,
 h3 {
