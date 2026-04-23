@@ -199,6 +199,10 @@ figcaption {
   color: var(--text);
 }
 
+.comparison-intro {
+  margin-bottom: 1rem;
+}
+
 .comparison-block {
   display: grid;
   gap: 0.9rem;
