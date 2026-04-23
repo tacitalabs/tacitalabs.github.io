@@ -50,21 +50,23 @@
         <div class="hero-panel card">
           <p class="panel-label">Example</p>
           <div class="comparison-block">
-            <div class="comparison-card tracked">
-              <p class="comparison-label">Before</p>
-              <p class="comparison-url">
-                https://example.com/article?utm_source=newsletter&utm_medium=email&amp;fbclid=IwAR123&amp;gclid=abc123
-              </p>
+            <div class="comparison-row comparison-row-before">
+              <div class="comparison-side comparison-side-label">Before</div>
+              <div class="comparison-side comparison-side-url">
+                <p class="comparison-url comparison-url-long">
+                  https://example.com/article?utm_source=newsletter&amp;utm_medium=email&amp;fbclid=IwAR123&amp;gclid=abc123
+                </p>
+              </div>
             </div>
-            <div class="comparison-arrow" aria-hidden="true">↓</div>
-            <div class="comparison-card clean">
-              <p class="comparison-label">After</p>
-              <p class="comparison-url">https://example.com/article</p>
+            <div class="comparison-row comparison-row-after">
+              <div class="comparison-side comparison-side-label">After</div>
+              <div class="comparison-side comparison-side-url">
+                <p class="comparison-url">https://example.com/article</p>
+              </div>
             </div>
           </div>
           <p class="comparison-note">
-            It removes the junk it recognizes and leaves the parts the link
-            actually needs to work.
+            Same destination. Less junk attached to it.
           </p>
         </div>
       </header>
