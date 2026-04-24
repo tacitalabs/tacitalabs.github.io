@@ -71,7 +71,8 @@ code {
 }
 
 .brand-lockup {
-  width: min(280px, 64vw);
+  width: min(300px, 64vw);
+  height: auto;
 }
 
 .site-nav {
