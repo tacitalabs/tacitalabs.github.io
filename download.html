@@ -44,9 +44,10 @@
         <p class="eyebrow">Download</p>
         <h1>Free to download and use.</h1>
         <p class="lede">
-          Current desktop releases are published through the public URLStrip
-          release repository with direct download links and published SHA-256
-          hashes so people can verify what they are downloading.
+          Current desktop releases are published through the
+          <a href="https://github.com/tacitalabs/urlstrip">public URLStrip release repository</a>
+          with direct download links and published SHA-256 hashes so people
+          can verify the integrity of what they've downloaded.
         </p>
       </section>
 
@@ -70,6 +71,10 @@
               SHA-256:
               8a90190b27027db25686d6538d65e27dddcb048685c2677acd55790607292e43
             </p>
+            <p class="hash">
+              Verify:
+              <code>shasum -a 256 URLStrip-1.0.1-macOS-arm64.dmg</code>
+            </p>
           </article>
 
           <article class="card download-item">
@@ -89,6 +94,10 @@
             <p class="hash">
               SHA-256:
               2d1b30ed7b12f474c6d80c9f34da4e0f40de911e15abed6059f09e69e40ddbce
+            </p>
+            <p class="hash">
+              Verify:
+              <code>certutil -hashfile URLStrip-1.0.1-windows-x64-setup.exe sha256</code>
             </p>
           </article>
         </div>
