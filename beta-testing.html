@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URLStrip Beta Testing Guide - Tacita Labs</title>
+    <meta
+      name="description"
+      content="How to beta test URLStrip on iOS, iPadOS, macOS, and Windows. Includes install links, what to test, beta caveats, and how to report issues."
+    />
+    <meta property="og:site_name" content="Tacita Labs" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/tacita-favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/tacita-favicon-16.png" />
+    <link rel="apple-touch-icon" href="assets/tacita-apple-touch-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page subpage">
+      <header class="site-header">
+        <a class="site-brand" href="index.html" aria-label="Tacita Labs home">
+          <img
+            class="brand-lockup"
+            src="assets/tacita-horizontal-lockup.png"
+            alt="Tacita Labs"
+            width="1200"
+            height="240"
+          />
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="index.html#why">Why it matters</a>
+          <a href="index.html#how">How it works</a>
+          <a href="index.html#trust">Trust</a>
+          <a href="download.html">Download</a>
+          <a href="about.html">About</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+      </header>
+
+      <section class="section page-intro">
+        <p class="eyebrow">Beta testing guide</p>
+        <h1>Help test URLStrip.</h1>
+        <p class="lede">
+          URLStrip removes known tracking parameters from links before you open,
+          save, copy, or share them. This guide explains what to test, what to
+          report, and what to expect during the beta.
+        </p>
+        <p>
+          URLStrip cleans links locally. Optional missed-tracker reports only
+          send information to Tacita Labs if you choose to send them.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="download.html">Download URLStrip</a>
+          <a class="button secondary" href="#what-to-report">How to report issues</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="download-grid single-download-grid">
+          <article class="card download-item">
+            <h2>Install the beta</h2>
+            <p class="platform-meta">iOS, iPadOS, macOS, and Windows</p>
+            <ul class="check-list compact-list">
+              <li>
+                <strong>iOS / iPadOS:</strong>
+                <a href="https://testflight.apple.com/join/REgaBTbe" target="_blank" rel="noreferrer"
+                  >Join the public TestFlight beta</a
+                >.
+              </li>
+              <li>
+                <strong>macOS:</strong>
+                <a href="download.html">Download the current macOS build</a>.
+              </li>
+              <li>
+                <strong>Windows:</strong>
+                <a href="download.html">Download the current Windows build</a>.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section prose-section">
+        <div class="prose-grid single-column">
+          <article class="card prose-card">
+            <h2>What URLStrip does</h2>
+            <p>
+              URLStrip removes known tracking parameters from URLs while
+              preserving parameters that appear necessary for the link to work.
+              Not every parameter is tracking. Some are needed for content,
+              login state, search, app behavior, or page routing.
+            </p>
+            <p>
+              The most useful beta feedback is whether URLStrip feels clear,
+              trustworthy, and safe to use with real links.
+            </p>
+          </article>
+
+          <article class="card prose-card">
+            <h2>Good test links</h2>
+            <p>Try URLStrip with real links from:</p>
+            <ul class="check-list compact-list">
+              <li>newsletters</li>
+              <li>social media</li>
+              <li>shopping sites</li>
+              <li>search results</li>
+              <li>YouTube</li>
+              <li>affiliate-heavy pages</li>
+              <li>QR codes, where supported</li>
+              <li>links friends send you</li>
+            </ul>
+          </article>
+
+          <article class="card prose-card">
+            <h2>What to test on every platform</h2>
+            <ul class="check-list compact-list">
+              <li>URLStrip removes obvious tracking parameters.</li>
+              <li>The cleaned link still opens the intended page.</li>
+              <li>The app explains what changed clearly.</li>
+              <li>Copy, share, and restore actions do what they say.</li>
+              <li>The workflow feels safe enough to trust with real links.</li>
+              <li>Missed-tracker reporting is understandable when available.</li>
+            </ul>
+          </article>
+
+          <article class="card prose-card">
+            <h2>iOS / iPadOS flows</h2>
+            <ul class="check-list compact-list">
+              <li>
+                <strong>Main app:</strong> paste a URL, tap Clean, review what
+                changed, then copy or share the cleaned link.
+              </li>
+              <li>
+                <strong>Share Extension:</strong> share a link from Safari or
+                another app into URLStrip and confirm the cleaned result looks right.
+              </li>
+              <li>
+                <strong>Safari Extension:</strong> enable URLStrip in Settings
+                &gt; Safari &gt; Extensions, then test it from Safari's extension controls.
+              </li>
+              <li>
+                <strong>QR flow:</strong> scan a QR code or import a QR-code
+                image from Photos and confirm URLStrip shows and cleans the destination.
+              </li>
+              <li>
+                <strong>Widget / system integration:</strong> add the widget if
+                available and confirm the behavior makes sense.
+              </li>
+            </ul>
+          </article>
+
+          <article class="card prose-card">
+            <h2>macOS flows</h2>
+            <ul class="check-list compact-list">
+              <li>Install and launch URLStrip.</li>
+              <li>Confirm the menu bar app appears.</li>
+              <li>Copy a tracked URL to the clipboard and confirm URLStrip reacts as expected.</li>
+              <li>Confirm the cleaned result is clear and trustworthy.</li>
+              <li>Confirm recovery or restore behavior works when available.</li>
+              <li>Try a URL that should not change and confirm that does not feel like a failure.</li>
+              <li>Test disabling cleaning for a site if that option is available.</li>
+              <li>Use missed-tracker reporting if URLStrip leaves tracking parameters behind.</li>
+            </ul>
+          </article>
+
+          <article class="card prose-card">
+            <h2>Windows flows</h2>
+            <ul class="check-list compact-list">
+              <li>Install or unpack and launch URLStrip.</li>
+              <li>Confirm the app or tray behavior is sane on first launch.</li>
+              <li>Copy a tracked URL to the clipboard and confirm URLStrip reacts as expected.</li>
+              <li>Confirm the cleaned result is clear and trustworthy.</li>
+              <li>Confirm restore or recovery behavior works when available.</li>
+              <li>Try a URL that should not change and confirm that does not feel like a failure.</li>
+              <li>Test disabling cleaning for a site if that option is available.</li>
+              <li>Use missed-tracker reporting if URLStrip leaves tracking parameters behind.</li>
+            </ul>
+          </article>
+
+          <article class="card prose-card" id="what-to-report">
+            <h2>What to report</h2>
+            <p>High-value feedback includes:</p>
+            <ul class="check-list compact-list">
+              <li>URLStrip missed an obvious tracking parameter.</li>
+              <li>A cleaned link broke.</li>
+              <li>The wrong URL was copied or shared.</li>
+              <li>Clipboard behavior was surprising or unsafe.</li>
+              <li>Different URLStrip surfaces produced different results for the same URL.</li>
+              <li>A screen or explanation felt confusing.</li>
+              <li>You hesitated because the app did not make clear what it changed.</li>
+              <li>QR scanning or QR image import failed.</li>
+              <li>Report Missed Tracker failed or produced a confusing report.</li>
+            </ul>
+          </article>
+
+          <article class="card prose-card">
+            <h2>What to include in a report</h2>
+            <ul class="check-list compact-list">
+              <li>Original URL.</li>
+              <li>Cleaned URL shown by URLStrip, if any.</li>
+              <li>Platform: iOS, iPadOS, macOS, or Windows.</li>
+              <li>Device or computer model, if known.</li>
+              <li>OS version.</li>
+              <li>
+                Where it happened: main app, share extension, Safari extension,
+                QR flow, widget, macOS menu bar app, Windows app/tray, or clipboard monitor.
+              </li>
+              <li>What you expected.</li>
+              <li>What actually happened.</li>
+              <li>Screenshot or screen recording if the issue is visual.</li>
+            </ul>
+          </article>
+
+          <article class="card prose-card">
+            <h2>Beta caveats</h2>
+            <ul class="check-list compact-list">
+              <li>URLStrip removes known tracking parameters. It will not catch everything yet.</li>
+              <li>Some parameters are intentionally preserved because removing them would break links.</li>
+              <li>Some links may expose edge cases.</li>
+              <li>Platform behavior and feature coverage vary.</li>
+              <li>Safari Extension behavior may vary by iOS or iPadOS version.</li>
+              <li>macOS and Windows security prompts may vary depending on build/signing state.</li>
+              <li>Report Missed Tracker depends on the reporting surface and local email/share configuration.</li>
+              <li>Disabled domains and other beta behavior may be local to each device.</li>
+              <li>
+                TestFlight may collect crash logs, screenshots, beta feedback,
+                diagnostics, and device details under Apple's terms for iOS/iPadOS testers.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
