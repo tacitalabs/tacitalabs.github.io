@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URLStrip 1.0.1 Release Notes - Tacita Labs</title>
+    <meta
+      name="description"
+      content="Release notes for URLStrip 1.0.1 Build 4 desktop beta."
+    />
+    <meta property="og:site_name" content="Tacita Labs" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/tacita-favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/tacita-favicon-16.png" />
+    <link rel="apple-touch-icon" href="/assets/tacita-apple-touch-icon.png" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page subpage">
+      <header class="site-header">
+        <a class="site-brand" href="/index.html" aria-label="Tacita Labs home">
+          <img
+            class="brand-lockup"
+            src="/assets/tacita-horizontal-lockup.png"
+            alt="Tacita Labs"
+            width="1200"
+            height="240"
+          />
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/index.html#why">Why it matters</a>
+          <a href="/index.html#how">How it works</a>
+          <a href="/index.html#trust">Trust</a>
+          <a href="/download.html">Download</a>
+          <a href="/about.html">About</a>
+          <a href="/privacy.html">Privacy</a>
+        </nav>
+      </header>
+
+      <section class="section page-intro">
+        <p class="eyebrow">Release notes</p>
+        <h1>URLStrip 1.0.1 (Build 4)</h1>
+        <p class="lede">
+          Desktop beta update for macOS and Windows, focused on clearer desktop behavior,
+          Tacita Labs metadata, Windows parity, and privacy-preserving update awareness.
+        </p>
+      </section>
+
+      <section class="section prose-section">
+        <div class="prose-grid single-column">
+          <article class="card prose-card">
+            <h2>What changed</h2>
+            <ul class="check-list compact-list">
+              <li>Added manual app update checking using one static Tacita Labs release file.</li>
+              <li>Standardized desktop version display as <strong>URLStrip 1.0.1 (Build 4)</strong>.</li>
+              <li>Migrated desktop app identifiers and data paths to <code>com.tacitalabs.urlstrip</code> with legacy Elwood fallback/migration handling.</li>
+              <li>Improved Windows tray behavior, including single tray icon behavior and Preferences close-to-tray behavior.</li>
+              <li>Improved Windows notification toggle handling and notification paths.</li>
+              <li>Expanded Windows Rules UI with rule source, match counts, custom rule handling, import/export, and reset controls.</li>
+              <li>Reduced durable Windows WebView2 profile artifacts by opening the Preferences WebView in InPrivate/incognito mode.</li>
+              <li>Documented Windows uninstall behavior for preserving data by default and deleting current Tacita app data only when requested.</li>
+            </ul>
+          </article>
+
+          <article class="card prose-card">
+            <h2>Downloads</h2>
+            <p>
+              Download the current desktop beta from the
+              <a href="/download.html">URLStrip download page</a>.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
