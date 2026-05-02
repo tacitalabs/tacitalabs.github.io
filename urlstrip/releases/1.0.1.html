@@ -6,7 +6,7 @@
     <title>URLStrip 1.0.1 Release Notes - Tacita Labs</title>
     <meta
       name="description"
-      content="Release notes for URLStrip 1.0.1 Build 8 desktop beta."
+      content="Release notes for URLStrip 1.0.1 Build 11 desktop beta."
     />
     <meta property="og:site_name" content="Tacita Labs" />
     <meta property="og:type" content="website" />
@@ -43,10 +43,10 @@
 
       <section class="section page-intro">
         <p class="eyebrow">Release notes</p>
-        <h1>URLStrip 1.0.1 (Build 8)</h1>
+        <h1>URLStrip 1.0.1 (Build 11)</h1>
         <p class="lede">
-          Desktop beta update for macOS and Windows, focused on the new universal macOS build,
-          Tacita Labs metadata, Windows parity, and privacy-preserving update awareness.
+          Desktop beta refresh for macOS and Windows, focused on rules-window readability fixes,
+          build alignment across platforms, and refreshed published release metadata.
         </p>
       </section>
 
@@ -55,15 +55,13 @@
           <article class="card prose-card">
             <h2>What changed</h2>
             <ul class="check-list compact-list">
-              <li>Added manual app update checking using one static Tacita Labs release file.</li>
-              <li>macOS desktop build is now a signed, notarized, universal binary for both Apple Silicon and Intel Macs.</li>
-              <li>Windows diagnostic installer now reports <strong>URLStrip 1.0.1 (Build 8)</strong> so update checks can distinguish it from earlier Build 4 installers.</li>
-              <li>Migrated desktop app identifiers and data paths to <code>com.tacitalabs.urlstrip</code> with legacy Elwood fallback/migration handling.</li>
-              <li>Improved Windows tray behavior, including single tray icon behavior and Preferences close-to-tray behavior.</li>
-              <li>Improved Windows notification toggle handling and notification paths.</li>
-              <li>Expanded Windows Rules UI with rule source, match counts, custom rule handling, import/export, and reset controls.</li>
-              <li>Reduced durable Windows WebView2 profile artifacts by opening the Preferences WebView in InPrivate/incognito mode.</li>
-              <li>Documented Windows uninstall behavior for preserving data by default and deleting current Tacita app data only when requested.</li>
+              <li>Windows Rules tab now keeps long category names readable instead of clipping them mid-character when the preferences window gets narrow.</li>
+              <li>Windows rules list now scrolls correctly on short windows instead of crushing every category row down to a few pixels of text.</li>
+              <li>Hovering a Rules category now shows the full category name in a tooltip.</li>
+              <li>Windows Preferences now enforce a 420×480px minimum size so casual resizing cannot break the layout.</li>
+              <li>Per-category rule counts now hide below 480px width so the category label has room to stay readable.</li>
+              <li>macOS and Windows desktop metadata are now aligned on <strong>URLStrip 1.0.1 (Build 11)</strong> for clean update checks against the shared release JSON.</li>
+              <li>macOS release asset was rebuilt, notarized, and republished alongside the updated Windows installer and checksum file.</li>
             </ul>
           </article>
 
