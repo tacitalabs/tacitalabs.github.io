@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URLStrip 1.0.2 Release Notes - Tacita Labs</title>
+    <meta
+      name="description"
+      content="Release notes for URLStrip 1.0.2 Build 12 desktop beta."
+    />
+    <meta property="og:site_name" content="Tacita Labs" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/tacita-favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/tacita-favicon-16.png" />
+    <link rel="apple-touch-icon" href="/assets/tacita-apple-touch-icon.png" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page subpage">
+      <header class="site-header">
+        <a class="site-brand" href="/index.html" aria-label="Tacita Labs home">
+          <img
+            class="brand-lockup"
+            src="/assets/tacita-horizontal-lockup.png"
+            alt="Tacita Labs"
+            width="1200"
+            height="240"
+          />
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/index.html#why">Why it matters</a>
+          <a href="/index.html#how">How it works</a>
+          <a href="/index.html#trust">Trust</a>
+          <a href="/download.html">Download</a>
+          <a href="/about.html">About</a>
+          <a href="/privacy.html">Privacy</a>
+        </nav>
+      </header>
+
+      <section class="section page-intro">
+        <p class="eyebrow">Release notes</p>
+        <h1>URLStrip 1.0.2 (Build 12)</h1>
+        <p class="lede">
+          Desktop beta refresh for macOS and Windows, focused on pre-release hardening,
+          privacy cleanup, and reliability fixes found during a final code review pass.
+        </p>
+      </section>
+
+      <section class="section prose-section">
+        <div class="prose-grid single-column">
+          <article class="card prose-card">
+            <h2>What changed</h2>
+            <ul class="check-list compact-list">
+              <li>Improved ClearURLs rules update handling so downloaded rule data is validated before replacing the local cache.</li>
+              <li>Cleaned up fallback-rule rebuilding to avoid duplicate fallback regex work after rule reloads.</li>
+              <li>Reduced unnecessary stats/rule-state persistence during cleaning.</li>
+              <li>Added safeguards around chained redirect-cleaning on both macOS and Windows.</li>
+              <li>Tightened provider decoding and domain-exception state handling in the shared Apple engine.</li>
+              <li>Restricted Windows external URL opening to expected safe schemes.</li>
+              <li>Made Windows JSON persistence more crash-safe with temp-file writes and rename.</li>
+              <li>Moved Windows clipboard-monitor persistence outside the main app mutex to avoid UI stalls during disk I/O.</li>
+              <li>Fixed Windows query reconstruction so kept parameters are percent-encoded correctly after cleaning.</li>
+              <li>Aligned macOS and Windows desktop metadata on <strong>URLStrip 1.0.2 (Build 12)</strong> for clean update checks against the shared release JSON.</li>
+            </ul>
+          </article>
+
+          <article class="card prose-card">
+            <h2>Downloads</h2>
+            <p>
+              Download the current desktop beta from the
+              <a href="/download.html">URLStrip download page</a>.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
