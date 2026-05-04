@@ -6,7 +6,7 @@
     <title>URLStrip 1.0.2 Release Notes - Tacita Labs</title>
     <meta
       name="description"
-      content="Release notes for URLStrip 1.0.2 Build 13 desktop beta."
+      content="Release notes for URLStrip 1.0.2 Build 15 desktop beta."
     />
     <meta property="og:site_name" content="Tacita Labs" />
     <meta property="og:type" content="website" />
@@ -43,10 +43,9 @@
 
       <section class="section page-intro">
         <p class="eyebrow">Release notes</p>
-        <h1>URLStrip 1.0.2 (Build 13)</h1>
+        <h1>URLStrip 1.0.2 (Build 15)</h1>
         <p class="lede">
-          Desktop beta refresh for macOS and Windows, adding hosted curated rule updates
-          plus the release packaging and metadata cleanup needed to test them cleanly.
+          Desktop beta refresh with the Windows rule update install fix, plus the backend hardening and diagnostics added during the investigation.
         </p>
       </section>
 
@@ -55,12 +54,12 @@
           <article class="card prose-card">
             <h2>What changed</h2>
             <ul class="check-list compact-list">
-              <li>Added hosted curated rule update plumbing so URLStrip can check, download, validate, and activate reviewed rule bundles without shipping a new app binary.</li>
-              <li>Added Windows rule-update support and matching UI for manual checks and installs.</li>
-              <li>Added the first hosted URLStrip rules bundle and release packaging flow, including hashes, manifest generation, and release notes.</li>
-              <li>Improved downloaded-rule validation so bad bundles fail safely without replacing the active rules.</li>
-              <li>Preserved rollback behavior by keeping previous rules available when installs fail or need to be reversed.</li>
-              <li>Aligned macOS and Windows desktop metadata on <strong>URLStrip 1.0.2 (Build 13)</strong> for clean update checks against the shared release JSON.</li>
+              <li>Fixed the Windows issue where clicking <strong>Install Rule Update</strong> appeared to do nothing because the install button stayed disabled after a rule check.</li>
+              <li>Preserved user rule-state and custom rules across Windows rule bundle installs instead of silently resetting them.</li>
+              <li>Added clearer Windows rule-update error reporting and a 30-second network timeout so stalled downloads fail visibly instead of hanging forever.</li>
+              <li>Kept hosted curated rule update plumbing so URLStrip can check, download, validate, and activate reviewed rule bundles without shipping a new app binary.</li>
+              <li>Maintained rollback behavior by keeping previous rules available when installs fail or need to be reversed.</li>
+              <li>Aligned desktop metadata on <strong>URLStrip 1.0.2 (Build 15)</strong> for clean update checks against the shared release JSON.</li>
             </ul>
           </article>
 
