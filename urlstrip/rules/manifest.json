@@ -1,0 +1,40 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.05.04.1",
+  "publishedAt": "2026-05-04T06:47:18.342Z",
+  "sourceSummary": {
+    "clearurls": {
+      "source": "https://github.com/ClearURLs/Rules",
+      "upstreamCommit": null,
+      "reviewedAt": "2026-05-04T06:47:18.342Z"
+    },
+    "urlstripSupplementary": {
+      "version": "2026.05.04.1"
+    }
+  },
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.05.04.1/data.min.json",
+      "sha256": "b328d2a5b95b1b23bac2c91342a8deee3f9a3826a5950bf9e28e332ffd94cd2f",
+      "bytes": 106070
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.05.04.1/urlstrip-supplementary.json",
+      "sha256": "2fc7ec0a693ce05139e07ec296db62240559cad44b15c7723c6a21c32d7b4caf",
+      "bytes": 7250
+    }
+  ],
+  "notes": [
+    "Initial packaged URLStrip curated rules bundle for hosted update testing.",
+    "Includes the current ClearURLs rules snapshot used by URLStrip desktop builds.",
+    "Includes the current URLStrip supplementary rules bundle for gaps researched and maintained locally.",
+    "Intended for first end-to-end hosted manifest testing across macOS, Windows, and iOS.",
+    "No app binary update is required to consume this rules bundle."
+  ]
+}
