@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How URLStrip Classifies Tracking - Tacita Labs</title>
+    <meta
+      name="description"
+      content="How URLStrip classifies tracking parameters, scores commercial tracking impact, and explains what removed link parameters mean."
+    />
+    <meta property="og:site_name" content="Tacita Labs" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/tacita-favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/tacita-favicon-16.png" />
+    <link rel="apple-touch-icon" href="assets/tacita-apple-touch-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page subpage">
+      <header class="site-header">
+        <a class="site-brand" href="index.html" aria-label="Tacita Labs home">
+          <img
+            class="brand-lockup"
+            src="assets/tacita-horizontal-lockup.png"
+            alt="Tacita Labs"
+            width="1200"
+            height="240"
+          />
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="index.html#why">Why it matters</a>
+          <a href="index.html#how">How it works</a>
+          <a href="index.html#trust">Trust</a>
+          <a href="download.html">Download</a>
+          <a href="about.html">About</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+      </header>
+
+      <section class="section page-intro">
+        <p class="eyebrow">URLStrip methodology</p>
+        <h1>How URLStrip classifies tracking</h1>
+        <p class="lede">
+          URLStrip removes known tracking and attribution parameters from links.
+          This page explains how we group those parameters, what the app means by
+          Monetization Impact, and where the limits are.
+        </p>
+        <p class="section-note">Last updated: May 4, 2026</p>
+      </section>
+
+      <section class="section prose-section">
+        <div class="prose-grid single-column">
+          <article class="card prose-card">
+            <h2>The short version</h2>
+            <p>
+              Not every tracking parameter means the same thing. Some exist so a
+              merchant or affiliate can claim credit for a sale. Some exist so an
+              ad platform can connect a click to a later conversion. Some exist so
+              a marketing team can tell which email, campaign, or creative caused
+              the click.
+            </p>
+            <p>
+              URLStrip groups removed parameters into broad commercial-use
+              categories so users can understand why those parameters exist without
+              pretending we can calculate an exact dollar amount for every link.
+            </p>
+          </article>
+
+          <article class="card prose-card">
+            <h2>What URLStrip means by Monetization Impact</h2>
+            <p>
+              Monetization Impact is an estimate of how commercially useful the
+              removed tracking signals were. It is not a bill, not a savings
+              calculator, and not a claim that a specific company would have made
+              a precise amount of money from one person clicking one link.
+            </p>
+            <ul class="check-list compact-list">
+              <li>It is directional, not exact accounting.</li>
+              <li>It uses categories and weights, not fake penny-level precision.</li>
+              <li>It exists to explain why those parameters matter.</li>
+            </ul>
+          </article>
+
+          <article class="card prose-card">
+            <h2>Tracking categories</h2>
+            <h3>Direct commercial attribution</h3>
+            <p>
+              These parameters help a merchant, affiliate, influencer, or partner
+              claim credit for your click, lead, or purchase.
+            </p>
+            <p>Examples: affiliate ids, partner ids, referral ids, some commerce tags.</p>
+
+            <h3>Ad and social attribution</h3>
+            <p>
+              These parameters help ad and social platforms connect a click to
+              later behavior or conversions.
+            </p>
+            <p>Examples: <code>gclid</code>, <code>fbclid</code>, <code>ttclid</code>, <code>msclkid</code>.</p>
+
+            <h3>Campaign analytics</h3>
+            <p>
+              These parameters help marketers identify which campaign, source,
+              channel, or creative drove the click.
+            </p>
+            <p>Examples: <code>utm_source</code>, <code>utm_medium</code>, <code>utm_campaign</code>, <code>utm_content</code>.</p>
+
+            <h3>Behavioral correlation</h3>
+            <p>
+              These parameters help companies connect this click to a broader
+              profile across emails, sessions, campaigns, or experiments.
+            </p>
+            <p>Examples: newsletter identifiers, vendor-specific session markers, opaque campaign ids.</p>
+
+            <h3>Redirect tracking</h3>
+            <p>
+              These links route you through tracking infrastructure before sending
+              you to the real destination.
+            </p>
+            <p>Examples: redirect wrappers and attributed outbound click links.</p>
+          </article>
+
+          <article class="card prose-card">
+            <h2>How impact levels work</h2>
+            <p>
+              URLStrip assigns broad weights to tracking categories and rolls those
+              up into a band like Low, Medium, High, or Very High. Stronger
+              attribution categories weigh more heavily than general campaign tags.
+            </p>
+            <ul class="check-list compact-list">
+              <li>Direct commercial attribution carries the highest weight.</li>
+              <li>Ad and social attribution carries strong weight.</li>
+              <li>Campaign analytics and behavioral correlation are lighter.</li>
+              <li>Redirect tracking sits in the middle.</li>
+            </ul>
+            <p>
+              The goal is to tell you whether the removed parameters were probably
+              minor campaign labels or part of a more commercially important
+              tracking chain.
+            </p>
+          </article>
+
+          <article class="card prose-card">
+            <h2>What confidence means</h2>
+            <p>
+              Confidence reflects how certain URLStrip is about the commercial role
+              of a removed parameter or rule family.
+            </p>
+            <ul class="check-list compact-list">
+              <li><strong>High</strong> - well-known ad, affiliate, or campaign markers.</li>
+              <li><strong>Medium</strong> - likely correlation or redirect-related tracking.</li>
+              <li><strong>Low</strong> - more ambiguous or custom patterns.</li>
+            </ul>
+          </article>
+
+          <article class="card prose-card">
+            <h2>Limits and assumptions</h2>
+            <p>
+              URLStrip is intentionally conservative in how it talks about this.
+              We do not want to invent fake precision where the underlying reality
+              is messy.
+            </p>
+            <ul class="check-list compact-list">
+              <li>Not every parameter has the same value.</li>
+              <li>Some parameters only matter in combination with other systems.</li>
+              <li>A removed tag does not prove a specific sale or conversion would have happened.</li>
+              <li>Commercial value in advertising is often aggregate and statistical, not personal and exact.</li>
+            </ul>
+          </article>
+
+          <article class="card prose-card">
+            <h2>Why this matters</h2>
+            <p>
+              A lot of tracking parameters look like harmless junk. They are not
+              random. They exist because someone benefits when your click stays
+              measurable.
+            </p>
+            <p>
+              Sometimes that benefit is campaign reporting. Sometimes it is ad
+              optimization. Sometimes it is affiliate payout attribution. Either
+              way, the point is the same: these tags are part of the machinery
+              used to observe, label, and monetize behavior.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
