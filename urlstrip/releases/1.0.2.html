@@ -45,7 +45,7 @@
         <p class="eyebrow">Release notes</p>
         <h1>URLStrip 1.0.2 (Build 15)</h1>
         <p class="lede">
-          Desktop beta refresh with the Windows rule update install fix, plus the backend hardening and diagnostics added during the investigation.
+          Desktop beta refresh bringing Monetization Impact and Confidence details to macOS and Windows, plus the Windows rule update install fix and related hardening.
         </p>
       </section>
 
@@ -54,12 +54,12 @@
           <article class="card prose-card">
             <h2>What changed</h2>
             <ul class="check-list compact-list">
+              <li>Added Monetization Impact and Confidence detail to cleaned-link results on macOS and Windows so people can see the likely commercial value and confidence band of what was removed.</li>
+              <li>Expanded desktop stats on macOS and Windows with Today, 7 Days, 30 Days, and All Time windows plus category, impact, and confidence rollups.</li>
+              <li>Kept the fast cleaning flow lightweight while moving deeper explanation into intentional surfaces and linking to the public <a href="/tracking-methodology.html">tracking methodology</a> page.</li>
               <li>Fixed the Windows issue where clicking <strong>Install Rule Update</strong> appeared to do nothing because the install button stayed disabled after a rule check.</li>
-              <li>Preserved user rule-state and custom rules across Windows rule bundle installs instead of silently resetting them.</li>
-              <li>Added clearer Windows rule-update error reporting and a 30-second network timeout so stalled downloads fail visibly instead of hanging forever.</li>
-              <li>Kept hosted curated rule update plumbing so URLStrip can check, download, validate, and activate reviewed rule bundles without shipping a new app binary.</li>
-              <li>Maintained rollback behavior by keeping previous rules available when installs fail or need to be reversed.</li>
-              <li>Aligned desktop metadata on <strong>URLStrip 1.0.2 (Build 15)</strong> for clean update checks against the shared release JSON.</li>
+              <li>Preserved user rule-state and custom rules across Windows rule bundle installs, improved error reporting, and added a 30-second timeout so failed installs surface clearly.</li>
+              <li>Aligned the shared desktop release metadata on <strong>URLStrip 1.0.2 (Build 15)</strong> for clean update checks and published hashes.</li>
             </ul>
           </article>
 
