@@ -6,7 +6,7 @@
     <title>URLStrip 1.0.2 Release Notes - Tacita Labs</title>
     <meta
       name="description"
-      content="Release notes for URLStrip 1.0.2 Build 15 desktop beta."
+      content="Release notes for URLStrip 1.0.2 Build 16 desktop beta."
     />
     <meta property="og:site_name" content="Tacita Labs" />
     <meta property="og:type" content="website" />
@@ -43,9 +43,9 @@
 
       <section class="section page-intro">
         <p class="eyebrow">Release notes</p>
-        <h1>URLStrip 1.0.2 (Build 15)</h1>
+        <h1>URLStrip 1.0.2 (Build 16)</h1>
         <p class="lede">
-          Desktop beta refresh bringing Monetization Impact and Confidence details to macOS and Windows, plus the Windows rule update install fix and related hardening.
+          Desktop beta refresh with Privacy Redirects, Copy Wayback Link support, and the Windows fix for query-less X/Twitter and Reddit privacy redirects, while preserving the earlier Monetization Impact, Confidence, and rule-update hardening work.
         </p>
       </section>
 
@@ -59,7 +59,10 @@
               <li>Kept the fast cleaning flow lightweight while moving deeper explanation into intentional surfaces and linking to the public <a href="/tracking-methodology.html">tracking methodology</a> page.</li>
               <li>Fixed the Windows issue where clicking <strong>Install Rule Update</strong> appeared to do nothing because the install button stayed disabled after a rule check.</li>
               <li>Preserved user rule-state and custom rules across Windows rule bundle installs, improved error reporting, and added a 30-second timeout so failed installs surface clearly.</li>
-              <li>Aligned the shared desktop release metadata on <strong>URLStrip 1.0.2 (Build 15)</strong> for clean update checks and published hashes.</li>
+              <li>Added opt-in Privacy Redirect support for X/Twitter and Reddit links, with configurable privacy frontends.</li>
+              <li>Added Copy Wayback Link support so users can copy a local Internet Archive lookup URL without submitting or archiving the page.</li>
+              <li>Fixed the Windows Privacy Redirect path for query-less canonical X/Twitter and Reddit URLs, where the cleaner could previously bail out before rewriting the host.</li>
+              <li>Aligned the shared desktop release metadata on <strong>URLStrip 1.0.2 (Build 16)</strong> for clean update checks and published hashes.</li>
             </ul>
           </article>
 
