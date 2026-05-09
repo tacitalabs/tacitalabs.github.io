@@ -1,0 +1,54 @@
+{{- /*
+  Image render hook -- runs every time goldmark sees `![alt](src)` and
+  lets us interpret a query string on the URL as size/style hints.
+
+  Examples in markdown:
+    ![phone](/assets/foo.png?w=300)              ->  width="300"
+    ![phone](/assets/foo.png?w=300&h=600)        ->  width="300" height="600"
+    ![small](/assets/foo.png?class=small)        ->  class="small"
+    ![alt](/assets/foo.png?w=400&class=tall)     ->  width="400" class="tall"
+
+  Recognized keys:
+    w, width    -- pixel width
+    h, height   -- pixel height
+    class       -- one or more class names. Separate multiple with a
+                   comma: `?class=tall,center`. Spaces / + / %20 also
+                   work but commas read most cleanly in a URL.
+
+  Anything outside the query string passes through normally, so
+  `![alt](/assets/foo.png)` still renders the way it always did.
+*/ -}}
+{{- $src := .Destination -}}
+{{- $alt := .PlainText -}}
+{{- $title := .Title -}}
+
+{{- $w := "" -}}
+{{- $h := "" -}}
+{{- $class := "" -}}
+
+{{- if strings.Contains $src "?" -}}
+  {{- $parts := split $src "?" -}}
+  {{- $src = index $parts 0 -}}
+  {{- $query := index $parts 1 -}}
+  {{- range split $query "&" -}}
+    {{- $kv := split . "=" -}}
+    {{- $k := index $kv 0 -}}
+    {{- $v := "" -}}
+    {{- if gt (len $kv) 1 -}}{{- $v = index $kv 1 -}}{{- end -}}
+    {{- if or (eq $k "w") (eq $k "width") -}}{{- $w = $v -}}{{- end -}}
+    {{- if or (eq $k "h") (eq $k "height") -}}{{- $h = $v -}}{{- end -}}
+    {{- if eq $k "class" -}}{{- $class = $v -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* Normalize class separators (comma / + / %20 → space) so multiple
+     classes can be passed in a URL-friendly form. */}}
+{{- $class = replace $class "," " " -}}
+{{- $class = replace $class "+" " " -}}
+{{- $class = replace $class "%20" " " -}}
+
+<img src="{{ $src | safeURL }}" alt="{{ $alt }}" loading="lazy"
+  {{- with $title }} title="{{ . }}"{{ end -}}
+  {{- with $w }} width="{{ . }}"{{ end -}}
+  {{- with $h }} height="{{ . }}"{{ end -}}
+  {{- with $class }} class="{{ . }}"{{ end -}} />

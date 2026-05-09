@@ -1,0 +1,30 @@
+{{- /*
+  One slide inside a {{< carousel >}} ... {{< /carousel >}} block.
+
+  Usage:
+    {{< carousel-slide src="/assets/foo.png"
+                        alt="Description for screen readers"
+                        caption="Optional caption shown below the image" >}}
+
+  Args:
+    src         -- image path (required)
+    alt         -- alt text (required for accessibility)
+    caption     -- optional caption rendered as <figcaption>
+    max-height  -- optional CSS max-height (e.g. "400px", "60vh", "28rem")
+    max-width   -- optional CSS max-width  (e.g. "300px", "80%")
+
+  The first slide on each carousel is auto-marked active by the JS at
+  load time, so don't worry about ordering attributes.
+*/ -}}
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+{{- $caption := .Get "caption" -}}
+{{- $maxH := .Get "max-height" -}}
+{{- $maxW := .Get "max-width" -}}
+{{- $style := "" -}}
+{{- with $maxH -}}{{ $style = printf "max-height: %s;" . }}{{- end -}}
+{{- with $maxW -}}{{ $style = printf "%s max-width: %s;" $style . }}{{- end -}}
+<figure class="carousel-slide">
+  <img src="{{ $src | relURL }}" alt="{{ $alt }}" loading="lazy"{{ with $style }} style="{{ . | safeCSS }}"{{ end }} />
+  {{ with $caption }}<figcaption>{{ . | safeHTML }}</figcaption>{{ end }}
+</figure>

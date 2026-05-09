@@ -1,0 +1,31 @@
+{{- /*
+  Image carousel with prev/next buttons and dot navigation.
+
+  Pair with one or more {{< carousel-slide >}} children.
+
+  Usage:
+    {{< carousel >}}
+      {{< carousel-slide src="/assets/macos-welcome.png"
+                          alt="URLStrip macOS welcome screen"
+                          caption="macOS onboarding and first-run explanation." >}}
+      {{< carousel-slide src="/assets/ios-clean-home.png"
+                          alt="URLStrip iPhone home screen"
+                          caption="iPhone home view with quick cleanup and local visibility." >}}
+    {{< /carousel >}}
+
+  Optional:
+    aria-label="..."   custom label for the carousel region (default
+                       "Image carousel")
+
+  Multiple carousels per page is fine -- the JS in
+  static/markdown-site.js initializes each one independently.
+*/ -}}
+{{- $label := .Get "aria-label" | default "Image carousel" -}}
+<section class="carousel" aria-label="{{ $label }}">
+  <div class="carousel-viewport">
+    <button class="carousel-nav prev" type="button" aria-label="Previous slide">‹</button>
+    {{ .Inner | safeHTML }}
+    <button class="carousel-nav next" type="button" aria-label="Next slide">›</button>
+  </div>
+  <div class="carousel-dots" aria-label="Choose slide"></div>
+</section>

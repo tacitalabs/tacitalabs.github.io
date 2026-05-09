@@ -1,0 +1,78 @@
+# Build and deploy the Hugo site to GitHub Pages.
+#
+# Trigger:
+# - on every push to `main`
+# - manually via the Actions tab
+#
+# Before this works the first time:
+# 1. In repo Settings -> Pages, set "Build and deployment" Source to "GitHub Actions".
+# 2. Make sure HUGO_VERSION below matches the Hugo version you build with locally.
+# 3. Commit hugo.toml, content/, layouts/, static/ from this branch.
+
+name: Deploy Hugo site to Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Permissions Pages needs to deploy.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Cancel in-progress deployments if a new one starts. Keeps the deploy queue clean.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+# Pin Hugo here. Bump when you upgrade locally.
+env:
+  HUGO_VERSION: 0.155.3
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Hugo
+        env:
+          # `--minify` shrinks the output. `--gc` cleans up cache.
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

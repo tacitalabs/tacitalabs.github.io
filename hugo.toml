@@ -1,0 +1,70 @@
+baseURL = "https://www.tacitalabs.com/"
+languageCode = "en-us"
+title = "Tacita Labs"
+enableRobotsTXT = true
+
+# Match the existing static site's URL shape (about.html, download.html, ...).
+# Without this Hugo would emit /about/, /download/, etc., breaking external
+# links and the existing GitHub Pages structure.
+uglyURLs = true
+
+# Drop the auto-generated _index/section pages we don't need; Hugo will only
+# build pages we actually wrote layouts for.
+disableKinds = ["taxonomy", "term", "RSS"]
+
+[markup.goldmark.renderer]
+  # Allow inline HTML in markdown so structured page bodies (links, code, lists
+  # with classes) render through markdownify without being escaped.
+  unsafe = true
+
+[markup.goldmark.parser]
+  # Generate id="..." automatically on every heading so the TOC links
+  # work and any `## Heading` becomes anchorable. Explicit `{#id}` in
+  # markdown still overrides the generated id.
+  autoHeadingID = true
+  autoHeadingIDType = "github"
+
+[markup.goldmark.parser.attribute]
+  block = true
+
+# Keep straight quotes/dashes -- the existing site uses ASCII punctuation
+# verbatim ("Jim O'Gorman", not "Jim O&rsquo;Gorman").
+[markup.goldmark.extensions.typographer]
+  disable = true
+
+# Table-of-contents levels for {{ .TableOfContents }}. Pages opt in via
+# `toc: true` in front matter. Includes h2 and h3, no h4+.
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+  ordered = false
+
+# Default site-wide social/SEO image, can be overridden per page.
+[params]
+  description = "URLStrip removes tracking junk from links before you open them, save them, or share them. It runs locally, stays out of the way, and is free to use on iOS/iPadOS, macOS, and Windows."
+  ogImage = "/assets/tacita-social-preview.png"
+  brandLockup = "/assets/tacita-horizontal-lockup.png"
+
+# Primary navigation. Every content page gets a slot here so the top nav
+# is the same on every page (current page is just marked .active rather
+# than hidden). In-page anchors live in the per-page table of contents
+# sidebar instead of the top nav.
+[[menu.main]]
+  name = "Download"
+  url = "/download.html"
+  weight = 10
+
+[[menu.main]]
+  name = "Tracking methodology"
+  url = "/tracking-methodology.html"
+  weight = 30
+
+[[menu.main]]
+  name = "About"
+  url = "/about.html"
+  weight = 40
+
+[[menu.main]]
+  name = "Privacy"
+  url = "/privacy.html"
+  weight = 50

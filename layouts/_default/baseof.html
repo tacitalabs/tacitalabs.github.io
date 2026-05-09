@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ .Title }}</title>
+    <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+    <meta property="og:site_name" content="Tacita Labs" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.tacitalabs.com{{ .Site.Params.ogImage }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.tacitalabs.com{{ .Site.Params.ogImage }}" />
+    <link rel="icon" href="{{ "/favicon.ico" | relURL }}" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/tacita-favicon-32.png" | relURL }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/tacita-favicon-16.png" | relURL }}" />
+    <link rel="apple-touch-icon" href="{{ "/assets/tacita-apple-touch-icon.png" | relURL }}" />
+    <link rel="stylesheet" href="{{ "/markdown-site.css" | relURL }}" />
+    <script src="{{ "/markdown-site.js" | relURL }}" defer></script>
+  </head>
+  <body>
+    {{ partial "site-header.html" . }}
+    <div class="page-layout">
+      {{ partial "toc.html" . }}
+      <main>
+        {{ block "main" . }}{{ end }}
+      </main>
+    </div>
+    <footer class="site-footer">
+      <p>&copy; {{ now.Year }} Tacita Labs · <a href="/privacy.html">Privacy</a> · <a href="mailto:hello@tacitalabs.com">Contact</a></p>
+    </footer>
+  </body>
+</html>

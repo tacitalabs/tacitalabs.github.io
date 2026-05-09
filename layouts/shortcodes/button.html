@@ -1,0 +1,21 @@
+{{- /*
+  Rounded button matching the original site's hero CTAs.
+
+  Usage:
+    {{< button href="#downloads" style="primary" >}}Download URLStrip{{< /button >}}
+    {{< button href="#how" style="secondary" >}}See how it works{{< /button >}}
+    {{< button href="https://example.com" style="primary" target="_blank" >}}External{{< /button >}}
+
+  Args:
+    href    -- where the button goes (required)
+    style   -- "primary" (filled dark) or "secondary" (outlined). Default: primary.
+    target  -- optional. Set to "_blank" to open in a new tab; the shortcode
+               adds rel="noreferrer" automatically when target is set.
+
+  Two buttons placed on consecutive lines (no blank line between) render
+  side-by-side. Add a blank line between groups to break to a new row.
+*/ -}}
+{{- $href   := .Get "href" -}}
+{{- $style  := .Get "style"  | default "primary" -}}
+{{- $target := .Get "target" -}}
+<a class="button {{ $style }}" href="{{ $href }}"{{ with $target }} target="{{ . }}" rel="noreferrer"{{ end }}>{{ .Inner | safeHTML }}</a>

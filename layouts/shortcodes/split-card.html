@@ -1,0 +1,19 @@
+{{- /*
+  One card inside a {{< split-begin >}} ... {{< split-end >}} block.
+
+  Use the `{{%` delimiter (NOT `{{<`) so markdown and nested shortcodes
+  inside the card render properly:
+
+    {{% split-card %}}
+    {{< eyebrow >}}URLSTRIP{{< /eyebrow >}}
+
+    # Remove tracking junk from links.
+
+    Body paragraph.
+
+    {{< button href="#downloads" style="primary" >}}Download{{< /button >}}
+    {{% /split-card %}}
+*/ -}}
+<div class="split-card">
+{{ .Inner }}
+</div>
