@@ -12,6 +12,13 @@
     caption     -- optional caption rendered as <figcaption>
     max-height  -- optional CSS max-height (e.g. "400px", "60vh", "28rem")
     max-width   -- optional CSS max-width  (e.g. "300px", "80%")
+    loading     -- optional. "eager" (default) | "lazy".
+                   Carousel slides load eagerly by default so the
+                   browser caches every slide before the user clicks
+                   through, eliminating the visible flash on first
+                   navigation. Set loading="lazy" only if a slide is
+                   genuinely far below the fold and you want to defer
+                   it.
 
   The first slide on each carousel is auto-marked active by the JS at
   load time, so don't worry about ordering attributes.
@@ -21,10 +28,11 @@
 {{- $caption := .Get "caption" -}}
 {{- $maxH := .Get "max-height" -}}
 {{- $maxW := .Get "max-width" -}}
+{{- $loading := .Get "loading" | default "eager" -}}
 {{- $style := "" -}}
 {{- with $maxH -}}{{ $style = printf "max-height: %s;" . }}{{- end -}}
 {{- with $maxW -}}{{ $style = printf "%s max-width: %s;" $style . }}{{- end -}}
 <figure class="carousel-slide">
-  <img src="{{ $src | relURL }}" alt="{{ $alt }}" loading="lazy"{{ with $style }} style="{{ . | safeCSS }}"{{ end }} />
+  <img src="{{ $src | relURL }}" alt="{{ $alt }}" loading="{{ $loading }}"{{ with $style }} style="{{ . | safeCSS }}"{{ end }} />
   {{ with $caption }}<figcaption>{{ . | safeHTML }}</figcaption>{{ end }}
 </figure>
