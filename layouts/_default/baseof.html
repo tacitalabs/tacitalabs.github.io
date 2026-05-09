@@ -15,7 +15,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/tacita-favicon-16.png" | relURL }}" />
     <link rel="apple-touch-icon" href="{{ "/assets/tacita-apple-touch-icon.png" | relURL }}" />
     <link rel="stylesheet" href="{{ "/markdown-site.css" | relURL }}" />
+    {{- range .Params.styles }}
+    <link rel="stylesheet" href="{{ . | relURL }}" />
+    {{- end }}
     <script src="{{ "/markdown-site.js" | relURL }}" defer></script>
+    {{- range .Params.scripts }}
+    <script src="{{ . | relURL }}" defer></script>
+    {{- end }}
   </head>
   <body>
     {{ partial "site-header.html" . }}

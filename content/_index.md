@@ -15,7 +15,7 @@ toc: true
 
 URLStrip strips known tracking parameters before you open a link, save it, or send it to someone else. It runs locally, supports iOS/iPadOS, macOS, and Windows, and is free to use.
 
-{{< button href="#downloads" style="primary" >}}Download URLStrip{{< /button >}} {{< button href="#how" style="secondary" >}}See how it works{{< /button >}}
+{{< button href="/clean-url.html" style="primary" >}}Clean a URL Online{{< /button >}} {{< button href="#downloads" style="secondary" >}}Download URLStrip{{< /button >}}
 {{< eyebrow >}}Runs locally - no account - free{{< /eyebrow >}}
 
 {{% /split-card %}}
@@ -103,6 +103,8 @@ URLStrip is built to stay out of the way. On desktop, it fits into normal copy-a
 {{% /card %}}
 
 Some parameters are intentionally kept because they control content, preserve state, or are required for the destination to work.
+
+Want to try it without installing anything? Use the [browser-based URL cleaner](/clean-url.html). Your pasted URL is processed locally and is not sent to Tacita Labs.
 
 {{< eyebrow >}}Trust{{< /eyebrow >}}
 
