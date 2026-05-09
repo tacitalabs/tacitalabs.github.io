@@ -1,0 +1,12 @@
+{{- /*
+  Small uppercase muted "eyebrow" text. Sits tight to the heading or
+  block immediately following it. Use above an h1/h2/h3 as a kicker, or
+  below content as a footer-style caps line.
+
+  Usage:
+    {{< eyebrow >}}URLSTRIP{{< /eyebrow >}}
+    {{< eyebrow >}}Runs locally - no account - free{{< /eyebrow >}}
+
+  Inline HTML in the body is allowed (e.g. <em>, <strong>, <span>).
+*/ -}}
+<div class="eyebrow">{{ .Inner | safeHTML }}</div>

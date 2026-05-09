@@ -1,0 +1,13 @@
+{{- /*
+  Italic muted brand line, sits tight to the heading immediately
+  following. Used for the Latin-then-English brand mantra
+  ("Silentium servat - silence protects.") on the home page.
+
+  Usage:
+    {{< brandline >}}Silentium servat - silence protects.{{< /brandline >}}
+
+  Inline HTML in the body is allowed if you want to mark the Latin half
+  with <span lang="la">...</span>:
+    {{< brandline >}}<span lang="la">Silentium servat</span> - silence protects.{{< /brandline >}}
+*/ -}}
+<div class="brand-line">{{ .Inner | safeHTML }}</div>

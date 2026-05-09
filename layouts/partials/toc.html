@@ -1,0 +1,13 @@
+{{- /*
+  Render a table of contents at the top of the page when the page's
+  front matter has `toc: true`. Pulls h2 and h3 headings from the body.
+
+  Levels are configured globally in hugo.toml (markup.tableOfContents):
+  startLevel = 2, endLevel = 3.
+*/ -}}
+{{- if .Params.toc -}}
+<aside class="toc" aria-label="Contents">
+  <p class="toc-label">Contents</p>
+  {{ .TableOfContents }}
+</aside>
+{{- end -}}

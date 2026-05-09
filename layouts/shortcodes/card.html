@@ -1,0 +1,19 @@
+{{- /*
+  A single rounded card. Same visual style as split-card, but used on
+  its own (no split-begin / split-end wrappers).
+
+  Usage (note the % delimiters so markdown inside is rendered):
+
+    {{% card %}}
+    ## Contact {#contact}
+
+    For product questions, feedback, or general inquiries, reach out at
+    [hello@tacitalabs.com](mailto:hello@tacitalabs.com).
+    {{% /card %}}
+
+  Use `{{< split-begin >}}` + `{{% split-card %}}` instead when you want
+  TWO or more cards side-by-side.
+*/ -}}
+<div class="card">
+{{ .Inner }}
+</div>

@@ -13,13 +13,16 @@ This repository is a **public deployment target** for the Tacita Labs website.
 
 ## Intended contents
 
-Allowed content should stay narrow:
+This is a [Hugo](https://gohugo.io/) site. Allowed content should stay narrow:
 
-- `index.html`
-- `styles.css`
-- `assets/` public images and static site assets
-- `CNAME`
-- small public-facing support files like `robots.txt`, `sitemap.xml`, and favicon assets
+- `hugo.toml` - site config
+- `content/*.md` - markdown source for each page
+- `layouts/` - templates, partials, shortcodes
+- `static/` - public assets (CSS, JS, images, `CNAME`, favicon, `urlstrip/` JSON endpoints)
+- `archetypes/default.md` - new-page scaffold
+- `.github/workflows/hugo.yml` - GitHub Actions build + deploy
+
+See [HUGO.md](HUGO.md) for editing/deployment details.
 
 ## Publishing posture
 

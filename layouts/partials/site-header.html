@@ -1,0 +1,25 @@
+<header class="site-header">
+  <nav>
+    <a href="{{ "/" | relURL }}" class="site-title" aria-label="Tacita Labs home">
+      <img
+        class="brand-lockup"
+        src="{{ .Site.Params.brandLockup | relURL }}"
+        alt="Tacita Labs"
+        width="1200"
+        height="240"
+      />
+    </a>
+    <div class="nav-links">
+      {{- $isHome := .IsHome -}}
+      {{- $currentPath := .RelPermalink -}}
+      {{- range .Site.Menus.main -}}
+        {{- $homeOnly := index .Params "homeOnly" | default false -}}
+        {{- $notOnHome := index .Params "notOnHome" | default false -}}
+        {{- $isCurrent := eq .URL $currentPath -}}
+        {{- if and $homeOnly (not $isHome) -}}{{- continue -}}{{- end -}}
+        {{- if and $notOnHome $isHome -}}{{- continue -}}{{- end -}}
+        <a href="{{ .URL | relURL }}"{{ if $isCurrent }} class="active"{{ end }}>{{ .Name }}</a>
+      {{- end -}}
+    </div>
+  </nav>
+</header>

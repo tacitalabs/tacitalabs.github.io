@@ -1,0 +1,26 @@
+{{- /*
+  Open a side-by-side row. Pair with {{< split-end >}} after the cards.
+
+  Usage:
+    {{< split-begin >}}
+
+    {{% split-card %}}
+    Left column markdown...
+    {{% /split-card %}}
+
+    {{% split-card %}}
+    Right column markdown...
+    {{% /split-card %}}
+
+    {{< split-end >}}
+
+  Notes:
+  - The cards render in a CSS grid. Two cards = 50/50 row. More cards
+    distribute evenly. On small screens (<700px) they stack to one column.
+  - Use the `{{%` delimiter on split-card (not `{{<`) so markdown -- and
+    other shortcodes like {{< eyebrow >}} or {{< button >}} -- render
+    inside.
+  - Always put a blank line between split-begin/split-end and the cards
+    inside, so goldmark sees them as separate blocks.
+*/ -}}
+<div class="split">

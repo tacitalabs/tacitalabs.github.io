@@ -1,1 +1,10 @@
 .DS_Store
+
+# Hugo build artifacts -- never commit these.
+/public/
+/resources/
+/.hugo_build.lock
+
+# IDE / editor
+.idea/
+.vscode/

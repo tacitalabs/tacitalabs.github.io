@@ -1,0 +1,604 @@
+/*
+  Stylesheet for the Hugo (markdown) site.
+  Layout/structure inspired by gamb1t.dev's "minimal" theme;
+  color palette adapted to Tacita Labs' warm light brand.
+
+  Loaded only by layouts/_default/baseof.html (Hugo side).
+  The original card-based site at the repo root continues to use
+  styles.css and is unaffected.
+*/
+
+/* Reset & base ----------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f5f2ea;
+  --bg-soft: #ede8de;
+  --text: #131313;
+  --text-muted: #625f58;
+  --accent: #1f3554;
+  --accent-hover: #345d8c;
+  --border: #ddd6c8;
+  --code-bg: #e2d8be;
+  --tag-bg: #ede8de;
+  --max-width: 720px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header / nav ----------------------------------------------------------- */
+header.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem clamp(1.5rem, 4vw, 4rem);
+}
+
+header.site-header nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+
+.site-title { display: inline-flex; align-items: center; }
+.site-title img.brand-lockup {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
+
+/* Page layout ------------------------------------------------------------ */
+/* The body is a flex column (header / page-layout / footer). When a page
+   has `toc: true` in front matter, the toc partial drops an <aside> into
+   .page-layout and the grid expands to two columns: TOC sticky on the
+   left, main on the right. Without TOC, .page-layout is a single column
+   and main is centered as usual. */
+.page-layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+
+.page-layout:has(> aside.toc) {
+  grid-template-columns: minmax(220px, 16rem) 1fr;
+}
+
+/* Main column ------------------------------------------------------------ */
+main {
+  width: 70%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+}
+
+/* When the TOC sidebar is present, main lives in the right grid cell --
+   so its 70% is relative to that cell, which would feel cramped. Bump
+   it to 90% of the cell instead. */
+.page-layout:has(> aside.toc) main {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Page header (h1 + optional date / lede) -------------------------------- */
+.post-header { margin-bottom: 2rem; }
+
+.post-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.post-header .description {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* Article body ----------------------------------------------------------- */
+/* The first h1 is the page title (markdown bodies start with `# Heading`). */
+.post-content h1 {
+  font-size: 2rem;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.post-content h2 {
+  font-size: 1.8rem;
+  margin: 2rem 0 0.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.post-content h3 {
+  font-size: 1.2rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.post-content h4 {
+  font-size: 1.05rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.post-content p {
+  margin-bottom: 1.25rem;
+}
+
+.post-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.post-content a:hover { color: var(--accent-hover); }
+
+.post-content ul,
+.post-content ol {
+  margin: 0 0 1.25rem 1.5rem;
+}
+
+.post-content li { margin-bottom: 0.35rem; }
+
+.post-content li > p:first-child { margin-top: 0; }
+
+/* Inline code + code blocks --------------------------------------------- */
+.post-content code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+}
+
+.post-content pre {
+  background: var(--code-bg);
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  margin-bottom: 1.25rem;
+  font-size: 0.9em;
+  line-height: 1.55;
+  /* Wrap long lines instead of horizontal scroll. `pre-wrap` keeps the
+     existing whitespace/line breaks; `overflow-wrap: anywhere` lets very
+     long unbroken strings (URLs, hashes) break at any character so they
+     never overflow the column. */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+  font-size: 1em;
+  /* Same wrapping rules carry through to the <code> child so
+     syntax-highlighted blocks (Hugo wraps highlighted code in
+     <code class="language-x">) wrap too. */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Blockquote ------------------------------------------------------------- */
+.post-content blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  margin: 1.25rem 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Images ----------------------------------------------------------------- */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  margin: 1.25rem 0;
+}
+
+/* Preset size classes for markdown images. Use via the render-image
+   hook query string:
+       ![alt](/foo.png?class=small)
+       ![alt](/foo.png?class=medium)
+       ![alt](/foo.png?class=tall)
+   Combine with ?w= or ?h= for explicit pixel sizes. */
+.post-content img.small  { max-width: 240px; }
+.post-content img.medium { max-width: 480px; }
+.post-content img.large  { max-width: 720px; }
+.post-content img.tall   { max-height: 28rem; width: auto; }
+.post-content img.center { margin-left: auto; margin-right: auto; }
+
+.post-content figure { margin: 1.5rem 0; }
+.post-content figcaption {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+}
+
+/* Horizontal rule -------------------------------------------------------- */
+.post-content hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+/* Tables ----------------------------------------------------------------- */
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.95em;
+}
+
+.post-content th,
+.post-content td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-content th {
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg-soft);
+}
+
+/* Footer ----------------------------------------------------------------- */
+footer.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+footer.site-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+footer.site-footer a:hover { text-decoration: underline; }
+
+/* Anchor links inside h2/h3 (for {#id} targets in markdown) -------------- */
+.post-content :where(h1, h2, h3, h4, h5, h6) {
+  scroll-margin-top: 1rem;
+}
+
+/* Shortcode building blocks --------------------------------------------- */
+
+/* {{< eyebrow >}}  -- small uppercase muted kicker line.
+   Sits tight to whatever follows so it can be used right above an h1/h2. */
+.post-content .eyebrow {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin: 1.5rem 0 0;
+}
+.post-content .eyebrow:first-child { margin-top: 0; }
+
+/* Heading immediately after an eyebrow loses its top margin so the two
+   read as a single unit. */
+.post-content .eyebrow + h1,
+.post-content .eyebrow + h2,
+.post-content .eyebrow + h3 { margin-top: 0.2rem; }
+
+/* {{< brandline >}}  -- italic, slightly smaller, muted. Pairs with the
+   eyebrow under the wordmark on the home page. */
+.post-content .brand-line {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0.15rem 0 0;
+}
+
+.post-content .brand-line + h1,
+.post-content .brand-line + h2,
+.post-content .brand-line + h3 { margin-top: 0.5rem; }
+
+/* {{< eyebrow >}} placed below content (e.g. "RUNS LOCALLY - NO ACCOUNT - FREE"
+   under the hero buttons): keep the eyebrow shape but give it a small top gap. */
+.post-content > .eyebrow,
+.post-content p + .eyebrow,
+.post-content .button + .eyebrow {
+  margin-top: 1.25rem;
+}
+
+/* {{< button >}}  -- rounded CTA matching the original site's hero buttons.
+   Two variants: primary (filled dark) and secondary (outlined).
+   Multiple consecutive {{< button >}} calls render side-by-side. */
+.post-content a.button {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.7em 1.6em;
+  border-radius: 999px;
+  text-decoration: none;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  line-height: 1.2;
+}
+
+.post-content a.button.primary {
+  background: var(--accent);
+  color: var(--bg);
+  border: 1.5px solid var(--accent);
+}
+.post-content a.button.primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--bg);
+}
+
+.post-content a.button.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--border-strong, #b9b1a1);
+}
+.post-content a.button.secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* When the buttons end up as the only content of a paragraph (markdown
+   wraps consecutive shortcodes in a <p>), tighten the surrounding margins. */
+.post-content p:has(> a.button) {
+  margin-bottom: 0.5rem;
+}
+
+/* {{< split-begin >}} ... {{< split-end >}}  -- side-by-side card row.
+   Two cards => 50/50. More cards distribute evenly. Stacks on mobile. */
+.split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0 2rem;
+}
+
+/* Shared rounded panel for both side-by-side split cards and the
+   standalone {{% card %}} shortcode. */
+.split-card,
+.post-content > .card {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 12px 32px rgba(33, 27, 14, 0.06);
+}
+
+.split-card > :first-child,
+.post-content > .card > :first-child { margin-top: 0; }
+
+.split-card > :last-child,
+.post-content > .card > :last-child  { margin-bottom: 0; }
+
+/* Standalone cards get vertical spacing (split cards live inside a
+   .split grid that handles spacing for them). */
+.post-content > .card {
+  margin: 1.5rem 0 2rem;
+}
+
+@media (max-width: 700px) {
+  .split-card,
+  .post-content > .card { padding: 1.5rem 1.5rem; }
+}
+
+/* {{< carousel >}} ... {{< /carousel >}}  -- prev/next image carousel.
+   JS in static/markdown-site.js wires up the navigation and toggles
+   `.is-active` on slides + dots. */
+.post-content .carousel {
+  position: relative;
+  margin: 1.5rem 0;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 1.5rem 3.5rem 1.25rem;
+}
+
+.post-content .carousel-viewport {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 12rem;
+}
+
+.post-content .carousel-slide {
+  display: none;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.post-content .carousel-slide.is-active { display: block; }
+
+.post-content .carousel-slide img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: block;
+}
+
+.post-content .carousel-slide figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.post-content .carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 2.4rem;
+  height: 2.4rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.post-content .carousel-nav.prev { left: 0.5rem; }
+.post-content .carousel-nav.next { right: 0.5rem; }
+
+.post-content .carousel-nav:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+.post-content .carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.post-content .carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--border);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.post-content .carousel-dot:hover { transform: scale(1.2); }
+.post-content .carousel-dot.is-active { background: var(--accent); }
+
+@media (max-width: 600px) {
+  .post-content .carousel { padding: 1rem 2.5rem 1rem; }
+  .post-content .carousel-nav { width: 2rem; height: 2rem; font-size: 1.1rem; }
+  .post-content .carousel-nav.prev { left: 0.25rem; }
+  .post-content .carousel-nav.next { right: 0.25rem; }
+}
+
+/* TOC sidebar (left side, sticky while scrolling) ------------------------ */
+aside.toc {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  padding: 2.5rem 1.5rem 2.5rem 2rem;
+  border-right: 1px solid var(--border);
+  background: var(--bg);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.toc-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin: 0 0 0.75rem;
+}
+
+aside.toc nav ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+aside.toc nav ul ul {
+  margin-top: 0.25rem;
+  padding-left: 1rem;
+}
+
+aside.toc nav li { margin-bottom: 0.4rem; }
+
+aside.toc nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  padding: 0.15rem 0;
+  border-left: 2px solid transparent;
+  padding-left: 0.5rem;
+  margin-left: -0.5rem;
+}
+
+aside.toc nav a:hover {
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+/* Responsive ------------------------------------------------------------- */
+/* Below 900px: TOC stops being a sidebar and sits inline above main. */
+@media (max-width: 900px) {
+  .page-layout:has(> aside.toc) {
+    grid-template-columns: 1fr;
+  }
+  aside.toc {
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    max-height: none;
+    padding: 1.25rem 1.5rem;
+  }
+  .page-layout:has(> aside.toc) main {
+    width: 92%;
+    max-width: 1100px;
+  }
+}
+
+@media (max-width: 600px) {
+  header.site-header { padding: 0.75rem 1rem; }
+  main {
+    width: 92%;          /* slightly more breathing room on phones */
+    padding: 1.5rem 0 3rem;
+  }
+  header.site-header nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links a { margin-left: 0; margin-right: 1rem; }
+  .post-header h1 { font-size: 1.7rem; }
+  .post-content h1 { font-size: 1.5rem; }
+  .post-content h2 { font-size: 1.4rem; }
+}
