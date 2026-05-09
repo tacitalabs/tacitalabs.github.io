@@ -11,6 +11,8 @@ URLStrip removes known tracking and attribution parameters from links.
 This page explains how we group those parameters, what the app means by
 Monetization Impact, and where the limits are.
 
+Want to see the rules in action? Try the [browser-based URL cleaner](/clean-url.html). It runs locally in your browser and does not upload the URL you paste.
+
 *Last updated: May 4, 2026*
 
 {{% card %}}

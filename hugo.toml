@@ -55,6 +55,11 @@ disableKinds = ["taxonomy", "term", "RSS"]
   weight = 10
 
 [[menu.main]]
+  name = "Clean URL"
+  url = "/clean-url.html"
+  weight = 20
+
+[[menu.main]]
   name = "Tracking methodology"
   url = "/tracking-methodology.html"
   weight = 30

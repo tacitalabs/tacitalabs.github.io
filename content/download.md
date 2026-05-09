@@ -54,6 +54,8 @@ Want more detail on what the new Monetization Impact and Confidence
 labels mean? Read [how URLStrip classifies
 tracking](/tracking-methodology.html).
 
+Want to try URLStrip before installing? Use the [browser-based URL cleaner](/clean-url.html). Your pasted URL is processed locally and is not sent to Tacita Labs.
+
 Beta testing URLStrip? See the [tester guide](/beta-testing.html) for
 what to try and what to report.
 
