@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ .Title }}</title>
     <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+    {{- if .Params.noindex }}
+    <meta name="robots" content="noindex, nofollow" />
+    {{- end }}
     <meta property="og:site_name" content="Tacita Labs" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://www.tacitalabs.com{{ .Site.Params.ogImage }}" />
