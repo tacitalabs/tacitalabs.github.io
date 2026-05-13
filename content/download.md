@@ -58,7 +58,7 @@ What we publish for every Windows release:
 - A matching version and build number
 - A local-first app that cleans URLs on your device
 
-If Windows warns before install, verify the downloaded installer hash with the command above and compare it to the SHA-256 value on this page. We are evaluating paid Windows code signing as Windows usage grows, but we do not want to pass that cost along before we know there is enough demand.
+If Windows warns before install, verify the downloaded installer hash with the command above and compare it to the SHA-256 value on this page.
 {{% /card %}}
 
 ---
