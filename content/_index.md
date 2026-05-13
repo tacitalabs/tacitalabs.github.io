@@ -143,7 +143,7 @@ URLStrip for iOS and iPadOS is currently distributed through Apple's TestFlight 
 
 [Download URLStrip 1.0.2 (Build 16) for macOS](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.0.2/URLStrip-1.0.2-macOS-universal.dmg)
 
-SHA-256: `9e40b17dff9bd04296b64efe8eee842322df939b87872172de234c9e01acf67f`
+SHA-256: `33b3fc5fd775ed3f66671f7ae24de5db08fdae672e6594e3076ba444e9dbb706`
 
 Verify: `shasum -a 256 URLStrip-1.0.2-macOS-universal.dmg`
 {{% /card %}}
