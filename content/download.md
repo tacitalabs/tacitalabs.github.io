@@ -46,6 +46,19 @@ Windows desktop release with the same local-cleaning model.
 SHA-256: `6ff4f9fe389f549f0d969ce1a5f10acae06572eac2b210c87cd95e9216af7b38`
 
 Verify: `certutil -hashfile URLStrip_1.0.2_x64-setup.exe sha256`
+
+### Windows security note
+
+URLStrip for Windows is currently distributed without a paid Windows code-signing certificate. Windows Defender SmartScreen may warn that the app is from an unknown publisher, especially on fresh releases with low download volume. That warning is about publisher reputation, not proof that URLStrip is malicious.
+
+What we publish for every Windows release:
+
+- A stable GitHub-hosted release artifact
+- A public SHA-256 checksum
+- A matching version and build number
+- A local-first app that cleans URLs on your device
+
+If Windows warns before install, verify the downloaded installer hash with the command above and compare it to the SHA-256 value on this page. We are evaluating paid Windows code signing as Windows usage grows, but we do not want to pass that cost along before we know there is enough demand.
 {{% /card %}}
 
 ---
