@@ -69,6 +69,12 @@ disableKinds = ["taxonomy", "term", "RSS"]
   url = "/about.html"
   weight = 40
 
+
+[[menu.main]]
+  name = "Support"
+  url = "/support.html"
+  weight = 45
+
 [[menu.main]]
   name = "Privacy"
   url = "/privacy.html"
