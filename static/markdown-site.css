@@ -11,6 +11,14 @@
 /* Reset & base ----------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Defensive: prevent any element (long URLs, oversized images, future
+   overflowing content) from making the document wider than the viewport,
+   which on mobile causes the whole page to render at "desktop width" and
+   the user has to zoom or scroll. `clip` is preferable to `hidden`
+   because it doesn't establish a new scrolling container (so sticky
+   positioning and smooth anchor scrolling continue to work). */
+html, body { overflow-x: clip; }
+
 :root {
   --bg: #f5f2ea;
   --bg-soft: #ede8de;
@@ -181,6 +189,10 @@ main {
   border-radius: 4px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.92em;
+  /* Let long unbreakable strings (URLs, hashes) break inside inline code
+     so they don't push the surrounding container wider than the viewport
+     on narrow screens. */
+  overflow-wrap: anywhere;
 }
 
 .post-content pre {
@@ -396,6 +408,11 @@ footer.site-footer a:hover { text-decoration: underline; }
   border-radius: 22px;
   padding: 2rem 2.25rem;
   box-shadow: 0 12px 32px rgba(33, 27, 14, 0.06);
+  /* Override the implicit `min-width: auto` that grid items get. Without
+     this, a card containing a long unbreakable string (e.g. a URL in
+     inline code) refuses to shrink below its content's intrinsic width
+     and the whole grid grows past the viewport on mobile. */
+  min-width: 0;
 }
 
 .split-card > :first-child,
@@ -411,6 +428,11 @@ footer.site-footer a:hover { text-decoration: underline; }
 }
 
 @media (max-width: 700px) {
+  /* Force single-column stacking on phones. The auto-fit grid above
+     already tries to stack, but this is an explicit safety net so a
+     future card with unusual content can't accidentally fall back to
+     side-by-side. */
+  .split { grid-template-columns: 1fr; }
   .split-card,
   .post-content > .card { padding: 1.5rem 1.5rem; }
 }
