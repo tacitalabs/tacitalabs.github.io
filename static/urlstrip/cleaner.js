@@ -207,6 +207,23 @@
     return new Set(['solution', 'js_challenge', 'token', 'jsc_orig_r']);
   }
 
+  function isGoogleSearchUrl(url) {
+    const host = url.hostname.toLowerCase();
+    return (host === 'google.com' || host.endsWith('.google.com'))
+      && url.pathname === '/search'
+      && url.searchParams.has('q');
+  }
+
+  function googleSearchParamsToStrip(url) {
+    return isGoogleSearchUrl(url) ? new Set(['client']) : new Set();
+  }
+
+  function hasGoogleLocalResultFragment(url) {
+    if (!isGoogleSearchUrl(url) || !url.hash) return false;
+    const fragment = url.hash.startsWith('#') ? url.hash.slice(1) : url.hash;
+    return ['lkt=', 'lpg=', 'trex=', 'rc_ludocids:', 'trex_id:'].some((marker) => fragment.includes(marker));
+  }
+
   function parseInput(input) {
     const trimmed = String(input || '').trim();
     if (!trimmed) return { error: 'empty', trimmed };
@@ -351,6 +368,7 @@
 
     const entries = Array.from(url.searchParams.entries());
     const redditChallengeParams = redditJSChallengeParamsToStrip(url, entries);
+    const googleSearchParams = googleSearchParamsToStrip(url);
     const filtered = [];
     const removedQueryParameters = [];
 
@@ -359,6 +377,10 @@
 
       if (redditChallengeParams.has(name)) {
         strip = { ruleID: `${CATEGORIES.socialMedia}:reddit_js_challenge:${name}`, category: CATEGORIES.socialMedia };
+      }
+
+      if (!strip && googleSearchParams.has(name)) {
+        strip = { ruleID: `${CATEGORIES.analytics}:google_search:${name}`, category: CATEGORIES.analytics };
       }
 
       if (!strip) {
@@ -386,17 +408,25 @@
       url.search = filtered.length > 0 ? nextParams.toString() : '';
     }
 
+    const googleLocalFragmentRemoved = hasGoogleLocalResultFragment(url);
+    if (googleLocalFragmentRemoved) {
+      url.hash = '';
+      matchedRuleIDs.push(`${CATEGORIES.analytics}:google_search:local_fragment`);
+      matchedCategories.add(CATEGORIES.analytics);
+    }
+
     const cleanedString = url.toString();
     const privacyRedirect = applyPrivacyRedirect(cleanedString, options.privacyRedirectSettings || {});
     const finalString = privacyRedirect ? privacyRedirect.redirectedUrl : cleanedString;
     const rawRulesApplied = currentURL !== trimmed && removedQueryParameters.length === 0 ? 1 : 0;
+    const fragmentRulesApplied = googleLocalFragmentRemoved ? 1 : 0;
     if (finalString === trimmed) return null;
 
     return {
       status: 'cleaned',
       originalUrl: trimmed,
       cleanedUrl: finalString,
-      paramsRemoved: removedQueryParameters.length + rawRulesApplied,
+      paramsRemoved: removedQueryParameters.length + rawRulesApplied + fragmentRulesApplied,
       removedQueryParameters,
       matchedRuleIds: matchedRuleIDs,
       matchedCategories: Array.from(matchedCategories),

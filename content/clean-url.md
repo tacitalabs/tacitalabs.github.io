@@ -3,10 +3,10 @@ title: "Clean a URL Online - Tacita Labs"
 description: "Paste a URL and remove known tracking parameters locally in your browser. The URL you paste is not uploaded, logged, or sent to Tacita Labs."
 url: "/clean-url.html"
 styles:
-  - "/urlstrip/tool.css?v=20260524.2"
+  - "/urlstrip/tool.css?v=20260524.3"
 scripts:
-  - "/urlstrip/cleaner.js"
-  - "/urlstrip/tool.js?v=20260524.2"
+  - "/urlstrip/cleaner.js?v=20260524.3"
+  - "/urlstrip/tool.js?v=20260524.3"
 ---
 
 {{< eyebrow >}}URLStrip Web Tool{{< /eyebrow >}}

@@ -4,8 +4,8 @@ const path = require('node:path');
 const URLStrip = require('../static/urlstrip/cleaner.js');
 
 const root = path.resolve(__dirname, '..');
-const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.05.04.2/data.min.json'), 'utf8'));
-const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.05.04.2/urlstrip-supplementary.json'), 'utf8'));
+const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.05.24.1/data.min.json'), 'utf8'));
+const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.05.24.1/urlstrip-supplementary.json'), 'utf8'));
 const engine = URLStrip.createEngine(clearRules, supplementaryRules);
 
 function clean(input) {
@@ -59,6 +59,17 @@ test('Google redirect unwrapping and inner cleanup', () => {
   assert.equal(result.status, 'cleaned');
   assert.equal(result.cleanedUrl, 'https://example.com/page?id=7');
   assert.equal(result.redirectUnwrapped, true);
+});
+
+test('Google search client and local-result fragment cleanup', () => {
+  const result = clean('https://www.google.com/search?q=mk+trucking+reviews&client=ms-android-cricket-us-rvc3#lkt=LocalPoiPhotos&lpg=cid:CgIgAQ%3D%3D,ik:CAoSHENJQUJJaEJKZXFCemdDQmRVWEh3ZUVYZ2E5TDg%3D&trex=m_t:lcl_akp,rc_f:nav,rc_ludocids:12964900451710185810,rc_q:MK%2520Trucking,ru_q:MK%2520Trucking,trex_id:LpesYc');
+  assert.equal(result.status, 'cleaned');
+  assert.equal(result.cleanedUrl, 'https://www.google.com/search?q=mk+trucking+reviews');
+  assert.deepEqual(result.removedQueryParameters, ['client']);
+  assert.ok(result.matchedRuleIds.includes('Analytics:google_search:local_fragment'));
+
+  const preserved = clean('https://www.google.com/search?q=swift#section');
+  assert.equal(preserved.status, 'unchanged');
 });
 
 test('Facebook redirect unwrapping', () => {
