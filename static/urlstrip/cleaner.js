@@ -16,6 +16,10 @@
 
   const MAX_REDIRECT_DEPTH = 5;
   const MAX_INPUT_LENGTH = 16 * 1024;
+  const DEFAULT_X_FRONTEND_BASE_URL = 'https://xcancel.com';
+  const DEFAULT_REDDIT_FRONTEND_BASE_URL = 'https://redlib.catsarch.com';
+  const X_HOSTS = new Set(['x.com', 'www.x.com', 'twitter.com', 'www.twitter.com', 'mobile.twitter.com']);
+  const REDDIT_HOSTS = new Set(['reddit.com', 'www.reddit.com', 'old.reddit.com', 'new.reddit.com', 'm.reddit.com', 'np.reddit.com']);
 
   const CATEGORIES = {
     analytics: 'Analytics',
@@ -217,7 +221,76 @@
     return { url, trimmed };
   }
 
-  function performClean(engine, trimmed, depth) {
+  function normalizedFrontendBaseUrl(value, fallback) {
+    const trimmed = String(value || '').trim();
+    let candidate = trimmed;
+    if (!candidate && fallback) candidate = fallback;
+    if (!candidate) return null;
+    if (!candidate.includes('://')) candidate = `https://${candidate}`;
+
+    let frontend;
+    try {
+      frontend = new URL(candidate);
+    } catch (_) {
+      return fallback && fallback !== value ? normalizedFrontendBaseUrl(fallback, null) : null;
+    }
+
+    if (!['http:', 'https:'].includes(frontend.protocol) || frontend.username || frontend.password || frontend.search || frontend.hash) {
+      return fallback && fallback !== value ? normalizedFrontendBaseUrl(fallback, null) : null;
+    }
+
+    frontend.pathname = '';
+    frontend.search = '';
+    frontend.hash = '';
+    const normalized = frontend.toString();
+    return normalized.endsWith('/') ? normalized.slice(0, -1) : normalized;
+  }
+
+  function applyPrivacyRedirect(urlString, settings = {}) {
+    let url;
+    try {
+      url = new URL(urlString);
+    } catch (_) {
+      return null;
+    }
+
+    const host = url.hostname.toLowerCase();
+    let service = null;
+    let frontendBaseUrl = null;
+
+    if (settings.xRedirectEnabled && X_HOSTS.has(host)) {
+      service = 'xTwitter';
+      frontendBaseUrl = normalizedFrontendBaseUrl(settings.xFrontendBaseURL, DEFAULT_X_FRONTEND_BASE_URL);
+    } else if (settings.redditRedirectEnabled && REDDIT_HOSTS.has(host)) {
+      service = 'reddit';
+      frontendBaseUrl = normalizedFrontendBaseUrl(settings.redditFrontendBaseURL, DEFAULT_REDDIT_FRONTEND_BASE_URL);
+    }
+
+    if (!service || !frontendBaseUrl) return null;
+
+    const frontend = new URL(frontendBaseUrl);
+    if (frontend.hostname.toLowerCase() === host) return null;
+
+    url.protocol = frontend.protocol;
+    url.hostname = frontend.hostname;
+    url.port = frontend.port;
+    url.username = '';
+    url.password = '';
+
+    const redirectedUrl = url.toString();
+    if (redirectedUrl === urlString) return null;
+
+    return {
+      redirectedUrl,
+      info: {
+        service,
+        originalHost: host,
+        frontendHost: frontend.hostname.toLowerCase(),
+      },
+    };
+  }
+
+  function performClean(engine, trimmed, depth, options = {}) {
     let currentURL = trimmed;
     const matchedRuleIDs = [];
     const matchedCategories = new Set();
@@ -233,7 +306,7 @@
         matchedRuleIDs.push(`${CATEGORIES.redirectUnwrapping}:${redirect.pattern}`);
 
         if (depth < MAX_REDIRECT_DEPTH) {
-          const inner = performClean(engine, redirect.destination, depth + 1);
+          const inner = performClean(engine, redirect.destination, depth + 1, options);
           if (inner && inner.status === 'cleaned') {
             return {
               ...inner,
@@ -314,27 +387,30 @@
     }
 
     const cleanedString = url.toString();
+    const privacyRedirect = applyPrivacyRedirect(cleanedString, options.privacyRedirectSettings || {});
+    const finalString = privacyRedirect ? privacyRedirect.redirectedUrl : cleanedString;
     const rawRulesApplied = currentURL !== trimmed && removedQueryParameters.length === 0 ? 1 : 0;
-    if (cleanedString === trimmed) return null;
+    if (finalString === trimmed) return null;
 
     return {
       status: 'cleaned',
       originalUrl: trimmed,
-      cleanedUrl: cleanedString,
+      cleanedUrl: finalString,
       paramsRemoved: removedQueryParameters.length + rawRulesApplied,
       removedQueryParameters,
       matchedRuleIds: matchedRuleIDs,
       matchedCategories: Array.from(matchedCategories),
       redirectUnwrapped,
+      privacyRedirect: privacyRedirect ? privacyRedirect.info : null,
     };
   }
 
-  function cleanUrl(engine, input) {
+  function cleanUrl(engine, input, options = {}) {
     if (!engine || !Array.isArray(engine.providers)) throw new Error('URLStrip rules engine is not loaded');
     const parsed = parseInput(input);
     if (parsed.error) return { status: 'invalid', input: parsed.trimmed, reason: parsed.error };
 
-    const result = performClean(engine, parsed.trimmed, 0);
+    const result = performClean(engine, parsed.trimmed, 0, options);
     if (!result) return { status: 'unchanged', originalUrl: parsed.trimmed };
     return result;
   }
@@ -392,6 +468,6 @@
     createEngine,
     loadEngine,
     cleanUrl,
-    _private: { parseInput, categorizeProvider, redditJSChallengeParamsToStrip },
+    _private: { parseInput, categorizeProvider, redditJSChallengeParamsToStrip, applyPrivacyRedirect },
   };
 });

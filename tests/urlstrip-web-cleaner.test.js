@@ -12,6 +12,10 @@ function clean(input) {
   return URLStrip.cleanUrl(engine, input);
 }
 
+function cleanWithPrivacyRewrites(input, settings) {
+  return URLStrip.cleanUrl(engine, input, { privacyRedirectSettings: settings });
+}
+
 function test(name, fn) {
   try {
     fn();
@@ -90,4 +94,41 @@ test('diagnostic hosted rules update parameter is loaded', () => {
   const result = clean('https://example.com/?urlstrip_update_test=1&keep=1');
   assert.equal(result.status, 'cleaned');
   assert.equal(result.cleanedUrl, 'https://example.com/?keep=1');
+});
+
+test('privacy rewrites are disabled by default', () => {
+  const result = clean('https://x.com/tacitalabs/status/123');
+  assert.equal(result.status, 'unchanged');
+});
+
+test('X/Twitter privacy rewrite uses XCancel and preserves path', () => {
+  const result = cleanWithPrivacyRewrites('https://twitter.com/tacitalabs/status/123?utm_source=news', {
+    xRedirectEnabled: true,
+  });
+  assert.equal(result.status, 'cleaned');
+  assert.equal(result.cleanedUrl, 'https://xcancel.com/tacitalabs/status/123');
+  assert.deepEqual(result.removedQueryParameters, ['utm_source']);
+  assert.deepEqual(result.privacyRedirect, {
+    service: 'xTwitter',
+    originalHost: 'twitter.com',
+    frontendHost: 'xcancel.com',
+  });
+});
+
+test('Reddit privacy rewrite uses Redlib and skips redd.it shortlinks', () => {
+  const result = cleanWithPrivacyRewrites('https://old.reddit.com/r/privacy/comments/abc/example/?context=3', {
+    redditRedirectEnabled: true,
+  });
+  assert.equal(result.status, 'cleaned');
+  assert.equal(result.cleanedUrl, 'https://redlib.catsarch.com/r/privacy/comments/abc/example/?context=3');
+  assert.deepEqual(result.privacyRedirect, {
+    service: 'reddit',
+    originalHost: 'old.reddit.com',
+    frontendHost: 'redlib.catsarch.com',
+  });
+
+  const shortlink = cleanWithPrivacyRewrites('https://redd.it/abc123', {
+    redditRedirectEnabled: true,
+  });
+  assert.equal(shortlink.status, 'unchanged');
 });

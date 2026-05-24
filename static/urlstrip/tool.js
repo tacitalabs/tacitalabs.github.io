@@ -15,6 +15,8 @@
   const resultLabel = tool.querySelector('[data-result-label]');
   const resultUrlWrap = tool.querySelector('[data-result-url-wrap]');
   const resultDetails = tool.querySelector('[data-result-details]');
+  const xRewriteToggle = tool.querySelector('[data-privacy-rewrite-x]');
+  const redditRewriteToggle = tool.querySelector('[data-privacy-rewrite-reddit]');
 
   let engine = null;
   let lastCleanedUrl = '';
@@ -76,14 +78,16 @@
     output.value = result.originalUrl;
     lastCleanedUrl = result.originalUrl;
     resultDetails.replaceChildren();
-    appendText(resultDetails, 'p', 'URLStrip did not find known tracking parameters or supported redirect wrappers in this link.');
+    appendText(resultDetails, 'p', 'URLStrip did not find known tracking parameters, supported redirect wrappers, or enabled privacy rewrites in this link.');
   }
 
   function showCleaned(result) {
     resultPanel.hidden = false;
     resultPanel.className = 'tool-result is-cleaned';
     resultUrlWrap.hidden = false;
-    resultLabel.textContent = result.redirectUnwrapped ? 'Redirect unwrapped' : 'Tracking removed';
+    resultLabel.textContent = result.privacyRedirect
+      ? 'Privacy rewrite applied'
+      : (result.redirectUnwrapped ? 'Redirect unwrapped' : 'Tracking removed');
     output.value = result.cleanedUrl;
     lastCleanedUrl = result.cleanedUrl;
     resultDetails.replaceChildren();
@@ -93,6 +97,9 @@
       pieces.push(`${result.removedQueryParameters.length} query parameter${result.removedQueryParameters.length === 1 ? '' : 's'} removed`);
     }
     if (result.redirectUnwrapped) pieces.push('redirect wrapper removed');
+    if (result.privacyRedirect) {
+      pieces.push(`privacy rewrite: ${result.privacyRedirect.originalHost} to ${result.privacyRedirect.frontendHost}`);
+    }
     if (pieces.length === 0) pieces.push('URL cleaned');
     appendText(resultDetails, 'p', pieces.join('; ') + '.');
 
@@ -101,6 +108,13 @@
       appendPills(resultDetails, result.removedQueryParameters);
     }
 
+  }
+
+  function privacyRedirectSettings() {
+    return {
+      xRedirectEnabled: Boolean(xRewriteToggle && xRewriteToggle.checked),
+      redditRedirectEnabled: Boolean(redditRewriteToggle && redditRewriteToggle.checked),
+    };
   }
 
   function showError(message) {
@@ -125,7 +139,7 @@
     }
 
     try {
-      const result = window.URLStripWeb.cleanUrl(engine, value);
+      const result = window.URLStripWeb.cleanUrl(engine, value, { privacyRedirectSettings: privacyRedirectSettings() });
       if (result.status === 'invalid') showInvalid(result);
       else if (result.status === 'unchanged') showUnchanged(result);
       else showCleaned(result);
@@ -140,6 +154,9 @@
   });
 
   cleanButton.addEventListener('click', runClean);
+
+  if (xRewriteToggle) xRewriteToggle.addEventListener('change', runClean);
+  if (redditRewriteToggle) redditRewriteToggle.addEventListener('change', runClean);
 
   clearButton.addEventListener('click', () => {
     input.value = '';
