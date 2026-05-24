@@ -19,6 +19,23 @@
   <section class="tool-panel" aria-labelledby="urlstrip-tool-heading">
     <label class="sr-only" for="urlstrip-input">URL to clean</label>
     <textarea id="urlstrip-input" class="urlstrip-input" rows="5" maxlength="16384" placeholder="https://example.com/article?utm_source=newsletter&fbclid=..."></textarea>
+    <fieldset class="privacy-rewrite-options" aria-label="Privacy rewrite options">
+      <legend>Privacy rewrites</legend>
+      <label class="rewrite-toggle">
+        <input type="checkbox" data-privacy-rewrite-x>
+        <span>
+          <strong>X/Twitter</strong>
+          <small>x.com and twitter.com links rewrite to xcancel.com</small>
+        </span>
+      </label>
+      <label class="rewrite-toggle">
+        <input type="checkbox" data-privacy-rewrite-reddit>
+        <span>
+          <strong>Reddit</strong>
+          <small>reddit.com links rewrite to redlib.catsarch.com</small>
+        </span>
+      </label>
+    </fieldset>
     <div class="tool-actions">
       <button type="button" class="tool-button primary" data-urlstrip-clean>Clean URL</button>
       <button type="button" class="tool-button secondary" data-urlstrip-clear>Clear</button>
