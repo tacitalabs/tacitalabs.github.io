@@ -1,0 +1,39 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.05.24.1",
+  "publishedAt": "2026-05-24T06:36:11.144Z",
+  "sourceSummary": {
+    "clearurls": {
+      "source": "https://github.com/ClearURLs/Rules",
+      "upstreamCommit": null,
+      "reviewedAt": "2026-05-24T06:36:11.144Z"
+    },
+    "urlstripSupplementary": {
+      "version": "2026.05.24.1"
+    }
+  },
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.05.24.1/data.min.json",
+      "sha256": "b328d2a5b95b1b23bac2c91342a8deee3f9a3826a5950bf9e28e332ffd94cd2f",
+      "bytes": 106070
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.05.24.1/urlstrip-supplementary.json",
+      "sha256": "2ee1c230d8fea2d208710de0a50a3cf178449fee43e736ff751004179e32308c",
+      "bytes": 7893
+    }
+  ],
+  "notes": [
+    "Beta channel bootstrap: currently aligned with stable rules.",
+    "Future newly approved rules will land here first for soak before stable promotion.",
+    "Strip Google Search `client` query parameters from shareable search URLs.",
+    "Add app-side Google Search local-result hash cleanup for `lkt`, `lpg`, and `trex` state."
+  ]
+}
