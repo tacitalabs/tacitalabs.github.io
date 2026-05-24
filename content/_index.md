@@ -141,25 +141,25 @@ URLStrip for iOS and iPadOS is currently distributed through Apple's TestFlight 
 {{% card %}}
 **macOS — Universal (Apple Silicon + Intel)**
 
-[Download URLStrip 1.0.2 (Build 17) for macOS](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.0.2/URLStrip-1.0.2-macOS-universal.dmg)
+[Download URLStrip 1.1 (Build 17) for macOS](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.1/URLStrip-1.1-macOS-universal.dmg)
 
-SHA-256: `f053798fd2e193cb5fda6945def2ba4610ff39058c2e6c1a21cdcc5ec09b1083`
+SHA-256: `609e75c15e64d56ec2581001f82b17e8a1915c4123285aed31648448ac5dd2fd`
 
-Verify: `shasum -a 256 URLStrip-1.0.2-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.1-macOS-universal.dmg`
 {{% /card %}}
 
 {{% card %}}
 **Windows — x64**
 
-[Download URLStrip 1.0.2 (Build 17) for Windows](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.0.2/URLStrip_1.0.2_x64-setup.exe)
+[Download URLStrip 1.1 (Build 17) for Windows](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.1/URLStrip_1.1.0_x64-setup.exe)
 
-SHA-256: `736ac14e37d8e6be74d64cda270ca2469e9ca85885b5a7c9480c9a7579aea702`
+SHA-256: `47bd1b4da2a2a6df4c47e2043c615ab0b78c95d5e49a33d7ab4b672796a5011f`
 
-Verify: `certutil -hashfile URLStrip_1.0.2_x64-setup.exe sha256`
+Verify: `certutil -hashfile URLStrip_1.1.0_x64-setup.exe sha256`
 {{% /card %}}
 ---
 
-Full checksum file: [checksums/1.0.2.sha256](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/checksums/1.0.2.sha256)
+Full checksum file: [checksums/1.1.sha256](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/checksums/1.1.sha256)
 
 {{< eyebrow >}}Screenshots{{< /eyebrow >}}
 
