@@ -28,7 +28,7 @@ tester slots.
 
 Native macOS desktop build for Apple Silicon and Intel Macs.
 
-[Download URLStrip 1.0.2 (Build 16) for macOS](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.0.2/URLStrip-1.0.2-macOS-universal.dmg)
+[Download URLStrip 1.0.2 (Build 17) for macOS](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.0.2/URLStrip-1.0.2-macOS-universal.dmg)
 
 SHA-256: `f053798fd2e193cb5fda6945def2ba4610ff39058c2e6c1a21cdcc5ec09b1083`
 
@@ -41,7 +41,7 @@ Verify: `shasum -a 256 URLStrip-1.0.2-macOS-universal.dmg`
 
 Windows desktop release with the same local-cleaning model.
 
-[Download URLStrip 1.0.2 (Build 16) for Windows](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.0.2/URLStrip_1.0.2_x64-setup.exe)
+[Download URLStrip 1.0.2 (Build 17) for Windows](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.0.2/URLStrip_1.0.2_x64-setup.exe)
 
 SHA-256: `736ac14e37d8e6be74d64cda270ca2469e9ca85885b5a7c9480c9a7579aea702`
 
