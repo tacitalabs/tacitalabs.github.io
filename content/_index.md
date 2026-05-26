@@ -128,12 +128,14 @@ Want to try it without installing anything? Use the [browser-based URL cleaner](
 
 ## Free to download and use. {#downloads}
 
-URLStrip for iOS and iPadOS is available as a public TestFlight beta. Current desktop releases are published through the [public URLStrip release repository](https://github.com/tacitalabs/urlstrip) with direct download links and published SHA-256 hashes so people can verify the integrity of what they've downloaded.
+URLStrip for iOS and iPadOS is available on the App Store. The TestFlight beta remains available for people who want the newest builds before they reach the public release. Current desktop releases are published through the [public URLStrip release repository](https://github.com/tacitalabs/urlstrip) with direct download links and published SHA-256 hashes so people can verify the integrity of what they've downloaded.
 
 {{% card %}}
-**iOS / iPadOS — Public TestFlight beta**
+**iOS / iPadOS - App Store**
 
-URLStrip for iOS and iPadOS is currently distributed through Apple's TestFlight beta program. The beta may be full depending on available tester slots.
+Get the public URLStrip release from the App Store. TestFlight stays open for beta testers who want the newest builds.
+
+[Download URLStrip on the App Store](https://apps.apple.com/us/app/urlstrip/id6763483845)
 
 [Join the URLStrip TestFlight beta](https://testflight.apple.com/join/REgaBTbe)
 {{% /card %}}

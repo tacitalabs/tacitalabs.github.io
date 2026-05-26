@@ -1,23 +1,26 @@
 ---
 title: "Download URLStrip - Tacita Labs"
-description: "Download URLStrip for iOS/iPadOS, macOS, and Windows. The iOS and iPadOS app is available as a public TestFlight beta, and desktop releases include direct links and published SHA-256 hashes."
+description: "Download URLStrip for iOS/iPadOS, macOS, and Windows. The iOS and iPadOS app is available on the App Store, TestFlight remains available for beta builds, and desktop releases include direct links and published SHA-256 hashes."
 url: "/download.html"
 ---
 
 # Free to download and use.
 
-URLStrip for iOS and iPadOS is available as a public TestFlight beta.
-Current desktop releases are published through the [public URLStrip
+URLStrip for iOS and iPadOS is available on the App Store. TestFlight
+remains available for people who want the newest beta builds. Current
+desktop releases are published through the [public URLStrip
 release repository](https://github.com/tacitalabs/urlstrip) with direct
 download links and published SHA-256 hashes so people can verify the
 integrity of what they've downloaded.
 
 {{% card %}}
-## iOS / iPadOS — Public TestFlight beta
+## iOS / iPadOS - App Store
 
-URLStrip for iOS and iPadOS is currently distributed through Apple's
-TestFlight beta program. The beta may be full depending on available
-tester slots.
+Get the public URLStrip release from the App Store. TestFlight stays
+open for beta testers who want the newest builds before they reach the
+public release.
+
+[Download URLStrip on the App Store](https://apps.apple.com/us/app/urlstrip/id6763483845)
 
 [Join the URLStrip TestFlight beta](https://testflight.apple.com/join/REgaBTbe)
 
