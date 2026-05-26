@@ -175,35 +175,30 @@ Real screenshots. No invented UI, no glossy mockups. Desktop stays lightweight a
 *macOS onboarding and first-run explanation.*
 {{% /split-card %}}
 {{% split-card %}}
-![URLStrip iPhone home screen](/assets/ios-clean-home.png?class=small)
-*iPhone home view with quick cleanup and local visibility.*
+![URLStrip iPhone home screen](/assets/ios-appstore-home.png?class=small)
+*iPhone home view from the App Store release.*
 {{% /split-card %}}
 {{< split-end >}}
 
 {{< carousel >}}
-{{< carousel-slide src="/assets/ios-stats-overview.png"
-alt="URLStrip iPhone statistics overview"
+{{< carousel-slide src="/assets/ios-appstore-cleaned-link.png"
+alt="URLStrip iPhone cleaned link screen"
+caption="URLStrip shows what it removed and keeps the cleaned destination easy to copy or share."
+max-height="650px" >}}
+
+{{< carousel-slide src="/assets/ios-appstore-home.png"
+alt="URLStrip iPhone home screen"
+caption="The main screen keeps cleanup, recent activity, and the last cleaned link in one place."
+max-height="650px" >}}
+
+{{< carousel-slide src="/assets/ios-appstore-statistics.png"
+alt="URLStrip iPhone statistics screen"
 caption="Local-only statistics help users understand what URLStrip is removing."
 max-height="650px" >}}
 
-{{< carousel-slide src="/assets/ios-stats-breakdown.png"
-alt="URLStrip iPhone statistics breakdown"
-caption="Category breakdown shows where tracking junk is coming from."
-max-height="650px" >}}
-
-{{< carousel-slide src="/assets/ios-settings-main.png"
+{{< carousel-slide src="/assets/ios-appstore-settings.png"
 alt="URLStrip iPhone settings screen"
-caption="Settings give users control over rule categories and URL safety behavior."
-max-height="650px" >}}
-
-{{< carousel-slide src="/assets/ios-quick-intro.png"
-alt="URLStrip iPhone quick intro screen"
-caption="Quick intro explains the privacy model in plain language."
-max-height="650px" >}}
-
-{{< carousel-slide src="/assets/ios-how-it-works.png"
-alt="URLStrip iPhone how it works screen"
-caption="The in-app explanation covers what URLStrip removes, what it keeps, and why."
+caption="Settings give users control over URL safety checks, privacy redirects, and rule behavior."
 max-height="650px" >}}
 {{< /carousel >}}
 
