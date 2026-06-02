@@ -145,9 +145,12 @@ Get the public URLStrip release from the App Store. TestFlight stays open for be
 
 [Download URLStrip 1.1 (Build 17) for macOS](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.1/URLStrip-1.1-macOS-universal.dmg)
 
-SHA-256: `609e75c15e64d56ec2581001f82b17e8a1915c4123285aed31648448ac5dd2fd`
+SHA-256: `d355f3c71552a1acffe465ec19a1378ef8187496df4bcd501ef08f5a94d1be20`
 
 Verify: `shasum -a 256 URLStrip-1.1-macOS-universal.dmg`
+
+Includes an optional macOS command-line tool. Install it from **Advanced
+Settings** in the app.
 {{% /card %}}
 
 {{% card %}}
