@@ -268,5 +268,5 @@ Because too many privacy products solve one problem by creating another. Tacita 
 {{% card %}}
 ## Contact {#contact}
 
-For product questions, feedback, or general inquiries, reach out at [hello@tacitalabs.com](mailto:hello@tacitalabs.com).
+For product questions, feedback, or general inquiries, reach out at [hello@tacitalabs.com](mailto:hello@tacitalabs.com) or follow [Tacita Labs on X](https://xcancel.com/TacitaLabs).
 {{% /card %}}
