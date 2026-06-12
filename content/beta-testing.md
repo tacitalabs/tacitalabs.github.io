@@ -11,10 +11,12 @@ save, copy, or share them. This guide explains what to test, what to
 report, and what to expect during the beta.
 
 URLStrip cleans links locally. Optional missed-tracker reports only
-send information to Tacita Labs if you choose to send them.
+send information to Tacita Labs if you choose to send them. On iOS and
+iPadOS, URLStrip links to the FAQ instead of generating an in-app email
+report.
 
 [Download URLStrip](/download.html) · [How to report
-issues](#what-to-report)
+issues](#what-to-report) · [Missed-parameter FAQ](/faq.html#report-missed-parameter)
 
 ## Install the beta
 
@@ -53,7 +55,7 @@ Try URLStrip with real links from:
 - The app explains what changed clearly.
 - Copy, share, and restore actions do what they say.
 - The workflow feels safe enough to trust with real links.
-- Missed-tracker reporting is understandable when available.
+- Missed-parameter reporting guidance is easy to find.
 
 ## iOS / iPadOS flows
 
@@ -65,6 +67,8 @@ Try URLStrip with real links from:
   Extensions, then test it from Safari's extension controls.
 - **QR flow:** scan a QR code or import a QR-code image from Photos and
   confirm URLStrip shows and cleans the destination.
+- **Missed parameters:** confirm the app links to the website FAQ for
+  reporting guidance.
 - **Widget / system integration:** add the widget if available and
   confirm the behavior makes sense.
 
@@ -109,7 +113,7 @@ High-value feedback includes:
 - A screen or explanation felt confusing.
 - You hesitated because the app did not make clear what it changed.
 - QR scanning or QR image import failed.
-- Report Missed Tracker failed or produced a confusing report.
+- Missed-parameter reporting guidance was hard to find or confusing.
 
 ## What to include in a report
 
@@ -139,8 +143,10 @@ High-value feedback includes:
 - Safari Extension behavior may vary by iOS or iPadOS version.
 - macOS and Windows security prompts may vary depending on
   build/signing state.
-- Report Missed Tracker depends on the reporting surface and local
-  email/share configuration.
+- iOS and iPadOS link to the website FAQ instead of generating an
+  in-app missed-parameter email report.
+- macOS and Windows missed-tracker reporting depends on the reporting
+  surface and local email/share configuration.
 - Disabled domains and other beta behavior may be local to each device.
 - TestFlight may collect crash logs, screenshots, beta feedback,
   diagnostics, and device details under Apple's terms for iOS/iPadOS

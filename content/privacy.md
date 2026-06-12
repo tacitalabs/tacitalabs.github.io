@@ -35,9 +35,10 @@ tracking](/tracking-methodology.html).
 
 ## Optional issue reports
 
-URLStrip may let you report a missed tracker or product issue by
-sending an email to Tacita Labs. That report is optional and is only
-sent if you choose to send it.
+URLStrip may let you report a missed tracker or product issue to
+Tacita Labs. On macOS and Windows, that may be available through a
+built-in report flow. On iOS and iPadOS, URLStrip links to the website
+FAQ instead of generating an in-app email report.
 
 An issue report may include:
 
@@ -47,9 +48,10 @@ An issue report may include:
 - Basic app/platform details needed to debug the issue.
 - Anything else you choose to write in the email.
 
-We use those reports to fix rules, improve URLStrip, and respond to
-you if a response is needed. We do not use issue reports to build
-advertising profiles or sell data.
+Reports are optional and are only sent if you choose to send them. We
+use those reports to fix rules, improve URLStrip, and respond to you if
+a response is needed. We do not use issue reports to build advertising
+profiles or sell data.
 
 {{% /card %}}
 {{% card %}}
@@ -105,6 +107,7 @@ your email for unrelated marketing.
 
 For privacy questions, contact
 [hello@tacitalabs.com](mailto:hello@tacitalabs.com). For missed
-tracker reports, use the reporting flow in URLStrip or email
+tracker reports, see the
+[missed-parameter FAQ](/faq.html#report-missed-parameter) or email
 [submissions@tacitalabs.com](mailto:submissions@tacitalabs.com).
 {{% /card %}}
