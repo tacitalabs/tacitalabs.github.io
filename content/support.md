@@ -14,15 +14,20 @@ URLStrip is built to be simple, entirely local, and have verifiable output. If s
 
 For general URLStrip support, email [hello@tacitalabs.com](mailto:hello@tacitalabs.com).
 
-If you are reporting a missed tracker, use URLStrip's built-in **Report** feature.
+If you are reporting a missed tracker, see the
+[missed-parameter FAQ](/faq.html#report-missed-parameter) or email
+[submissions@tacitalabs.com](mailto:submissions@tacitalabs.com).
 
 {{% /card %}}
 
 ## Report a missed tracker
 
-If URLStrip leaves tracking parameters behind, you can report the link from inside the app. A missed-tracker report is optional and only sends if you choose to send it.
+If URLStrip leaves tracking parameters behind, you can report the link
+by email. On macOS and Windows, URLStrip may also offer a built-in
+reporting flow. On iOS and iPadOS, URLStrip links to the website FAQ
+instead of generating an in-app email report.
 
-Using the built-in reporting system will share the following information:
+Useful reports include:
 
 - The original URL.
 - The cleaned URL URLStrip produced.
@@ -35,7 +40,7 @@ Using the built-in reporting system will share the following information:
 
 Additionally, it is recommended that you include information on what was missed and how you know it is a tracking parameter.
 
-You can also email missed-tracker reports to [submissions@tacitalabs.com](mailto:submissions@tacitalabs.com) using the built-in reporter.
+Email missed-tracker reports to [submissions@tacitalabs.com](mailto:submissions@tacitalabs.com).
 
 **Please do not send links that contain private information unless you are comfortable sharing them for debugging**.
 

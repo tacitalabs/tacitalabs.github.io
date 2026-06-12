@@ -255,16 +255,37 @@ That prompt is an iOS privacy control, not a URLStrip setting. Apple requires ap
 {{< split-begin >}}
 {{% split-card %}}
 
+**How do I report a missed parameter?**
+
+On iOS and iPadOS, URLStrip links to the FAQ instead of generating an
+in-app email report. On macOS and Windows, use the built-in report flow
+where available. Either way, the reporting details live in the
+[missed-parameter FAQ](/faq.html#report-missed-parameter).
+
+{{% /split-card %}}
+{{% split-card %}}
+
 **Where do the rules come from?**
 
 URLStrip is grounded in the upstream ClearURLs ruleset and extended with additional maintained coverage where that improves practical results.
 
 {{% /split-card %}}
+{{< split-end >}}
+
+{{< split-begin >}}
 {{% split-card %}}
 
 **Why make another privacy tool?**
 
 Because too many privacy products solve one problem by creating another. Tacita Labs is focused on reducing exposure without demanding more of your data in return.
+{{% /split-card %}}
+{{% split-card %}}
+
+**Need the full FAQ?**
+
+See the [URLStrip FAQ](/faq.html) for privacy, link safety, and
+missed-parameter reporting details.
+
 {{% /split-card %}}
 {{< split-end >}}
 
