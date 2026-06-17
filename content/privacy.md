@@ -10,7 +10,7 @@ URLStrip removes tracking junk from links on your device. We do not run
 a link-cleaning cloud service, we do not require an account, and we do
 not collect your browsing history or link history.
 
-*Last updated: April 24, 2026*
+*Last updated: June 17, 2026*
 
 {{% card %}}
 ## URLStrip, the app
@@ -33,12 +33,17 @@ tracking](/tracking-methodology.html).
 {{% /card %}}
 {{% card %}}
 
-## Optional issue reports
+## Optional issue reports and support
 
-URLStrip may let you report a missed tracker or product issue to
-Tacita Labs. On macOS and Windows, that may be available through a
-built-in report flow. On iOS and iPadOS, URLStrip links to the website
-FAQ instead of generating an in-app email report.
+URLStrip for iOS and iPadOS cleans URLs locally on your device. It
+does not send missed-tracker reports from inside the app, generate
+in-app email reports, or create shareable report bodies. If URLStrip
+misses a parameter on iOS or iPadOS, the app may link you to Tacita
+Labs support or FAQ pages, where you can choose to contact us
+separately.
+
+On macOS and Windows, URLStrip may offer a built-in issue-reporting
+flow. You can also choose to email Tacita Labs directly.
 
 An issue report may include:
 
@@ -48,10 +53,10 @@ An issue report may include:
 - Basic app/platform details needed to debug the issue.
 - Anything else you choose to write in the email.
 
-Reports are optional and are only sent if you choose to send them. We
-use those reports to fix rules, improve URLStrip, and respond to you if
-a response is needed. We do not use issue reports to build advertising
-profiles or sell data.
+Issue reports and support emails are optional. Tacita Labs only
+receives them if you choose to send them. We use those reports to fix
+rules, improve URLStrip, and respond to you if a response is needed. We
+do not use issue reports to build advertising profiles or sell data.
 
 {{% /card %}}
 {{% card %}}

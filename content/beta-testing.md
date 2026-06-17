@@ -10,10 +10,11 @@ URLStrip removes known tracking parameters from links before you open,
 save, copy, or share them. This guide explains what to test, what to
 report, and what to expect during the beta.
 
-URLStrip cleans links locally. Optional missed-tracker reports only
-send information to Tacita Labs if you choose to send them. On iOS and
-iPadOS, URLStrip links to the FAQ instead of generating an in-app email
-report.
+URLStrip cleans links locally. Where a platform offers
+missed-tracker reporting, reports only send information to Tacita Labs
+if you choose to send them. On iOS and iPadOS, URLStrip links to the
+FAQ instead of generating an in-app email report, mailto report, or
+shareable report body.
 
 [Download URLStrip](/download.html) · [How to report
 issues](#what-to-report) · [Missed-parameter FAQ](/faq.html#report-missed-parameter)
@@ -144,7 +145,8 @@ High-value feedback includes:
 - macOS and Windows security prompts may vary depending on
   build/signing state.
 - iOS and iPadOS link to the website FAQ instead of generating an
-  in-app missed-parameter email report.
+  in-app missed-parameter email report, mailto report, or shareable
+  report body.
 - macOS and Windows missed-tracker reporting depends on the reporting
   surface and local email/share configuration.
 - Disabled domains and other beta behavior may be local to each device.

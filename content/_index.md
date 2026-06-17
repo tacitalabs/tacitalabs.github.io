@@ -258,8 +258,9 @@ That prompt is an iOS privacy control, not a URLStrip setting. Apple requires ap
 **How do I report a missed parameter?**
 
 On iOS and iPadOS, URLStrip links to the FAQ instead of generating an
-in-app email report. On macOS and Windows, use the built-in report flow
-where available. Either way, the reporting details live in the
+in-app email report, mailto report, or shareable report body. On macOS
+and Windows, use the built-in report flow where available. Either way,
+the reporting details live in the
 [missed-parameter FAQ](/faq.html#report-missed-parameter).
 
 {{% /split-card %}}

@@ -24,8 +24,9 @@ If you are reporting a missed tracker, see the
 
 If URLStrip leaves tracking parameters behind, you can report the link
 by email. On macOS and Windows, URLStrip may also offer a built-in
-reporting flow. On iOS and iPadOS, URLStrip links to the website FAQ
-instead of generating an in-app email report.
+reporting flow. On iOS and iPadOS, URLStrip links to this website for
+reporting guidance instead of generating an in-app email report,
+mailto report, or shareable report body.
 
 Useful reports include:
 
@@ -52,13 +53,13 @@ If you encounter a problem, please check the following prior to submitting a sup
 - If the Safari Extension is not working, confirm it is enabled in **System Settings > Safari > Extensions > URLStrip**.
 - If QR scanning does not work, confirm camera access is allowed for URLStrip.
 - If QR image import does not work, confirm photo access is allowed.
-- If a link does not change after cleaning, it may not contain tracking parameters URLStrip currently recognizes and submitting a missed tracker report is preferred.
+- If a link does not change after cleaning, it may not contain tracking parameters URLStrip currently recognizes. If you think URLStrip missed something, send a missed tracker report manually.
 
 ## Privacy note
 
 URL cleaning happens on your device. URLStrip does not require an account, does not use a cloud link-cleaning service, and does not collect your browsing history or cleaned-link history.
 
-Support emails and missed-tracker reports are different: if you choose to send one, Tacita Labs receives the information included in that message so we can respond or improve URLStrip.
+Support emails and missed-tracker reports are different from normal URL cleaning. Normal URL cleaning stays on your device. If you choose to send an email, Tacita Labs receives the information included in that message so we can respond or improve URLStrip.
 
 Read the full [Privacy Policy](/privacy.html).
 

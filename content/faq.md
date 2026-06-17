@@ -55,8 +55,9 @@ Include whatever you can from this list:
 - What URLStrip actually did.
 
 On iOS and iPadOS, URLStrip links here instead of generating an in-app
-report. That keeps the app's privacy footprint cleaner while still
-giving users a way to send useful examples.
+email report, mailto report, or shareable report body. That keeps the
+app's privacy footprint cleaner while still giving users a manual way
+to send useful examples.
 
 {{% /card %}}
 {{% card %}}
