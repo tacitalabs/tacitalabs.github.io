@@ -33,7 +33,7 @@ Native macOS desktop build for Apple Silicon and Intel Macs.
 
 [Download URLStrip 1.1 (Build 17) for macOS](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.1/URLStrip-1.1-macOS-universal.dmg)
 
-SHA-256: `d355f3c71552a1acffe465ec19a1378ef8187496df4bcd501ef08f5a94d1be20`
+SHA-256: `a831344f1078a02f04c9b3ccaf0e23a98c4c72fd45913575028ca3b46eb3f84a`
 
 Verify: `shasum -a 256 URLStrip-1.1-macOS-universal.dmg`
 
