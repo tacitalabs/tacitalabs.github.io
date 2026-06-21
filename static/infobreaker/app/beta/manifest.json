@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "product": "infobreaker-app",
   "channel": "beta",
-  "version": "1.0.0-beta.3",
-  "publishedAt": "2026-06-21T23:02:00.000Z",
+  "version": "1.0.0-beta.4",
+  "publishedAt": "2026-06-21T23:25:08.765Z",
   "notes": [
-    "Rebuilds the Windows installer with a visible setup wizard and early startup crash logging."
+    "Windows portable build that bypasses the crashing NSIS installer bootstrapper; macOS remains on beta.2."
   ],
   "artifacts": [
     {
@@ -18,9 +18,9 @@
     {
       "platform": "win32",
       "arch": "x64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.3/Infobreaker-1.0.0-beta.3-x64.exe",
-      "sha256": "df40ba8a8218685fd79de351fb8c391e7eb917718c037cfedf85e37aab8391df",
-      "sizeBytes": 138489827
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.4/Infobreaker-1.0.0-beta.4-x64-portable.zip",
+      "sha256": "47dacc236a9584ce2f3fc4080aa78062e920b6a15a2cd3d7255a3e90c18a0281",
+      "sizeBytes": 196073607
     }
   ]
 }
