@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "product": "infobreaker-app",
   "channel": "beta",
-  "version": "1.0.0-beta.2",
-  "publishedAt": "2026-06-21T22:23:03.627Z",
+  "version": "1.0.0-beta.3",
+  "publishedAt": "2026-06-21T23:02:00.000Z",
   "notes": [
-    "Adds separate app update checks, semver-safe prerelease detection, and dynamic broker catalog metadata for automation updates."
+    "Rebuilds the Windows installer with a visible setup wizard and early startup crash logging."
   ],
   "artifacts": [
     {
@@ -18,9 +18,9 @@
     {
       "platform": "win32",
       "arch": "x64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.2/Infobreaker-1.0.0-beta.2-x64.exe",
-      "sha256": "67212b207bf2a6a9984ea87ca3233c39bd700e3a75d38d582c46d2b09eb9fd1c",
-      "sizeBytes": 138432857
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.3/Infobreaker-1.0.0-beta.3-x64.exe",
+      "sha256": "df40ba8a8218685fd79de351fb8c391e7eb917718c037cfedf85e37aab8391df",
+      "sizeBytes": 138489827
     }
   ]
 }
