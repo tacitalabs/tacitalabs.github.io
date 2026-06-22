@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "product": "infobreaker-app",
   "channel": "beta",
-  "version": "1.0.0-beta.4",
-  "publishedAt": "2026-06-21T23:25:08.765Z",
+  "version": "1.0.0-beta.5",
+  "publishedAt": "2026-06-22T01:02:00.000Z",
   "notes": [
-    "Windows portable build that bypasses the crashing NSIS installer bootstrapper; macOS remains on beta.2."
+    "Windows portable hotfix: scan preflight no longer blocks when Windows cannot inspect external automation processes; macOS remains on beta.2."
   ],
   "artifacts": [
     {
@@ -18,9 +18,9 @@
     {
       "platform": "win32",
       "arch": "x64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.4/Infobreaker-1.0.0-beta.4-x64-portable.zip",
-      "sha256": "47dacc236a9584ce2f3fc4080aa78062e920b6a15a2cd3d7255a3e90c18a0281",
-      "sizeBytes": 196073607
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.5/Infobreaker-1.0.0-beta.5-x64-portable.zip",
+      "sha256": "8a546d8056e0454973da592ab5e9d34b268130906e33dbdc8cca96bb97a0184d",
+      "sizeBytes": 196073692
     }
   ]
 }
