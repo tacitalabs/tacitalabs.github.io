@@ -333,11 +333,13 @@ Output lands in `public/`. That directory is gitignored.
 ## Deployment (GitHub Pages)
 
 The Hugo build is deployed by `.github/workflows/hugo.yml`. Every push
-to `main` rebuilds the site and publishes it.
+to `main` runs the URLStrip cleaner tests, rebuilds the site, and
+force-publishes the generated `public/` output to the `gh-pages` branch.
 
 For the Pages source to work, *Settings → Pages → Source* in the GitHub
-UI must be set to **GitHub Actions** (not "Deploy from a branch"). The
-`static/CNAME` keeps `www.tacitalabs.com` pointed at the new build.
+UI must be set to **Deploy from a branch**, with branch `gh-pages` and
+folder `/`. The `static/CNAME` keeps `www.tacitalabs.com` pointed at the
+new build.
 
 After a deploy, sanity-check:
 
@@ -376,4 +378,3 @@ hugo new content/whatever.md
 That stamps `archetypes/default.md` into a new file. Set `title:`,
 `description:`, and `url: "/whatever.html"` in the front matter, then
 write the body.
-
