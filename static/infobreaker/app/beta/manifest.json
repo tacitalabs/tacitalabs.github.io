@@ -2,25 +2,27 @@
   "schemaVersion": 1,
   "product": "infobreaker-app",
   "channel": "beta",
-  "version": "1.0.0-beta.5",
-  "publishedAt": "2026-06-22T01:02:00.000Z",
+  "version": "1.0.0-beta.15",
+  "publishedAt": "2026-06-24T16:05:52.000Z",
   "notes": [
-    "Windows portable hotfix: scan preflight no longer blocks when Windows cannot inspect external automation processes; macOS remains on beta.2."
+    "Validated tester build promoted after macOS and Windows packaged runtime QA.",
+    "Adds macOS beta.15 DMG and Windows beta.15 portable ZIP.",
+    "Includes debug run logs, support bundle redaction, clearer scan issue counts, secure-storage wording, bundled Windows Node runtime, and guided removal handoff fixes."
   ],
   "artifacts": [
     {
       "platform": "darwin",
       "arch": "arm64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.2/Infobreaker-1.0.0-beta.2-arm64.dmg",
-      "sha256": "9e17f7818e80e10e59a4f65ec40b114e4596a36c6c5f13eb3462421dece5a627",
-      "sizeBytes": 173651143
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.15/Infobreaker-1.0.0-beta.15-arm64.dmg",
+      "sha256": "70e75b0bb394a6512e54ceaeb102d4c28e4287f6f3dac4f7db99c7aac988bac8",
+      "sizeBytes": 173669066
     },
     {
       "platform": "win32",
       "arch": "x64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.5/Infobreaker-1.0.0-beta.5-x64-portable.zip",
-      "sha256": "8a546d8056e0454973da592ab5e9d34b268130906e33dbdc8cca96bb97a0184d",
-      "sizeBytes": 196073692
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.15/Infobreaker-1.0.0-beta.15-x64-portable.zip",
+      "sha256": "9f3404af32b1a6d1dfca911fbf42c6365d6b099d3bddadda5ccd4fe77ddb4a4e",
+      "sizeBytes": 196083101
     }
   ]
 }

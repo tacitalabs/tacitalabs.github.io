@@ -23,13 +23,13 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 <div class="beta-status-grid">
 <section class="beta-panel">
 <p class="beta-kicker">Current tester download</p>
-<p class="beta-version">Public beta feed: app 1.0.0-beta.5</p>
+<p class="beta-version">Public beta feed: app 1.0.0-beta.15</p>
 
 <ul class="beta-status-list">
-<li><strong>macOS public download:</strong> beta.2 DMG, Apple Silicon only.</li>
-<li><strong>Windows public download:</strong> beta.5 portable ZIP, x64 only.</li>
+<li><strong>macOS public download:</strong> beta.15 DMG, Apple Silicon only.</li>
+<li><strong>Windows public download:</strong> beta.15 portable ZIP, x64 only.</li>
 <li><strong>Automation bundle:</strong> beta.2 broker catalog.</li>
-<li><strong>Latest QA build:</strong> beta.15 passed macOS and Windows validation on June 23-24, 2026, but has not been promoted to the public beta feed yet.</li>
+<li><strong>QA status:</strong> beta.15 passed macOS and Windows validation on June 23-24, 2026.</li>
 </ul>
 
 <p>After a new build is promoted, this section should be the only part repeat testers need to re-read.</p>
@@ -38,10 +38,13 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 <section class="beta-panel">
 <p class="beta-kicker">What changed lately</p>
 <ul class="beta-status-list">
+<li>macOS and Windows are now both on beta.15.</li>
+<li>Windows packaged scans use the bundled Windows Node runtime instead of depending on a tester's system Node.</li>
 <li>Windows portable scan preflight no longer blocks when Windows cannot inspect external automation processes.</li>
 <li>Profile storage wording now says operating system secure storage instead of system keychain.</li>
 <li>Scan issue counts distinguish broker issues from per-check failures.</li>
 <li>Debug run logs and redacted support bundles are available from Settings.</li>
+<li>Guided removal handoff behavior is clearer after accepted opt-out previews.</li>
 </ul>
 </section>
 </div>
@@ -49,14 +52,14 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 <div class="beta-downloads">
 <section class="beta-download-card">
 <p><strong>macOS beta</strong> - Apple Silicon DMG</p>
-<p><a href="https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.2/Infobreaker-1.0.0-beta.2-arm64.dmg">Download Infobreaker 1.0.0-beta.2 for macOS</a></p>
-<p class="beta-hash">SHA-256: 9e17f7818e80e10e59a4f65ec40b114e4596a36c6c5f13eb3462421dece5a627</p>
+<p><a href="https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.15/Infobreaker-1.0.0-beta.15-arm64.dmg">Download Infobreaker 1.0.0-beta.15 for macOS</a></p>
+<p class="beta-hash">SHA-256: 70e75b0bb394a6512e54ceaeb102d4c28e4287f6f3dac4f7db99c7aac988bac8</p>
 </section>
 
 <section class="beta-download-card">
 <p><strong>Windows beta</strong> - x64 portable ZIP</p>
-<p><a href="https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.5/Infobreaker-1.0.0-beta.5-x64-portable.zip">Download Infobreaker 1.0.0-beta.5 for Windows</a></p>
-<p class="beta-hash">SHA-256: 8a546d8056e0454973da592ab5e9d34b268130906e33dbdc8cca96bb97a0184d</p>
+<p><a href="https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.15/Infobreaker-1.0.0-beta.15-x64-portable.zip">Download Infobreaker 1.0.0-beta.15 for Windows</a></p>
+<p class="beta-hash">SHA-256: 9f3404af32b1a6d1dfca911fbf42c6365d6b099d3bddadda5ccd4fe77ddb4a4e</p>
 </section>
 </div>
 
@@ -318,6 +321,6 @@ Things to test:
 
 ## Known Gaps
 
-The only intentional gap is direct beta.15 download links. The page should be updated when beta.15 is promoted to the public GitHub release and app beta manifest. That update should change the status block, direct downloads, SHA-256 values, and "what changed lately" notes.
+The Windows build is currently distributed as a portable ZIP, not an installer. The NSIS installer path is parked until it behaves reliably on real Windows systems.
 
 Current beta testers should use the downloads at the top of this page unless Jim sends a newer build directly.
