@@ -41,6 +41,7 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 <ul class="beta-status-list">
 <li><strong>Automation bundle:</strong> beta.2 broker catalog.</li>
 <li><strong>QA status:</strong> beta.15 passed macOS universal packaging checks and Windows validation on June 23-24, 2026.</li>
+<li><strong>Privacy posture:</strong> local-first by default. Reports are optional and should be reviewed before sending.</li>
 </ul>
 
 <p>After a new build is promoted, this section should be the only part repeat testers need to re-read.</p>
@@ -63,6 +64,30 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 
 <div class="beta-callout beta-warning">
 <strong>Beta warning:</strong> Infobreaker is not finished. It can miss listings, flag weak matches, hit broker-side blocks, or require human action for opt-out forms. Do not assume a broker listing is gone until the monitoring workflow confirms it.
+</div>
+
+## Install Notes
+
+<div class="beta-card-grid">
+<section class="beta-panel">
+<p class="beta-kicker">macOS</p>
+<ul>
+<li>Download the universal DMG. It supports Intel and Apple Silicon Macs.</li>
+<li>Open the DMG and drag Infobreaker to Applications.</li>
+<li>If macOS warns that the app was downloaded from the internet, choose Open. The DMG is signed, notarized, and stapled.</li>
+<li>If you already tested an older beta, quit Infobreaker before replacing it.</li>
+</ul>
+</section>
+
+<section class="beta-panel">
+<p class="beta-kicker">Windows</p>
+<ul>
+<li>Download the x64 portable ZIP.</li>
+<li>Extract the ZIP before running Infobreaker. Running from inside the ZIP can break bundled runtime paths.</li>
+<li>Start Infobreaker from the extracted folder.</li>
+<li>Windows may show a SmartScreen warning because this beta is not shipped as a signed installer yet.</li>
+</ul>
+</section>
 </div>
 
 ## Short Tester Guide
@@ -167,6 +192,8 @@ Attachments: screenshot, redacted support report, or screen recording
 </div>
 
 High-value screenshots show the full app window and the current tab. For privacy, crop or blur anything you do not want to share.
+
+Do not send raw debug folders unless Jim or Tacita Labs asks for them. Use **Report Latest** first because it creates the redacted support copy.
 
 ## App Overview
 
@@ -319,6 +346,12 @@ Things to test:
 
 ## Known Gaps
 
-The Windows build is currently distributed as a portable ZIP, not an installer. The NSIS installer path is parked until it behaves reliably on real Windows systems.
+Infobreaker is still a beta, and these are the known rough edges testers should expect:
+
+- The Windows build is distributed as a portable ZIP, not an installer. The NSIS installer path is parked until it behaves reliably on real Windows systems.
+- Some brokers block automation, show CAPTCHAs, delay removals, or require email confirmation.
+- The app can find weak or wrong matches. Review decisions matter.
+- The automation bundle is still beta.2 while the app shell is beta.15.
+- Removal verification is not instant. Monitoring may need later rechecks before a listing can be called removed.
 
 Current beta testers should use the downloads at the top of this page unless Jim sends a newer build directly.
