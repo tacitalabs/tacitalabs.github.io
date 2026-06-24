@@ -6,16 +6,24 @@
   "publishedAt": "2026-06-24T16:05:52.000Z",
   "notes": [
     "Validated tester build promoted after macOS and Windows packaged runtime QA.",
-    "Adds macOS beta.15 DMG and Windows beta.15 portable ZIP.",
+    "Replaces the macOS beta.15 Apple Silicon-only DMG with a universal Intel + Apple Silicon DMG.",
+    "Keeps the Windows beta.15 portable ZIP available for Windows x64 testers.",
     "Includes debug run logs, support bundle redaction, clearer scan issue counts, secure-storage wording, bundled Windows Node runtime, and guided removal handoff fixes."
   ],
   "artifacts": [
     {
       "platform": "darwin",
       "arch": "arm64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.15/Infobreaker-1.0.0-beta.15-arm64.dmg",
-      "sha256": "70e75b0bb394a6512e54ceaeb102d4c28e4287f6f3dac4f7db99c7aac988bac8",
-      "sizeBytes": 173669066
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.15/Infobreaker-1.0.0-beta.15-universal.dmg",
+      "sha256": "5f87a2d8dfb0c91ace1caeb860772f0d8750edc506d73893235b75d739a1d444",
+      "sizeBytes": 316455681
+    },
+    {
+      "platform": "darwin",
+      "arch": "x64",
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.15/Infobreaker-1.0.0-beta.15-universal.dmg",
+      "sha256": "5f87a2d8dfb0c91ace1caeb860772f0d8750edc506d73893235b75d739a1d444",
+      "sizeBytes": 316455681
     },
     {
       "platform": "win32",

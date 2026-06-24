@@ -27,9 +27,9 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 
 <ul class="beta-download-list">
 <li>
-<strong>macOS public download:</strong> Apple Silicon DMG<br>
-<a href="https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.15/Infobreaker-1.0.0-beta.15-arm64.dmg">Download Infobreaker 1.0.0-beta.15 for macOS</a>
-<span class="beta-hash">SHA-256: 70e75b0bb394a6512e54ceaeb102d4c28e4287f6f3dac4f7db99c7aac988bac8</span>
+<strong>macOS public download:</strong> universal DMG for Intel and Apple Silicon<br>
+<a href="https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.15/Infobreaker-1.0.0-beta.15-universal.dmg">Download Infobreaker 1.0.0-beta.15 for macOS</a>
+<span class="beta-hash">SHA-256: 5f87a2d8dfb0c91ace1caeb860772f0d8750edc506d73893235b75d739a1d444</span>
 </li>
 <li>
 <strong>Windows public download:</strong> x64 portable ZIP<br>
@@ -40,7 +40,7 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 
 <ul class="beta-status-list">
 <li><strong>Automation bundle:</strong> beta.2 broker catalog.</li>
-<li><strong>QA status:</strong> beta.15 passed macOS and Windows validation on June 23-24, 2026.</li>
+<li><strong>QA status:</strong> beta.15 passed macOS universal packaging checks and Windows validation on June 23-24, 2026.</li>
 </ul>
 
 <p>After a new build is promoted, this section should be the only part repeat testers need to re-read.</p>
@@ -49,6 +49,7 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 <section class="beta-panel">
 <p class="beta-kicker">What changed lately</p>
 <ul class="beta-status-list">
+<li>The macOS tester DMG is now universal for Intel and Apple Silicon Macs.</li>
 <li>macOS and Windows are now both on beta.15.</li>
 <li>Windows packaged scans use the bundled Windows Node runtime instead of depending on a tester's system Node.</li>
 <li>Windows portable scan preflight no longer blocks when Windows cannot inspect external automation processes.</li>
