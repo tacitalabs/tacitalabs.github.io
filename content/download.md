@@ -9,8 +9,8 @@ url: "/download.html"
 URLStrip for iOS and iPadOS is available on the App Store. TestFlight
 remains available for people who want the newest beta builds. Current
 desktop releases are published through the [public URLStrip
-release repository](https://github.com/tacitalabs/urlstrip) with direct
-download links and published SHA-256 hashes so people can verify the
+release repository](https://github.com/tacitalabs/urlstrip/releases) with direct
+GitHub Release asset links and published SHA-256 hashes so people can verify the
 integrity of what they've downloaded.
 
 {{% card %}}
@@ -31,7 +31,7 @@ public release.
 
 Native macOS desktop build for Apple Silicon and Intel Macs.
 
-[Download URLStrip 1.1 (Build 17) for macOS](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.1/URLStrip-1.1-macOS-universal.dmg)
+[Download URLStrip 1.1 (Build 17) for macOS](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1/URLStrip-1.1-macOS-universal.dmg)
 
 SHA-256: `a831344f1078a02f04c9b3ccaf0e23a98c4c72fd45913575028ca3b46eb3f84a`
 
@@ -47,7 +47,7 @@ Settings** in the app, then run `urlstrip --help`.
 
 Windows desktop release with the same local-cleaning model.
 
-[Download URLStrip 1.1 (Build 17) for Windows](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.1/URLStrip_1.1.0_x64-setup.exe)
+[Download URLStrip 1.1 (Build 17) for Windows](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1/URLStrip_1.1.0_x64-setup.exe)
 
 SHA-256: `47bd1b4da2a2a6df4c47e2043c615ab0b78c95d5e49a33d7ab4b672796a5011f`
 
@@ -78,4 +78,4 @@ Want to try URLStrip before installing? Use the [browser-based URL cleaner](/cle
 Beta testing URLStrip? See the [tester guide](/beta-testing.html) for
 what to try and what to report.
 
-Full checksum file: [checksums/1.1.sha256](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/checksums/1.1.sha256)
+Full checksum file: [checksums/1.1.sha256](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1/1.1.sha256)
