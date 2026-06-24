@@ -146,7 +146,7 @@ You should still review the report before sending. Beta software is exactly wher
 
 ## Reporting Issues
 
-Send beta reports to <a href="mailto:infobreaker@tacitalabs.com">infobreaker@tacitalabs.com</a>.
+Send beta reports to [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com).
 
 For scanner, opt-out, or monitoring issues, include:
 
