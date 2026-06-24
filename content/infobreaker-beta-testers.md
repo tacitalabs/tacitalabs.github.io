@@ -25,9 +25,20 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 <p class="beta-kicker">Current tester download</p>
 <p class="beta-version">Public beta feed: app 1.0.0-beta.15</p>
 
+<ul class="beta-download-list">
+<li>
+<strong>macOS public download:</strong> Apple Silicon DMG<br>
+<a href="https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.15/Infobreaker-1.0.0-beta.15-arm64.dmg">Download Infobreaker 1.0.0-beta.15 for macOS</a>
+<span class="beta-hash">SHA-256: 70e75b0bb394a6512e54ceaeb102d4c28e4287f6f3dac4f7db99c7aac988bac8</span>
+</li>
+<li>
+<strong>Windows public download:</strong> x64 portable ZIP<br>
+<a href="https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.15/Infobreaker-1.0.0-beta.15-x64-portable.zip">Download Infobreaker 1.0.0-beta.15 for Windows</a>
+<span class="beta-hash">SHA-256: 9f3404af32b1a6d1dfca911fbf42c6365d6b099d3bddadda5ccd4fe77ddb4a4e</span>
+</li>
+</ul>
+
 <ul class="beta-status-list">
-<li><strong>macOS public download:</strong> beta.15 DMG, Apple Silicon only.</li>
-<li><strong>Windows public download:</strong> beta.15 portable ZIP, x64 only.</li>
 <li><strong>Automation bundle:</strong> beta.2 broker catalog.</li>
 <li><strong>QA status:</strong> beta.15 passed macOS and Windows validation on June 23-24, 2026.</li>
 </ul>
@@ -46,20 +57,6 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 <li>Debug run logs and redacted support bundles are available from Settings.</li>
 <li>Guided removal handoff behavior is clearer after accepted opt-out previews.</li>
 </ul>
-</section>
-</div>
-
-<div class="beta-downloads">
-<section class="beta-download-card">
-<p><strong>macOS beta</strong> - Apple Silicon DMG</p>
-<p><a href="https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.15/Infobreaker-1.0.0-beta.15-arm64.dmg">Download Infobreaker 1.0.0-beta.15 for macOS</a></p>
-<p class="beta-hash">SHA-256: 70e75b0bb394a6512e54ceaeb102d4c28e4287f6f3dac4f7db99c7aac988bac8</p>
-</section>
-
-<section class="beta-download-card">
-<p><strong>Windows beta</strong> - x64 portable ZIP</p>
-<p><a href="https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.15/Infobreaker-1.0.0-beta.15-x64-portable.zip">Download Infobreaker 1.0.0-beta.15 for Windows</a></p>
-<p class="beta-hash">SHA-256: 9f3404af32b1a6d1dfca911fbf42c6365d6b099d3bddadda5ccd4fe77ddb4a4e</p>
 </section>
 </div>
 
