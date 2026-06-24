@@ -90,6 +90,35 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 </section>
 </div>
 
+## Browser Automation
+
+Infobreaker sometimes opens a normal desktop browser while scanning brokers or submitting opt-out requests. This is deliberate. Many broker sites treat invisible automation, datacenter-style browsers, or heavily instrumented test browsers as suspicious. A regular local browser behaves more like a normal person using the site from their own computer, which gives the app a better chance of reaching the same pages you would see manually.
+
+<div class="beta-card-grid">
+<section class="beta-panel">
+<p class="beta-kicker">What browser opens</p>
+<ul>
+<li>On macOS, Infobreaker looks for Google Chrome first, then Chrome Canary or Chromium.</li>
+<li>On Windows, it looks for Google Chrome or Chromium first, with Microsoft Edge as a fallback.</li>
+<li>The browser may be visible. If a broker shows a CAPTCHA, security check, email confirmation, or other human step, complete it in that window and the app will continue when the broker accepts it.</li>
+</ul>
+</section>
+
+<section class="beta-panel">
+<p class="beta-kicker">How the profile is handled</p>
+<ul>
+<li>Infobreaker launches the browser with its own automation profile, separate from your normal personal browsing profile.</li>
+<li>That keeps broker visits, cookies, sessions, and history from being mixed into your everyday browser profile.</li>
+<li>The automation profile lives in Infobreaker's local app data and stays on your device.</li>
+<li>If the browser is already open in your normal profile, Infobreaker should still use its own separate automation profile for broker work.</li>
+</ul>
+</section>
+</div>
+
+<div class="beta-callout">
+The tradeoff is intentional: using a real browser makes broker automation more reliable, but the app still keeps the profile local and separate so testing Infobreaker does not turn your everyday browser history into a pile of broker-site visits.
+</div>
+
 ## Short Tester Guide
 
 The highest-value feedback is not just "did it crash?" It is whether the app makes a hard privacy workflow understandable enough that a normal person can finish it.
