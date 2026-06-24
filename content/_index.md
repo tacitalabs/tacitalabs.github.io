@@ -143,7 +143,7 @@ Get the public URLStrip release from the App Store. TestFlight stays open for be
 {{% card %}}
 **macOS — Universal (Apple Silicon + Intel)**
 
-[Download URLStrip 1.1 (Build 17) for macOS](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.1/URLStrip-1.1-macOS-universal.dmg)
+[Download URLStrip 1.1 (Build 17) for macOS](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1/URLStrip-1.1-macOS-universal.dmg)
 
 SHA-256: `a831344f1078a02f04c9b3ccaf0e23a98c4c72fd45913575028ca3b46eb3f84a`
 
@@ -156,7 +156,7 @@ Settings** in the app.
 {{% card %}}
 **Windows — x64**
 
-[Download URLStrip 1.1 (Build 17) for Windows](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/releases/1.1/URLStrip_1.1.0_x64-setup.exe)
+[Download URLStrip 1.1 (Build 17) for Windows](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1/URLStrip_1.1.0_x64-setup.exe)
 
 SHA-256: `47bd1b4da2a2a6df4c47e2043c615ab0b78c95d5e49a33d7ab4b672796a5011f`
 
@@ -164,7 +164,7 @@ Verify: `certutil -hashfile URLStrip_1.1.0_x64-setup.exe sha256`
 {{% /card %}}
 ---
 
-Full checksum file: [checksums/1.1.sha256](https://raw.githubusercontent.com/tacitalabs/urlstrip/main/checksums/1.1.sha256)
+Full checksum file: [checksums/1.1.sha256](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1/1.1.sha256)
 
 {{< eyebrow >}}Screenshots{{< /eyebrow >}}
 
