@@ -27,10 +27,47 @@ html, body { overflow-x: clip; }
   --accent: #1f3554;
   --accent-hover: #345d8c;
   --border: #ddd6c8;
+  --border-strong: #b9b1a1;
   --code-bg: #e2d8be;
   --tag-bg: #ede8de;
   --max-width: 720px;
+  color-scheme: light;
 }
+
+/* Dark mode -------------------------------------------------------------- */
+/* Activated by data-theme="dark" on <html>, set by the inline no-flash
+   script in baseof.html (from the saved preference) and toggled by the
+   .theme-toggle button (markdown-site.js persists the choice to
+   localStorage). Only the palette variables change -- every component
+   below already reads its colors from these custom properties, so the
+   whole site re-themes from this one block. A warm near-black to match
+   the light theme's warm cream, with a lightened accent so links/buttons
+   keep enough contrast on the dark background. */
+[data-theme="dark"] {
+  --bg: #1c1b18;
+  --bg-soft: #26241f;
+  --text: #eae6dd;
+  --text-muted: #a8a294;
+  --accent: #8fb4df;
+  --accent-hover: #b1cdee;
+  --border: #3a362e;
+  --border-strong: #524d42;
+  --code-bg: #2b2823;
+  --tag-bg: #26241f;
+  color-scheme: dark;
+}
+
+/* Two transparent lockup variants: dark art for the light theme, white art
+   for the dark theme (both generated from the original opaque PNG). Show
+   whichever matches the active theme; the other is hidden. */
+/* Selectors are kept specific enough to override the `display: block` on
+   `.site-title img.brand-lockup` below. */
+.site-title img.brand-lockup.brand-lockup-dark { display: none; }
+[data-theme="dark"] .site-title img.brand-lockup.brand-lockup-light { display: none; }
+[data-theme="dark"] .site-title img.brand-lockup.brand-lockup-dark { display: block; }
+
+/* Repaint the background/text smoothly when toggling rather than snapping. */
+body { transition: background-color 0.2s ease, color 0.2s ease; }
 
 html { scroll-behavior: smooth; }
 
@@ -85,6 +122,40 @@ header.site-header nav {
 .nav-links a.active {
   color: var(--accent);
 }
+
+/* Dark-mode toggle button. Lives at the end of .nav-links; shows a moon
+   in light mode and a sun in dark mode (icon swap handled below). */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg-soft);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.theme-toggle .theme-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: block;
+}
+
+/* Show the moon in light mode (click -> go dark), the sun in dark mode
+   (click -> go light). The inactive icon is hidden. */
+.theme-toggle .icon-sun { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
 /* Page layout ------------------------------------------------------------ */
 /* The body is a flex column (header / page-layout / footer). When a page
