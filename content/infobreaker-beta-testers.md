@@ -23,24 +23,24 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 <div class="beta-status-grid">
 <section class="beta-panel">
 <p class="beta-kicker">Current tester download</p>
-<p class="beta-version">Public beta feed: macOS 1.0.0-beta.15, Windows 1.0.0-beta.20</p>
+<p class="beta-version">Public beta feed: macOS 1.0.0-beta.20, Windows 1.0.0-beta.20</p>
 
 <ul class="beta-download-list">
 <li>
 <strong>macOS public download:</strong> universal DMG for Intel and Apple Silicon<br>
-<a href="https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.15/Infobreaker-1.0.0-beta.15-universal.dmg">Download Infobreaker 1.0.0-beta.15 for macOS</a>
-<span class="beta-hash">SHA-256: 5f87a2d8dfb0c91ace1caeb860772f0d8750edc506d73893235b75d739a1d444</span>
+<a href="https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.20/Infobreaker-1.0.0-beta.20-universal.dmg">Download Infobreaker 1.0.0-beta.20 for macOS</a>
+<span class="beta-hash">SHA-256: 073b9ad4dca03239c09a585f6c05aa8f0b2df1289df2f87a993bf6a08c9a58d0</span>
 </li>
 <li>
 <strong>Windows public download:</strong> x64 portable ZIP<br>
 <a href="https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.20/Infobreaker-1.0.0-beta.20-x64-portable.zip">Download Infobreaker 1.0.0-beta.20 for Windows</a>
-<span class="beta-hash">SHA-256: 30b0fb3f3284e96357f8eba501bf099876cd600f87b87d544fc0d64396bbe0dc</span>
+<span class="beta-hash">SHA-256: dec72bfc1825ff548f2222fe0499e7d31c6c886db0a8a9aaaedff27ddb8e7c8d</span>
 </li>
 </ul>
 
 <ul class="beta-status-list">
-<li><strong>Automation bundle:</strong> beta.20 broker automation on the beta channel.</li>
-<li><strong>QA status:</strong> beta.15 passed macOS universal packaging checks and Windows validation on June 23-24, 2026. Windows beta.20 is a targeted TruePeopleSearch.net deprecation fix built from the same beta line.</li>
+<li><strong>Automation bundle:</strong> beta.20 broker automation on the stable and beta channels during private beta.</li>
+<li><strong>QA status:</strong> beta.20 is the current synced app line for macOS and Windows. macOS passed universal packaging, signing, notarization, Gatekeeper, artifact, and packaged smoke checks. Windows beta.20 includes the SocialCatfish review decision persistence fix.</li>
 <li><strong>Privacy posture:</strong> local-first by default. Reports are optional and should be reviewed before sending.</li>
 </ul>
 
@@ -50,12 +50,14 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 <section class="beta-panel">
 <p class="beta-kicker">What changed lately</p>
 <ul class="beta-status-list">
+<li>macOS and Windows are now both on app beta.20 so testers are no longer split across app versions.</li>
+<li>Review decisions for SocialCatfish now persist correctly after clicking Confirm match.</li>
 <li>Windows beta.20 removes TruePeopleSearch.net from normal scan coverage so TruePeopleSearch testing stays on truepeoplesearch.com.</li>
 <li>Windows beta.19 fixed TruePeopleSearch challenge handling so explicit broker challenge pages are not recorded as empty results.</li>
-<li>The beta automation feed is now beta.20, so existing beta.15+ installs can pick up the TruePeopleSearch broker fix and the TruePeopleSearch.net deprecation through Settings.</li>
+<li>The app update feed now includes beta.20 artifacts for macOS universal, macOS Intel, and Windows x64.</li>
+<li>The automation feed is beta.20 on both stable and beta during private beta, so existing beta.15+ installs can pick up broker catalog updates through Settings.</li>
 <li>TruePeopleSearch.net is removed from normal beta scan coverage. TruePeopleSearch coverage should use truepeoplesearch.com.</li>
 <li>The macOS tester DMG is now universal for Intel and Apple Silicon Macs.</li>
-<li>macOS remains on beta.15 until the next full signed/notarized Mac refresh. Mac testers should install automation beta.20 from Settings before scanning.</li>
 <li>Windows packaged scans use the bundled Windows Node runtime instead of depending on a tester's system Node.</li>
 <li>Windows portable scan preflight no longer blocks when Windows cannot inspect external automation processes.</li>
 <li>Profile storage wording now says operating system secure storage instead of system keychain.</li>
@@ -384,7 +386,7 @@ Infobreaker is still a beta, and these are the known rough edges testers should 
 - The Windows build is distributed as a portable ZIP, not an installer. The NSIS installer path is parked until it behaves reliably on real Windows systems.
 - Some brokers block automation, show CAPTCHAs, delay removals, or require email confirmation.
 - The app can find weak or wrong matches. Review decisions matter.
-- macOS is still on beta.15 while Windows is on beta.20 for a targeted TruePeopleSearch.net coverage fix.
+- macOS and Windows are both on beta.20, but the Windows build is still distributed as a portable ZIP.
 - Removal verification is not instant. Monitoring may need later rechecks before a listing can be called removed.
 
 Current beta testers should use the downloads at the top of this page unless Jim sends a newer build directly.

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "infobreaker-app",
-  "channel": "beta",
+  "channel": "stable",
   "version": "1.0.0-beta.20",
   "publishedAt": "2026-06-25T05:46:34Z",
   "notes": [
