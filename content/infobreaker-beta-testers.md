@@ -4,11 +4,7 @@ description: "Private Infobreaker beta tester page with downloads, current build
 url: "/infobreaker-beta-testers.html"
 noindex: true
 toc: true
-styles:
-  - "/infobreaker/beta-testers.css"
 ---
-
-<section class="beta-hero">
 
 # Infobreaker beta tester guide
 
@@ -16,161 +12,154 @@ Infobreaker is a local-first data broker removal app. It helps you enter your in
 
 The important privacy rule: your profile, scan history, screenshots, and raw run logs stay on your device unless you choose to send a redacted support bundle.
 
-</section>
-
 ## Current Status
 
-<div class="beta-status-grid">
-<section class="beta-panel">
-<p class="beta-kicker">Current tester download</p>
-<p class="beta-version">Public beta feed: macOS 1.0.0-beta.21, Windows 1.0.0-beta.21</p>
+**Public beta feed:** macOS 1.0.0-beta.21, Windows 1.0.0-beta.21
 
-<ul class="beta-download-list">
-<li>
-<strong>macOS public download:</strong> universal DMG for Intel and Apple Silicon<br>
-<a href="https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.21/Infobreaker-1.0.0-beta.21-universal.dmg">Download Infobreaker 1.0.0-beta.21 for macOS</a>
-<span class="beta-hash">SHA-256: e9ce9ae7e5d43fd0311caf6ae3d71f45a994191cb8544e5af70506c1fa294487</span>
-</li>
-<li>
-<strong>Windows public download:</strong> x64 portable ZIP<br>
-<a href="https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.21/Infobreaker-1.0.0-beta.21-x64-portable.zip">Download Infobreaker 1.0.0-beta.21 for Windows</a>
-<span class="beta-hash">SHA-256: 095bd0d964aeade9a4917d26c5fd6efe803840e5b757181a1f73ade020b00bb1</span>
-</li>
-</ul>
+{{< split-begin >}}
 
-<ul class="beta-status-list">
-<li><strong>Automation bundle:</strong> beta.21 broker automation on the stable and beta channels during private beta.</li>
-<li><strong>QA status:</strong> beta.21 is the current synced app line for macOS and Windows. macOS passed universal packaging, signing, notarization, Gatekeeper, artifact, and packaged smoke checks. Windows beta.21 includes the profile auto-creation fix.</li>
-<li><strong>Privacy posture:</strong> local-first by default. Reports are optional and should be reviewed before sending.</li>
-</ul>
+{{% split-card %}}
+{{< eyebrow >}}macOS{{< /eyebrow >}}
 
-<p>After a new build is promoted, this section should be the only part repeat testers need to re-read.</p>
-</section>
+Universal DMG for Intel and Apple Silicon.
 
-<section class="beta-panel">
-<p class="beta-kicker">What changed lately</p>
-<ul class="beta-status-list">
-<li>Profiles now show only user-created profiles. Historical scan and opt-out records no longer create derived person cards.</li>
-<li>macOS and Windows are now both on app beta.21 so testers are no longer split across app versions.</li>
-<li>Review decisions for SocialCatfish now persist correctly after clicking Confirm match.</li>
-<li>Windows beta.20 removes TruePeopleSearch.net from normal scan coverage so TruePeopleSearch testing stays on truepeoplesearch.com.</li>
-<li>Windows beta.19 fixed TruePeopleSearch challenge handling so explicit broker challenge pages are not recorded as empty results.</li>
-<li>The app update feed now includes beta.21 artifacts for macOS universal, macOS Intel, and Windows x64.</li>
-<li>The automation feed is beta.21 on both stable and beta during private beta, so existing beta.15+ installs can pick up broker catalog updates through Settings.</li>
-<li>TruePeopleSearch.net is removed from normal beta scan coverage. TruePeopleSearch coverage should use truepeoplesearch.com.</li>
-<li>The macOS tester DMG is now universal for Intel and Apple Silicon Macs.</li>
-<li>Windows packaged scans use the bundled Windows Node runtime instead of depending on a tester's system Node.</li>
-<li>Windows portable scan preflight no longer blocks when Windows cannot inspect external automation processes.</li>
-<li>Profile storage wording now says operating system secure storage instead of system keychain.</li>
-<li>Scan issue counts distinguish broker issues from per-check failures.</li>
-<li>Debug run logs and redacted support bundles are available from Settings.</li>
-<li>Guided removal handoff behavior is clearer after accepted opt-out previews.</li>
-</ul>
-</section>
-</div>
+[Download Infobreaker 1.0.0-beta.21 for macOS](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.21/Infobreaker-1.0.0-beta.21-universal.dmg)
 
-<div class="beta-callout beta-warning">
-<strong>Beta warning:</strong> Infobreaker is not finished. It can miss listings, flag weak matches, hit broker-side blocks, or require human action for opt-out forms. Do not assume a broker listing is gone until the monitoring workflow confirms it.
-</div>
+SHA-256: `e9ce9ae7e5d43fd0311caf6ae3d71f45a994191cb8544e5af70506c1fa294487`
+{{% /split-card %}}
+
+{{% split-card %}}
+{{< eyebrow >}}Windows{{< /eyebrow >}}
+
+x64 portable ZIP.
+
+[Download Infobreaker 1.0.0-beta.21 for Windows](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.21/Infobreaker-1.0.0-beta.21-x64-portable.zip)
+
+SHA-256: `095bd0d964aeade9a4917d26c5fd6efe803840e5b757181a1f73ade020b00bb1`
+{{% /split-card %}}
+
+{{< split-end >}}
+
+- **Automation bundle:** beta.21 broker automation on the stable and beta channels during private beta.
+- **QA status:** beta.21 is the current synced app line for macOS and Windows. macOS passed universal packaging, signing, notarization, Gatekeeper, artifact, and packaged smoke checks. Windows beta.21 includes the profile auto-creation fix.
+- **Privacy posture:** local-first by default. Reports are optional and should be reviewed before sending.
+
+After a new build is promoted, this section should be the only part repeat testers need to re-read.
+
+### What changed lately
+
+- Profiles now show only user-created profiles. Historical scan and opt-out records no longer create derived person cards.
+- macOS and Windows are now both on app beta.21 so testers are no longer split across app versions.
+- Review decisions for SocialCatfish now persist correctly after clicking Confirm match.
+- Windows beta.20 removes TruePeopleSearch.net from normal scan coverage so TruePeopleSearch testing stays on truepeoplesearch.com.
+- Windows beta.19 fixed TruePeopleSearch challenge handling so explicit broker challenge pages are not recorded as empty results.
+- The app update feed now includes beta.21 artifacts for macOS universal, macOS Intel, and Windows x64.
+- The automation feed is beta.21 on both stable and beta during private beta, so existing beta.15+ installs can pick up broker catalog updates through Settings.
+- TruePeopleSearch.net is removed from normal beta scan coverage. TruePeopleSearch coverage should use truepeoplesearch.com.
+- The macOS tester DMG is now universal for Intel and Apple Silicon Macs.
+- Windows packaged scans use the bundled Windows Node runtime instead of depending on a tester's system Node.
+- Windows portable scan preflight no longer blocks when Windows cannot inspect external automation processes.
+- Profile storage wording now says operating system secure storage instead of system keychain.
+- Scan issue counts distinguish broker issues from per-check failures.
+- Debug run logs and redacted support bundles are available from Settings.
+- Guided removal handoff behavior is clearer after accepted opt-out previews.
+
+> **Beta warning:** Infobreaker is not finished. It can miss listings, flag weak matches, hit broker-side blocks, or require human action for opt-out forms. Do not assume a broker listing is gone until the monitoring workflow confirms it.
 
 ## Install Notes
 
-<div class="beta-card-grid">
-<section class="beta-panel">
-<p class="beta-kicker">macOS</p>
-<ul>
-<li>Download the universal DMG. It supports Intel and Apple Silicon Macs.</li>
-<li>Open the DMG and drag Infobreaker to Applications.</li>
-<li>If macOS warns that the app was downloaded from the internet, choose Open. The DMG is signed, notarized, and stapled.</li>
-<li>If you already tested an older beta, quit Infobreaker before replacing it.</li>
-</ul>
-</section>
+{{< split-begin >}}
 
-<section class="beta-panel">
-<p class="beta-kicker">Windows</p>
-<ul>
-<li>Download the x64 portable ZIP.</li>
-<li>Extract the ZIP before running Infobreaker. Running from inside the ZIP can break bundled runtime paths.</li>
-<li>Start Infobreaker from the extracted folder.</li>
-<li>Windows may show a SmartScreen warning because this beta is not shipped as a signed installer yet.</li>
-</ul>
-</section>
-</div>
+{{% split-card %}}
+{{< eyebrow >}}macOS{{< /eyebrow >}}
+
+- Download the universal DMG. It supports Intel and Apple Silicon Macs.
+- Open the DMG and drag Infobreaker to Applications.
+- If macOS warns that the app was downloaded from the internet, choose Open. The DMG is signed, notarized, and stapled.
+- If you already tested an older beta, quit Infobreaker before replacing it.
+{{% /split-card %}}
+
+{{% split-card %}}
+{{< eyebrow >}}Windows{{< /eyebrow >}}
+
+- Download the x64 portable ZIP.
+- Extract the ZIP before running Infobreaker. Running from inside the ZIP can break bundled runtime paths.
+- Start Infobreaker from the extracted folder.
+- Windows may show a SmartScreen warning because this beta is not shipped as a signed installer yet.
+{{% /split-card %}}
+
+{{< split-end >}}
 
 ## Browser Automation
 
 Infobreaker sometimes opens a normal desktop browser while scanning brokers or submitting opt-out requests. This is deliberate. Many broker sites treat invisible automation, datacenter-style browsers, or heavily instrumented test browsers as suspicious. A regular local browser behaves more like a normal person using the site from their own computer, which gives the app a better chance of reaching the same pages you would see manually.
 
-<div class="beta-card-grid">
-<section class="beta-panel">
-<p class="beta-kicker">What browser opens</p>
-<ul>
-<li>On macOS, Infobreaker looks for Google Chrome first, then Chrome Canary or Chromium.</li>
-<li>On Windows, it looks for Google Chrome or Chromium first, with Microsoft Edge as a fallback.</li>
-<li>The browser may be visible. If a broker shows a CAPTCHA, security check, email confirmation, or other human step, complete it in that window and the app will continue when the broker accepts it.</li>
-</ul>
-</section>
+{{< split-begin >}}
 
-<section class="beta-panel">
-<p class="beta-kicker">How the profile is handled</p>
-<ul>
-<li>Infobreaker launches the browser with its own automation profile, separate from your normal personal browsing profile.</li>
-<li>That keeps broker visits, cookies, sessions, and history from being mixed into your everyday browser profile.</li>
-<li>The automation profile lives in Infobreaker's local app data and stays on your device.</li>
-<li>If the browser is already open in your normal profile, Infobreaker should still use its own separate automation profile for broker work.</li>
-</ul>
-</section>
-</div>
+{{% split-card %}}
+{{< eyebrow >}}What browser opens{{< /eyebrow >}}
 
-<div class="beta-callout">
-The tradeoff is intentional: using a real browser makes broker automation more reliable, but the app still keeps the profile local and separate so testing Infobreaker does not turn your everyday browser history into a pile of broker-site visits.
-</div>
+- On macOS, Infobreaker looks for Google Chrome first, then Chrome Canary or Chromium.
+- On Windows, it looks for Google Chrome or Chromium first, with Microsoft Edge as a fallback.
+- The browser may be visible. If a broker shows a CAPTCHA, security check, email confirmation, or other human step, complete it in that window and the app will continue when the broker accepts it.
+{{% /split-card %}}
+
+{{% split-card %}}
+{{< eyebrow >}}How the profile is handled{{< /eyebrow >}}
+
+- Infobreaker launches the browser with its own automation profile, separate from your normal personal browsing profile.
+- That keeps broker visits, cookies, sessions, and history from being mixed into your everyday browser profile.
+- The automation profile lives in Infobreaker's local app data and stays on your device.
+- If the browser is already open in your normal profile, Infobreaker should still use its own separate automation profile for broker work.
+{{% /split-card %}}
+
+{{< split-end >}}
+
+> The tradeoff is intentional: using a real browser makes broker automation more reliable, but the app still keeps the profile local and separate so testing Infobreaker does not turn your everyday browser history into a pile of broker-site visits.
 
 ## Short Tester Guide
 
 The highest-value feedback is not just "did it crash?" It is whether the app makes a hard privacy workflow understandable enough that a normal person can finish it.
 
-<div class="beta-card-grid">
-<section class="beta-panel">
-<p class="beta-kicker">UI and workflow clarity</p>
-<ul>
-<li>Is it obvious what to do next?</li>
-<li>Do the tabs feel like a natural workflow: Today, Profiles, Scan, Review, Remove, Monitoring?</li>
-<li>Does the app explain results without sounding technical or evasive?</li>
-<li>Are warnings, blockers, and next steps clear when something cannot be automated?</li>
-</ul>
-</section>
+{{< split-begin >}}
 
-<section class="beta-panel">
-<p class="beta-kicker">Scanners</p>
-<ul>
-<li>Did Infobreaker find listings you expected it to find?</li>
-<li>Did it miss a real listing you found manually?</li>
-<li>Did it flag someone else as you?</li>
-<li>Did a broker produce errors, blocks, CAPTCHAs, or confusing results?</li>
-</ul>
-</section>
+{{% split-card %}}
+{{< eyebrow >}}UI and workflow clarity{{< /eyebrow >}}
 
-<section class="beta-panel">
-<p class="beta-kicker">Opt-out workflow</p>
-<ul>
-<li>Was it clear which listings were ready to remove?</li>
-<li>Did preview and live removal steps make sense?</li>
-<li>Did broker forms open and submit correctly?</li>
-<li>Were required human steps, like CAPTCHA or email confirmation, clearly explained?</li>
-</ul>
-</section>
+- Is it obvious what to do next?
+- Do the tabs feel like a natural workflow: Today, Profiles, Scan, Review, Remove, Monitoring?
+- Does the app explain results without sounding technical or evasive?
+- Are warnings, blockers, and next steps clear when something cannot be automated?
+{{% /split-card %}}
 
-<section class="beta-panel">
-<p class="beta-kicker">Post-opt-out monitoring</p>
-<ul>
-<li>Do you understand how to verify removals?</li>
-<li>Can you tell what is waiting, due, blocked, removed, or reappeared?</li>
-<li>Does recurrence tracking make sense?</li>
-<li>Would you trust the timeline enough to come back later?</li>
-</ul>
-</section>
-</div>
+{{% split-card %}}
+{{< eyebrow >}}Scanners{{< /eyebrow >}}
+
+- Did Infobreaker find listings you expected it to find?
+- Did it miss a real listing you found manually?
+- Did it flag someone else as you?
+- Did a broker produce errors, blocks, CAPTCHAs, or confusing results?
+{{% /split-card %}}
+
+{{% split-card %}}
+{{< eyebrow >}}Opt-out workflow{{< /eyebrow >}}
+
+- Was it clear which listings were ready to remove?
+- Did preview and live removal steps make sense?
+- Did broker forms open and submit correctly?
+- Were required human steps, like CAPTCHA or email confirmation, clearly explained?
+{{% /split-card %}}
+
+{{% split-card %}}
+{{< eyebrow >}}Post-opt-out monitoring{{< /eyebrow >}}
+
+- Do you understand how to verify removals?
+- Can you tell what is waiting, due, blocked, removed, or reappeared?
+- Does recurrence tracking make sense?
+- Would you trust the timeline enough to come back later?
+{{% /split-card %}}
+
+{{< split-end >}}
 
 ## Suggested Test Pass
 
@@ -209,9 +198,7 @@ Send beta reports to [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.
 
 For scanner, opt-out, or monitoring issues, include:
 
-<div class="beta-issue-template">
-
-```text
+```
 Subject: Infobreaker beta issue - [short summary]
 
 Platform: macOS or Windows
@@ -225,8 +212,6 @@ Did you enable support run logs? yes/no
 Attachments: screenshot, redacted support report, or screen recording
 ```
 
-</div>
-
 High-value screenshots show the full app window and the current tab. For privacy, crop or blur anything you do not want to share.
 
 Do not send raw debug folders unless Jim or Tacita Labs asks for them. Use **Report Latest** first because it creates the redacted support copy.
@@ -236,9 +221,6 @@ Do not send raw debug folders unless Jim or Tacita Labs asks for them. Use **Rep
 Infobreaker is organized as a workflow, not as separate utilities. Start at Today, keep your profile current, scan brokers, review matches, remove confirmed listings, then monitor removals over time.
 
 ## Today
-
-<section class="beta-tab">
-<div>
 
 Today is the command center. It shows what needs your attention, what is ready to do next, and what changed recently.
 
@@ -250,15 +232,9 @@ Things to test:
 - Does Today explain the current state without making you hunt through tabs?
 - After each workflow step, does Today update in a way that feels obvious?
 
-</div>
-
 ![Today first-run screen](/assets/infobreaker-beta/today-first-run.png?class=large)
-</section>
 
 ## Profiles
-
-<section class="beta-tab">
-<div>
 
 Profiles are where Infobreaker stores the person and locations you want to scan for. Profile details are encrypted with operating system secure storage and stay on your device.
 
@@ -270,15 +246,9 @@ Things to test:
 - Are aliases and previous locations understandable?
 - Does profile setup feel safe enough for a privacy app?
 
-</div>
-
 ![Profiles screen](/assets/infobreaker-beta/profiles-guide.png?class=large)
-</section>
 
 ## Scan
-
-<section class="beta-tab">
-<div>
 
 Scan checks supported data broker sites for possible records. The app uses your profile locations and selected broker set to decide what to search.
 
@@ -291,15 +261,9 @@ Things to test:
 - Did it find real listings?
 - Did it miss listings you found manually?
 
-</div>
-
 ![Scan screen](/assets/infobreaker-beta/scan-guide.png?class=large)
-</section>
 
 ## Review
-
-<section class="beta-tab">
-<div>
 
 Review is where possible matches become decisions. Infobreaker may find people with similar names or locations, so tester judgment matters.
 
@@ -312,15 +276,9 @@ Things to test:
 - Is the difference between possible match, confirmed match, bad evidence, and not a match clear?
 - Does the next step after confirmation make sense?
 
-</div>
-
 ![Review screen](/assets/infobreaker-beta/review-guide.png?class=large)
-</section>
 
 ## Remove
-
-<section class="beta-tab">
-<div>
 
 Remove guides opt-outs for confirmed listings. Some brokers can be handled mostly inside the app. Others require a browser, CAPTCHA, email confirmation, or another human step.
 
@@ -333,15 +291,9 @@ Things to test:
 - If automation stops, does the app explain why?
 - Is it obvious when a removal has been submitted versus merely prepared?
 
-</div>
-
 ![Remove screen](/assets/infobreaker-beta/remove-guide.png?class=large)
-</section>
 
 ## Monitoring
-
-<section class="beta-tab">
-<div>
 
 Monitoring tracks what happens after opt-out submission. Broker removals are not instant, and listings can reappear. This tab should make that waiting period understandable.
 
@@ -354,15 +306,9 @@ Things to test:
 - Can you understand proof, evidence, retry, and recurrence states?
 - Would you know what to do if a listing comes back?
 
-</div>
-
 ![Monitoring screen](/assets/infobreaker-beta/monitoring-guide.png?class=large)
-</section>
 
 ## Settings
-
-<section class="beta-tab">
-<div>
 
 Settings shows where local data lives, scan preferences, debug logging controls, support reporting, and update channels.
 
@@ -375,10 +321,7 @@ Things to test:
 - Does Report Latest create something you can review before sending?
 - Are app and automation update states clear?
 
-</div>
-
 ![Settings screen](/assets/infobreaker-beta/settings-debug-logging.png?class=large)
-</section>
 
 ## Known Gaps
 

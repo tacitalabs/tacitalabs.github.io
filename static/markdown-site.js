@@ -2,6 +2,35 @@
 // or adding one is a small, isolated change.
 
 // ---------------------------------------------------------------------------
+// Dark-mode toggle: the .theme-toggle button in the nav flips the
+// data-theme on <html> and remembers the choice in localStorage so it
+// persists between visits. The initial theme is applied earlier by the
+// inline script in <head> (to avoid a flash); this only wires the button.
+
+(() => {
+  const toggle = document.querySelector('.theme-toggle');
+  if (!toggle) return;
+
+  const root = document.documentElement;
+
+  const syncPressed = () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    toggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+  };
+
+  syncPressed();
+
+  toggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try {
+      localStorage.setItem('theme', next);
+    } catch (e) {}
+    syncPressed();
+  });
+})();
+
+// ---------------------------------------------------------------------------
 // Carousels: every <section class="carousel"> on the page gets its own
 // prev/next/dot navigation. Multiple carousels per page is fine -- they
 // are initialized independently.

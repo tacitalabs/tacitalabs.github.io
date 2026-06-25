@@ -3,6 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{/* Apply the saved (or system-preferred) color theme before any CSS or
+        body content is parsed, so there's no flash of the wrong theme on
+        load. The .theme-toggle button (markdown-site.js) updates this and
+        persists the choice to localStorage. */}}
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var theme = saved
+            || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
+    </script>
     <title>{{ .Title }}</title>
     <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
     {{- if .Params.noindex }}
