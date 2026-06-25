@@ -2,19 +2,20 @@
   "schemaVersion": 1,
   "product": "infobreaker-app",
   "channel": "beta",
-  "version": "1.0.0-beta.19",
-  "publishedAt": "2026-06-25T03:42:25.241Z",
+  "version": "1.0.0-beta.20",
+  "publishedAt": "2026-06-25T04:33:33.884Z",
   "notes": [
-    "Windows beta.19 fixes TruePeopleSearch challenge handling and prevents explicit broker challenge URLs from being recorded as empty results.",
-    "macOS remains on the current beta.15 universal DMG; this app update is Windows-only."
+    "Windows beta.20 removes deprecated TruePeopleSearch.net from normal scan coverage so TruePeopleSearch uses truepeoplesearch.com.",
+    "Includes the beta.19 TruePeopleSearch challenge handling fix.",
+    "macOS remains on beta.15; install automation beta.20 from Settings for the same broker catalog update."
   ],
   "artifacts": [
     {
       "platform": "win32",
       "arch": "x64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.19/Infobreaker-1.0.0-beta.19-x64-portable.zip",
-      "sha256": "f1458aa7aad93ad74fba1407fda751164d58ababf43b38aa852a6f980045012a",
-      "sizeBytes": 196083561
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.20/Infobreaker-1.0.0-beta.20-x64-portable.zip",
+      "sha256": "30b0fb3f3284e96357f8eba501bf099876cd600f87b87d544fc0d64396bbe0dc",
+      "sizeBytes": 196083627
     }
   ]
 }
