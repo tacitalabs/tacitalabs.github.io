@@ -2,11 +2,12 @@
   "schemaVersion": 1,
   "product": "infobreaker-automation",
   "channel": "beta",
-  "version": "1.0.0-beta.2",
-  "publishedAt": "2026-06-21T22:23:06.483Z",
-  "minAppVersion": "1.0.0-beta.2",
+  "version": "1.0.0-beta.19",
+  "publishedAt": "2026-06-25T03:42:27.877Z",
+  "minAppVersion": "1.0.0-beta.15",
   "notes": [
-    "Adds broker catalog metadata support so automation updates can expose new brokers in the desktop app."
+    "Fixes TruePeopleSearch challenge handling so explicit broker challenge URLs are not treated as empty results.",
+    "Includes the latest broker automation fixes from beta.16-beta.19 for testers on the beta automation channel."
   ],
   "brokerIds": [
     "acxiom",
@@ -64,7 +65,7 @@
     "zoominfo"
   ],
   "bundle": {
-    "url": "automation-1.0.0-beta.2.json",
-    "sha256": "b80c9cb9ff740c6c8d5bab01cfc28f0509d44ed2075a0373f067d40b1adb4a9c"
+    "url": "automation-1.0.0-beta.19.json",
+    "sha256": "16699e463defd85e05e963a8945461cdec80a44b66057543eb21158c817f5c69"
   }
 }
