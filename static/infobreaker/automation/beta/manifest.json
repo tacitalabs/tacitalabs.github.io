@@ -2,12 +2,12 @@
   "schemaVersion": 1,
   "product": "infobreaker-automation",
   "channel": "beta",
-  "version": "1.0.0-beta.20",
-  "publishedAt": "2026-06-25T04:27:18.105Z",
+  "version": "1.0.0-beta.21",
+  "publishedAt": "2026-06-25T17:54:39.380Z",
   "minAppVersion": "1.0.0-beta.15",
   "notes": [
-    "Removes deprecated TruePeopleSearch.net from normal beta scan coverage so TruePeopleSearch runs against truepeoplesearch.com only.",
-    "Keeps the beta.19 TruePeopleSearch challenge handling fixes."
+    "Profile list now shows only user-created profiles.",
+    "Scan and opt-out history no longer creates derived person cards."
   ],
   "brokerIds": [
     "acxiom",
@@ -65,7 +65,7 @@
     "zoominfo"
   ],
   "bundle": {
-    "url": "automation-1.0.0-beta.20.json",
-    "sha256": "473dcc30a1fc0d84507d8154ba221c9e578a7d0cd1f84d8a250f6fb88ea68bbb"
+    "url": "automation-1.0.0-beta.21.json",
+    "sha256": "f388e2f03d85ae091285b8a7736692864a91aa6bca7e3a32236ee74da4e2afff"
   }
 }
