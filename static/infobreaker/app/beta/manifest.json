@@ -2,35 +2,34 @@
   "schemaVersion": 1,
   "product": "infobreaker-app",
   "channel": "beta",
-  "version": "1.0.0-beta.20",
-  "publishedAt": "2026-06-25T05:46:34Z",
+  "version": "1.0.0-beta.21",
+  "publishedAt": "2026-06-25T17:58:35Z",
   "notes": [
-    "Beta.20 refreshes both macOS and Windows so testers are on the same app version.",
-    "Includes the SocialCatfish review decision persistence fix.",
-    "Includes the TruePeopleSearch challenge handling fix and removes deprecated TruePeopleSearch.net from normal scan coverage.",
+    "Beta.21 fixes Profiles so only user-created profiles appear.",
+    "Historical scan and opt-out rows no longer auto-create derived people.",
     "macOS is a signed, notarized, stapled universal DMG for Intel and Apple Silicon Macs."
   ],
   "artifacts": [
     {
       "platform": "darwin",
       "arch": "arm64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.20/Infobreaker-1.0.0-beta.20-universal.dmg",
-      "sha256": "073b9ad4dca03239c09a585f6c05aa8f0b2df1289df2f87a993bf6a08c9a58d0",
-      "sizeBytes": 316447174
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.21/Infobreaker-1.0.0-beta.21-universal.dmg",
+      "sha256": "e9ce9ae7e5d43fd0311caf6ae3d71f45a994191cb8544e5af70506c1fa294487",
+      "sizeBytes": 316459199
     },
     {
       "platform": "darwin",
       "arch": "x64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.20/Infobreaker-1.0.0-beta.20-universal.dmg",
-      "sha256": "073b9ad4dca03239c09a585f6c05aa8f0b2df1289df2f87a993bf6a08c9a58d0",
-      "sizeBytes": 316447174
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.21/Infobreaker-1.0.0-beta.21-universal.dmg",
+      "sha256": "e9ce9ae7e5d43fd0311caf6ae3d71f45a994191cb8544e5af70506c1fa294487",
+      "sizeBytes": 316459199
     },
     {
       "platform": "win32",
       "arch": "x64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.20/Infobreaker-1.0.0-beta.20-x64-portable.zip",
-      "sha256": "dec72bfc1825ff548f2222fe0499e7d31c6c886db0a8a9aaaedff27ddb8e7c8d",
-      "sizeBytes": 196083661
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.21/Infobreaker-1.0.0-beta.21-x64-portable.zip",
+      "sha256": "095bd0d964aeade9a4917d26c5fd6efe803840e5b757181a1f73ade020b00bb1",
+      "sizeBytes": 196083060
     }
   ]
 }
