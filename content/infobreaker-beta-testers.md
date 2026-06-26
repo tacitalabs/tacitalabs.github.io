@@ -14,7 +14,7 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 
 ## Current Status
 
-**Public beta feed:** macOS 1.0.0-beta.21, Windows 1.0.0-beta.21
+**Public beta feed:** macOS 1.0.0-beta.22, Windows 1.0.0-beta.22
 
 {{< split-begin >}}
 
@@ -23,38 +23,40 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 
 Universal DMG for Intel and Apple Silicon.
 
-[Download Infobreaker 1.0.0-beta.21 for macOS](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.21/Infobreaker-1.0.0-beta.21-universal.dmg)
+[Download Infobreaker 1.0.0-beta.22 for macOS](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.22/Infobreaker-1.0.0-beta.22-universal.dmg)
 
-SHA-256: `e9ce9ae7e5d43fd0311caf6ae3d71f45a994191cb8544e5af70506c1fa294487`
+SHA-256: `43e8ca59605e944fdaf7fc4a6b51c4e6dbdd705dd766f99524a0e992cf63f9cb`
 {{% /split-card %}}
 
 {{% split-card %}}
 {{< eyebrow >}}Windows{{< /eyebrow >}}
 
-x64 signed installer.
+x64 portable ZIP with signed app payload.
 
-[Download Infobreaker 1.0.0-beta.21 for Windows](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.21/Infobreaker-1.0.0-beta.21-x64.exe)
+[Download Infobreaker 1.0.0-beta.22 for Windows](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.22/Infobreaker-1.0.0-beta.22-x64-portable.zip)
 
-SHA-256: `b56c392534e72ae707ea938ee45d3a6be937ad2beb780b4e8f18bbbfbff47164`
+SHA-256: `b8571a87c61811e806e6507b12319f95fe451e730ddf4322ab0fcb3445f1cda5`
 {{% /split-card %}}
 
 {{< split-end >}}
 
 - **Automation bundle:** beta.21 broker automation on the stable and beta channels during private beta.
-- **QA status:** beta.21 is the current synced app line for macOS and Windows. macOS passed universal packaging, signing, notarization, Gatekeeper, artifact, and packaged smoke checks. Windows beta.21 includes the profile auto-creation fix and a signed installer that passed real-Windows install, launch, signature, and uninstall smoke checks.
+- **QA status:** beta.22 is the current synced app line for macOS and Windows. macOS passed universal packaging, signing, notarization, Gatekeeper, artifact, and packaged smoke checks. Windows beta.22 uses the signed portable ZIP fallback while the installer path awaits another Windows-native smoke pass.
 - **Privacy posture:** local-first by default. Reports are optional and should be reviewed before sending.
 
 After a new build is promoted, this section should be the only part repeat testers need to re-read.
 
 ### What changed lately
 
+- Report Problem now creates a diagnostic report from Settings, review cards, and missing-screenshot views.
+- Screenshot-loading failures are logged locally with platform, architecture, and evidence search paths to help diagnose Intel Mac and path issues.
+- Review screenshots load from current and legacy evidence locations, and review decision buttons can be clicked again to deselect.
 - Profiles now show only user-created profiles. Historical scan and opt-out records no longer create derived person cards.
-- Windows is now distributed as a signed installer instead of the portable ZIP for the public beta download.
-- macOS and Windows are now both on app beta.21 so testers are no longer split across app versions.
+- macOS and Windows are now both on app beta.22 so testers are no longer split across app versions.
 - Review decisions for SocialCatfish now persist correctly after clicking Confirm match.
 - Windows beta.20 removes TruePeopleSearch.net from normal scan coverage so TruePeopleSearch testing stays on truepeoplesearch.com.
 - Windows beta.19 fixed TruePeopleSearch challenge handling so explicit broker challenge pages are not recorded as empty results.
-- The app update feed now includes beta.21 artifacts for macOS universal, macOS Intel, and Windows x64.
+- The app update feed now includes beta.22 artifacts for macOS universal, macOS Intel, and Windows x64.
 - The automation feed is beta.21 on both stable and beta during private beta, so existing beta.15+ installs can pick up broker catalog updates through Settings.
 - TruePeopleSearch.net is removed from normal beta scan coverage. TruePeopleSearch coverage should use truepeoplesearch.com.
 - The macOS tester DMG is now universal for Intel and Apple Silicon Macs.
@@ -331,7 +333,7 @@ Infobreaker is still a beta, and these are the known rough edges testers should 
 - The Windows installer has passed install, launch, signature, and uninstall smoke checks. Upgrade testing from older beta installs is still limited.
 - Some brokers block automation, show CAPTCHAs, delay removals, or require email confirmation.
 - The app can find weak or wrong matches. Review decisions matter.
-- macOS and Windows are both on beta.21. Windows now uses the signed installer as the default beta download.
+- macOS and Windows are both on beta.22. Windows beta.22 uses the signed portable ZIP fallback while the installer path awaits another Windows-native smoke pass.
 - Removal verification is not instant. Monitoring may need later rechecks before a listing can be called removed.
 
 Current beta testers should use the downloads at the top of this page unless Jim sends a newer build directly.
