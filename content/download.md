@@ -55,7 +55,7 @@ Verify: `certutil -hashfile URLStrip_1.1.0_x64-setup.exe sha256`
 
 ### Windows publisher verification
 
-URLStrip for Windows is signed with Azure Trusted Signing, so the installer includes a verifiable publisher signature and timestamp. Windows Defender SmartScreen can still show reputation warnings for very new or low-volume releases, but the download is no longer an unsigned unknown-publisher build.
+URLStrip for Windows is signed with Azure Trusted Signing, so the installer includes a verifiable publisher signature and timestamp. Windows Defender SmartScreen can still show reputation warnings for very new or low-volume releases.
 
 What we publish for every Windows release:
 
