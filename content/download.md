@@ -53,18 +53,19 @@ SHA-256: `73079e7137e4f7d71475d03bd2c44778598c6e0b4b3510f1bf21df095f67ca78`
 
 Verify: `certutil -hashfile URLStrip_1.1.0_x64-setup.exe sha256`
 
-### Windows security note
+### Windows publisher verification
 
-URLStrip for Windows is signed with Azure Trusted Signing under the published developer identity. Windows Defender SmartScreen may still show a reputation warning on fresh releases with low download volume, but the installer now includes a verifiable publisher signature and timestamp.
+URLStrip for Windows is signed with Azure Trusted Signing, so the installer includes a verifiable publisher signature and timestamp. Windows Defender SmartScreen can still show reputation warnings for very new or low-volume releases, but the download is no longer an unsigned unknown-publisher build.
 
 What we publish for every Windows release:
 
+- A signed Windows installer
 - A stable GitHub-hosted release artifact
 - A public SHA-256 checksum
 - A matching version and build number
 - A local-first app that cleans URLs on your device
 
-If Windows warns before install, verify the downloaded installer signature in file properties and compare the installer hash to the SHA-256 value on this page.
+Before installing, you can verify the downloaded installer signature in file properties and compare the installer hash to the SHA-256 value on this page.
 {{% /card %}}
 
 ---
