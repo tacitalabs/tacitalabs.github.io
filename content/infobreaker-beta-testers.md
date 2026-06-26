@@ -85,10 +85,10 @@ After a new build is promoted, this section should be the only part repeat teste
 {{% split-card %}}
 {{< eyebrow >}}Windows{{< /eyebrow >}}
 
-- Download the x64 installer.
-- Run the installer and follow the Windows prompts.
-- Windows may still show a SmartScreen reputation warning for a very new beta, but the installer and installed app are signed.
-- If you previously tested the portable ZIP, quit that copy before installing.
+- Download the x64 portable ZIP.
+- Extract the ZIP and run `Infobreaker.exe` from the extracted `win-unpacked` folder.
+- Windows may still show a SmartScreen reputation warning for a very new beta, but the app payload is signed.
+- Quit any older Infobreaker copy before replacing the extracted folder.
 {{% /split-card %}}
 
 {{< split-end >}}
@@ -187,7 +187,7 @@ Infobreaker can save scan and removal run logs locally to help troubleshoot beta
 2. In **Scan Preferences**, enable **Save run logs**.
 3. Click **Save**.
 4. Re-run the scan or opt-out flow that failed.
-5. Use **Report Latest** to create a redacted report, or **Open Folder** to inspect the raw local logs.
+5. Use **Report Problem** to create a redacted report, or **Open Folder** to inspect the raw local logs.
 
 ### What gets cleaned before reporting
 
@@ -217,7 +217,7 @@ Attachments: screenshot, redacted support report, or screen recording
 
 High-value screenshots show the full app window and the current tab. For privacy, crop or blur anything you do not want to share.
 
-Do not send raw debug folders unless Jim or Tacita Labs asks for them. Use **Report Latest** first because it creates the redacted support copy.
+Do not send raw debug folders unless Jim or Tacita Labs asks for them. Use **Report Problem** first because it creates the redacted support copy.
 
 ## App Overview
 
@@ -330,7 +330,7 @@ Things to test:
 
 Infobreaker is still a beta, and these are the known rough edges testers should expect:
 
-- The Windows installer has passed install, launch, signature, and uninstall smoke checks. Upgrade testing from older beta installs is still limited.
+- Windows beta.22 is shipping as the signed portable ZIP fallback while the installer path awaits another Windows-native smoke pass.
 - Some brokers block automation, show CAPTCHAs, delay removals, or require email confirmation.
 - The app can find weak or wrong matches. Review decisions matter.
 - macOS and Windows are both on beta.22. Windows beta.22 uses the signed portable ZIP fallback while the installer path awaits another Windows-native smoke pass.
