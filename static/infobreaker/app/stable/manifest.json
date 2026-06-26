@@ -7,7 +7,8 @@
   "notes": [
     "Beta.21 fixes Profiles so only user-created profiles appear.",
     "Historical scan and opt-out rows no longer auto-create derived people.",
-    "macOS is a signed, notarized, stapled universal DMG for Intel and Apple Silicon Macs."
+    "macOS is a signed, notarized, stapled universal DMG for Intel and Apple Silicon Macs.",
+    "Windows is now distributed as a signed x64 installer."
   ],
   "artifacts": [
     {
@@ -27,9 +28,9 @@
     {
       "platform": "win32",
       "arch": "x64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.21/Infobreaker-1.0.0-beta.21-x64-portable.zip",
-      "sha256": "095bd0d964aeade9a4917d26c5fd6efe803840e5b757181a1f73ade020b00bb1",
-      "sizeBytes": 196083060
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.21/Infobreaker-1.0.0-beta.21-x64.exe",
+      "sha256": "b56c392534e72ae707ea938ee45d3a6be937ad2beb780b4e8f18bbbfbff47164",
+      "sizeBytes": 113992656
     }
   ]
 }

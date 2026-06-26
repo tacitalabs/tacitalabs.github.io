@@ -31,17 +31,17 @@ SHA-256: `e9ce9ae7e5d43fd0311caf6ae3d71f45a994191cb8544e5af70506c1fa294487`
 {{% split-card %}}
 {{< eyebrow >}}Windows{{< /eyebrow >}}
 
-x64 portable ZIP.
+x64 signed installer.
 
-[Download Infobreaker 1.0.0-beta.21 for Windows](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.21/Infobreaker-1.0.0-beta.21-x64-portable.zip)
+[Download Infobreaker 1.0.0-beta.21 for Windows](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.21/Infobreaker-1.0.0-beta.21-x64.exe)
 
-SHA-256: `095bd0d964aeade9a4917d26c5fd6efe803840e5b757181a1f73ade020b00bb1`
+SHA-256: `b56c392534e72ae707ea938ee45d3a6be937ad2beb780b4e8f18bbbfbff47164`
 {{% /split-card %}}
 
 {{< split-end >}}
 
 - **Automation bundle:** beta.21 broker automation on the stable and beta channels during private beta.
-- **QA status:** beta.21 is the current synced app line for macOS and Windows. macOS passed universal packaging, signing, notarization, Gatekeeper, artifact, and packaged smoke checks. Windows beta.21 includes the profile auto-creation fix.
+- **QA status:** beta.21 is the current synced app line for macOS and Windows. macOS passed universal packaging, signing, notarization, Gatekeeper, artifact, and packaged smoke checks. Windows beta.21 includes the profile auto-creation fix and a signed installer that passed real-Windows install, launch, signature, and uninstall smoke checks.
 - **Privacy posture:** local-first by default. Reports are optional and should be reviewed before sending.
 
 After a new build is promoted, this section should be the only part repeat testers need to re-read.
@@ -49,6 +49,7 @@ After a new build is promoted, this section should be the only part repeat teste
 ### What changed lately
 
 - Profiles now show only user-created profiles. Historical scan and opt-out records no longer create derived person cards.
+- Windows is now distributed as a signed installer instead of the portable ZIP for the public beta download.
 - macOS and Windows are now both on app beta.21 so testers are no longer split across app versions.
 - Review decisions for SocialCatfish now persist correctly after clicking Confirm match.
 - Windows beta.20 removes TruePeopleSearch.net from normal scan coverage so TruePeopleSearch testing stays on truepeoplesearch.com.
@@ -82,10 +83,10 @@ After a new build is promoted, this section should be the only part repeat teste
 {{% split-card %}}
 {{< eyebrow >}}Windows{{< /eyebrow >}}
 
-- Download the x64 portable ZIP.
-- Extract the ZIP before running Infobreaker. Running from inside the ZIP can break bundled runtime paths.
-- Start Infobreaker from the extracted folder.
-- Windows may show a SmartScreen warning because this beta is not shipped as a signed installer yet.
+- Download the x64 installer.
+- Run the installer and follow the Windows prompts.
+- Windows may still show a SmartScreen reputation warning for a very new beta, but the installer and installed app are signed.
+- If you previously tested the portable ZIP, quit that copy before installing.
 {{% /split-card %}}
 
 {{< split-end >}}
@@ -327,10 +328,10 @@ Things to test:
 
 Infobreaker is still a beta, and these are the known rough edges testers should expect:
 
-- The Windows build is distributed as a portable ZIP, not an installer. The NSIS installer path is parked until it behaves reliably on real Windows systems.
+- The Windows installer has passed install, launch, signature, and uninstall smoke checks. Upgrade testing from older beta installs is still limited.
 - Some brokers block automation, show CAPTCHAs, delay removals, or require email confirmation.
 - The app can find weak or wrong matches. Review decisions matter.
-- macOS and Windows are both on beta.21, but the Windows build is still distributed as a portable ZIP.
+- macOS and Windows are both on beta.21. Windows now uses the signed installer as the default beta download.
 - Removal verification is not instant. Monitoring may need later rechecks before a listing can be called removed.
 
 Current beta testers should use the downloads at the top of this page unless Jim sends a newer build directly.
