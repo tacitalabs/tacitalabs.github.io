@@ -14,7 +14,7 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 
 ## Current Status
 
-**Public beta feed:** macOS 1.0.0-beta.22, Windows 1.0.0-beta.22
+**Public beta feed:** macOS 1.0.0-beta.37, Windows 1.0.0-beta.37
 
 {{< split-begin >}}
 
@@ -23,9 +23,9 @@ The important privacy rule: your profile, scan history, screenshots, and raw run
 
 Universal DMG for Intel and Apple Silicon.
 
-[Download Infobreaker 1.0.0-beta.22 for macOS](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.22/Infobreaker-1.0.0-beta.22-universal.dmg)
+[Download Infobreaker 1.0.0-beta.37 for macOS](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.37/Infobreaker-1.0.0-beta.37-universal.dmg)
 
-SHA-256: `43e8ca59605e944fdaf7fc4a6b51c4e6dbdd705dd766f99524a0e992cf63f9cb`
+SHA-256: `23217e1c6df09e40b8df8849ce1f705ab50e292b3fb0f64ec7bb975f72da7535`
 {{% /split-card %}}
 
 {{% split-card %}}
@@ -33,15 +33,15 @@ SHA-256: `43e8ca59605e944fdaf7fc4a6b51c4e6dbdd705dd766f99524a0e992cf63f9cb`
 
 x64 portable ZIP with signed app payload.
 
-[Download Infobreaker 1.0.0-beta.22 for Windows](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.22/Infobreaker-1.0.0-beta.22-x64-portable.zip)
+[Download Infobreaker 1.0.0-beta.37 for Windows](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.37/Infobreaker-1.0.0-beta.37-x64-portable.zip)
 
-SHA-256: `b8571a87c61811e806e6507b12319f95fe451e730ddf4322ab0fcb3445f1cda5`
+SHA-256: `8cd9d83875f267a245beadbff8e3a2ad4f96aaae8ec27b4d3e6a060b71fb4a95`
 {{% /split-card %}}
 
 {{< split-end >}}
 
 - **Automation bundle:** beta.21 broker automation on the stable and beta channels during private beta.
-- **QA status:** beta.22 is the current synced app line for macOS and Windows. macOS passed universal packaging, signing, notarization, Gatekeeper, artifact, and packaged smoke checks. Windows beta.22 uses the signed portable ZIP fallback while the installer path awaits another Windows-native smoke pass.
+- **QA status:** beta.37 is the current synced app line for macOS and Windows. macOS passed universal packaging, signing, notarization, stapling, Gatekeeper, artifact, and packaged smoke checks. Windows beta.37 uses the signed portable ZIP fallback while the installer path awaits another Windows-native smoke pass.
 - **Privacy posture:** local-first by default. Reports are optional and should be reviewed before sending.
 
 After a new build is promoted, this section should be the only part repeat testers need to re-read.
@@ -49,14 +49,19 @@ After a new build is promoted, this section should be the only part repeat teste
 ### What changed lately
 
 - Report Problem now creates a diagnostic report from Settings, review cards, and missing-screenshot views.
+- First-run tutorial introduces the local-first model, scanning, review, removals, evidence, and verification; it can be replayed later from Settings.
+- Assisted-browser privacy notice explains that Infobreaker opens a separate temporary browser and does not use your personal browser history, cookies, saved passwords, extensions, or logged-in accounts.
+- The app now checks for app and broker automation updates on startup once per day by default and shows a visible update banner when a newer build is available.
+- PrivateEye removals now use the PeopleFinders opt-out flow and leave the browser open for manual review if the final submit control cannot be clicked reliably.
+- Opt-out attempts capture evidence screenshots more consistently, stale assisted-browser sessions are cleaned up between removals, and broker errors are summarized in plainer language.
 - Screenshot-loading failures are logged locally with platform, architecture, and evidence search paths to help diagnose Intel Mac and path issues.
 - Review screenshots load from current and legacy evidence locations, and review decision buttons can be clicked again to deselect.
 - Profiles now show only user-created profiles. Historical scan and opt-out records no longer create derived person cards.
-- macOS and Windows are now both on app beta.22 so testers are no longer split across app versions.
+- macOS and Windows are now both on app beta.37 so testers are no longer split across app versions.
 - Review decisions for SocialCatfish now persist correctly after clicking Confirm match.
 - Windows beta.20 removes TruePeopleSearch.net from normal scan coverage so TruePeopleSearch testing stays on truepeoplesearch.com.
 - Windows beta.19 fixed TruePeopleSearch challenge handling so explicit broker challenge pages are not recorded as empty results.
-- The app update feed now includes beta.22 artifacts for macOS universal, macOS Intel, and Windows x64.
+- The app update feed now includes beta.37 artifacts for macOS universal, macOS Intel, and Windows x64.
 - The automation feed is beta.21 on both stable and beta during private beta, so existing beta.15+ installs can pick up broker catalog updates through Settings.
 - TruePeopleSearch.net is removed from normal beta scan coverage. TruePeopleSearch coverage should use truepeoplesearch.com.
 - The macOS tester DMG is now universal for Intel and Apple Silicon Macs.
@@ -330,10 +335,10 @@ Things to test:
 
 Infobreaker is still a beta, and these are the known rough edges testers should expect:
 
-- Windows beta.22 is shipping as the signed portable ZIP fallback while the installer path awaits another Windows-native smoke pass.
+- Windows beta.37 is shipping as the signed portable ZIP fallback while the installer path awaits another Windows-native smoke pass.
 - Some brokers block automation, show CAPTCHAs, delay removals, or require email confirmation.
 - The app can find weak or wrong matches. Review decisions matter.
-- macOS and Windows are both on beta.22. Windows beta.22 uses the signed portable ZIP fallback while the installer path awaits another Windows-native smoke pass.
+- macOS and Windows are both on beta.37. Windows beta.37 uses the signed portable ZIP fallback while the installer path awaits another Windows-native smoke pass.
 - Removal verification is not instant. Monitoring may need later rechecks before a listing can be called removed.
 
 Current beta testers should use the downloads at the top of this page unless Jim sends a newer build directly.
