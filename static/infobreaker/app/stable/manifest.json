@@ -2,34 +2,32 @@
   "schemaVersion": 1,
   "product": "infobreaker-app",
   "channel": "stable",
-  "version": "1.0.0-beta.22",
-  "publishedAt": "2026-06-26T17:59:53.822Z",
+  "version": "1.0.0-beta.37",
+  "publishedAt": "2026-06-30T06:06:49.187Z",
   "notes": [
-    "Adds diagnostic report flow for tester support.",
-    "Logs screenshot-loading failures with platform, architecture, and evidence paths.",
-    "Fixes review screenshot loading and review decision toggling."
+    "Adds first-run tutorial, assisted-browser privacy notice, daily startup update checks, PrivateEye PeopleFinders handoff, and opt-out reliability fixes."
   ],
   "artifacts": [
     {
       "platform": "darwin",
       "arch": "arm64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.22/Infobreaker-1.0.0-beta.22-universal.dmg",
-      "sha256": "43e8ca59605e944fdaf7fc4a6b51c4e6dbdd705dd766f99524a0e992cf63f9cb",
-      "sizeBytes": 316468674
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.37/Infobreaker-1.0.0-beta.37-universal.dmg",
+      "sha256": "23217e1c6df09e40b8df8849ce1f705ab50e292b3fb0f64ec7bb975f72da7535",
+      "sizeBytes": 316502272
     },
     {
       "platform": "darwin",
       "arch": "x64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.22/Infobreaker-1.0.0-beta.22-universal.dmg",
-      "sha256": "43e8ca59605e944fdaf7fc4a6b51c4e6dbdd705dd766f99524a0e992cf63f9cb",
-      "sizeBytes": 316468674
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.37/Infobreaker-1.0.0-beta.37-universal.dmg",
+      "sha256": "23217e1c6df09e40b8df8849ce1f705ab50e292b3fb0f64ec7bb975f72da7535",
+      "sizeBytes": 316502272
     },
     {
       "platform": "win32",
       "arch": "x64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.22/Infobreaker-1.0.0-beta.22-x64-portable.zip",
-      "sha256": "b8571a87c61811e806e6507b12319f95fe451e730ddf4322ab0fcb3445f1cda5",
-      "sizeBytes": 196264913
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.37/Infobreaker-1.0.0-beta.37-x64-portable.zip",
+      "sha256": "8cd9d83875f267a245beadbff8e3a2ad4f96aaae8ec27b4d3e6a060b71fb4a95",
+      "sizeBytes": 196283580
     }
   ]
 }
