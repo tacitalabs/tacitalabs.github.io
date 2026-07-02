@@ -20,9 +20,9 @@ Your profile, scan history, screenshots, and raw run logs are stored locally on 
 
 **Current review baseline:** 1.0.0-beta.47
 
-**Self-serve public download feed:** macOS 1.0.0-beta.37, Windows 1.0.0-beta.37
+**Self-serve public downloads:** macOS 1.0.0-beta.37, Windows 1.0.0-beta.47
 
-Use the direct build Jim sent you if it is newer than the public links below. The public links remain available for repeat testers until newer release assets are promoted.
+Use the direct build Jim sent you if it is newer than the public links below. macOS remains on beta.37 until a newer signed DMG is promoted.
 
 {{< split-begin >}}
 
@@ -41,15 +41,15 @@ SHA-256: `23217e1c6df09e40b8df8849ce1f705ab50e292b3fb0f64ec7bb975f72da7535`
 
 x64 portable ZIP with signed app payload.
 
-[Download Infobreaker 1.0.0-beta.37 for Windows](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.37/Infobreaker-1.0.0-beta.37-x64-portable.zip)
+[Download Infobreaker 1.0.0-beta.47 for Windows](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.47/Infobreaker-1.0.0-beta.47-x64-portable.zip)
 
-SHA-256: `8cd9d83875f267a245beadbff8e3a2ad4f96aaae8ec27b4d3e6a060b71fb4a95`
+SHA-256: `a30b1d0db3f9e04c5fda188e26c2367e19e41bd7afbb638e73adcef53ba5066a`
 {{% /split-card %}}
 
 {{< split-end >}}
 
 - **Automation bundle:** beta.21 broker automation on the stable and beta channels during private beta.
-- **QA status:** beta.47 is the current internal review baseline. The latest Windows portable QA build passed release health, signing policy, artifact audit, and ZIP integrity checks. The public self-serve links still point to beta.37 until newer release assets are promoted.
+- **QA status:** beta.47 is the current internal review baseline. The latest Windows portable QA build passed release health, signing policy, artifact audit, and ZIP integrity checks. Windows self-serve downloads now point to beta.47; macOS remains on beta.37 until a newer signed DMG is promoted.
 - **Privacy posture:** local-first by default. Reports are optional and should be reviewed before sending. Raw debug folders can contain personal information; use the redacted support report first.
 
 After a new build is promoted, this section should be the only part repeat testers need to re-read.
@@ -406,7 +406,7 @@ Things to test:
 
 Infobreaker is still a beta, and these are the known rough edges testers should expect:
 
-- The public self-serve downloads currently lag the latest internal review baseline. Use the newest direct build Jim provides if you have one.
+- macOS self-serve downloads currently lag the latest Windows review baseline. Use the newest direct build Jim provides if you have one.
 - Windows tester builds may still ship as signed portable ZIPs while the installer upgrade path is being tested. Extract the ZIP before running the app.
 - Some brokers block automation, show CAPTCHAs, delay removals, or require email confirmation.
 - The app can find weak or wrong matches. Review decisions matter.
