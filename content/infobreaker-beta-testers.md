@@ -48,7 +48,7 @@ SHA-256: `a30b1d0db3f9e04c5fda188e26c2367e19e41bd7afbb638e73adcef53ba5066a`
 
 {{< split-end >}}
 
-- **Automation bundle:** beta.21 broker automation on the stable and beta channels during private beta.
+- **Automation bundle:** beta.22 broker automation on the stable and beta channels during private beta. It requires app beta.47 or newer.
 - **QA status:** beta.47 is the current internal review baseline. The latest Windows portable QA build passed release health, signing policy, artifact audit, and ZIP integrity checks. Windows self-serve downloads now point to beta.47; macOS remains on beta.37 until a newer signed DMG is promoted.
 - **Privacy posture:** local-first by default. Reports are optional and should be reviewed before sending. Raw debug folders can contain personal information; use the redacted support report first.
 

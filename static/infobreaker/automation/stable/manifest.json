@@ -2,12 +2,12 @@
   "schemaVersion": 1,
   "product": "infobreaker-automation",
   "channel": "stable",
-  "version": "1.0.0-beta.21",
-  "publishedAt": "2026-06-25T17:54:39.380Z",
-  "minAppVersion": "1.0.0-beta.15",
+  "version": "1.0.0-beta.22",
+  "publishedAt": "2026-07-02T03:06:02.728Z",
+  "minAppVersion": "1.0.0-beta.47",
   "notes": [
-    "Profile list now shows only user-created profiles.",
-    "Scan and opt-out history no longer creates derived person cards."
+    "Updates verification evidence handling and TruePeopleSearchNet matched-card capture for beta.47.",
+    "Requires app beta.47 or newer for the current proof-first monitoring and evidence model."
   ],
   "brokerIds": [
     "acxiom",
@@ -65,7 +65,7 @@
     "zoominfo"
   ],
   "bundle": {
-    "url": "automation-1.0.0-beta.21.json",
-    "sha256": "f388e2f03d85ae091285b8a7736692864a91aa6bca7e3a32236ee74da4e2afff"
+    "url": "automation-1.0.0-beta.22.json",
+    "sha256": "47dcbff355e2b2dff53e4e93850e398cf3673254e3dcf254140c3d62bb2e6a05"
   }
 }
