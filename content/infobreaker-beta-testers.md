@@ -22,9 +22,9 @@ Infobreaker makes network connections to broker sites you scan or submit request
 
 **Current review baseline:** 1.0.0-beta.47
 
-**Self-serve public downloads:** macOS 1.0.0-beta.37, Windows 1.0.0-beta.47
+**Self-serve public downloads:** macOS 1.0.0-beta.47, Windows 1.0.0-beta.47
 
-Use the direct build your beta contact sent you if it is newer than the public links below. macOS remains on beta.37 until a newer signed DMG is promoted.
+Use the direct build your beta contact sent you if it is newer than the public links below. The self-serve macOS and Windows links are now aligned on beta.47.
 
 {{< split-begin >}}
 
@@ -33,9 +33,9 @@ Use the direct build your beta contact sent you if it is newer than the public l
 
 Universal DMG for Intel and Apple Silicon.
 
-[Download Infobreaker 1.0.0-beta.37 for macOS](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.37/Infobreaker-1.0.0-beta.37-universal.dmg)
+[Download Infobreaker 1.0.0-beta.47 for macOS](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.47/Infobreaker-1.0.0-beta.47-universal.dmg)
 
-SHA-256: `23217e1c6df09e40b8df8849ce1f705ab50e292b3fb0f64ec7bb975f72da7535`
+SHA-256: `de8fc75aa381a19f4533d9564ef7f16ce3fc5aa136dab3dee3cb366ae6432b52`
 {{% /split-card %}}
 
 {{% split-card %}}
@@ -51,14 +51,12 @@ SHA-256: `a30b1d0db3f9e04c5fda188e26c2367e19e41bd7afbb638e73adcef53ba5066a`
 {{< split-end >}}
 
 - **Automation bundle:** beta.22 broker automation on the stable and beta channels. Broker automation updates separately from the app; Settings shows both versions. Automation beta.22 requires app beta.47 or newer.
-- **QA status:** beta.47 is the current internal review baseline. The latest Windows portable QA build passed release health, signing policy, artifact audit, and ZIP integrity checks. Windows self-serve downloads now point to beta.47; macOS remains on beta.37 until a newer signed DMG is promoted.
+- **QA status:** beta.47 is the current internal review baseline. The latest Windows portable build passed release health, signing policy, artifact audit, and ZIP integrity checks. The latest macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.47.
 - **Privacy posture:** local-first by default. Reports are optional and should be reviewed before sending. Raw debug folders can contain personal information; use the redacted support report first.
 
 ### Version note
 
-The guide describes beta.47 behavior unless a section says otherwise. macOS beta.37 does not yet include the newest beta.47 Windows behavior, including Copy Support Info, database compatibility display, single-instance protection, improved overdue/monitoring language, newer waiting-email handling, and the latest verification-evidence fixes.
-
-After a new build is promoted, repeat testers should re-read **Current Status**, **Install Notes**, and **What changed lately**.
+The guide describes beta.47 behavior. After a new build is promoted, repeat testers should re-read **Current Status**, **Install Notes**, and **What changed lately**.
 
 > **Beta warning:** Infobreaker is not finished. It can miss listings, flag weak matches, hit broker-side blocks, or require human action for opt-out forms. Do not assume a broker listing is gone until the monitoring workflow confirms it.
 
@@ -124,7 +122,7 @@ Every count in the app should reconcile to rows you can open. If a number does n
 To verify the download hash, run:
 
 ```sh
-shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.37-universal.dmg
+shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.47-universal.dmg
 ```
 {{% /split-card %}}
 
@@ -439,7 +437,6 @@ Things to test:
 
 Infobreaker is still a beta, and these are the known rough edges testers should expect:
 
-- macOS self-serve downloads currently lag the latest Windows review baseline. Use the newest direct build your beta contact provides if you have one.
 - Windows tester builds may still ship as signed portable ZIPs while the installer upgrade path is being tested. Extract the ZIP before running the app.
 - Some brokers block automation, show CAPTCHAs, delay removals, or require email confirmation.
 - The app can find weak or wrong matches. Review decisions matter.
