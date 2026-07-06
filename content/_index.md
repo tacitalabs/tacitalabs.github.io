@@ -13,7 +13,7 @@ toc: true
 
 # Remove tracking junk from links.
 
-URLStrip strips known tracking parameters before you open a link, save it, or send it to someone else. It runs locally, supports iOS/iPadOS, macOS, and Windows, and is free to use.
+URLStrip strips known tracking parameters before you open a link, save it, or send it to someone else. On desktop, Command Guard can also warn when copied terminal commands look risky. It runs locally, supports iOS/iPadOS, macOS, and Windows, and is free to use.
 
 {{< button href="/clean-url.html" style="primary" >}}Clean a URL Online{{< /button >}} {{< button href="#downloads" style="secondary" >}}Download URLStrip{{< /button >}}
 {{< eyebrow >}}Runs locally - no account - free{{< /eyebrow >}}
@@ -86,6 +86,16 @@ URLStrip checks a link for known tracking parameters and strips out what doesn't
 {{% /split-card %}}
 {{< split-end >}}
 
+{{% card %}}
+**Command Guard for desktop**
+
+URLStrip can warn when copied terminal commands match risky patterns such as
+`curl | sh`, PowerShell `irm | iex`, encoded payloads, persistence commands,
+or destructive shell actions. It is local, rules-based, and transparent about
+what triggered the warning. An optional neutralize setting can make risky
+commands inert before paste, but it is off by default.
+{{% /card %}}
+
 {{< eyebrow >}}How it works{{< /eyebrow >}}
 
 ## Simple on purpose. {#how}
@@ -141,30 +151,30 @@ Get the public URLStrip release from the App Store. TestFlight stays open for be
 {{% /card %}}
 
 {{% card %}}
-**macOS — Universal (Apple Silicon + Intel)**
+**macOS - Universal (Apple Silicon + Intel)**
 
-[Download URLStrip 1.1 (Build 17) for macOS](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1-signed-20260625/URLStrip-1.1-macOS-universal.dmg)
+[Download URLStrip 1.1 (Build 18) for macOS](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1-build18-command-guard/URLStrip-1.1-build18-macOS-universal.dmg)
 
-SHA-256: `a831344f1078a02f04c9b3ccaf0e23a98c4c72fd45913575028ca3b46eb3f84a`
+SHA-256: `8173d94523bf769e61794200d4459b208d4532e96423a58de7f1b90427256b65`
 
-Verify: `shasum -a 256 URLStrip-1.1-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.1-build18-macOS-universal.dmg`
 
-Includes an optional macOS command-line tool. Install it from **Advanced
-Settings** in the app.
+Includes Command Guard and an optional macOS command-line tool. Install the
+CLI from **Advanced Settings** in the app.
 {{% /card %}}
 
 {{% card %}}
-**Windows — x64**
+**Windows - x64**
 
-[Download URLStrip 1.1 (Build 17) for Windows](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1-signed-20260625/URLStrip_1.1.0_x64-setup.exe)
+[Download URLStrip 1.1 (Build 18) for Windows](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1-build18-command-guard/URLStrip-1.1-build18-Windows-x64-setup.exe)
 
-SHA-256: `73079e7137e4f7d71475d03bd2c44778598c6e0b4b3510f1bf21df095f67ca78`
+SHA-256: `0ccf390162f3139dedfdee9f8942436cca4ed63858901e8294e6913bb1cfd221`
 
-Verify: `certutil -hashfile URLStrip_1.1.0_x64-setup.exe sha256`
+Verify: `certutil -hashfile URLStrip-1.1-build18-Windows-x64-setup.exe sha256`
 {{% /card %}}
 ---
 
-Full checksum file: [checksums/1.1.sha256](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1-signed-20260625/1.1.sha256)
+Full checksum file: [checksums/1.1.sha256](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1-build18-command-guard/1.1.sha256)
 
 {{< eyebrow >}}Screenshots{{< /eyebrow >}}
 
