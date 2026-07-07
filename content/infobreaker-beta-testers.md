@@ -38,6 +38,8 @@ The guide describes beta.48 behavior. After a new build is promoted, repeat test
 
 > **Beta warning:** Infobreaker is not finished. It can miss listings, flag weak matches, hit broker-side blocks, or require human action for opt-out forms. Do not assume a broker listing is gone until the monitoring workflow confirms it.
 
+> **Best-effort support:** This beta is not an emergency safety, legal, or guaranteed-removal service. Broker decisions and timelines are outside Tacita Labs' control, and support during beta is best-effort.
+
 ## What to expect in week one
 
 Most early beta confusion comes from timing. Infobreaker is not trying to make the dashboard green on day one. It is trying to build a paper trail that can be checked.
