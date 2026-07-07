@@ -2,13 +2,13 @@
 title: "Infobreaker Beta Tester Guide - Tacita Labs"
 description: "Infobreaker beta tester page with downloads, current build status, testing priorities, debug logging, issue reporting, and a tab-by-tab app guide."
 url: "/infobreaker-beta-testers.html"
-noindex: true
 toc: true
+noindex: true
 ---
 
 # Infobreaker beta tester guide
 
-Infobreaker is a local-first data broker removal app. It helps you enter your information once, scan supported broker sites, review possible matches, submit opt-outs where possible, and track whether removals stay removed.
+Infobreaker is a local-first data broker removal app, now in public beta. It helps you enter your information once, scan supported broker sites, review possible matches, submit opt-outs where possible, and track whether removals stay removed. This is the long-form guide for testers; for the short public overview, see the [Infobreaker product page](/infobreaker.html).
 
 The important rule for this beta: **if Infobreaker cannot prove something, it should not claim it.**
 
@@ -22,33 +22,11 @@ Infobreaker makes network connections to broker sites you scan or submit request
 
 **Current review baseline:** 1.0.0-beta.47
 
-**Self-serve public downloads:** macOS 1.0.0-beta.47, Windows 1.0.0-beta.47
+**Public downloads:** macOS 1.0.0-beta.47, Windows 1.0.0-beta.47
 
-Use the direct build your beta contact sent you if it is newer than the public links below. The self-serve macOS and Windows links are now aligned on beta.47.
+The downloads below are the current public beta builds. macOS and Windows are aligned on beta.47.
 
-{{< split-begin >}}
-
-{{% split-card %}}
-{{< eyebrow >}}macOS{{< /eyebrow >}}
-
-Universal DMG for Intel and Apple Silicon.
-
-[Download Infobreaker 1.0.0-beta.47 for macOS](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.47/Infobreaker-1.0.0-beta.47-universal.dmg)
-
-SHA-256: `de8fc75aa381a19f4533d9564ef7f16ce3fc5aa136dab3dee3cb366ae6432b52`
-{{% /split-card %}}
-
-{{% split-card %}}
-{{< eyebrow >}}Windows{{< /eyebrow >}}
-
-x64 portable ZIP with signed app payload.
-
-[Download Infobreaker 1.0.0-beta.47 for Windows](https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.47/Infobreaker-1.0.0-beta.47-x64-portable.zip)
-
-SHA-256: `a30b1d0db3f9e04c5fda188e26c2367e19e41bd7afbb638e73adcef53ba5066a`
-{{% /split-card %}}
-
-{{< split-end >}}
+{{< infobreaker-downloads >}}
 
 - **Automation bundle:** beta.22 broker automation on the stable and beta channels. Broker automation updates separately from the app; Settings shows both versions. Automation beta.22 requires app beta.47 or newer.
 - **QA status:** beta.47 is the current internal review baseline. The latest Windows portable build passed release health, signing policy, artifact audit, and ZIP integrity checks. The latest macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.47.
@@ -443,4 +421,4 @@ Infobreaker is still a beta, and these are the known rough edges testers should 
 - Removal verification is not instant. Monitoring may need later rechecks before a listing can be called removed.
 - Search surfaces can be messy. Paywall teasers, censored rows, and multiple records for the same person may require extra evidence before a listing is treated as escalation-ready.
 
-Current beta testers should use the downloads at the top of this page unless Tacita Labs sends a newer build directly.
+Use the downloads at the top of this page. When a new build is promoted, the links and hashes there are updated to match.
