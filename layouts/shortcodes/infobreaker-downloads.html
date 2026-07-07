@@ -1,0 +1,26 @@
+{{- /*
+  Renders the current Infobreaker beta download cards (macOS + Windows)
+  from data/infobreaker.toml. Used on both /infobreaker.html and
+  /infobreaker-beta-testers.html so the links and SHA-256 hashes stay in
+  sync from a single source. Update data/infobreaker.toml on each build
+  promotion; do not hand-edit download links in page bodies.
+*/ -}}
+{{- $d := hugo.Data.infobreaker -}}
+{{- $macFile := path.Base $d.macos.url -}}
+{{- $winFile := path.Base $d.windows.url -}}
+<div class="split">
+<div class="split-card">
+<div class="eyebrow">macOS</div>
+<p>Universal DMG for Intel and Apple Silicon.</p>
+<p><a href="{{ $d.macos.url }}">Download Infobreaker {{ $d.version }} for macOS</a></p>
+<p>SHA-256: <code>{{ $d.macos.sha256 }}</code></p>
+<p>Verify: <code>shasum -a 256 {{ $macFile }}</code></p>
+</div>
+<div class="split-card">
+<div class="eyebrow">Windows</div>
+<p>x64 portable ZIP with signed app payload.</p>
+<p><a href="{{ $d.windows.url }}">Download Infobreaker {{ $d.version }} for Windows</a></p>
+<p>SHA-256: <code>{{ $d.windows.sha256 }}</code></p>
+<p>Verify: <code>certutil -hashfile {{ $winFile }} SHA256</code></p>
+</div>
+</div>
