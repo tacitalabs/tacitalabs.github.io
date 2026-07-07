@@ -5,7 +5,7 @@
   sync from a single source. Update data/infobreaker.toml on each build
   promotion; do not hand-edit download links in page bodies.
 */ -}}
-{{- $d := .Site.Data.infobreaker -}}
+{{- $d := index hugo.Data "infobreaker" -}}
 {{- $macFile := path.Base $d.macos.url -}}
 {{- $winFile := path.Base $d.windows.url -}}
 <div class="split">
