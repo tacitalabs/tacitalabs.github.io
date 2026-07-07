@@ -62,9 +62,9 @@ As of **July 7, 2026**, from the generated broker coverage report:
 - **Tracked:** 53 people-search and data broker sites in the catalog.
 - **Automated scanning:** 27 brokers where Infobreaker can search for your
   listing itself.
-- **Automated opt-out:** 8 brokers where Infobreaker can complete the removal
+- **Automated opt-out:** 3 brokers where Infobreaker can complete the removal
   request end-to-end.
-- **Assisted opt-out:** 28 brokers where Infobreaker prepares the request,
+- **Assisted opt-out:** 33 brokers where Infobreaker prepares the request,
   fills the forms, and guides you through the steps brokers require a human
   for — CAPTCHAs, email confirmations, or a final click.
 
@@ -117,6 +117,9 @@ Full details are in the [Privacy Policy](/privacy.html).
 - Expect rough edges, and expect the app to be candid about them. If it says
   something worked, that claim is backed by evidence you can look at.
 - It is free during the public beta.
+- Support is best-effort during beta. Infobreaker is not an emergency safety,
+  legal, or guaranteed-removal service, and broker decisions and timelines are
+  outside Tacita Labs' control.
 {{% /card %}}
 
 {{< eyebrow >}}Download{{< /eyebrow >}}
