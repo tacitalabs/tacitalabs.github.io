@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "product": "infobreaker-automation",
   "channel": "stable",
-  "version": "1.0.0-beta.24",
-  "publishedAt": "2026-07-09T01:47:52.514Z",
+  "version": "1.0.0-beta.50",
+  "publishedAt": "2026-07-09T01:56:15.138Z",
   "minAppVersion": "1.0.0-beta.49",
   "notes": [
-    "Fix CyberBackgroundChecks no-result pages so sponsored partner rows are not counted as hits"
+    "Fix visible challenge detection and CyberBackgroundChecks sponsored no-result parsing"
   ],
   "brokerIds": [
     "acxiom",
@@ -64,7 +64,7 @@
     "zoominfo"
   ],
   "bundle": {
-    "url": "automation-1.0.0-beta.24.json",
-    "sha256": "96faabc840359017f6500b058699b7c4d76cf0a0addb2b9a5119933d3a222598"
+    "url": "automation-1.0.0-beta.50.json",
+    "sha256": "4ebb84197e668d0a4648c01a764cfd83be11ba9af9a6d3e2d7a2b721cdb7eb90"
   }
 }
