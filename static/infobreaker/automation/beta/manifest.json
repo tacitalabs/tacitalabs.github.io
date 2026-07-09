@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "product": "infobreaker-automation",
   "channel": "beta",
-  "version": "1.0.0-beta.52",
-  "publishedAt": "2026-07-09T05:07:17.618Z",
+  "version": "1.0.0-beta.53",
+  "publishedAt": "2026-07-09T05:33:58.427Z",
   "minAppVersion": "1.0.0-beta.49",
   "notes": [
-    "Fix SearchQuarry automation result keys so teaser rows become reviewable in beta.49 app"
+    "Fix CyberBackgroundChecks query-heading and sponsored false positives"
   ],
   "brokerIds": [
     "acxiom",
@@ -64,7 +64,7 @@
     "zoominfo"
   ],
   "bundle": {
-    "url": "automation-1.0.0-beta.52.json",
-    "sha256": "97fe8f9f78b575d5e6dc08f1f6767eab030d9ff4a1503b5277d96d8e866e9be1"
+    "url": "automation-1.0.0-beta.53.json",
+    "sha256": "73b9bc41493b97a98220e2f84600a64571283858c453c948e45c4b332b054990"
   }
 }
