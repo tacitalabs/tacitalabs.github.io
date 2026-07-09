@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "product": "infobreaker-automation",
   "channel": "stable",
-  "version": "1.0.0-beta.53",
-  "publishedAt": "2026-07-09T05:33:58.427Z",
+  "version": "1.0.0-beta.54",
+  "publishedAt": "2026-07-09T06:13:02.738Z",
   "minAppVersion": "1.0.0-beta.49",
   "notes": [
-    "Fix CyberBackgroundChecks query-heading and sponsored false positives"
+    "Treat UnitedStatesPhoneBook searchable/no-result pages as usable despite soft Cloudflare markers"
   ],
   "brokerIds": [
     "acxiom",
@@ -64,7 +64,7 @@
     "zoominfo"
   ],
   "bundle": {
-    "url": "automation-1.0.0-beta.53.json",
-    "sha256": "73b9bc41493b97a98220e2f84600a64571283858c453c948e45c4b332b054990"
+    "url": "automation-1.0.0-beta.54.json",
+    "sha256": "aaf8514e6a04f86e4c70df64b87e4de4b03adf9ca3d48d3246b7924857dd9aac"
   }
 }
