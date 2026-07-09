@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "product": "infobreaker-automation",
   "channel": "beta",
-  "version": "1.0.0-beta.23",
-  "publishedAt": "2026-07-09T01:40:19.492Z",
+  "version": "1.0.0-beta.24",
+  "publishedAt": "2026-07-09T01:47:52.514Z",
   "minAppVersion": "1.0.0-beta.49",
   "notes": [
-    "Fix Cloudflare/CAPTCHA challenge detection so visible challenge pages trigger human handoff"
+    "Fix CyberBackgroundChecks no-result pages so sponsored partner rows are not counted as hits"
   ],
   "brokerIds": [
     "acxiom",
@@ -64,7 +64,7 @@
     "zoominfo"
   ],
   "bundle": {
-    "url": "automation-1.0.0-beta.23.json",
-    "sha256": "91238efea34746bdb1cd821d30ab021f92b4db23450324c320876a967b82cb0b"
+    "url": "automation-1.0.0-beta.24.json",
+    "sha256": "96faabc840359017f6500b058699b7c4d76cf0a0addb2b9a5119933d3a222598"
   }
 }
