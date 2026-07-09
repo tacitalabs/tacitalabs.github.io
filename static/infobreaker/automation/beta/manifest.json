@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "product": "infobreaker-automation",
   "channel": "beta",
-  "version": "1.0.0-beta.56",
-  "publishedAt": "2026-07-09T08:41:12.423Z",
+  "version": "1.0.0-beta.57",
+  "publishedAt": "2026-07-09T08:53:34.226Z",
   "minAppVersion": "1.0.0-beta.50",
   "notes": [
-    "Fix SpyFly state/terms gate being mislabeled as CAPTCHA"
+    "Require FastPeopleSearch bot-check pages to actually clear before continuing"
   ],
   "brokerIds": [
     "acxiom",
@@ -67,7 +67,7 @@
     "zoominfo"
   ],
   "bundle": {
-    "url": "automation-1.0.0-beta.56.json",
-    "sha256": "bf0fa8e59e82dc04cd216ac5f403e097662773d4721d18a85a33e32d79b9d38c"
+    "url": "automation-1.0.0-beta.57.json",
+    "sha256": "233a0dd2e5a4878cc1f858965b84efdcc27c1a9784f768ac2b0a57554dd039fd"
   }
 }
