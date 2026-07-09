@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "product": "infobreaker-automation",
   "channel": "beta",
-  "version": "1.0.0-beta.55",
-  "publishedAt": "2026-07-09T06:42:41.391Z",
-  "minAppVersion": "1.0.0-beta.49",
+  "version": "1.0.0-beta.56",
+  "publishedAt": "2026-07-09T08:41:12.423Z",
+  "minAppVersion": "1.0.0-beta.50",
   "notes": [
-    "Fix UnitedStatesPhoneBook soft challenge false block when legacy search form is visible"
+    "Fix SpyFly state/terms gate being mislabeled as CAPTCHA"
   ],
   "brokerIds": [
     "acxiom",
@@ -17,6 +17,7 @@
     "checkpeople",
     "classmates",
     "clustal",
+    "courtrecords-us",
     "cyberbackgroundchecks",
     "examone_scriptcheck",
     "facecheckid",
@@ -43,12 +44,14 @@
     "publicdatausa",
     "radaris",
     "rehold",
+    "resident-directory",
     "searchpeoplefree",
     "searchquarry",
     "smartbackgroundchecks",
     "socialcatfish",
     "spokeo",
     "spyfly",
+    "state-arrests",
     "thatsthem",
     "truepeoplesearch",
     "truepeoplesearchnet",
@@ -64,7 +67,7 @@
     "zoominfo"
   ],
   "bundle": {
-    "url": "automation-1.0.0-beta.55.json",
-    "sha256": "504e65b073da50917734e037ea064697516328f59b389577fd295772a5298968"
+    "url": "automation-1.0.0-beta.56.json",
+    "sha256": "bf0fa8e59e82dc04cd216ac5f403e097662773d4721d18a85a33e32d79b9d38c"
   }
 }
