@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "product": "infobreaker-automation",
   "channel": "beta",
-  "version": "1.0.0-beta.50",
-  "publishedAt": "2026-07-09T01:56:15.138Z",
+  "version": "1.0.0-beta.51",
+  "publishedAt": "2026-07-09T02:39:29.603Z",
   "minAppVersion": "1.0.0-beta.49",
   "notes": [
-    "Fix visible challenge detection and CyberBackgroundChecks sponsored no-result parsing"
+    "Fix SearchQuarry teaser result dedupe so one rejected row does not hide later rows"
   ],
   "brokerIds": [
     "acxiom",
@@ -64,7 +64,7 @@
     "zoominfo"
   ],
   "bundle": {
-    "url": "automation-1.0.0-beta.50.json",
-    "sha256": "4ebb84197e668d0a4648c01a764cfd83be11ba9af9a6d3e2d7a2b721cdb7eb90"
+    "url": "automation-1.0.0-beta.51.json",
+    "sha256": "e75c1fac4b6d10145bbf480e0f513070d356288b75e3803579b8f11c2b823b94"
   }
 }
