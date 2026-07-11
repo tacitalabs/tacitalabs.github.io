@@ -8,7 +8,7 @@ noindex: true
 
 # Infobreaker beta tester guide
 
-Infobreaker is a local-first data broker removal app, now in public beta. It helps you enter your information once, scan supported broker sites, review possible matches, submit opt-outs where possible, and track whether removals stay removed. This is the long-form guide for testers; for the short public overview, see the [Infobreaker product page](/infobreaker.html).
+Infobreaker is a local-first data broker removal app, currently in private beta by direct link. It helps you enter your information once, scan supported broker sites, review possible matches, submit opt-outs where possible, and track whether removals stay removed. This is the long-form guide for testers; for the short private-beta overview, see the [Infobreaker product page](/infobreaker.html).
 
 The important rule for this beta: **if Infobreaker cannot prove something, it should not claim it.**
 
@@ -20,21 +20,21 @@ Infobreaker makes network connections to broker sites you scan or submit request
 
 ## Current Status
 
-**Current review baseline:** 1.0.0-beta.48
+**Current review baseline:** 1.0.0-beta.51
 
-**Public downloads:** macOS 1.0.0-beta.48, Windows 1.0.0-beta.48
+**Private-beta downloads:** macOS 1.0.0-beta.51, Windows 1.0.0-beta.51
 
-The downloads below are the current public beta builds. macOS and Windows are aligned on beta.48.
+The downloads below are the current private beta builds. macOS and Windows are aligned on beta.51.
 
 {{< infobreaker-downloads >}}
 
-- **Automation bundle:** beta.22 broker automation on the stable and beta channels. Broker automation updates separately from the app; Settings shows both versions. Automation beta.22 requires app beta.47 or newer.
-- **QA status:** beta.48 is the current internal review baseline. The latest Windows portable build passed release health, signing policy, artifact audit, and ZIP integrity checks. The latest macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.48.
+- **Automation bundle:** beta.57 broker automation on the stable and beta channels. Broker automation updates separately from the app; Settings shows both versions. Automation beta.57 requires app beta.50 or newer, and beta.51 satisfies that requirement.
+- **QA status:** beta.51 is the current internal review baseline. The latest Windows portable build passed release health, signing policy, artifact audit, and ZIP integrity checks. The latest macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.51.
 - **Privacy posture:** local-first by default. Reports are optional and should be reviewed before sending. Raw debug folders can contain personal information; use the redacted support report first.
 
 ### Version note
 
-The guide describes beta.48 behavior. After a new build is promoted, repeat testers should re-read **Current Status**, **Install Notes**, and **What changed lately**.
+The guide describes beta.51 behavior. After a new build is promoted, repeat testers should re-read **Current Status**, **Install Notes**, and **What changed lately**.
 
 > **Beta warning:** Infobreaker is not finished. It can miss listings, flag weak matches, hit broker-side blocks, or require human action for opt-out forms. Do not assume a broker listing is gone until the monitoring workflow confirms it.
 
@@ -102,7 +102,7 @@ Every count in the app should reconcile to rows you can open. If a number does n
 To verify the download hash, run:
 
 ```sh
-shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.48-universal.dmg
+shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.51-universal.dmg
 ```
 {{% /split-card %}}
 
@@ -121,7 +121,7 @@ shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.48-universal.dmg
 To verify the download hash, run:
 
 ```powershell
-certutil -hashfile .\Infobreaker-1.0.0-beta.48-x64-portable.zip SHA256
+certutil -hashfile .\Infobreaker-1.0.0-beta.51-x64-portable.zip SHA256
 ```
 {{% /split-card %}}
 
@@ -259,6 +259,8 @@ You do not need to report every CAPTCHA, slow broker, or state-law refusal unles
 ## Debug Logging
 
 Infobreaker can save scan and removal run logs locally to help troubleshoot beta failures. These logs are for support, not telemetry. They stay on your device unless you choose to send them.
+
+For the Infobreaker privacy model, see the [Infobreaker Privacy Notes](/infobreaker-privacy.html).
 
 ![Settings screen showing support run logs controls](/assets/infobreaker-beta/settings-debug-logging.png?class=large)
 
