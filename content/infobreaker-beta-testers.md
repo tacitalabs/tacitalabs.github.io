@@ -4,6 +4,7 @@ description: "Infobreaker beta tester page with downloads, current build status,
 url: "/infobreaker-beta-testers.html"
 toc: true
 noindex: true
+product: "infobreaker"
 ---
 
 # Infobreaker beta tester guide
@@ -38,7 +39,9 @@ The guide describes beta.51 behavior. After a new build is promoted, repeat test
 
 > **Beta warning:** Infobreaker is not finished. It can miss listings, flag weak matches, hit broker-side blocks, or require human action for opt-out forms. Do not assume a broker listing is gone until the monitoring workflow confirms it.
 
-> **Best-effort support:** This beta is not an emergency safety, legal, or guaranteed-removal service. Broker decisions and timelines are outside Tacita Labs' control, and support during beta is best-effort.
+> **Best-effort support:** This beta is not an emergency safety, legal, or guaranteed-removal service. Broker decisions and timelines are outside Tacita Labs' control, and support during beta is best-effort. We prioritize reports about disappearing work, unreconciled counts, unredacted support data, and claims without evidence.
+
+> **Beta terms:** Review the [Private Beta Terms](/infobreaker-beta-terms.html) before sharing the app or sending reports. They explain the beta disclaimer, support boundary, and what not to send.
 
 ## What to expect in week one
 
@@ -283,7 +286,7 @@ You should still review the report before sending. Beta software is exactly wher
 
 Send beta reports to [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com).
 
-You'll get a human reply from Tacita Labs. During beta, response time may vary, but reports about disappearing work, unreconciled counts, unredacted support data, or claims without evidence are the highest priority.
+You'll get a human reply from Tacita Labs. During beta, response time may vary. We aim to acknowledge high-priority beta reports within two business days, but this is best-effort support, not an SLA. Reports about disappearing work, unreconciled counts, unredacted support data, or claims without evidence are the highest priority.
 
 For scanner, opt-out, or monitoring issues, include:
 
@@ -306,6 +309,8 @@ Attachments: screenshot, redacted support report, or screen recording
 High-value screenshots show the full app window and the current tab. For privacy, crop or blur anything you do not want to share.
 
 Do not send raw debug folders unless Tacita Labs asks for them. Use **Report Problem** first because it creates the redacted support copy.
+
+Private beta terms and support boundaries are posted at [Private Beta Terms](/infobreaker-beta-terms.html).
 
 ## App Overview
 

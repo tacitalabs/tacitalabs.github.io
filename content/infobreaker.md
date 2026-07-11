@@ -4,6 +4,7 @@ description: "Infobreaker is a local-first data broker removal tool, currently i
 url: "/infobreaker.html"
 toc: true
 noindex: true
+product: "infobreaker"
 ---
 
 {{< split-begin >}}
@@ -120,6 +121,8 @@ Full details are in the [Infobreaker Privacy Notes](/infobreaker-privacy.html).
 - Support is best-effort during beta. Infobreaker is not an emergency safety,
   legal, or guaranteed-removal service, and broker decisions and timelines are
   outside Tacita Labs' control.
+- The [private beta terms](/infobreaker-beta-terms.html) explain the beta
+  disclaimer, support boundary, and what to avoid sending in reports.
 {{% /card %}}
 
 {{< eyebrow >}}Download{{< /eyebrow >}}
@@ -199,7 +202,7 @@ macOS (Intel and Apple Silicon) and Windows (x64). Google Chrome must be install
 
 **Where do I report problems?**
 
-Email [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com). The [beta tester guide](/infobreaker-beta-testers.html) explains what makes a useful report and how to create a redacted support report from inside the app.
+Email [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com). Support during private beta is best-effort, with priority for disappearing work, unreconciled counts, unredacted support data, and claims without evidence. The [beta tester guide](/infobreaker-beta-testers.html) explains what makes a useful report and how to create a redacted support report from inside the app.
 
 {{% /split-card %}}
 {{< split-end >}}
@@ -209,6 +212,7 @@ Email [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com). The [beta
 
 - [Beta tester guide](/infobreaker-beta-testers.html) — install notes, testing priorities, and a full app walkthrough.
 - [Infobreaker Privacy Notes](/infobreaker-privacy.html) — what stays local and what leaves your device.
+- [Private Beta Terms](/infobreaker-beta-terms.html) — beta disclaimer, support boundary, and reporting rules.
 
 Beta reports and questions: [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com)
 {{% /card %}}
