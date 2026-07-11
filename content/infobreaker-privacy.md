@@ -4,6 +4,7 @@ description: "Private-beta privacy notes for Infobreaker, a local-first data bro
 url: "/infobreaker-privacy.html"
 toc: true
 noindex: true
+product: "infobreaker"
 ---
 
 # Infobreaker privacy notes
