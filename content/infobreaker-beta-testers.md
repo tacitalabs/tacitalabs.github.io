@@ -21,21 +21,21 @@ Infobreaker makes network connections to broker sites you scan or submit request
 
 ## Current Status
 
-**Current review baseline:** 1.0.0-beta.53
+**Current review baseline:** 1.0.0-beta.54
 
-**Private-beta downloads:** macOS 1.0.0-beta.53, Windows 1.0.0-beta.53
+**Private-beta downloads:** macOS 1.0.0-beta.54, Windows 1.0.0-beta.54
 
-The downloads below are the current private beta builds. macOS and Windows are aligned on beta.53.
+The downloads below are the current private beta builds. macOS and Windows are aligned on beta.54.
 
 {{< infobreaker-downloads >}}
 
-- **Automation bundle:** beta.57 broker automation on the stable and beta channels. Broker automation updates separately from the app; Settings shows both versions. Automation beta.57 requires app beta.50 or newer, and beta.53 satisfies that requirement.
-- **QA status:** beta.53 is the current internal review baseline. It fixes the stale Do Next preview path that could re-enable live removal for Intelius/PeopleConnect rows already waiting on confirmation. The Windows portable build passed release health, signing policy, artifact audit, and ZIP integrity checks. The macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.53.
+- **Automation bundle:** beta.57 broker automation on the stable and beta channels. Broker automation updates separately from the app; Settings shows both versions. Automation beta.57 requires app beta.50 or newer, and beta.54 satisfies that requirement.
+- **QA status:** beta.54 is the current internal review baseline. It keeps the stale Do Next preview fix for Intelius/PeopleConnect confirmation rows and fixes app-update downloads through GitHub release redirects. The Windows portable build passed release health, signing policy, artifact audit, and ZIP integrity checks. The macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.54.
 - **Privacy posture:** local-first by default. Reports are optional and should be reviewed before sending. Raw debug folders can contain personal information; use the redacted support report first.
 
 ### Version note
 
-The guide describes beta.53 behavior. After a new build is promoted, repeat testers should re-read **Current Status**, **Install Notes**, and **What changed lately**.
+The guide describes beta.54 behavior. After a new build is promoted, repeat testers should re-read **Current Status**, **Install Notes**, and **What changed lately**.
 
 > **Beta warning:** Infobreaker is not finished. It can miss listings, flag weak matches, hit broker-side blocks, or require human action for opt-out forms. Do not assume a broker listing is gone until the monitoring workflow confirms it.
 
@@ -105,7 +105,7 @@ Every count in the app should reconcile to rows you can open. If a number does n
 To verify the download hash, run:
 
 ```sh
-shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.53-universal.dmg
+shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.54-universal.dmg
 ```
 {{% /split-card %}}
 
@@ -124,7 +124,7 @@ shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.53-universal.dmg
 To verify the download hash, run:
 
 ```powershell
-certutil -hashfile .\Infobreaker-1.0.0-beta.53-x64-portable.zip SHA256
+certutil -hashfile .\Infobreaker-1.0.0-beta.54-x64-portable.zip SHA256
 ```
 {{% /split-card %}}
 
