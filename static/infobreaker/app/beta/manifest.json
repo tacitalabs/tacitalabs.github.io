@@ -25,7 +25,7 @@
     {
       "platform": "win32",
       "arch": "x64",
-      "url": "https://release-assets.githubusercontent.com/github-production-release-asset/1276372728/f24a0beb-473b-44f2-9cb3-058a60a76734",
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.54/Infobreaker-1.0.0-beta.54-x64-portable.zip",
       "sha256": "2a5ebdcb10e955b507a1b1a1cc0ca6c99f00a9ef861bebef8c9b1bda0da6ae72",
       "sizeBytes": 196224327
     }
