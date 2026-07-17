@@ -11,21 +11,21 @@
     {
       "platform": "darwin",
       "arch": "arm64",
-      "url": "https://release-assets.githubusercontent.com/github-production-release-asset/1276372728/28441c24-bb2b-476d-94d6-33fa48e53cfa?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-07-17T21%3A40%3A19Z&rscd=attachment%3B+filename%3DInfobreaker-1.0.0-beta.54-universal.dmg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-07-17T20%3A39%3A35Z&ske=2026-07-17T21%3A40%3A19Z&sks=b&skv=2018-11-09&sig=iia2l7BAH2%2BR1Rp3rP0Dq2JPtEXt42KQopjVj1weGWc%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NDMyNTUwMiwibmJmIjoxNzg0MzIxOTAyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.5RpqFzAywCnfrXoyQc-CTL3GHpOSo18FOduHTNQtBLo&response-content-disposition=attachment%3B%20filename%3DInfobreaker-1.0.0-beta.54-universal.dmg&response-content-type=application%2Foctet-stream",
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.54/Infobreaker-1.0.0-beta.54-universal.dmg",
       "sha256": "a2077226dc07be43896c4eef873f8c8cb5fe448d0e94bb0217658df1f50a7cdb",
       "sizeBytes": 316517612
     },
     {
       "platform": "darwin",
       "arch": "x64",
-      "url": "https://release-assets.githubusercontent.com/github-production-release-asset/1276372728/28441c24-bb2b-476d-94d6-33fa48e53cfa?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-07-17T21%3A40%3A19Z&rscd=attachment%3B+filename%3DInfobreaker-1.0.0-beta.54-universal.dmg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-07-17T20%3A39%3A35Z&ske=2026-07-17T21%3A40%3A19Z&sks=b&skv=2018-11-09&sig=iia2l7BAH2%2BR1Rp3rP0Dq2JPtEXt42KQopjVj1weGWc%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NDMyNTUwMiwibmJmIjoxNzg0MzIxOTAyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.5RpqFzAywCnfrXoyQc-CTL3GHpOSo18FOduHTNQtBLo&response-content-disposition=attachment%3B%20filename%3DInfobreaker-1.0.0-beta.54-universal.dmg&response-content-type=application%2Foctet-stream",
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.54/Infobreaker-1.0.0-beta.54-universal.dmg",
       "sha256": "a2077226dc07be43896c4eef873f8c8cb5fe448d0e94bb0217658df1f50a7cdb",
       "sizeBytes": 316517612
     },
     {
       "platform": "win32",
       "arch": "x64",
-      "url": "https://release-assets.githubusercontent.com/github-production-release-asset/1276372728/f24a0beb-473b-44f2-9cb3-058a60a76734?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-07-17T21%3A39%3A56Z&rscd=attachment%3B+filename%3DInfobreaker-1.0.0-beta.54-x64-portable.zip&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-07-17T20%3A39%3A09Z&ske=2026-07-17T21%3A39%3A56Z&sks=b&skv=2018-11-09&sig=LW3cTEcuF0kI029CMBrWzIcT6kOGIF7bq5liJhdDfXE%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NDMyNTUwMiwibmJmIjoxNzg0MzIxOTAyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.5RpqFzAywCnfrXoyQc-CTL3GHpOSo18FOduHTNQtBLo&response-content-disposition=attachment%3B%20filename%3DInfobreaker-1.0.0-beta.54-x64-portable.zip&response-content-type=application%2Foctet-stream",
+      "url": "https://release-assets.githubusercontent.com/github-production-release-asset/1276372728/f24a0beb-473b-44f2-9cb3-058a60a76734",
       "sha256": "2a5ebdcb10e955b507a1b1a1cc0ca6c99f00a9ef861bebef8c9b1bda0da6ae72",
       "sizeBytes": 196224327
     }
