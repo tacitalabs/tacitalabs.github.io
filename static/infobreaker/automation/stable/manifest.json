@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "product": "infobreaker-automation",
   "channel": "stable",
-  "version": "1.0.0-beta.57",
-  "publishedAt": "2026-07-09T08:53:34.226Z",
-  "minAppVersion": "1.0.0-beta.50",
+  "version": "1.0.0-beta.62",
+  "publishedAt": "2026-07-21T05:09:07.156Z",
+  "minAppVersion": "1.0.0-beta.61",
   "notes": [
-    "Require FastPeopleSearch bot-check pages to actually clear before continuing"
+    "Broker coverage, legal request, disclosure, registry/DROP, blind opt-out, ownership cluster, recheck, evidence policy, and skip taxonomy refresh for beta.61."
   ],
   "brokerIds": [
     "acxiom",
@@ -53,6 +53,7 @@
     "spyfly",
     "state-arrests",
     "thatsthem",
+    "thepublicindex",
     "truepeoplesearch",
     "truepeoplesearchnet",
     "unitedstatesphonebook",
@@ -67,7 +68,11 @@
     "zoominfo"
   ],
   "bundle": {
-    "url": "automation-1.0.0-beta.57.json",
-    "sha256": "233a0dd2e5a4878cc1f858965b84efdcc27c1a9784f768ac2b0a57554dd039fd"
+    "url": "automation-1.0.0-beta.62.json",
+    "sha256": "59aa522f9dbab12dd0d2e0006220bfab67219c6a44763dac1047a3964b273a4a"
+  },
+  "signature": {
+    "algorithm": "ed25519",
+    "value": "cAtSq/Kmd3r4AbyVuWUtyQMJ7K8NKOioWv/WNCHA00T7if55cDX7l7iI90887KW3X0McySj9PkoytkXLT9YvBQ=="
   }
 }

@@ -21,21 +21,21 @@ Infobreaker makes network connections to broker sites you scan or submit request
 
 ## Current Status
 
-**Current review baseline:** 1.0.0-beta.60
+**Current review baseline:** 1.0.0-beta.61
 
-**Private-beta downloads:** macOS 1.0.0-beta.60, Windows 1.0.0-beta.60
+**Private-beta downloads:** macOS 1.0.0-beta.61, Windows 1.0.0-beta.61
 
-The downloads below are the current private beta builds. macOS and Windows are aligned on beta.60.
+The downloads below are the current private beta builds. macOS and Windows are aligned on beta.61.
 
 {{< infobreaker-downloads >}}
 
-- **Automation bundle:** beta.57 broker automation on the stable and beta channels. Broker automation updates separately from the app; Settings shows both versions. Automation beta.57 requires app beta.50 or newer, and beta.60 satisfies that requirement.
-- **QA status:** beta.60 is the current internal review baseline. It keeps the recent Windows scan/CDP, removal-flow, done-for-now, CAPTCHA retry, and monitoring-detail UX fixes, and it corrects PrivateRecords no-results handling plus SocialCatfish loading-screen evidence capture. The Windows portable build passed release health, signing policy, artifact audit, and ZIP integrity checks. The macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.60.
+- **Automation bundle:** beta.62 broker automation on the stable and beta channels. Broker automation updates separately from the app; Settings shows both versions. Automation beta.62 requires app beta.61 or newer, and beta.61 satisfies that requirement.
+- **QA status:** beta.61 is the current internal review baseline. It adds legal request workflows, disclosure logging, registry/DROP actions, blind opt-out support, ownership clusters, richer search vectors, broker knowledge, recheck policy, evidence doctrine, BADBOOL gap reporting, skip taxonomy, and a patched shipped dependency flagged by npm audit. The Windows portable build passed release health, signing policy, artifact audit, npm audit, PII audit, and ZIP integrity checks. The macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.61.
 - **Privacy posture:** local-first by default. Reports are optional and should be reviewed before sending. Raw debug folders can contain personal information; use the redacted support report first.
 
 ### Version note
 
-The guide describes beta.60 behavior. After a new build is promoted, repeat testers should re-read **Current Status**, **Install Notes**, and **What changed lately**.
+The guide describes beta.61 behavior. After a new build is promoted, repeat testers should re-read **Current Status**, **Install Notes**, and **What changed lately**.
 
 > **Beta warning:** Infobreaker is not finished. It can miss listings, flag weak matches, hit broker-side blocks, or require human action for opt-out forms. Do not assume a broker listing is gone until the monitoring workflow confirms it.
 
@@ -105,7 +105,7 @@ Every count in the app should reconcile to rows you can open. If a number does n
 To verify the download hash, run:
 
 ```sh
-shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.60-universal.dmg
+shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.61-universal.dmg
 ```
 {{% /split-card %}}
 
@@ -124,7 +124,7 @@ shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.60-universal.dmg
 To verify the download hash, run:
 
 ```powershell
-certutil -hashfile .\Infobreaker-1.0.0-beta.60-x64-portable.zip SHA256
+certutil -hashfile .\Infobreaker-1.0.0-beta.61-x64-portable.zip SHA256
 ```
 {{% /split-card %}}
 
