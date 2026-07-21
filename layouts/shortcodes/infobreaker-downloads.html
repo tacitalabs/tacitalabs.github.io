@@ -8,7 +8,7 @@
 {{- $d := site.Data.infobreaker -}}
 {{- $macFile := path.Base $d.macos.url -}}
 {{- $winFile := path.Base $d.windows.url -}}
-<p><strong>Updating from beta.52 or earlier?</strong> Use these download links for this upgrade. Those older builds cannot follow GitHub's release download redirect and may show <code>HTTP 302</code> in Settings. After installing {{ $d.version }}, in-app updates can download future releases normally.</p>
+<p><strong>Updating from beta.52 or earlier, or seeing beta.61 open without a window?</strong> Use these download links for this upgrade. The older updater cannot follow GitHub's release download redirect, and beta.61 can be blocked before the window appears by stale broker automation metadata. After installing {{ $d.version }}, in-app updates can download future releases normally.</p>
 <div class="split">
 <div class="split-card">
 <div class="eyebrow">macOS</div>

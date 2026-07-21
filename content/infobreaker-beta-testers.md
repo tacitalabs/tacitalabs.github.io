@@ -29,7 +29,7 @@ The downloads below are the current private beta builds. macOS and Windows are a
 
 {{< infobreaker-downloads >}}
 
-- **Upgrade note:** beta.52 and earlier can check the update feed but may fail to download with `HTTP 302` because GitHub release assets redirect to the real file. If you see that error, download beta.62 from this page and replace the app manually once. The beta.61 and newer updater follows those redirects for later releases.
+- **Upgrade note:** beta.52 and earlier can check the update feed but may fail to download with `HTTP 302` because GitHub release assets redirect to the real file. beta.61 can also open without a window if stale broker automation metadata is already installed. If either happens, download beta.62 from this page and replace the app manually once.
 - **Automation bundle:** beta.62 broker automation on the stable and beta channels. Broker automation updates separately from the app; Settings shows both versions. Automation beta.62 requires app beta.61 or newer, and beta.62 satisfies that requirement.
 - **QA status:** beta.62 is the current internal review baseline. It is a startup hotfix over beta.61: stale or invalid installed automation bundles no longer stop the app before the main window appears. The Windows portable build passed release health, signing policy, artifact audit, npm audit, PII audit, and ZIP integrity checks. The macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.62.
 - **Privacy posture:** local-first by default. Reports are optional and should be reviewed before sending. Raw debug folders can contain personal information; use the redacted support report first.
@@ -102,7 +102,7 @@ Every count in the app should reconcile to rows you can open. If a number does n
 - If macOS warns that the app was downloaded from the internet, choose Open. The DMG is signed, notarized, and stapled.
 - Allow expected macOS prompts that let Infobreaker open the app, access its own local files, or control the separate browser it starts for broker work.
 - If you already tested an older beta, quit Infobreaker before replacing it.
-- If the in-app updater reports `HTTP 302`, quit Infobreaker and install from the DMG link above. That is a legacy updater issue in beta.52 and earlier.
+- If the in-app updater reports `HTTP 302`, or beta.61 opens without a visible window, quit Infobreaker and install from the DMG link above. Those are fixed after the one-time beta.62 replacement.
 
 To verify the download hash, run:
 
