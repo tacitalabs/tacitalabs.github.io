@@ -2,33 +2,34 @@
   "schemaVersion": 1,
   "product": "infobreaker-app",
   "channel": "beta",
-  "version": "1.0.0-beta.62",
-  "publishedAt": "2026-07-21T06:26:43Z",
+  "version": "1.0.0-beta.63",
+  "publishedAt": "2026-07-21T07:20:30Z",
   "notes": [
-    "Hotfix release: Infobreaker now opens even when an older installed automation bundle contains stale catalog fields. Invalid future automation bundles are disabled and the app falls back to bundled automation instead of launching without a window.",
-    "If an older beta reports HTTP 302 while downloading this app update, install beta.62 once from the Tacita Infobreaker download page. Beta.61 and later follow GitHub release redirects for future app updates."
+    "Hotfix release: stale saved app-update records are ignored when the running app is already newer, so beta.63 will not suggest older updates after an upgrade.",
+    "Monitoring View Evidence now opens the saved evidence modal in place for still-exposed rows instead of jumping to the Remove tab.",
+    "Includes beta.62 startup hardening for stale or invalid installed automation bundles, plus the beta.52 HTTP 302 manual-upgrade guidance for older testers."
   ],
   "artifacts": [
     {
       "platform": "darwin",
       "arch": "arm64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.62/Infobreaker-1.0.0-beta.62-universal.dmg",
-      "sha256": "db38235939537672fa2314d0a1b614db62a10b8ae23227f46486923392f1c7e2",
-      "sizeBytes": 316564415
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.63/Infobreaker-1.0.0-beta.63-universal.dmg",
+      "sha256": "fb93fe034daad020a9110efb29e1472dedc6a2fe64330f419d5bf3473771ca9a",
+      "sizeBytes": 316558895
     },
     {
       "platform": "darwin",
       "arch": "x64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.62/Infobreaker-1.0.0-beta.62-universal.dmg",
-      "sha256": "db38235939537672fa2314d0a1b614db62a10b8ae23227f46486923392f1c7e2",
-      "sizeBytes": 316564415
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.63/Infobreaker-1.0.0-beta.63-universal.dmg",
+      "sha256": "fb93fe034daad020a9110efb29e1472dedc6a2fe64330f419d5bf3473771ca9a",
+      "sizeBytes": 316558895
     },
     {
       "platform": "win32",
       "arch": "x64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.62/Infobreaker-1.0.0-beta.62-x64-portable.zip",
-      "sha256": "df5b567126b7120b0fa9e9d3c6d20f1cd1f66a730d983a7b9af711cf31ccf476",
-      "sizeBytes": 196314526
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.63/Infobreaker-1.0.0-beta.63-x64-portable.zip",
+      "sha256": "3cd03852597ac5c4e1058a662b86d0962eef25ee665717d566d3c20d808b61e0",
+      "sizeBytes": 196314700
     }
   ]
 }
