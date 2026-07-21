@@ -5,7 +5,8 @@
   "version": "1.0.0-beta.61",
   "publishedAt": "2026-07-21T05:26:53.875Z",
   "notes": [
-    "Private beta refresh with legal request workflows, disclosure logging, registry/DROP actions, blind opt-out support, ownership clusters, richer search vectors, broker knowledge, recheck policy, evidence doctrine, BADBOOL gap reporting, skip taxonomy, and patched shipped brace-expansion dependency."
+    "Private beta refresh with legal request workflows, disclosure logging, registry/DROP actions, blind opt-out support, ownership clusters, richer search vectors, broker knowledge, recheck policy, evidence doctrine, BADBOOL gap reporting, skip taxonomy, and patched shipped brace-expansion dependency.",
+    "If an older beta reports HTTP 302 while downloading this app update, install beta.61 once from the Tacita Infobreaker download page. Beta.61 and later follow GitHub release redirects for future app updates."
   ],
   "artifacts": [
     {
