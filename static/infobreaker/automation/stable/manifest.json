@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "product": "infobreaker-automation",
   "channel": "stable",
-  "version": "1.0.0-beta.62",
-  "publishedAt": "2026-07-21T05:09:07.156Z",
-  "minAppVersion": "1.0.0-beta.61",
+  "version": "1.0.0-beta.68",
+  "publishedAt": "2026-07-22T02:04:35.845Z",
+  "minAppVersion": "1.0.0-beta.67",
   "notes": [
-    "Broker coverage, legal request, disclosure, registry/DROP, blind opt-out, ownership cluster, recheck, evidence policy, and skip taxonomy refresh for beta.61."
+    "Automation and broker workflow refresh for Infobreaker beta.67, including warm browser recovery, passive challenge handling, external bundle loading, and plain-language broker guidance."
   ],
   "brokerIds": [
     "acxiom",
@@ -68,11 +68,11 @@
     "zoominfo"
   ],
   "bundle": {
-    "url": "automation-1.0.0-beta.62.json",
-    "sha256": "59aa522f9dbab12dd0d2e0006220bfab67219c6a44763dac1047a3964b273a4a"
+    "url": "automation-1.0.0-beta.68.json",
+    "sha256": "6249a7d367e0bfa7ba201f08e192db0d1c803242d9d9d7816dfa3e71836a15a3"
   },
   "signature": {
     "algorithm": "ed25519",
-    "value": "cAtSq/Kmd3r4AbyVuWUtyQMJ7K8NKOioWv/WNCHA00T7if55cDX7l7iI90887KW3X0McySj9PkoytkXLT9YvBQ=="
+    "value": "DRAS7EhCtQpmE9vc8hVUnYGijRw/af6dQKkRjIT8xEBHKhIEnHMD5WJRVv8Zfs1jL0rcM2BA0fAXijm8trMODw=="
   }
 }
