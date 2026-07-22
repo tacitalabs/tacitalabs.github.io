@@ -2,34 +2,34 @@
   "schemaVersion": 1,
   "product": "infobreaker-app",
   "channel": "stable",
-  "version": "1.0.0-beta.67",
-  "publishedAt": "2026-07-22T02:05:01.448Z",
+  "version": "1.0.0-beta.68",
+  "publishedAt": "2026-07-22T17:10:48.388Z",
   "notes": [
-    "Major workflow and clarity release: plain-language guidance, honest statuses, and expanded UNBROKER panels.",
-    "Automation resilience now includes warm browser recovery, passive challenge handling, signed external bundle hardening, and proactive drift coverage.",
-    "Startup is more reliable when another Infobreaker instance already has the local database open."
+    "Checks profile and contact requirements before asking for submission confirmation.",
+    "Keeps the current street address and ZIP out of previous or unknown-location requests.",
+    "Uses one shared removal-state decision across guided, detailed, single, and batch broker paths."
   ],
   "artifacts": [
     {
       "platform": "darwin",
       "arch": "arm64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.67/Infobreaker-1.0.0-beta.67-universal.dmg",
-      "sha256": "43a41fe786fb98cfad64ea26f95e0bb435057e8bcdf6881de4e603eb4b900efc",
-      "sizeBytes": 316579195
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.68/Infobreaker-1.0.0-beta.68-universal.dmg",
+      "sha256": "ee29178d3db9ac20eb2d662c367706291e28d8e4dec5ed7f7c4c57642e490553",
+      "sizeBytes": 316615078
     },
     {
       "platform": "darwin",
       "arch": "x64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.67/Infobreaker-1.0.0-beta.67-universal.dmg",
-      "sha256": "43a41fe786fb98cfad64ea26f95e0bb435057e8bcdf6881de4e603eb4b900efc",
-      "sizeBytes": 316579195
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.68/Infobreaker-1.0.0-beta.68-universal.dmg",
+      "sha256": "ee29178d3db9ac20eb2d662c367706291e28d8e4dec5ed7f7c4c57642e490553",
+      "sizeBytes": 316615078
     },
     {
       "platform": "win32",
       "arch": "x64",
-      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.67/Infobreaker-1.0.0-beta.67-x64-portable.zip",
-      "sha256": "1a9661a1604b511854c551c9c4084d9d47564003c21a9953a8ed1f662680d45c",
-      "sizeBytes": 196322133
+      "url": "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.68/Infobreaker-1.0.0-beta.68-x64-portable.zip",
+      "sha256": "9f986307d26830f475dce5af23d01f639d5b705927d4543d8263a441f276f506",
+      "sizeBytes": 196330414
     }
   ]
 }
