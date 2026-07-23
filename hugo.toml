@@ -41,32 +41,33 @@ disableKinds = ["taxonomy", "term", "RSS"]
 
 # Default site-wide social/SEO image, can be overridden per page.
 [params]
-  description = "URLStrip removes tracking junk from links before you open them, save them, or share them. It runs locally, stays out of the way, and is free to use on iOS/iPadOS, macOS, and Windows."
+  description = "Tacita Labs builds local-first privacy tools. Infobreaker (public beta) helps remove your listings from data broker sites without handing your information to another service, and URLStrip removes tracking junk from links on iOS/iPadOS, macOS, and Windows."
   ogImage = "/assets/tacita-social-preview.png"
   brandLockup = "/assets/tacita-horizontal-lockup.png"
 
 # Primary navigation. Every content page gets a slot here so the top nav
 # is the same on every page (current page is just marked .active rather
 # than hidden). In-page anchors live in the per-page table of contents
-# sidebar instead of the top nav.
+# sidebar instead of the top nav. Deeper URLStrip pages (FAQ, tracking
+# methodology) are linked from the URLStrip product page and footer.
+[[menu.main]]
+  name = "Infobreaker"
+  url = "/infobreaker.html"
+  weight = 10
+
+[[menu.main]]
+  name = "URLStrip"
+  url = "/urlstrip.html"
+  weight = 20
+
 [[menu.main]]
   name = "Download"
   url = "/download.html"
-  weight = 10
+  weight = 30
 
 [[menu.main]]
   name = "Clean URL"
   url = "/clean-url.html"
-  weight = 20
-
-[[menu.main]]
-  name = "Tracking methodology"
-  url = "/tracking-methodology.html"
-  weight = 30
-
-[[menu.main]]
-  name = "FAQ"
-  url = "/faq.html"
   weight = 35
 
 [[menu.main]]

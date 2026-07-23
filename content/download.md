@@ -1,10 +1,33 @@
 ---
-title: "Download URLStrip - Tacita Labs"
-description: "Download URLStrip for iOS/iPadOS, macOS, and Windows. The iOS and iPadOS app is available on the App Store, TestFlight remains available for beta builds, and desktop releases include direct links and published SHA-256 hashes."
+title: "Download Infobreaker and URLStrip - Tacita Labs"
+description: "Download Tacita Labs apps: Infobreaker (public beta) for macOS and Windows, and URLStrip for iOS/iPadOS, macOS, and Windows. Direct links with published SHA-256 hashes."
 url: "/download.html"
 ---
 
-# Free to download and use.
+# Download the tools.
+
+Both Tacita Labs apps are downloaded directly — no account, no signup.
+Desktop releases are published with direct links and published SHA-256
+hashes so you can verify the integrity of what you've downloaded.
+
+## Infobreaker - public beta
+
+Infobreaker is a [local-first data broker removal tool](/infobreaker.html),
+available in public beta for macOS (Intel and Apple Silicon) and Windows
+(x64). Install Google Chrome before your first scan — broker automation uses
+a real, visible browser with its own separate profile. It is beta software:
+expect broker-side changes, human-assist steps, and removals that take weeks
+to verify. Free to use for non-commercial use.
+
+{{< infobreaker-downloads >}}
+
+Install notes and a full app walkthrough are in the
+[Infobreaker beta guide](/infobreaker-beta-testers.html). Questions and
+reports: [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com).
+
+---
+
+## URLStrip - free to download and use.
 
 URLStrip for iOS and iPadOS is available on the App Store. TestFlight
 remains available for people who want the newest beta builds. Current
@@ -14,7 +37,7 @@ GitHub Release asset links and published SHA-256 hashes so people can verify the
 integrity of what they've downloaded.
 
 {{% card %}}
-## iOS / iPadOS - App Store
+### iOS / iPadOS - App Store
 
 Get the public URLStrip release from the App Store. TestFlight stays
 open for beta testers who want the newest builds before they reach the
@@ -27,7 +50,7 @@ public release.
 {{% /card %}}
 {{% card %}}
 
-## macOS - Universal (Apple Silicon + Intel)
+### macOS - Universal (Apple Silicon + Intel)
 
 Native macOS desktop build for Apple Silicon and Intel Macs. Includes URL
 cleaning, local Command Guard warnings for risky terminal commands copied to
@@ -45,7 +68,7 @@ Settings** in the app, then run `urlstrip --help`.
 {{% /card %}}
 {{% card %}}
 
-## Windows - x64
+### Windows - x64
 
 Windows desktop release with the same local-cleaning model.
 
@@ -60,7 +83,7 @@ risky patterns such as remote download-and-execute chains, encoded payloads,
 and persistence commands. Warnings stay local and the optional neutralize
 setting is off by default.
 
-### Windows publisher verification
+#### Windows publisher verification
 
 URLStrip for Windows is signed with Azure Trusted Signing, so the installer includes a verifiable publisher signature and timestamp. Windows Defender SmartScreen can still show reputation warnings for very new or low-volume releases.
 

@@ -1,17 +1,16 @@
 ---
-title: "Infobreaker Private Beta Terms - Tacita Labs"
-description: "Private-beta terms and support boundaries for Infobreaker."
+title: "Infobreaker Beta Terms - Tacita Labs"
+description: "Public-beta terms and support boundaries for Infobreaker, the local-first data broker removal tool from Tacita Labs."
 url: "/infobreaker-beta-terms.html"
 toc: true
-noindex: true
 product: "infobreaker"
 ---
 
-# Infobreaker private beta terms
+# Infobreaker beta terms
 
-Infobreaker is in private beta by direct link. It is still changing quickly, and it is shared for testing, feedback, and evaluation before broader public release.
+Infobreaker is in public beta. It is still changing quickly, and it is offered for real-world use, testing, and feedback while it matures.
 
-These terms are written plainly so testers know what the beta is, what it is not, and what kind of support is available.
+These terms are written plainly so users know what the beta is, what it is not, and what kind of support is available.
 
 ## Beta status
 
@@ -22,12 +21,16 @@ These terms are written plainly so testers know what the beta is, what it is not
 - Infobreaker should not claim a removal unless a later check captures evidence that the listing is gone.
 {{% /card %}}
 
+## Cost and permitted use
+
+Free to use for non-commercial use.
+
 ## Your responsibility
 
 {{% card %}}
 - Use Infobreaker only for yourself or for someone who has clearly asked you to help with their privacy.
 - Review matches before submitting opt-outs. Broker search results can include similar names, relatives, stale addresses, or wrong people.
-- Review any support report before sending it. The app creates redacted reports, but beta testers should still inspect what they share.
+- Review any support report before sending it. The app creates redacted reports, but you should still inspect what you share.
 - Do not send raw debug folders, screenshots with personal information, broker emails, or database files unless Tacita Labs asks for a specific item for a specific issue.
 {{% /card %}}
 
@@ -37,12 +40,12 @@ Infobreaker has no account system and no cloud dashboard. Your profile, scan his
 
 Information leaves your device when you run a broker scan or submit a broker opt-out from your computer, or when you choose to send Tacita Labs a support report. Update checks send version/update metadata, not your profile.
 
-For the full private-beta privacy model, see [Infobreaker Privacy Notes](/infobreaker-privacy.html).
+For the full privacy model, see [Infobreaker Privacy Notes](/infobreaker-privacy.html).
 
 ## Support promise
 
 {{% card %}}
-- Support during private beta is best-effort.
+- Support during the beta is best-effort.
 - We aim to acknowledge high-priority beta reports within two business days, but there is no service-level agreement.
 - Highest priority reports are disappearing work, unreconciled counts, unredacted support data, claims without evidence, install/update failures, and broker flows that submit something different than what the app previewed.
 - We may ask for a redacted support report, screenshot, app version, operating system version, Chrome status, automation version, or steps to reproduce.
@@ -51,12 +54,8 @@ For the full private-beta privacy model, see [Infobreaker Privacy Notes](/infobr
 
 ## No warranty
 
-Infobreaker is provided as beta software for testing and evaluation. It is provided without warranties of availability, accuracy, fitness for a particular purpose, guaranteed removal, or uninterrupted operation.
+Infobreaker is provided as beta software. It is provided without warranties of availability, accuracy, fitness for a particular purpose, guaranteed removal, or uninterrupted operation.
 
 Use it carefully, keep your operating system and browser updated, and keep control over what you submit to brokers and what you send to Tacita Labs.
-
-## Sharing
-
-The private beta pages are direct-link pages. Do not post the download links broadly or present Infobreaker as a public beta until Tacita Labs announces that phase.
 
 Questions and beta reports: [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com)

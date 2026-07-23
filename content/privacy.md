@@ -1,17 +1,27 @@
 ---
 title: "Privacy Policy - Tacita Labs"
-description: "Privacy policy for URLStrip and Tacita Labs. URLStrip cleans links locally and does not collect browsing history or link history."
+description: "Privacy policy for Tacita Labs, URLStrip, and this website. Tacita Labs tools work locally on your device; Infobreaker has its own detailed privacy notes."
 url: "/privacy.html"
 ---
 
-# Short version: URLStrip is local first.
+# Short version: Tacita Labs tools are local first.
 
-URLStrip removes tracking junk from links on your device. We do not run
-a link-cleaning cloud service, we do not require an account, and we do
-not collect your browsing history or link history.
+Tacita Labs apps do their work on your device. We do not require
+accounts, and we do not collect your browsing history or link history.
+This page covers URLStrip and this website.
 
-*Last updated: June 17, 2026*
+*Last updated: July 23, 2026*
 
+{{% card %}}
+## Infobreaker
+
+Infobreaker, the local-first data broker removal tool (public beta), has
+its own detailed privacy notes covering what stays on your device, when
+information goes to broker sites, and how optional redacted support
+reports work. Read the
+[Infobreaker Privacy Notes](/infobreaker-privacy.html).
+
+{{% /card %}}
 {{% card %}}
 ## URLStrip, the app
 

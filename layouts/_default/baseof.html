@@ -18,15 +18,25 @@
       })();
     </script>
     <title>{{ .Title }}</title>
-    <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+    {{- $description := .Params.description | default .Site.Params.description }}
+    {{- $ogImage := .Params.ogImage | default .Site.Params.ogImage }}
+    {{- $pageURL := cond .IsHome .Site.BaseURL .Permalink }}
+    <meta name="description" content="{{ $description }}" />
     {{- if .Params.noindex }}
     <meta name="robots" content="noindex, nofollow" />
+    {{- else }}
+    <link rel="canonical" href="{{ $pageURL }}" />
     {{- end }}
     <meta property="og:site_name" content="Tacita Labs" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://www.tacitalabs.com{{ .Site.Params.ogImage }}" />
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta property="og:description" content="{{ $description }}" />
+    <meta property="og:url" content="{{ $pageURL }}" />
+    <meta property="og:image" content="https://www.tacitalabs.com{{ $ogImage }}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://www.tacitalabs.com{{ .Site.Params.ogImage }}" />
+    <meta name="twitter:title" content="{{ .Title }}" />
+    <meta name="twitter:description" content="{{ $description }}" />
+    <meta name="twitter:image" content="https://www.tacitalabs.com{{ $ogImage }}" />
     <link rel="icon" href="{{ "/favicon.ico" | relURL }}" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/tacita-favicon-32.png" | relURL }}" />
     <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/tacita-favicon-16.png" | relURL }}" />
@@ -49,11 +59,8 @@
       </main>
     </div>
     <footer class="site-footer">
-      {{- if eq .Params.product "infobreaker" }}
-      <p>&copy; {{ now.Year }} Tacita Labs · <a href="/infobreaker-privacy.html">Infobreaker Privacy</a> · <a href="/infobreaker-beta-terms.html">Beta Terms</a> · <a href="mailto:infobreaker@tacitalabs.com">Contact</a></p>
-      {{- else }}
+      <p><a href="/infobreaker.html">Infobreaker</a> · <a href="/infobreaker-privacy.html">Infobreaker Privacy</a> · <a href="/infobreaker-beta-terms.html">Beta Terms</a> · <a href="/urlstrip.html">URLStrip</a> · <a href="/faq.html">URLStrip FAQ</a> · <a href="/tracking-methodology.html">Tracking Methodology</a></p>
       <p>&copy; {{ now.Year }} Tacita Labs · <a href="/privacy.html">Privacy</a> · <a href="/support.html">Support</a> · <a href="mailto:hello@tacitalabs.com">Contact</a> · <a href="https://xcancel.com/TacitaLabs">X</a></p>
-      {{- end }}
     </footer>
   </body>
 </html>
