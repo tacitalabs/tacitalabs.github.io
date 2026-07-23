@@ -1,8 +1,7 @@
 ---
 title: "Infobreaker - Local-First Data Broker Removal (Public Beta) - Tacita Labs"
-description: "Infobreaker is a local-first data broker removal tool, now in public beta for macOS and Windows. Your personal information stays in an encrypted vault on your device and goes only to each broker's own opt-out form - never to us."
+description: "Infobreaker is a local-first data broker removal tool in public beta for macOS and Windows. Your profile stays in an encrypted local vault, and information goes directly from your computer to broker sites when you scan or submit a request."
 url: "/infobreaker.html"
-toc: true
 product: "infobreaker"
 ---
 
@@ -13,7 +12,10 @@ product: "infobreaker"
 
 # Remove yourself from data brokers — without giving your data to one more company.
 
-Infobreaker runs on your computer. Your information lives in an encrypted vault on your device and goes only where you send it: directly from your machine to each broker's own opt-out form. No account. No cloud. No copy of you on our servers, because we don't have servers that hold user data.
+Infobreaker runs on your computer. Your profile lives in an encrypted local
+vault, and information goes directly from your machine to broker sites only
+when you scan or submit a removal request. No Tacita Labs account. No cloud
+copy held by us.
 
 {{< button href="#downloads" style="primary" >}}Download the beta{{< /button >}} {{< button href="#beta" style="secondary" >}}What "beta" means here{{< /button >}}
 
@@ -70,10 +72,11 @@ As of **July 23, 2026**, from the generated broker coverage report:
   fills the forms, and guides you through the steps brokers require a human
   for — CAPTCHAs, email confirmations, or a final click.
 
-On Tacita Labs' own test profile, as of the same report: **9** brokers
-verified removed with evidence, **5** re-listed the profile after a confirmed
-removal, and **3** declined the request. You will see all three outcomes in
-the app, because all three happen.
+On Tacita Labs' own test profile, the same report records all three real
+outcomes: verified removals, listings that reappeared after a confirmed
+removal, and broker declines. You will see all three outcomes in the app,
+because all three happen. Public outcome counts are omitted when their
+underlying evidence is due for a fresh check.
 {{% /card %}}
 
 These counts change as brokers change their sites, and they are regenerated rather than hand-edited. We will not publish a coverage number we cannot regenerate from evidence.
@@ -145,7 +148,7 @@ For install notes, testing priorities, and a tab-by-tab walkthrough, see the [be
 
 **What does it cost?**
 
-Infobreaker is free to use for non-commercial use.
+Free to use for non-commercial use.
 
 {{% /split-card %}}
 {{% split-card %}}
@@ -162,7 +165,11 @@ It stays on your computer, in an AES-256-encrypted vault. Infobreaker has no acc
 
 **How is this different from DeleteMe or Incogni?**
 
-Those are subscription services: you give them your personal information, and they submit requests on your behalf from their systems. Infobreaker takes the opposite approach — it runs on your computer, and no company (including us) holds a copy of the information you are trying to erase. We make no claims about comparative effectiveness; the difference is the trust model.
+Those are subscription services: you give them your personal information, and
+they submit requests on your behalf from their systems. Infobreaker takes the
+opposite approach — it runs on your computer, and Tacita Labs does not hold a
+copy of the profile you use for broker work. We make no claims about
+comparative effectiveness; the difference is the trust model.
 
 {{% /split-card %}}
 {{% split-card %}}

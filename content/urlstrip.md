@@ -2,7 +2,6 @@
 title: "URLStrip - Remove Tracking Junk from Links - Tacita Labs"
 description: "URLStrip removes tracking junk from links before you open them, save them, or share them. It runs locally, stays out of the way, and is free to use on iOS/iPadOS, macOS, and Windows."
 url: "/urlstrip.html"
-toc: true
 ---
 
 {{< split-begin >}}
