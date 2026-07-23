@@ -87,9 +87,9 @@ These counts change as brokers change their sites, and they are regenerated rath
   monitoring data live on your device. There is no account and no cloud
   dashboard.
 - **Your data goes only where you send it.** Information leaves your device
-  when you submit a removal request, and it goes straight from your machine
-  to that broker's own opt-out form — the same thing you would do by hand,
-  just automated.
+  when you run a broker scan or submit a removal request, and it goes
+  straight from your machine to that broker's own site — the same thing you
+  would do by hand, just automated.
 - **Update checks send metadata only.** The app checks `tacitalabs.com` for
   app and broker-automation updates. Those checks send version and update
   metadata, not your profile.
@@ -152,7 +152,7 @@ Infobreaker is free to use for non-commercial use.
 
 **What happens to my personal information?**
 
-It stays on your computer, in an AES-256-encrypted vault. Infobreaker has no account system and no backend that receives your data. The only time your information leaves your device is when *you* run an opt-out and the tool submits it directly from your machine to that broker's own removal form. Diagnostic files also stay local, and support reports are redacted before you're ever asked to share one.
+It stays on your computer, in an AES-256-encrypted vault. Infobreaker has no account system and no backend that receives your data. Your information leaves your device only when *you* run a broker scan or an opt-out, and it is sent directly from your machine to that broker's own site. Diagnostic files also stay local, and support reports are redacted before you're ever asked to share one.
 
 {{% /split-card %}}
 {{< split-end >}}
