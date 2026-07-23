@@ -14,9 +14,11 @@ or place your information has to go.
 ## What Tacita Labs is
 
 Tacita Labs is a privacy-focused software effort centered on practical
-tools for normal people. The public focus right now is URLStrip, a free
-utility that removes tracking parameters from links before they get
-opened, saved, or shared.
+tools for normal people. Today that means two apps:
+[Infobreaker](/infobreaker.html), a local-first data broker removal tool
+now in public beta, and [URLStrip](/urlstrip.html), a free utility that
+removes tracking parameters from links before they get opened, saved, or
+shared.
 
 The goal isn't to build a giant platform. The goal is to make useful
 software that solves a real problem cleanly without asking for
@@ -44,9 +46,9 @@ Local-first where it matters. Plain language where it should be.
 Zero-trust assumptions whenever possible.
 
 If a privacy tool can work without sending more user data to another
-service, it should. That is the bias behind the work here.
-
-For URLStrip specifically, Tacita Labs now publishes [how tracking is
+service, it should. That is the bias behind the work here. Infobreaker
+counts a broker removal only when a later re-check captures proof, and
+URLStrip publishes [how tracking is
 classified](/tracking-methodology.html) so the app's Monetization Impact
 and Confidence labels are transparent instead of hand-wavy.
 

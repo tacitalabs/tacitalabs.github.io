@@ -1,7 +1,7 @@
-# Single source of truth for the current private Infobreaker beta builds.
-# The {{< infobreaker-downloads >}} shortcode renders these on both the
-# direct-link product page and the beta tester guide, so links and hashes
-# cannot drift between the two.
+# Single source of truth for the current Infobreaker public beta builds.
+# The {{< infobreaker-downloads >}} shortcode renders these on the product
+# page, the download page, and the beta guide, so links and hashes cannot
+# drift between them.
 version = "1.0.0-beta.73"
 
 [macos]

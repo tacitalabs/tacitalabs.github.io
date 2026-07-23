@@ -9,7 +9,7 @@ product: "infobreaker"
 
 # Infobreaker beta tester guide
 
-Infobreaker is a local-first data broker removal app, currently in private beta by direct link. It helps you enter your information once, scan supported broker sites, review possible matches, submit opt-outs where possible, and track whether removals stay removed. This is the long-form guide for testers; for the short private-beta overview, see the [Infobreaker product page](/infobreaker.html).
+Infobreaker is a local-first data broker removal app, now in public beta. It helps you enter your information once, scan supported broker sites, review possible matches, submit opt-outs where possible, and track whether removals stay removed. This is the long-form guide for testers and hands-on users; for the short overview, see the [Infobreaker product page](/infobreaker.html).
 
 The important rule for this beta: **if Infobreaker cannot prove something, it should not claim it.**
 
@@ -21,17 +21,17 @@ Infobreaker makes network connections to broker sites you scan or submit request
 
 ## Current Status
 
-**Current review baseline:** 1.0.0-beta.73
+**Current release:** 1.0.0-beta.73
 
-**Private-beta downloads:** macOS 1.0.0-beta.73, Windows 1.0.0-beta.73
+**Public-beta downloads:** macOS 1.0.0-beta.73, Windows 1.0.0-beta.73
 
-The downloads below are the current private beta builds. macOS and Windows are aligned on beta.73.
+The downloads below are the current public beta builds. macOS and Windows are aligned on beta.73.
 
 {{< infobreaker-downloads >}}
 
 - **Upgrade note:** beta.52 and earlier can check the update feed but may fail to download with `HTTP 302` because GitHub release assets redirect to the real file. beta.61 can also open without a window if stale broker automation metadata is already installed. If either happens, download the current beta from this page and replace the app manually once.
 - **Automation bundle:** beta.68 broker automation on the stable and beta channels. Broker automation updates separately from the app; Settings shows both versions. Automation beta.68 requires app beta.67 or newer.
-- **QA status:** beta.73 is the current internal review baseline. It hardens CAPTCHA handoffs without reloading valid solved sessions, reconciles stale maintenance outcomes after later successful scans or broker decisions, validates the public updater journey, and reports PrivateEye's broken partner redirect honestly. The release gate passed 115 checks with no failures. The Windows portable build passed native verification of all 11 signed payloads plus ZIP and installed-app hashes. The macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.73.
+- **QA status:** beta.73 is the current release. It hardens CAPTCHA handoffs without reloading valid solved sessions, reconciles stale maintenance outcomes after later successful scans or broker decisions, validates the public updater journey, and reports PrivateEye's broken partner redirect honestly. The release gate passed 115 checks with no failures. The Windows portable build passed native verification of all 11 signed payloads plus ZIP and installed-app hashes. The macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.73.
 - **Privacy posture:** local-first by default. Reports are optional and should be reviewed before sending. Raw debug folders can contain personal information; use the redacted support report first.
 
 ### Version note
@@ -42,7 +42,7 @@ The guide describes beta.73 behavior. After a new build is promoted, repeat test
 
 > **Best-effort support:** This beta is not an emergency safety, legal, or guaranteed-removal service. Broker decisions and timelines are outside Tacita Labs' control, and support during beta is best-effort. We prioritize reports about disappearing work, unreconciled counts, unredacted support data, and claims without evidence.
 
-> **Beta terms:** Review the [Private Beta Terms](/infobreaker-beta-terms.html) before sharing the app or sending reports. They explain the beta disclaimer, support boundary, and what not to send.
+> **Beta terms:** Review the [Infobreaker Beta Terms](/infobreaker-beta-terms.html) before sending reports. They explain the beta disclaimer, support boundary, and what not to send.
 
 ## What to expect in week one
 
@@ -319,7 +319,7 @@ High-value screenshots show the full app window and the current tab. For privacy
 
 Do not send raw debug folders unless Tacita Labs asks for them. Use **Report Problem** first because it creates the redacted support copy.
 
-Private beta terms and support boundaries are posted at [Private Beta Terms](/infobreaker-beta-terms.html).
+Beta terms and support boundaries are posted at [Infobreaker Beta Terms](/infobreaker-beta-terms.html).
 
 ## App Overview
 

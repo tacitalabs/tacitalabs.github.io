@@ -1,15 +1,14 @@
 ---
 title: "Infobreaker Privacy Notes - Tacita Labs"
-description: "Private-beta privacy notes for Infobreaker, a local-first data broker removal tool shared by direct link."
+description: "Privacy notes for Infobreaker, the local-first data broker removal tool from Tacita Labs, now in public beta."
 url: "/infobreaker-privacy.html"
 toc: true
-noindex: true
 product: "infobreaker"
 ---
 
 # Infobreaker privacy notes
 
-Infobreaker is in private beta and is shared by direct link. This page covers Infobreaker only. The public Tacita Labs [Privacy Policy](/privacy.html) currently covers URLStrip.
+Infobreaker is in public beta. This page covers Infobreaker only. The Tacita Labs [Privacy Policy](/privacy.html) covers URLStrip and this website.
 
 Infobreaker is built around a local-first trust model: there is no Infobreaker account, no cloud dashboard, and no Tacita Labs backend that receives your profile, scan history, broker evidence, or removal history.
 

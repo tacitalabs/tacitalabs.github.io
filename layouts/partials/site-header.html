@@ -18,29 +18,15 @@
       />
     </a>
     <div class="nav-links">
-      {{- $isInfobreaker := eq .Params.product "infobreaker" -}}
       {{- $currentPath := .RelPermalink -}}
-      {{- if $isInfobreaker -}}
-        {{- $items := slice
-          (dict "Name" "Overview" "URL" "/infobreaker.html")
-          (dict "Name" "Tester Guide" "URL" "/infobreaker-beta-testers.html")
-          (dict "Name" "Privacy" "URL" "/infobreaker-privacy.html")
-          (dict "Name" "Beta Terms" "URL" "/infobreaker-beta-terms.html")
-        -}}
-        {{- range $items -}}
-          {{- $isCurrent := eq .URL $currentPath -}}
-          <a href="{{ .URL | relURL }}"{{ if $isCurrent }} class="active"{{ end }}>{{ .Name }}</a>
-        {{- end -}}
-      {{- else -}}
-        {{- $isHome := .IsHome -}}
-        {{- range .Site.Menus.main -}}
-          {{- $homeOnly := index .Params "homeOnly" | default false -}}
-          {{- $notOnHome := index .Params "notOnHome" | default false -}}
-          {{- $isCurrent := eq .URL $currentPath -}}
-          {{- if and $homeOnly (not $isHome) -}}{{- continue -}}{{- end -}}
-          {{- if and $notOnHome $isHome -}}{{- continue -}}{{- end -}}
-          <a href="{{ .URL | relURL }}"{{ if $isCurrent }} class="active"{{ end }}>{{ .Name }}</a>
-        {{- end -}}
+      {{- $isHome := .IsHome -}}
+      {{- range .Site.Menus.main -}}
+        {{- $homeOnly := index .Params "homeOnly" | default false -}}
+        {{- $notOnHome := index .Params "notOnHome" | default false -}}
+        {{- $isCurrent := eq .URL $currentPath -}}
+        {{- if and $homeOnly (not $isHome) -}}{{- continue -}}{{- end -}}
+        {{- if and $notOnHome $isHome -}}{{- continue -}}{{- end -}}
+        <a href="{{ .URL | relURL }}"{{ if $isCurrent }} class="active"{{ end }}>{{ .Name }}</a>
       {{- end -}}
       <button type="button" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode" aria-pressed="false">
         <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

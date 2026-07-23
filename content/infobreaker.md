@@ -1,24 +1,25 @@
 ---
-title: "Infobreaker Private Beta - Tacita Labs"
-description: "Infobreaker is a local-first data broker removal tool, currently in private beta by direct link. Your personal information stays in an encrypted vault on your device and goes only to each broker's own opt-out form - never to us."
+title: "Infobreaker - Local-First Data Broker Removal (Public Beta) - Tacita Labs"
+description: "Infobreaker is a local-first data broker removal tool, now in public beta for macOS and Windows. Your personal information stays in an encrypted vault on your device and goes only to each broker's own opt-out form - never to us."
 url: "/infobreaker.html"
 toc: true
-noindex: true
 product: "infobreaker"
 ---
 
 {{< split-begin >}}
 {{% split-card %}}
 
-{{< eyebrow >}}INFOBREAKER - PRIVATE BETA{{< /eyebrow >}}
+{{< eyebrow >}}INFOBREAKER - PUBLIC BETA{{< /eyebrow >}}
 
 # Remove yourself from data brokers — without giving your data to one more company.
 
-Infobreaker runs on your computer. Your information lives in an encrypted vault on your device and goes only where you send it: directly to each broker's own opt-out form. No account. No cloud. No copy of you on our servers, because we don't have servers that hold user data.
+Infobreaker runs on your computer. Your information lives in an encrypted vault on your device and goes only where you send it: directly from your machine to each broker's own opt-out form. No account. No cloud. No copy of you on our servers, because we don't have servers that hold user data.
 
 {{< button href="#downloads" style="primary" >}}Download the beta{{< /button >}} {{< button href="#beta" style="secondary" >}}What "beta" means here{{< /button >}}
 
-{{< eyebrow >}}Local-first - no account - private beta by direct link{{< /eyebrow >}}
+Free to use for non-commercial use.
+
+{{< eyebrow >}}Local-first - no account - public beta{{< /eyebrow >}}
 
 {{% /split-card %}}
 
@@ -58,7 +59,7 @@ The rule the app is built around: **if Infobreaker cannot prove something, it do
 Coverage claims in this space are usually a single big number. Infobreaker separates what it can scan, what it can automate, and what it can only assist with — and the counts below are generated from the project's own evidence database, not written by hand.
 
 {{% card %}}
-As of **July 10, 2026**, from the generated broker coverage report:
+As of **July 23, 2026**, from the generated broker coverage report:
 
 - **Tracked:** 57 people-search and data broker sites in the catalog.
 - **Automated scanning:** 26 brokers where Infobreaker can search for your
@@ -71,8 +72,8 @@ As of **July 10, 2026**, from the generated broker coverage report:
 
 On Tacita Labs' own test profile, as of the same report: **9** brokers
 verified removed with evidence, **5** re-listed the profile after a confirmed
-removal, and **3** declined the request citing state privacy law. You will
-see all three outcomes in the app, because all three happen.
+removal, and **3** declined the request. You will see all three outcomes in
+the app, because all three happen.
 {{% /card %}}
 
 These counts change as brokers change their sites, and they are regenerated rather than hand-edited. We will not publish a coverage number we cannot regenerate from evidence.
@@ -103,9 +104,9 @@ Full details are in the [Infobreaker Privacy Notes](/infobreaker-privacy.html).
 
 {{< eyebrow >}}Beta status{{< /eyebrow >}}
 
-## What "private beta" means here. {#beta}
+## What "public beta" means here. {#beta}
 
-**Private:** this page is shared by direct link. **Beta:** it is under heavy development, and it behaves like it.
+Infobreaker is public: anyone can download it from this page. It is also a beta: it is under heavy development, and it behaves like it.
 
 {{% card %}}
 - Broker sites change constantly, so automations break and get repaired.
@@ -117,23 +118,23 @@ Full details are in the [Infobreaker Privacy Notes](/infobreaker-privacy.html).
   and Infobreaker will not quietly count a submitted request as a removal.
 - Expect rough edges, and expect the app to be candid about them. If it says
   something worked, that claim is backed by evidence you can look at.
-- It is free during the beta.
+- Free to use for non-commercial use.
 - Support is best-effort during beta. Infobreaker is not an emergency safety,
   legal, or guaranteed-removal service, and broker decisions and timelines are
   outside Tacita Labs' control.
-- The [private beta terms](/infobreaker-beta-terms.html) explain the beta
+- The [Infobreaker beta terms](/infobreaker-beta-terms.html) explain the beta
   disclaimer, support boundary, and what to avoid sending in reports.
 {{% /card %}}
 
 {{< eyebrow >}}Download{{< /eyebrow >}}
 
-## Download the private beta. {#downloads}
+## Download the public beta. {#downloads}
 
 Infobreaker is available for macOS and Windows. Install Google Chrome before your first scan — broker automation uses a real, visible browser with its own separate profile.
 
 {{< infobreaker-downloads >}}
 
-For install notes, testing priorities, and a tab-by-tab walkthrough, see the [beta tester guide](/infobreaker-beta-testers.html).
+For install notes, testing priorities, and a tab-by-tab walkthrough, see the [beta guide](/infobreaker-beta-testers.html).
 
 {{< eyebrow >}}FAQ{{< /eyebrow >}}
 
@@ -144,7 +145,7 @@ For install notes, testing priorities, and a tab-by-tab walkthrough, see the [be
 
 **What does it cost?**
 
-Nothing during the beta. We do expect to charge for something eventually — building and maintaining broker automations is ongoing work — but pricing and timing aren't final, and we won't announce them until they are. Two commitments now: any future pricing will be announced clearly before it takes effect, and being an early beta tester will not be punished by it.
+Infobreaker is free to use for non-commercial use.
 
 {{% /split-card %}}
 {{% split-card %}}
@@ -168,7 +169,7 @@ Those are subscription services: you give them your personal information, and th
 
 **Will it remove me from everything?**
 
-No, and be wary of tools that say yes. Infobreaker covers the tracked brokers listed above, some brokers decline requests citing state privacy law, and some re-list people after a confirmed removal. The app shows you those outcomes instead of hiding them behind a single feel-good number.
+No, and be wary of tools that say yes. Infobreaker covers the tracked brokers listed above, some brokers decline requests, and some re-list people after a confirmed removal. The app shows you those outcomes instead of hiding them behind a single feel-good number.
 
 {{% /split-card %}}
 {{< split-end >}}
@@ -202,7 +203,7 @@ macOS (Intel and Apple Silicon) and Windows (x64). Google Chrome must be install
 
 **Where do I report problems?**
 
-Email [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com). Support during private beta is best-effort, with priority for disappearing work, unreconciled counts, unredacted support data, and claims without evidence. The [beta tester guide](/infobreaker-beta-testers.html) explains what makes a useful report and how to create a redacted support report from inside the app.
+Email [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com). Support during the beta is best-effort, with priority for disappearing work, unreconciled counts, unredacted support data, and claims without evidence. The [beta guide](/infobreaker-beta-testers.html) explains what makes a useful report and how to create a redacted support report from inside the app.
 
 {{% /split-card %}}
 {{< split-end >}}
@@ -210,9 +211,9 @@ Email [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com). Support d
 {{% card %}}
 ## Learn more {#more}
 
-- [Beta tester guide](/infobreaker-beta-testers.html) — install notes, testing priorities, and a full app walkthrough.
+- [Beta guide](/infobreaker-beta-testers.html) — install notes, testing priorities, and a full app walkthrough.
 - [Infobreaker Privacy Notes](/infobreaker-privacy.html) — what stays local and what leaves your device.
-- [Private Beta Terms](/infobreaker-beta-terms.html) — beta disclaimer, support boundary, and reporting rules.
+- [Infobreaker Beta Terms](/infobreaker-beta-terms.html) — beta disclaimer, support boundary, and reporting rules.
 
 Beta reports and questions: [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com)
 {{% /card %}}
