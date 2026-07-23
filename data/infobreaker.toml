@@ -2,12 +2,12 @@
 # The {{< infobreaker-downloads >}} shortcode renders these on both the
 # direct-link product page and the beta tester guide, so links and hashes
 # cannot drift between the two.
-version = "1.0.0-beta.68"
+version = "1.0.0-beta.72"
 
 [macos]
-url = "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.68/Infobreaker-1.0.0-beta.68-universal.dmg"
-sha256 = "ee29178d3db9ac20eb2d662c367706291e28d8e4dec5ed7f7c4c57642e490553"
+url = "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.72/Infobreaker-1.0.0-beta.72-universal.dmg"
+sha256 = "3985010ae0931c3b1596b11ca873b52564d2f067a0a3bc47e071444e700632da"
 
 [windows]
-url = "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.68/Infobreaker-1.0.0-beta.68-x64-portable.zip"
-sha256 = "9f986307d26830f475dce5af23d01f639d5b705927d4543d8263a441f276f506"
+url = "https://github.com/tacitalabs/infobreaker/releases/download/infobreaker-1.0.0-beta.72/Infobreaker-1.0.0-beta.72-x64-portable.zip"
+sha256 = "7c1d7190ef129ee2aa9863769a34295366795c74f996aea9eac3696bac8dc28f"
