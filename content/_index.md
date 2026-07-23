@@ -1,7 +1,6 @@
 ---
 title: "Tacita Labs - Local-First Privacy Tools: Infobreaker and URLStrip"
 description: "Tacita Labs builds local-first privacy tools. Infobreaker (public beta) helps remove your listings from data broker sites without handing your information to another service, and URLStrip removes tracking junk from links on iOS/iPadOS, macOS, and Windows."
-toc: true
 ---
 
 {{< split-begin >}}
