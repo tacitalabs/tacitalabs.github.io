@@ -21,22 +21,22 @@ Infobreaker makes network connections to broker sites you scan or submit request
 
 ## Current Status
 
-**Current review baseline:** 1.0.0-beta.68
+**Current review baseline:** 1.0.0-beta.72
 
-**Private-beta downloads:** macOS 1.0.0-beta.68, Windows 1.0.0-beta.68
+**Private-beta downloads:** macOS 1.0.0-beta.72, Windows 1.0.0-beta.72
 
-The downloads below are the current private beta builds. macOS and Windows are aligned on beta.68.
+The downloads below are the current private beta builds. macOS and Windows are aligned on beta.72.
 
 {{< infobreaker-downloads >}}
 
 - **Upgrade note:** beta.52 and earlier can check the update feed but may fail to download with `HTTP 302` because GitHub release assets redirect to the real file. beta.61 can also open without a window if stale broker automation metadata is already installed. If either happens, download the current beta from this page and replace the app manually once.
 - **Automation bundle:** beta.68 broker automation on the stable and beta channels. Broker automation updates separately from the app; Settings shows both versions. Automation beta.68 requires app beta.67 or newer.
-- **QA status:** beta.68 is the current internal review baseline. It checks profile and contact requirements before asking for submission confirmation, keeps current-address data out of previous or unknown-location requests, and uses one shared removal-state decision across guided, detailed, single, and batch broker paths. The Windows portable build passed release health, signing policy, artifact audit, PII audit, and ZIP integrity checks. The macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.68.
+- **QA status:** beta.72 is the current internal review baseline. It reconciles removal attempts to the exact profile and scan, keeps stale or completed work out of active queues, deduplicates Whitepages records, distinguishes emailed receipts from final broker decisions, and reveals work requeued from Monitoring. The release gate passed 112 checks with no failures. The Windows portable build passed native signature and hash verification. The macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.72.
 - **Privacy posture:** local-first by default. Reports are optional and should be reviewed before sending. Raw debug folders can contain personal information; use the redacted support report first.
 
 ### Version note
 
-The guide describes beta.68 behavior. After a new build is promoted, repeat testers should re-read **Current Status**, **Install Notes**, and **What changed lately**.
+The guide describes beta.72 behavior. After a new build is promoted, repeat testers should re-read **Current Status**, **Install Notes**, and **What changed lately**.
 
 > **Beta warning:** Infobreaker is not finished. It can miss listings, flag weak matches, hit broker-side blocks, or require human action for opt-out forms. Do not assume a broker listing is gone until the monitoring workflow confirms it.
 
@@ -107,7 +107,7 @@ Every count in the app should reconcile to rows you can open. If a number does n
 To verify the download hash, run:
 
 ```sh
-shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.68-universal.dmg
+shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.72-universal.dmg
 ```
 {{% /split-card %}}
 
@@ -126,7 +126,7 @@ shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.68-universal.dmg
 To verify the download hash, run:
 
 ```powershell
-certutil -hashfile .\Infobreaker-1.0.0-beta.68-x64-portable.zip SHA256
+certutil -hashfile .\Infobreaker-1.0.0-beta.72-x64-portable.zip SHA256
 ```
 {{% /split-card %}}
 
@@ -220,7 +220,9 @@ The highest-value feedback is not just "did it crash?" It is whether the app mak
 
 Recent beta hardening focused on one theme: do not let the app overclaim.
 
-- Beta.67 rewrites the main workflows in shorter, plain language and hides raw internal errors behind optional technical details.
+- Beta.72 ties each removal attempt to the exact profile and scan, suppresses stale failures after a final outcome, deduplicates Whitepages URL variants, and keeps completed work out of Ready and batch lanes.
+- Requeued monitoring work now opens the correct removal row, and emailed final-form workflows distinguish interim receipts from final acceptance or denial.
+- Beta.67 rewrote the main workflows in shorter, plain language and hid raw internal errors behind optional technical details.
 - The legal-request, registry, indirect-exposure, and email-draft workflows now share clearer controls and typed failure handling.
 - A passive broker security check is no longer mislabeled as a CAPTCHA that needs you, and a recoverable tab failure can reuse the warm browser session instead of starting over cold.
 - Broker automation beta.68 adds the latest workflow and broker guidance behind the signed update channel, with replay checks required before publication.
