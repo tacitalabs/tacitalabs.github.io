@@ -10,7 +10,11 @@ description: "Tacita Labs builds local-first privacy tools. Infobreaker (public 
 
 # Remove yourself from data brokers — without giving your data to one more company.
 
-Infobreaker runs on your computer. It scans supported data broker sites for your listing, walks removal requests through each broker's own opt-out process, and re-checks later — counting a removal only when it captures proof. Your information lives in an encrypted vault on your device and is sent directly from your machine to each broker's own opt-out form. No account. No cloud copy of you.
+Infobreaker runs on your computer. It scans supported broker sites, guides
+removal requests, and re-checks later — counting a removal only with proof.
+Your profile stays in an encrypted local vault. Information goes directly to
+broker sites only when you scan or submit a request. Tacita Labs holds no
+account or cloud copy of your profile.
 
 {{< button href="/infobreaker.html" style="primary" >}}Learn more about Infobreaker{{< /button >}} {{< button href="/infobreaker.html#downloads" style="secondary" >}}Download the beta{{< /button >}}
 
@@ -39,7 +43,7 @@ Free to download and use, with the [web cleaner](/clean-url.html) available righ
 
 {{< eyebrow >}}Why Tacita Labs{{< /eyebrow >}}
 
-## Two tools. One bias: your data stays yours.
+## Two tools. One bias: your data stays yours. {#why}
 
 Too many privacy products solve one problem by creating another — an account, a dashboard, one more company holding a copy of your information. Tacita Labs builds tools that work locally on your device, and the rule behind both of them is simple: **if the tool cannot prove something, it does not claim it.**
 
@@ -161,7 +165,8 @@ Tacita Labs is focused on creating software that helps reduce unnecessary data e
 
 **What do the tools cost?**
 
-URLStrip is free to download and use. Infobreaker is free to use for non-commercial use.
+URLStrip is free to download and use. For Infobreaker: free to use for
+non-commercial use.
 
 {{% /split-card %}}
 {{% split-card %}}
