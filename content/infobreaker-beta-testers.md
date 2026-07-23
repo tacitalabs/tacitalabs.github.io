@@ -21,22 +21,22 @@ Infobreaker makes network connections to broker sites you scan or submit request
 
 ## Current Status
 
-**Current review baseline:** 1.0.0-beta.72
+**Current review baseline:** 1.0.0-beta.73
 
-**Private-beta downloads:** macOS 1.0.0-beta.72, Windows 1.0.0-beta.72
+**Private-beta downloads:** macOS 1.0.0-beta.73, Windows 1.0.0-beta.73
 
-The downloads below are the current private beta builds. macOS and Windows are aligned on beta.72.
+The downloads below are the current private beta builds. macOS and Windows are aligned on beta.73.
 
 {{< infobreaker-downloads >}}
 
 - **Upgrade note:** beta.52 and earlier can check the update feed but may fail to download with `HTTP 302` because GitHub release assets redirect to the real file. beta.61 can also open without a window if stale broker automation metadata is already installed. If either happens, download the current beta from this page and replace the app manually once.
 - **Automation bundle:** beta.68 broker automation on the stable and beta channels. Broker automation updates separately from the app; Settings shows both versions. Automation beta.68 requires app beta.67 or newer.
-- **QA status:** beta.72 is the current internal review baseline. It reconciles removal attempts to the exact profile and scan, keeps stale or completed work out of active queues, deduplicates Whitepages records, distinguishes emailed receipts from final broker decisions, and reveals work requeued from Monitoring. The release gate passed 112 checks with no failures. The Windows portable build passed native signature and hash verification. The macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.72.
+- **QA status:** beta.73 is the current internal review baseline. It hardens CAPTCHA handoffs without reloading valid solved sessions, reconciles stale maintenance outcomes after later successful scans or broker decisions, validates the public updater journey, and reports PrivateEye's broken partner redirect honestly. The release gate passed 115 checks with no failures. The Windows portable build passed native verification of all 11 signed payloads plus ZIP and installed-app hashes. The macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.73.
 - **Privacy posture:** local-first by default. Reports are optional and should be reviewed before sending. Raw debug folders can contain personal information; use the redacted support report first.
 
 ### Version note
 
-The guide describes beta.72 behavior. After a new build is promoted, repeat testers should re-read **Current Status**, **Install Notes**, and **What changed lately**.
+The guide describes beta.73 behavior. After a new build is promoted, repeat testers should re-read **Current Status**, **Install Notes**, and **What changed lately**.
 
 > **Beta warning:** Infobreaker is not finished. It can miss listings, flag weak matches, hit broker-side blocks, or require human action for opt-out forms. Do not assume a broker listing is gone until the monitoring workflow confirms it.
 
@@ -107,7 +107,7 @@ Every count in the app should reconcile to rows you can open. If a number does n
 To verify the download hash, run:
 
 ```sh
-shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.72-universal.dmg
+shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.73-universal.dmg
 ```
 {{% /split-card %}}
 
@@ -126,7 +126,7 @@ shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.72-universal.dmg
 To verify the download hash, run:
 
 ```powershell
-certutil -hashfile .\Infobreaker-1.0.0-beta.72-x64-portable.zip SHA256
+certutil -hashfile .\Infobreaker-1.0.0-beta.73-x64-portable.zip SHA256
 ```
 {{% /split-card %}}
 
