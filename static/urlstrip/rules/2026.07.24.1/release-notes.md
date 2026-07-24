@@ -1,0 +1,2 @@
+- Strip Yahoo consent and referral metadata parameters `guccounter`, `guce_referrer`, and `guce_referrer_sig` from Yahoo links.
+- Keep the rule scoped to Yahoo domains so identically named parameters on unrelated sites remain untouched.
