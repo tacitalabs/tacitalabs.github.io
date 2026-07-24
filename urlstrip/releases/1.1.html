@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URLStrip 1.1 Build 18 Release Notes - Tacita Labs</title>
+    <meta
+      name="description"
+      content="Release notes for URLStrip 1.1 Build 18 desktop beta with Command Guard."
+    />
+    <meta property="og:site_name" content="Tacita Labs" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/tacita-favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/tacita-favicon-16.png" />
+    <link rel="apple-touch-icon" href="/assets/tacita-apple-touch-icon.png" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page subpage">
+      <header class="site-header">
+        <a class="site-brand" href="/index.html" aria-label="Tacita Labs home">
+          <img
+            class="brand-lockup"
+            src="/assets/tacita-horizontal-lockup.png"
+            alt="Tacita Labs"
+            width="1200"
+            height="240"
+          />
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/index.html#why">Why it matters</a>
+          <a href="/index.html#how">How it works</a>
+          <a href="/index.html#trust">Trust</a>
+          <a href="/download.html">Download</a>
+          <a href="/about.html">About</a>
+          <a href="/privacy.html">Privacy</a>
+        </nav>
+      </header>
+
+      <section class="section page-intro">
+        <p class="eyebrow">Release notes</p>
+        <h1>URLStrip 1.1 (Build 18)</h1>
+        <p class="lede">
+          Desktop beta refresh that adds Command Guard on macOS and Windows, keeps URL cleaning local, and updates both public desktop downloads to the same 1.1 Build 18 release line.
+        </p>
+      </section>
+
+      <section class="section prose-section">
+        <div class="prose-grid single-column">
+          <article class="card prose-card">
+            <h2>What changed</h2>
+            <ul class="check-list compact-list">
+              <li>Added <strong>Command Guard</strong> on macOS and Windows to warn when copied terminal commands match risky patterns such as remote download-and-execute chains, PowerShell <code>irm | iex</code>, encoded payloads, persistence commands, and destructive shell actions.</li>
+              <li>Added an optional <strong>Neutralize risky commands</strong> setting. It is disabled by default; when enabled, URLStrip replaces risky clipboard commands with inert commented text.</li>
+              <li>Added Command Guard status, last warning details, rules version visibility, split notification controls, test-command helpers, and aggregate Command Guard stats without storing copied command text in stats.</li>
+              <li>Updated macOS menu bar feedback so the warning indicator reflects whether the current clipboard content is risky, and the menu preserves warning details if the notification is missed.</li>
+              <li>Reorganized desktop settings around a Status tab for recent alerts and a Settings tab for controls.</li>
+              <li>Updated Windows UI parity for the Command Guard settings, status, stats, welcome copy, and notification behavior.</li>
+              <li>Added Monetization Impact and Confidence detail to cleaned-link results on macOS and Windows so people can see the likely commercial value and confidence band of what was removed.</li>
+              <li>Expanded desktop stats on macOS and Windows with Today, 7 Days, 30 Days, and All Time windows plus category, impact, and confidence rollups.</li>
+              <li>Kept the fast cleaning flow lightweight while moving deeper explanation into intentional surfaces and linking to the public <a href="/tracking-methodology.html">tracking methodology</a> page.</li>
+              <li>Fixed the Windows issue where clicking <strong>Install Rule Update</strong> appeared to do nothing because the install button stayed disabled after a rule check.</li>
+              <li>Preserved user rule-state and custom rules across Windows rule bundle installs, improved error reporting, and added a 30-second timeout so failed installs surface clearly.</li>
+              <li>Added opt-in Privacy Redirect support for X/Twitter and Reddit links, with configurable privacy frontends.</li>
+              <li>Added Copy Wayback Link support so users can copy a local Internet Archive lookup URL without submitting or archiving the page.</li>
+              <li>Fixed the Windows Privacy Redirect path for query-less canonical X/Twitter and Reddit URLs, where the cleaner could previously bail out before rewriting the host.</li>
+              <li>Added Stable and Beta hosted rule channels on macOS and Windows so rule updates can move through beta review before stable promotion.</li>
+              <li>Improved Google local-result cleanup parity across desktop builds.</li>
+              <li>Updated manual macOS update checks to bypass cached release metadata so fresh desktop updates are detected reliably.</li>
+              <li>Aligned the shared desktop release metadata on <strong>URLStrip 1.1 (Build 18)</strong> for clean update checks and published hashes.</li>
+              <li>Refreshed the macOS Build 18 DMG with the Safari extension enabled, restored the app icon in the packaged app, fixed Safari Settings manifest resource warnings, and included the latest desktop rule-channel support.</li>
+              <li>Refreshed macOS Safari extension build to fix privacy-redirect escape links for Redlib/Reddit and X/Twitter frontends.</li>
+              <li>Refreshed the macOS DMG with an optional command-line tool that can be installed from Advanced Settings. The CLI supports normal URL cleanup, explicit stdin mode, usage/help/version output, quiet shell output, and JSON automation output.</li>
+            </ul>
+          </article>
+
+          <article class="card prose-card">
+            <h2>Downloads</h2>
+            <p>
+              Download the current desktop beta from the
+              <a href="/download.html">URLStrip download page</a>.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

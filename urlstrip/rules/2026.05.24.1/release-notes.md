@@ -1,0 +1,3 @@
+- Strip Google Search `client` query parameters from shareable search URLs.
+- Add app-side Google Search local-result hash cleanup for `lkt`, `lpg`, and `trex` state.
+- No app binary update is required for the `client` query-param rule; full hash cleanup requires the next app build.

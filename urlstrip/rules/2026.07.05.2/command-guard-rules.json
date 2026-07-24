@@ -1,0 +1,121 @@
+{
+  "product": "URLStrip",
+  "kind": "command-guard-rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.07.05.2",
+  "publishedAt": "2026-07-06T00:32:00Z",
+  "rules": [
+    {
+      "id": "unix-remote-shell-pipe",
+      "platform": "unix",
+      "severity": "danger",
+      "pattern": "(?is)\\b(curl|wget)\\b[^\\n|;]*(https?://|ftp://)[^\\n|;]*\\|\\s*(sudo\\s+)?(sh|bash|zsh|fish)\\b",
+      "summary": "Remote download runs directly in a shell",
+      "explanation": "This command downloads code from the network and immediately runs it. Review the downloaded script before executing it."
+    },
+    {
+      "id": "unix-base64-shell",
+      "platform": "unix",
+      "severity": "danger",
+      "pattern": "(?is)\\b(base64\\s+(-d|--decode)|openssl\\s+base64\\s+-d)\\b[^\\n|;]*\\|\\s*(sudo\\s+)?(sh|bash|zsh|fish)\\b",
+      "summary": "Encoded content runs in a shell",
+      "explanation": "This command decodes hidden content and pipes it into a shell. Decode it to a file and inspect it first."
+    },
+    {
+      "id": "unix-shell-eval-remote",
+      "platform": "unix",
+      "severity": "danger",
+      "pattern": "(?is)\\b(eval|source|\\.)\\b\\s+[`$\\(]*\\s*(curl|wget)\\b[^\\n]*(https?://|ftp://)",
+      "summary": "Remote content is evaluated by the shell",
+      "explanation": "This command evaluates network content inside the current shell session."
+    },
+    {
+      "id": "unix-sudo-destructive",
+      "platform": "unix",
+      "severity": "danger",
+      "pattern": "(?is)\\bsudo\\b[^\\n]*(\\brm\\s+-[a-zA-Z]*r[a-zA-Z]*f\\b|\\bdd\\b\\s+[^\\n]*\\bof=/dev/|\\bdiskutil\\s+(erase|partition|apfs)|\\bmkfs\\b|\\bchmod\\s+-R\\s+777\\b)",
+      "summary": "Privileged destructive command",
+      "explanation": "This command uses elevated privileges with file, disk, or broad permission changes."
+    },
+    {
+      "id": "unix-persistence",
+      "platform": "unix",
+      "severity": "warning",
+      "pattern": "(?is)(\\blaunchctl\\b|\\bcrontab\\b|/Library/Launch(Daemons|Agents)|~/Library/LaunchAgents|\\.(bashrc|zshrc|profile)\\b)",
+      "summary": "Command may create persistence",
+      "explanation": "This command touches startup, scheduled task, or shell profile locations."
+    },
+    {
+      "id": "unix-osascript",
+      "platform": "unix",
+      "severity": "warning",
+      "pattern": "(?is)\\bosascript\\b\\s+(-e|<<|.*tell\\s+application)",
+      "summary": "AppleScript automation command",
+      "explanation": "This command can automate apps or system actions through AppleScript."
+    },
+    {
+      "id": "windows-powershell-iex-remote",
+      "platform": "powershell",
+      "severity": "danger",
+      "pattern": "(?is)\\b(iwr|irm|invoke-webrequest|invoke-restmethod)\\b[^\\n|;]*(https?://)[^\\n|;]*\\|\\s*(iex|invoke-expression)\\b",
+      "summary": "Remote download runs through PowerShell",
+      "explanation": "This command downloads network content and executes it through Invoke-Expression."
+    },
+    {
+      "id": "windows-powershell-webclient-iex",
+      "platform": "powershell",
+      "severity": "danger",
+      "pattern": "(?is)(\\b(iex|invoke-expression)\\b[^\\n|;]{0,240}\\b(new-object\\s+)?net\\.webclient\\b[^\\n|;]{0,240}\\.downloadstring\\s*\\(\\s*['\\\"]?https?://|\\b(new-object\\s+)?net\\.webclient\\b[^\\n|;]{0,240}\\.downloadstring\\s*\\(\\s*['\\\"]?https?://[^\\n|;]{0,240}\\|\\s*(iex|invoke-expression)\\b)",
+      "summary": "PowerShell WebClient download runs through Invoke-Expression",
+      "explanation": "This command downloads a remote PowerShell script with WebClient and executes it through Invoke-Expression."
+    },
+    {
+      "id": "windows-encoded-command",
+      "platform": "powershell",
+      "severity": "danger",
+      "pattern": "(?is)\\bpowershell(\\.exe)?\\b[^\\n]*(?:-|/)e(ncodedcommand)?\\b",
+      "summary": "PowerShell encoded command",
+      "explanation": "Encoded PowerShell hides the command being executed. Decode and inspect it before running."
+    },
+    {
+      "id": "windows-execution-policy-bypass",
+      "platform": "powershell",
+      "severity": "warning",
+      "pattern": "(?is)\\bpowershell(\\.exe)?\\b[^\\n]*-executionpolicy\\s+(bypass|unrestricted)",
+      "summary": "PowerShell execution policy bypass",
+      "explanation": "This command weakens PowerShell execution restrictions for the launched process."
+    },
+    {
+      "id": "windows-defender-exclusion",
+      "platform": "powershell",
+      "severity": "danger",
+      "pattern": "(?is)\\b(Add-MpPreference|Set-MpPreference)\\b[^\\n]*(ExclusionPath|DisableRealtimeMonitoring|DisableIOAVProtection)",
+      "summary": "Windows Defender protection change",
+      "explanation": "This command changes Defender protections or adds antivirus exclusions."
+    },
+    {
+      "id": "windows-certutil-download-decode",
+      "platform": "cmd",
+      "severity": "warning",
+      "pattern": "(?is)\\bcertutil\\b[^\\n]*(?:-urlcache|-decode|-decodehex)",
+      "summary": "Certutil used for download or decoding",
+      "explanation": "Certutil can be abused to download or decode payloads outside normal installer flows."
+    },
+    {
+      "id": "windows-persistence",
+      "platform": "cmd",
+      "severity": "warning",
+      "pattern": "(?is)(\\bschtasks\\b\\s+/create|\\breg\\b\\s+add\\s+[^\\n]*(Run|RunOnce)|\\bwmic\\b\\s+startup)",
+      "summary": "Command may create Windows persistence",
+      "explanation": "This command touches scheduled tasks, startup registry keys, or startup configuration."
+    },
+    {
+      "id": "cross-download-execute",
+      "platform": "cross-platform",
+      "severity": "warning",
+      "pattern": "(?is)(https?://\\S+).{0,120}(\\bchmod\\s+\\+x\\b|\\bStart-Process\\b|\\bInvoke-Expression\\b|\\bsh\\b|\\bbash\\b|\\.exe\\b)",
+      "summary": "Downloaded content may be executed",
+      "explanation": "This command combines a network URL with an execution step."
+    }
+  ]
+}
