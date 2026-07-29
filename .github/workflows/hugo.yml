@@ -59,6 +59,9 @@ jobs:
             --minify \
             --baseURL "https://www.tacitalabs.com/"
 
+      - name: Verify Infobreaker broker guides
+        run: node tests/infobreaker-broker-guides.test.js
+
       - name: Publish gh-pages branch
         run: |
           set -euo pipefail

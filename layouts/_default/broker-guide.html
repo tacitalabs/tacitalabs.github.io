@@ -1,0 +1,99 @@
+{{ define "main" }}
+{{- $matches := where site.Data.infobreaker_brokers.brokers "id" .Params.broker -}}
+{{- if ne (len $matches) 1 -}}
+  {{- errorf "broker guide %q must match exactly one data entry" .Params.broker -}}
+{{- end -}}
+{{- $broker := index $matches 0 -}}
+<article class="broker-guide">
+  <div class="post-content">
+    <nav class="broker-breadcrumb" aria-label="Breadcrumb">
+      <a href="/infobreaker.html">Infobreaker</a>
+      <span aria-hidden="true">/</span>
+      <a href="/data-broker-removal-guides.html">Removal guides</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ $broker.name }}</span>
+    </nav>
+
+    <section class="broker-guide-hero">
+      <div class="broker-guide-intro">
+        <div class="eyebrow">INFOBREAKER BROKER GUIDE</div>
+        <h1>{{ .Params.heading }}</h1>
+        <p class="broker-guide-lede">{{ .Params.lede }}</p>
+        <p>
+          <a class="button primary" href="/infobreaker.html#downloads">Download Infobreaker</a>
+          <a class="button secondary" href="{{ $broker.officialUrl }}" rel="noreferrer">Open official removal page</a>
+        </p>
+        <p class="broker-reviewed">Reviewed {{ site.Data.infobreaker_brokers.lastReviewed }}. Broker sites change without notice.</p>
+      </div>
+
+      <aside class="broker-workflow" aria-label="{{ $broker.name }} removal workflow">
+        <div class="broker-workflow-heading">
+          <span class="broker-workflow-kicker">What to expect</span>
+          <strong>{{ $broker.name }} removal lane</strong>
+        </div>
+        <ol>
+          <li><span>Find</span>{{ $broker.findStep }}</li>
+          <li><span>Request</span>{{ $broker.requestStep }}</li>
+          <li><span>Human step</span>{{ $broker.humanStep }}</li>
+          <li><span>Verify</span>{{ $broker.verifyStep }}</li>
+        </ol>
+      </aside>
+    </section>
+
+    <div class="broker-capability-strip" aria-label="Infobreaker support for {{ $broker.name }}">
+      <div><span>Find</span><strong>{{ $broker.scanLabel }}</strong></div>
+      <div><span>Request</span><strong>{{ $broker.removalLabel }}</strong></div>
+      <div><span>You complete</span><strong>{{ $broker.humanLabel }}</strong></div>
+      <div><span>Proof</span><strong>{{ $broker.verifyLabel }}</strong></div>
+    </div>
+
+    <div class="broker-guide-body">
+      {{ .Content }}
+    </div>
+
+    <section class="broker-guide-guardrail" aria-labelledby="broker-guide-guardrail-title">
+      <div>
+        <div class="eyebrow">THE HONEST LINE</div>
+        <h2 id="broker-guide-guardrail-title">A request is not a removal.</h2>
+      </div>
+      <p>Infobreaker records the request, preserves the evidence, and schedules a later check. It reports a verified removal only when that check shows the public listing is gone. Broker delays, declines, and re-listings remain visible instead of being folded into a success number.</p>
+    </section>
+
+    <section class="broker-related" aria-labelledby="related-guides">
+      <div class="eyebrow">KEEP GOING</div>
+      <h2 id="related-guides">More broker removal guides</h2>
+      <div class="broker-related-grid">
+        {{- range first 4 (where site.Data.infobreaker_brokers.brokers "id" "ne" $broker.id) }}
+        <a href="{{ .pageUrl }}">
+          <span>{{ .category }}</span>
+          <strong>{{ .name }}</strong>
+          <small>{{ .summary }}</small>
+        </a>
+        {{- end }}
+      </div>
+      <p><a href="/data-broker-removal-guides.html">See every Infobreaker broker guide</a></p>
+    </section>
+
+    <section class="broker-download-cta">
+      <div>
+        <div class="eyebrow">LOCAL-FIRST PUBLIC BETA</div>
+        <h2>Do the work without giving Tacita Labs a copy of your profile.</h2>
+        <p>Infobreaker runs on macOS and Windows. Your profile, evidence, and monitoring history stay on your computer; information goes directly to broker sites when you choose to scan or submit a request.</p>
+      </div>
+      <p><a class="button primary" href="/infobreaker.html#downloads">Download Infobreaker</a></p>
+    </section>
+  </div>
+</article>
+
+{{- $schema := dict
+  "@context" "https://schema.org"
+  "@type" "WebPage"
+  "name" .Params.heading
+  "description" .Description
+  "url" .Permalink
+  "dateModified" "2026-07-29"
+  "about" (dict "@type" "Organization" "name" $broker.name "url" $broker.officialUrl)
+  "isPartOf" (dict "@type" "WebSite" "name" "Tacita Labs" "url" site.BaseURL)
+-}}
+<script type="application/ld+json">{{ $schema | jsonify | safeHTML }}</script>
+{{ end }}

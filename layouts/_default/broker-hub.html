@@ -1,0 +1,71 @@
+{{ define "main" }}
+<article class="broker-guide broker-hub">
+  <div class="post-content">
+    <nav class="broker-breadcrumb" aria-label="Breadcrumb">
+      <a href="/infobreaker.html">Infobreaker</a>
+      <span aria-hidden="true">/</span>
+      <span>Removal guides</span>
+    </nav>
+
+    <section class="broker-hub-hero">
+      <div>
+        <div class="eyebrow">INFOBREAKER FIELD GUIDES</div>
+        <h1>{{ .Params.heading }}</h1>
+      </div>
+      <div>
+        <p class="broker-guide-lede">{{ .Params.lede }}</p>
+        <p class="broker-reviewed">Reviewed {{ site.Data.infobreaker_brokers.lastReviewed }}. Each guide links to the broker's own current removal route.</p>
+      </div>
+    </section>
+
+    <div class="broker-hub-principles" aria-label="How these guides work">
+      <div><span>01</span><strong>Find the exact record</strong><small>Wrong-person removals create new problems.</small></div>
+      <div><span>02</span><strong>Use the broker's own route</strong><small>No mystery proxy or cloud profile custody.</small></div>
+      <div><span>03</span><strong>Complete the human check</strong><small>Email, phone, CAPTCHA, or final review.</small></div>
+      <div><span>04</span><strong>Return for proof</strong><small>Submission alone never counts as removal.</small></div>
+    </div>
+
+    <div class="broker-guide-body">
+      {{ .Content }}
+    </div>
+
+    <section class="broker-guide-grid" aria-label="Broker removal guides">
+      {{- range sort site.Data.infobreaker_brokers.brokers "weight" }}
+      <article>
+        <div class="broker-card-topline">
+          <span>{{ .category }}</span>
+          <small>{{ .scanLabel }}</small>
+        </div>
+        <h2><a href="{{ .pageUrl }}">{{ .name }}</a></h2>
+        <p>{{ .summary }}</p>
+        <div class="broker-card-meta">
+          <span>{{ .removalLabel }}</span>
+          <span>{{ .verifyLabel }}</span>
+        </div>
+        <p><a href="{{ .pageUrl }}">Read the {{ .name }} removal guide</a></p>
+      </article>
+      {{- end }}
+    </section>
+
+    <section class="broker-download-cta">
+      <div>
+        <div class="eyebrow">LOCAL-FIRST PUBLIC BETA</div>
+        <h2>Turn ten separate removal chores into one evidence trail.</h2>
+        <p>Infobreaker helps you scan supported brokers, review the correct person, work through each broker's own removal route, and return later to verify the result.</p>
+      </div>
+      <p><a class="button primary" href="/infobreaker.html#downloads">Download Infobreaker</a></p>
+    </section>
+  </div>
+</article>
+
+{{- $schema := dict
+  "@context" "https://schema.org"
+  "@type" "CollectionPage"
+  "name" .Params.heading
+  "description" .Description
+  "url" .Permalink
+  "dateModified" "2026-07-29"
+  "isPartOf" (dict "@type" "WebSite" "name" "Tacita Labs" "url" site.BaseURL)
+-}}
+<script type="application/ld+json">{{ $schema | jsonify | safeHTML }}</script>
+{{ end }}

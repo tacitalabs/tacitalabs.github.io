@@ -54,6 +54,8 @@ The rule the app is built around: **if Infobreaker cannot prove something, it do
    Then it schedules future checks, because brokers re-list people.
 {{% /card %}}
 
+Want to work one broker at a time? Use the [broker-specific removal guides](/data-broker-removal-guides.html) for current requirements, human checkpoints, and verification advice.
+
 {{< eyebrow >}}Coverage{{< /eyebrow >}}
 
 ## Honest numbers, generated from evidence. {#coverage}
@@ -218,6 +220,7 @@ Email [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com). Support d
 {{% card %}}
 ## Learn more {#more}
 
+- [Broker-specific removal guides](/data-broker-removal-guides.html) — practical guides for Whitepages, BeenVerified, TruePeopleSearch, Intelius, MyLife, Spokeo, Nuwber, USPhoneBook, ThatsThem, and CyberBackgroundChecks.
 - [Beta guide](/infobreaker-beta-testers.html) — install notes, testing priorities, and a full app walkthrough.
 - [Infobreaker Privacy Notes](/infobreaker-privacy.html) — what stays local and what leaves your device.
 - [Infobreaker Beta Terms](/infobreaker-beta-terms.html) — beta disclaimer, support boundary, and reporting rules.
