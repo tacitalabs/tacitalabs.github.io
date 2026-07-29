@@ -61,7 +61,7 @@ Too many privacy products solve one problem by creating another — an account, 
 3. **Remove** confirmed listings through each broker's own opt-out flow — automatically where that is reliable, guided where the broker requires a human step.
 4. **Verify** later with re-checks, because removals take time and brokers re-list people.
 
-[How Infobreaker works, in detail](/infobreaker.html#how)
+[How Infobreaker works, in detail](/infobreaker.html#how) · [Broker-specific removal guides](/data-broker-removal-guides.html)
 
 {{% /split-card %}}
 {{% split-card %}}
@@ -144,7 +144,7 @@ Real screenshots. No invented UI, no glossy mockups.
 {{% /split-card %}}
 {{< split-end >}}
 
-More on each product page: [Infobreaker](/infobreaker.html) · [URLStrip screenshots](/urlstrip.html#screenshots)
+More on each product page: [Infobreaker](/infobreaker.html) · [Data broker removal guides](/data-broker-removal-guides.html) · [URLStrip screenshots](/urlstrip.html#screenshots)
 
 {{< eyebrow >}}About{{< /eyebrow >}}
 

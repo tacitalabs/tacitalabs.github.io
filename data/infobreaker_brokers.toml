@@ -1,0 +1,177 @@
+# Public, source-backed summaries for Infobreaker's broker-specific guides.
+# Keep this deliberately narrower than the app's full catalog. A broker belongs
+# here only when the current product can provide a useful, honest workflow.
+# Recheck the matching DataBroker module and generated coverage report before
+# changing any capability label or human checkpoint.
+
+lastReviewed = "July 29, 2026"
+
+[[brokers]]
+weight = 10
+id = "whitepages"
+name = "Whitepages"
+pageUrl = "/remove-from-whitepages.html"
+officialUrl = "https://www.whitepages.com/suppression-requests"
+category = "People search"
+summary = "Find the correct Whitepages listing, work through suppression or a privacy request, and return later to verify the public record is actually gone."
+scanLabel = "Search supported"
+removalLabel = "Assisted suppression"
+humanLabel = "Phone callback or privacy email"
+verifyLabel = "Recheck supported"
+findStep = "Find and review the exact Whitepages listing."
+requestStep = "Start the official suppression or privacy-request route."
+humanStep = "Complete the phone callback, or use the broker's privacy email route."
+verifyStep = "Recheck the saved listing instead of treating the request as removal."
+
+[[brokers]]
+weight = 20
+id = "beenverified"
+name = "BeenVerified"
+pageUrl = "/remove-from-beenverified.html"
+officialUrl = "https://www.beenverified.com/app/optout/search"
+category = "People search"
+summary = "Use BeenVerified's separate opt-out search, confirm the right person, finish the email check, and verify the result after the broker processes it."
+scanLabel = "Opt-out search supported"
+removalLabel = "Assisted opt-out"
+humanLabel = "CAPTCHA and email link"
+verifyLabel = "Recheck supported"
+findStep = "Use the free opt-out search and confirm the correct result."
+requestStep = "Choose that record and submit the removal email."
+humanStep = "Solve any challenge and open the broker's email link."
+verifyStep = "Scan again later and check related properties separately."
+
+[[brokers]]
+weight = 30
+id = "truepeoplesearch"
+name = "TruePeopleSearch"
+pageUrl = "/remove-from-truepeoplesearch.html"
+officialUrl = "https://www.truepeoplesearch.com"
+category = "People search"
+summary = "Identify the exact TruePeopleSearch profile, follow its current removal instructions with human assistance, and verify the record later."
+scanLabel = "Search supported"
+removalLabel = "Guided removal"
+humanLabel = "CAPTCHA or instruction handoff"
+verifyLabel = "Recheck supported"
+findStep = "Search by name and location, then review the full profile."
+requestStep = "Open the record's removal path."
+humanStep = "Follow the broker's current instructions and complete any challenge."
+verifyStep = "Treat only a later missing record as removal proof."
+
+[[brokers]]
+weight = 40
+id = "intelius"
+name = "Intelius"
+pageUrl = "/remove-from-intelius.html"
+officialUrl = "https://suppression.peopleconnect.us/login"
+category = "People search network"
+summary = "Find the Intelius listing, use the PeopleConnect suppression flow, complete its email check in the same browser session, and verify each public site later."
+scanLabel = "Search supported"
+removalLabel = "PeopleConnect suppression"
+humanLabel = "Email link in same session"
+verifyLabel = "Recheck supported"
+findStep = "Review the Intelius result and save the listing evidence."
+requestStep = "Start the PeopleConnect suppression flow."
+humanStep = "Open the emailed check link promptly in the same assisted browser."
+verifyStep = "Recheck Intelius and each relevant PeopleConnect property."
+
+[[brokers]]
+weight = 50
+id = "mylife"
+name = "MyLife"
+pageUrl = "/remove-from-mylife.html"
+officialUrl = "https://www.mylife.com/privacyrequest"
+category = "People search"
+summary = "Locate a unique MyLife profile, complete the detailed privacy-request form and email-code step, then verify rather than assuming submission worked."
+scanLabel = "Search supported"
+removalLabel = "Guided privacy request"
+humanLabel = "Email code and CAPTCHA"
+verifyLabel = "Recheck supported"
+findStep = "Find a unique MyLife profile URL, not a broad search page."
+requestStep = "Fill the broker's privacy request with the record details."
+humanStep = "Enter the emailed code and complete the CAPTCHA."
+verifyStep = "Recheck because a submitted request may still leave the listing exposed."
+
+[[brokers]]
+weight = 60
+id = "spokeo"
+name = "Spokeo"
+pageUrl = "/remove-from-spokeo.html"
+officialUrl = "https://www.spokeo.com/optout"
+category = "People search"
+summary = "Collect each distinct Spokeo listing URL, submit one opt-out per record, finish every email confirmation, and recheck all name and location variations."
+scanLabel = "Listing URL required"
+removalLabel = "Assisted opt-out"
+humanLabel = "CAPTCHA and email link"
+verifyLabel = "Recheck supported"
+findStep = "Locate and save every public Spokeo listing URL that belongs to you."
+requestStep = "Submit one official opt-out for each distinct listing."
+humanStep = "Complete the CAPTCHA and open every confirmation email."
+verifyStep = "Search all known name and location variations again."
+
+[[brokers]]
+weight = 70
+id = "nuwber"
+name = "Nuwber"
+pageUrl = "/remove-from-nuwber.html"
+officialUrl = "https://nuwber.com/removal/link"
+category = "People search"
+summary = "Find and verify the Nuwber profile URL, send it through the official removal form, complete the email link, and check the profile again later."
+scanLabel = "Search supported"
+removalLabel = "Assisted opt-out"
+humanLabel = "CAPTCHA and email link"
+verifyLabel = "Recheck supported"
+findStep = "Search by name and location and confirm the exact profile URL."
+requestStep = "Paste that URL into Nuwber's removal form."
+humanStep = "Complete any challenge and open the verification email."
+verifyStep = "Revisit the saved profile and record the result."
+
+[[brokers]]
+weight = 80
+id = "usphonebook"
+name = "USPhoneBook"
+pageUrl = "/remove-from-usphonebook.html"
+officialUrl = "https://www.usphonebook.com/opt-out/"
+category = "Phone lookup"
+summary = "Match the right USPhoneBook record, request the broker's removal email, finish its linked form, and monitor the saved profile for a return."
+scanLabel = "Search supported"
+removalLabel = "Assisted opt-out"
+humanLabel = "CAPTCHA and email link"
+verifyLabel = "Recheck supported"
+findStep = "Review the name, location, and phone details on the record."
+requestStep = "Start the official USPhoneBook opt-out."
+humanStep = "Solve any challenge and continue through the emailed link."
+verifyStep = "Recheck the original record and watch for re-listing."
+
+[[brokers]]
+weight = 90
+id = "thatsthem"
+name = "ThatsThem"
+pageUrl = "/remove-from-thatsthem.html"
+officialUrl = "https://thatsthem.com/optout"
+category = "People search"
+summary = "Confirm the ThatsThem record, provide the full identity details its first-party form requires, solve Turnstile, and verify the listing later."
+scanLabel = "Search supported"
+removalLabel = "Assisted first-party form"
+humanLabel = "Full contact details and Turnstile"
+verifyLabel = "Recheck supported"
+findStep = "Confirm the result matches your name, city, state, and address."
+requestStep = "Prepare the full address, ZIP, phone, and email the form requires."
+humanStep = "Review the filled form and solve the Turnstile challenge."
+verifyStep = "Save the confirmation and recheck the original record."
+
+[[brokers]]
+weight = 100
+id = "cyberbackgroundchecks"
+name = "CyberBackgroundChecks"
+pageUrl = "/remove-from-cyberbackgroundchecks.html"
+officialUrl = "https://cyberbackgroundchecks.com/removal"
+category = "People search"
+summary = "Find the correct CyberBackgroundChecks profile, start its removal request, complete the emailed final identity form, and verify the public record later."
+scanLabel = "Search supported"
+removalLabel = "Assisted removal"
+humanLabel = "Browser challenge and emailed form"
+verifyLabel = "Recheck supported"
+findStep = "Match the correct person and location before requesting removal."
+requestStep = "Submit the broker's initial name and email request."
+humanStep = "Complete any browser challenge, then finish the emailed identity form."
+verifyStep = "Do not count the first email as removal; recheck the public record."
