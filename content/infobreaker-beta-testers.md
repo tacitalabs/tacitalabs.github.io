@@ -21,22 +21,22 @@ Infobreaker makes network connections to broker sites you scan or submit request
 
 ## Current Status
 
-**Current release:** 1.0.0-beta.73
+**Current release:** 1.0.0-beta.74
 
-**Public-beta downloads:** macOS 1.0.0-beta.73, Windows 1.0.0-beta.73
+**Public-beta downloads:** macOS 1.0.0-beta.74, Windows 1.0.0-beta.74
 
-The downloads below are the current public beta builds. macOS and Windows are aligned on beta.73.
+The downloads below are the current public beta builds. macOS and Windows are aligned on beta.74.
 
 {{< infobreaker-downloads >}}
 
 - **Upgrade note:** beta.52 and earlier can check the update feed but may fail to download with `HTTP 302` because GitHub release assets redirect to the real file. beta.61 can also open without a window if stale broker automation metadata is already installed. If either happens, download the current beta from this page and replace the app manually once.
 - **Automation bundle:** beta.68 broker automation on the stable and beta channels. Broker automation updates separately from the app; Settings shows both versions. Automation beta.68 requires app beta.67 or newer.
-- **QA status:** beta.73 is the current release. It hardens CAPTCHA handoffs without reloading valid solved sessions, reconciles stale maintenance outcomes after later successful scans or broker decisions, validates the public updater journey, and reports PrivateEye's broken partner redirect honestly. The release gate passed 115 checks with no failures. The Windows portable build passed native verification of all 11 signed payloads plus ZIP and installed-app hashes. The macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Self-serve macOS and Windows downloads now point to beta.73.
+- **QA status:** beta.74 is the current release. The Windows download is now a signed per-user installer with Start Menu and desktop shortcuts plus normal uninstall support. It passed clean install, launch, upgrade from beta.73 portable, preservation of all 7,333 existing data files and the local database, verification of all 13 installed payload signatures, and residue-free uninstall. The macOS universal DMG is signed, notarized, stapled, Gatekeeper-accepted, and passed packaged-app smoke plus release artifact audit. Both platforms were built from the same reviewed source commit.
 - **Privacy posture:** local-first by default. Reports are optional and should be reviewed before sending. Raw debug folders can contain personal information; use the redacted support report first.
 
 ### Version note
 
-The guide describes beta.73 behavior. After a new build is promoted, repeat testers should re-read **Current Status**, **Install Notes**, and **What changed lately**.
+The guide describes beta.74 behavior. After a new build is promoted, repeat testers should re-read **Current Status**, **Install Notes**, and **What changed lately**.
 
 > **Beta warning:** Infobreaker is not finished. It can miss listings, flag weak matches, hit broker-side blocks, or require human action for opt-out forms. Do not assume a broker listing is gone until the monitoring workflow confirms it.
 
@@ -107,26 +107,27 @@ Every count in the app should reconcile to rows you can open. If a number does n
 To verify the download hash, run:
 
 ```sh
-shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.73-universal.dmg
+shasum -a 256 ~/Downloads/Infobreaker-1.0.0-beta.74-universal.dmg
 ```
 {{% /split-card %}}
 
 {{% split-card %}}
 {{< eyebrow >}}Windows{{< /eyebrow >}}
 
-- Download the x64 portable ZIP.
+- Download the x64 installer (`.exe`).
 - Install Google Chrome before your first scan. Edge may work as a fallback, but Chrome is the tested path.
-- Right-click the ZIP and choose **Extract All** before launching. Do not run `Infobreaker.exe` from inside the ZIP preview.
-- Run `Infobreaker.exe` from the extracted `win-unpacked` folder.
-- Windows may still show a SmartScreen reputation warning for a very new beta. Click **More info** to see the verified publisher. The signing certificate may show the developer's individual name rather than Tacita Labs while organizational signing is still being finalized.
+- Double-click the installer. It installs for your Windows account without requiring administrator access.
+- Launch Infobreaker from the Start Menu or desktop shortcut.
+- Windows may still show a SmartScreen reputation warning for a very new beta. Click **More info** to confirm the verified publisher is James O'Gorman before continuing.
 - Verify the SHA-256 hash below before running the app if SmartScreen makes you nervous.
-- Quit any older Infobreaker copy before replacing the extracted folder.
-- Your profile and history live outside the extracted app folder and should survive upgrades. Keep the previous ZIP if you want a simple rollback path: quit Infobreaker and launch the older `Infobreaker.exe`.
+- Quit any older portable Infobreaker copy before running the installer.
+- Your profile and history live outside the app folder and are preserved when upgrading from the portable beta.
+- Uninstall Infobreaker from **Settings > Apps > Installed apps** when needed. Uninstalling the app does not delete your profile or history.
 
 To verify the download hash, run:
 
 ```powershell
-certutil -hashfile .\Infobreaker-1.0.0-beta.73-x64-portable.zip SHA256
+certutil -hashfile .\Infobreaker-1.0.0-beta.74-x64.exe SHA256
 ```
 {{% /split-card %}}
 
@@ -433,7 +434,7 @@ Things to test:
 
 Infobreaker is still a beta, and these are the known rough edges testers should expect:
 
-- Windows tester builds may still ship as signed portable ZIPs while the installer upgrade path is being tested. Extract the ZIP before running the app.
+- Windows uses a signed per-user installer. A signed portable ZIP remains available in the GitHub release as a fallback, but the installer is the supported default.
 - Some brokers block automation, show CAPTCHAs, delay removals, or require email confirmation.
 - The app can find weak or wrong matches. Review decisions matter.
 - Removal verification is not instant. Monitoring may need later rechecks before a listing can be called removed.
