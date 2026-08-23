@@ -4,8 +4,8 @@ const path = require('node:path');
 const URLStrip = require('../static/urlstrip/cleaner.js');
 
 const root = path.resolve(__dirname, '..');
-const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.05.24.1/data.min.json'), 'utf8'));
-const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.05.24.1/urlstrip-supplementary.json'), 'utf8'));
+const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.1/data.min.json'), 'utf8'));
+const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.1/urlstrip-supplementary.json'), 'utf8'));
 const engine = URLStrip.createEngine(clearRules, supplementaryRules);
 
 function clean(input) {
@@ -82,6 +82,16 @@ test('YouTube shared link cleanup', () => {
   const result = clean('https://www.youtube.com/watch?v=dQw4w9WgXcQ&si=abc123tracking&feature=shared');
   assert.equal(result.status, 'cleaned');
   assert.equal(result.cleanedUrl, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+});
+
+test('Instagram igsi cleanup stays scoped to Instagram', () => {
+  const result = clean('https://www.instagram.com/p/example/?igsi=abc123&keep=1');
+  assert.equal(result.status, 'cleaned');
+  assert.equal(result.cleanedUrl, 'https://www.instagram.com/p/example/?keep=1');
+  assert.deepEqual(result.removedQueryParameters, ['igsi']);
+
+  const unrelated = clean('https://example.com/article?igsi=keep');
+  assert.equal(unrelated.status, 'unchanged');
 });
 
 test('Substack r is stripped while post_id is kept', () => {
