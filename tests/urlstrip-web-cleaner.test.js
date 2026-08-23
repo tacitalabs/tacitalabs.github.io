@@ -6,12 +6,19 @@ const URLStrip = require('../static/urlstrip/cleaner.js');
 const root = path.resolve(__dirname, '..');
 const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.1/data.min.json'), 'utf8'));
 const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.1/urlstrip-supplementary.json'), 'utf8'));
+const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.2/data.min.json'), 'utf8'));
+const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.2/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
 const betaManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/beta/manifest.json'), 'utf8'));
 const engine = URLStrip.createEngine(clearRules, supplementaryRules);
+const betaEngine = URLStrip.createEngine(betaClearRules, betaSupplementaryRules);
 
 function clean(input) {
   return URLStrip.cleanUrl(engine, input);
+}
+
+function cleanBeta(input) {
+  return URLStrip.cleanUrl(betaEngine, input);
 }
 
 function cleanWithPrivacyRewrites(input, settings) {
@@ -44,6 +51,26 @@ test('public rule manifests remain compatible with released iOS builds', () => {
       `${channel} contains an unsupported public rule file kind`
     );
   }
+});
+
+test('beta publishes the audited tracker batch without promoting stable', () => {
+  assert.equal(stableManifest.currentVersion, '2026.08.23.1');
+  assert.equal(betaManifest.currentVersion, '2026.08.23.2');
+
+  const result = cleanBeta('https://example.com/deal?at_recipient_id=5336&adjust_campaign=summer&mt_campaign=launch&ranMID=13275&sfmc_id=subscriber&tgclid=click&keep=1');
+  assert.equal(result.status, 'cleaned');
+  assert.equal(result.cleanedUrl, 'https://example.com/deal?keep=1');
+  assert.deepEqual(result.removedQueryParameters, [
+    'at_recipient_id',
+    'adjust_campaign',
+    'mt_campaign',
+    'ranMID',
+    'sfmc_id',
+    'tgclid',
+  ]);
+
+  const deferred = cleanBeta('https://example.com/article?_bhlid=keep&sms_click=keep&oft_id=keep&sc_uid=keep&external_click_id=keep');
+  assert.equal(deferred.status, 'unchanged');
 });
 
 test('generic UTM and fbclid cleanup', () => {
