@@ -6,8 +6,8 @@ const URLStrip = require('../static/urlstrip/cleaner.js');
 const root = path.resolve(__dirname, '..');
 const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.1/data.min.json'), 'utf8'));
 const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.1/urlstrip-supplementary.json'), 'utf8'));
-const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.2/data.min.json'), 'utf8'));
-const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.2/urlstrip-supplementary.json'), 'utf8'));
+const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.3/data.min.json'), 'utf8'));
+const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.3/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
 const betaManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/beta/manifest.json'), 'utf8'));
 const engine = URLStrip.createEngine(clearRules, supplementaryRules);
@@ -53,9 +53,9 @@ test('public rule manifests remain compatible with released iOS builds', () => {
   }
 });
 
-test('beta publishes the audited tracker batch without promoting stable', () => {
+test('beta publishes the global and scoped audited tracker batches without promoting stable', () => {
   assert.equal(stableManifest.currentVersion, '2026.08.23.1');
-  assert.equal(betaManifest.currentVersion, '2026.08.23.2');
+  assert.equal(betaManifest.currentVersion, '2026.08.23.3');
 
   const result = cleanBeta('https://example.com/deal?at_recipient_id=5336&adjust_campaign=summer&mt_campaign=launch&ranMID=13275&sfmc_id=subscriber&tgclid=click&keep=1');
   assert.equal(result.status, 'cleaned');
@@ -71,6 +71,20 @@ test('beta publishes the audited tracker batch without promoting stable', () => 
 
   const deferred = cleanBeta('https://example.com/article?_bhlid=keep&sms_click=keep&oft_id=keep&sc_uid=keep&external_click_id=keep');
   assert.equal(deferred.status, 'unchanged');
+
+  const temu = cleanBeta('https://www.temu.com/item.html?_x_ads_account=acct&_x_ads_id=ad&_x_ns_source=g&_x_campaign=sale&goods_id=123&sku_id=keep&g_region=US');
+  assert.equal(temu.status, 'cleaned');
+  assert.equal(temu.cleanedUrl, 'https://www.temu.com/item.html?goods_id=123&sku_id=keep&g_region=US');
+  assert.deepEqual(temu.removedQueryParameters, ['_x_ads_account', '_x_ads_id', '_x_ns_source', '_x_campaign']);
+
+  const aws = cleanBeta('https://pages.awscloud.com/event?trk=campaign&keep=1');
+  assert.equal(aws.cleanedUrl, 'https://pages.awscloud.com/event?keep=1');
+
+  const wikipedia = cleanBeta('https://en.wikipedia.org/wiki/Privacy?wprov=sfti1&oldid=123');
+  assert.equal(wikipedia.cleanedUrl, 'https://en.wikipedia.org/wiki/Privacy?oldid=123');
+
+  const unrelated = cleanBeta('https://example.com/?_x_ads_account=keep&trk=keep&wprov=keep');
+  assert.equal(unrelated.status, 'unchanged');
 });
 
 test('generic UTM and fbclid cleanup', () => {
