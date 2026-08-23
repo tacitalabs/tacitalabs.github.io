@@ -6,6 +6,8 @@ const URLStrip = require('../static/urlstrip/cleaner.js');
 const root = path.resolve(__dirname, '..');
 const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.1/data.min.json'), 'utf8'));
 const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.1/urlstrip-supplementary.json'), 'utf8'));
+const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
+const betaManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/beta/manifest.json'), 'utf8'));
 const engine = URLStrip.createEngine(clearRules, supplementaryRules);
 
 function clean(input) {
@@ -28,6 +30,21 @@ function test(name, fn) {
 
 console.log(`compiled providers: ${engine.providers.length}; skipped: ${engine.skippedProviders.length}`);
 assert.ok(engine.providers.length > 200, 'should compile the bundled provider set');
+
+test('public rule manifests remain compatible with released iOS builds', () => {
+  const supportedFileKinds = new Set(['clearurls', 'urlstrip-supplementary']);
+  for (const [channel, manifest] of [['stable', stableManifest], ['beta', betaManifest]]) {
+    assert.deepEqual(
+      manifest.files.map(file => file.kind),
+      ['clearurls', 'urlstrip-supplementary'],
+      `${channel} must not publish file kinds the released iOS decoder cannot read`
+    );
+    assert.ok(
+      manifest.files.every(file => supportedFileKinds.has(file.kind)),
+      `${channel} contains an unsupported public rule file kind`
+    );
+  }
+});
 
 test('generic UTM and fbclid cleanup', () => {
   const result = clean('https://example.com/article?page=1&utm_source=twitter&utm_medium=social&utm_campaign=spring&fbclid=abc123');

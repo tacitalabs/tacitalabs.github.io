@@ -29,19 +29,10 @@
       "url": "https://www.tacitalabs.com/urlstrip/rules/2026.08.23.1/urlstrip-supplementary.json",
       "sha256": "54ae34052c4ccefe344cbc00aa657962cb2e8fd8d069d3e9da933eb4ce441342",
       "bytes": 8957
-    },
-    {
-      "kind": "command-guard",
-      "path": "command-guard-rules.json",
-      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.08.23.1/command-guard-rules.json",
-      "sha256": "f90601429c60c30007063c92a666246f46a3d042c9989c22ffc9c23ece490e3e",
-      "bytes": 10001
     }
   ],
   "notes": [
     "Strip Instagram's `igsi` share identifier from Instagram links.",
-    "Keep `igsi` scoped to Instagram domains so identically named parameters on unrelated sites remain untouched.",
-    "Preserve the existing Command Guard rules from stable release 2026.07.05.3.",
-    "No app binary update is required for URLStrip 1.1 Build 18 users."
+    "Keep `igsi` scoped to Instagram domains so identically named parameters on unrelated sites remain untouched."
   ]
 }
