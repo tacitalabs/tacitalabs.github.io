@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>URLStrip 1.1 Build 18 Release Notes - Tacita Labs</title>
+    <title>URLStrip 1.1 Build 19 Release Notes - Tacita Labs</title>
     <meta
       name="description"
-      content="Release notes for URLStrip 1.1 Build 18 desktop beta with Command Guard."
+      content="Release notes for URLStrip 1.1 Build 19 desktop beta."
     />
     <meta property="og:site_name" content="Tacita Labs" />
     <meta property="og:type" content="website" />
@@ -43,9 +43,9 @@
 
       <section class="section page-intro">
         <p class="eyebrow">Release notes</p>
-        <h1>URLStrip 1.1 (Build 18)</h1>
+        <h1>URLStrip 1.1 (Build 19)</h1>
         <p class="lede">
-          Desktop beta refresh that adds Command Guard on macOS and Windows, keeps URL cleaning local, and updates both public desktop downloads to the same 1.1 Build 18 release line.
+          Desktop beta refresh that retires the unavailable X/Twitter privacy frontends, keeps X/Twitter tracker removal active, and updates both public desktop downloads to the same 1.1 Build 19 release line.
         </p>
       </section>
 
@@ -54,6 +54,9 @@
           <article class="card prose-card">
             <h2>What changed</h2>
             <ul class="check-list compact-list">
+              <li>Retired the X/Twitter Privacy Redirect after Nitter-compatible public frontends ceased service following legal takedown demands. URLStrip no longer sends X/Twitter links to XCancel, Nitter, or custom Nitter-compatible hosts.</li>
+              <li>Kept normal X/Twitter tracking-parameter removal active. Cleaned links remain on <code>x.com</code> or <code>twitter.com</code>.</li>
+              <li>Kept the separate Reddit Privacy Redirect available with configurable Redlib-compatible frontends.</li>
               <li>Added <strong>Command Guard</strong> on macOS and Windows to warn when copied terminal commands match risky patterns such as remote download-and-execute chains, PowerShell <code>irm | iex</code>, encoded payloads, persistence commands, and destructive shell actions.</li>
               <li>Added an optional <strong>Neutralize risky commands</strong> setting. It is disabled by default; when enabled, URLStrip replaces risky clipboard commands with inert commented text.</li>
               <li>Added Command Guard status, last warning details, rules version visibility, split notification controls, test-command helpers, and aggregate Command Guard stats without storing copied command text in stats.</li>
@@ -65,15 +68,15 @@
               <li>Kept the fast cleaning flow lightweight while moving deeper explanation into intentional surfaces and linking to the public <a href="/tracking-methodology.html">tracking methodology</a> page.</li>
               <li>Fixed the Windows issue where clicking <strong>Install Rule Update</strong> appeared to do nothing because the install button stayed disabled after a rule check.</li>
               <li>Preserved user rule-state and custom rules across Windows rule bundle installs, improved error reporting, and added a 30-second timeout so failed installs surface clearly.</li>
-              <li>Added opt-in Privacy Redirect support for X/Twitter and Reddit links, with configurable privacy frontends.</li>
+              <li>Retained opt-in Privacy Redirect support for Reddit links, with configurable Redlib-compatible frontends.</li>
               <li>Added Copy Wayback Link support so users can copy a local Internet Archive lookup URL without submitting or archiving the page.</li>
-              <li>Fixed the Windows Privacy Redirect path for query-less canonical X/Twitter and Reddit URLs, where the cleaner could previously bail out before rewriting the host.</li>
+              <li>Fixed the Windows Privacy Redirect path for query-less canonical Reddit URLs, where the cleaner could previously bail out before rewriting the host.</li>
               <li>Added Stable and Beta hosted rule channels on macOS and Windows so rule updates can move through beta review before stable promotion.</li>
               <li>Improved Google local-result cleanup parity across desktop builds.</li>
               <li>Updated manual macOS update checks to bypass cached release metadata so fresh desktop updates are detected reliably.</li>
-              <li>Aligned the shared desktop release metadata on <strong>URLStrip 1.1 (Build 18)</strong> for clean update checks and published hashes.</li>
-              <li>Refreshed the macOS Build 18 DMG with the Safari extension enabled, restored the app icon in the packaged app, fixed Safari Settings manifest resource warnings, and included the latest desktop rule-channel support.</li>
-              <li>Refreshed macOS Safari extension build to fix privacy-redirect escape links for Redlib/Reddit and X/Twitter frontends.</li>
+              <li>Aligned the shared desktop release metadata on <strong>URLStrip 1.1 (Build 19)</strong> for clean update checks and published hashes.</li>
+              <li>Refreshed the macOS Build 19 DMG with the Safari extension enabled, matching app and extension build metadata, and the latest desktop rule-channel support.</li>
+              <li>Kept the macOS Safari extension privacy-redirect escape-link handling for Redlib/Reddit frontends.</li>
               <li>Refreshed the macOS DMG with an optional command-line tool that can be installed from Advanced Settings. The CLI supports normal URL cleanup, explicit stdin mode, usage/help/version output, quiet shell output, and JSON automation output.</li>
             </ul>
           </article>

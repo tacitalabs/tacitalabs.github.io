@@ -16,7 +16,7 @@ Use it to verify:
 
 - common tracking parameters are removed after navigation
 - functional parameters are preserved
-- X/Twitter links are rewritten when Privacy Redirects are enabled
+- X/Twitter tracking parameters are removed without rewriting the host
 - Reddit links are rewritten when Reddit Privacy Redirects are enabled
 
 ## Basic campaign and click IDs
@@ -57,9 +57,9 @@ Use it to verify:
 - [DuckDuckGo redirect-style URL](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fexample.com%2Fduck-target%3Futm_source%3Dduck%26gclid%3Dwrapped-google&rut=test-rut)
 - [Twitter redirect wrapper](https://t.co/testRedirect?url=https%3A%2F%2Fexample.com%2Ftwitter-target%3Futm_source%3Dx%26twclid%3Dwrapped-twclid)
 
-## X/Twitter privacy redirect targets
+## X/Twitter tracker-cleaning targets
 
-These should open through the configured X/Twitter privacy frontend when that rule is enabled.
+These should stay on their original X/Twitter host while known tracking parameters are removed.
 
 - [x.com root profile-style URL](https://x.com/TacitaLabs?utm_source=urlstrip-test&twclid=twclid-test-001)
 - [x.com status-style URL](https://x.com/TacitaLabs/status/1780000000000000000?utm_source=share&utm_medium=web&twclid=twclid-test-002)

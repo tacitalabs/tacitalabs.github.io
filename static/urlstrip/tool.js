@@ -15,7 +15,6 @@
   const resultLabel = tool.querySelector('[data-result-label]');
   const resultUrlWrap = tool.querySelector('[data-result-url-wrap]');
   const resultDetails = tool.querySelector('[data-result-details]');
-  const xRewriteToggle = tool.querySelector('[data-privacy-rewrite-x]');
   const redditRewriteToggle = tool.querySelector('[data-privacy-rewrite-reddit]');
 
   let engine = null;
@@ -112,7 +111,6 @@
 
   function privacyRedirectSettings() {
     return {
-      xRedirectEnabled: Boolean(xRewriteToggle && xRewriteToggle.checked),
       redditRedirectEnabled: Boolean(redditRewriteToggle && redditRewriteToggle.checked),
     };
   }

@@ -180,18 +180,15 @@ test('privacy rewrites are disabled by default', () => {
   assert.equal(result.status, 'unchanged');
 });
 
-test('X/Twitter privacy rewrite uses XCancel and preserves path', () => {
+test('retired X/Twitter privacy settings are ignored while tracker stripping remains active', () => {
   const result = cleanWithPrivacyRewrites('https://twitter.com/tacitalabs/status/123?utm_source=news', {
     xRedirectEnabled: true,
+    xFrontendBaseURL: 'https://retired.invalid',
   });
   assert.equal(result.status, 'cleaned');
-  assert.equal(result.cleanedUrl, 'https://xcancel.com/tacitalabs/status/123');
+  assert.equal(result.cleanedUrl, 'https://twitter.com/tacitalabs/status/123');
   assert.deepEqual(result.removedQueryParameters, ['utm_source']);
-  assert.deepEqual(result.privacyRedirect, {
-    service: 'xTwitter',
-    originalHost: 'twitter.com',
-    frontendHost: 'xcancel.com',
-  });
+  assert.equal(result.privacyRedirect, null);
 });
 
 test('Reddit privacy rewrite uses Redlib and skips redd.it shortlinks', () => {
