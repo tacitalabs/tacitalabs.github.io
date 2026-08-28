@@ -295,5 +295,5 @@ missed-parameter reporting details.
 {{% card %}}
 ## Contact {#contact}
 
-For product questions, feedback, or general inquiries, reach out at [hello@tacitalabs.com](mailto:hello@tacitalabs.com) or follow [Tacita Labs on X](https://xcancel.com/TacitaLabs). Curious who builds URLStrip? See [About Tacita Labs](/about.html).
+For product questions, feedback, or general inquiries, reach out at [hello@tacitalabs.com](mailto:hello@tacitalabs.com) or follow [Tacita Labs on X](https://x.com/TacitaLabs). Curious who builds URLStrip? See [About Tacita Labs](/about.html).
 {{% /card %}}

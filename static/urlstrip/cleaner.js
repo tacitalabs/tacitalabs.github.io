@@ -16,9 +16,7 @@
 
   const MAX_REDIRECT_DEPTH = 5;
   const MAX_INPUT_LENGTH = 16 * 1024;
-  const DEFAULT_X_FRONTEND_BASE_URL = 'https://xcancel.com';
   const DEFAULT_REDDIT_FRONTEND_BASE_URL = 'https://redlib.catsarch.com';
-  const X_HOSTS = new Set(['x.com', 'www.x.com', 'twitter.com', 'www.twitter.com', 'mobile.twitter.com']);
   const REDDIT_HOSTS = new Set(['reddit.com', 'www.reddit.com', 'old.reddit.com', 'new.reddit.com', 'm.reddit.com', 'np.reddit.com']);
 
   const CATEGORIES = {
@@ -275,10 +273,7 @@
     let service = null;
     let frontendBaseUrl = null;
 
-    if (settings.xRedirectEnabled && X_HOSTS.has(host)) {
-      service = 'xTwitter';
-      frontendBaseUrl = normalizedFrontendBaseUrl(settings.xFrontendBaseURL, DEFAULT_X_FRONTEND_BASE_URL);
-    } else if (settings.redditRedirectEnabled && REDDIT_HOSTS.has(host)) {
+    if (settings.redditRedirectEnabled && REDDIT_HOSTS.has(host)) {
       service = 'reddit';
       frontendBaseUrl = normalizedFrontendBaseUrl(settings.redditFrontendBaseURL, DEFAULT_REDDIT_FRONTEND_BASE_URL);
     }

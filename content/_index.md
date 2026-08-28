@@ -198,5 +198,5 @@ For Infobreaker, email [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalab
 {{% card %}}
 ## Contact {#contact}
 
-For product questions, feedback, or general inquiries, reach out at [hello@tacitalabs.com](mailto:hello@tacitalabs.com) or follow [Tacita Labs on X](https://xcancel.com/TacitaLabs).
+For product questions, feedback, or general inquiries, reach out at [hello@tacitalabs.com](mailto:hello@tacitalabs.com) or follow [Tacita Labs on X](https://x.com/TacitaLabs).
 {{% /card %}}
