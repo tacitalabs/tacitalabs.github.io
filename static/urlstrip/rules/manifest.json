@@ -2,37 +2,36 @@
   "product": "URLStrip",
   "kind": "rules",
   "schemaVersion": 1,
-  "currentVersion": "2026.08.23.1",
-  "publishedAt": "2026-08-23T15:45:54.714Z",
-  "minAppVersion": "1.1",
+  "currentVersion": "2026.08.23.3",
+  "publishedAt": "2026-08-23T20:48:55.551Z",
   "sourceSummary": {
     "clearurls": {
       "source": "https://github.com/ClearURLs/Rules",
       "upstreamCommit": null,
-      "reviewedAt": "2026-08-23T15:45:54.714Z"
+      "reviewedAt": "2026-08-23T20:48:55.551Z"
     },
     "urlstripSupplementary": {
-      "version": "2026.08.23.1"
+      "version": "2026.08.23.3"
     }
   },
   "files": [
     {
       "kind": "clearurls",
       "path": "data.min.json",
-      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.08.23.1/data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.08.23.3/data.min.json",
       "sha256": "b328d2a5b95b1b23bac2c91342a8deee3f9a3826a5950bf9e28e332ffd94cd2f",
       "bytes": 106070
     },
     {
       "kind": "urlstrip-supplementary",
       "path": "urlstrip-supplementary.json",
-      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.08.23.1/urlstrip-supplementary.json",
-      "sha256": "54ae34052c4ccefe344cbc00aa657962cb2e8fd8d069d3e9da933eb4ce441342",
-      "bytes": 8957
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.08.23.3/urlstrip-supplementary.json",
+      "sha256": "8060b2d2db3710a98dceb37192209840495fe180d76cf36e6879b5b4d6232269",
+      "bytes": 11645
     }
   ],
   "notes": [
-    "Strip Instagram's `igsi` share identifier from Instagram links.",
-    "Keep `igsi` scoped to Instagram domains so identically named parameters on unrelated sites remain untouched."
+    "Adds reviewed, domain-scoped removal for Temu advertising attribution, AWS marketing `trk`, and Wikimedia `wprov` provenance.",
+    "Expands the source audit to the joint AdGuard/uBlock Origin scoped list while preserving exception warnings and deferring ambiguous functional parameters."
   ]
 }
