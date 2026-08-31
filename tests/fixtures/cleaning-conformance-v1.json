@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "description": "Portable local-cleaning cases shared by the Swift, Rust, and browser JavaScript engines.",
+  "cases": [
+    {
+      "name": "generic UTM removal",
+      "input": "https://example.com/article?page=1&utm_source=news&utm_medium=email",
+      "expected": "https://example.com/article?page=1",
+      "removed": ["utm_source", "utm_medium"]
+    },
+    {
+      "name": "YouTube share attribution",
+      "input": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&si=share-token&feature=shared",
+      "expected": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "removed": ["si", "feature"]
+    },
+    {
+      "name": "Threads share attribution",
+      "input": "https://www.threads.com/@account/post/example?xmt=AQG-test&slof=1",
+      "expected": "https://www.threads.com/@account/post/example",
+      "removed": ["xmt", "slof"]
+    },
+    {
+      "name": "Google search client",
+      "input": "https://www.google.com/search?q=privacy&client=safari",
+      "expected": "https://www.google.com/search?q=privacy",
+      "removed": ["client"]
+    },
+    {
+      "name": "Wikipedia share provenance",
+      "input": "https://en.wikipedia.org/wiki/Privacy?wprov=sfti1&oldid=123",
+      "expected": "https://en.wikipedia.org/wiki/Privacy?oldid=123",
+      "removed": ["wprov"]
+    },
+    {
+      "name": "functional parameters remain",
+      "input": "https://example.com/page?id=42&lang=en",
+      "expected": "https://example.com/page?id=42&lang=en",
+      "removed": []
+    }
+  ]
+}

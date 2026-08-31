@@ -114,6 +114,8 @@ URLStrip is built to stay out of the way. On desktop, it fits into normal copy-a
 
 Some parameters are intentionally kept because they control content, preserve state, or are required for the destination to work.
 
+Opaque Instagram and Threads `/share/...` links are a special case because the destination is not present in the link itself. On supported Apple surfaces, URLStrip can offer a separate, clearly labeled network action to recover the canonical post URL. Normal cleaning stays local, and the network action runs only after you request it.
+
 Want to try it without installing anything? Use the [browser-based URL cleaner](/clean-url.html). Your pasted URL is processed locally and is not sent to Tacita Labs.
 
 {{< eyebrow >}}Trust{{< /eyebrow >}}

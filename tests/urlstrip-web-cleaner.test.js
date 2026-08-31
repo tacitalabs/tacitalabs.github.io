@@ -10,6 +10,7 @@ const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstr
 const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.31.2/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
 const betaManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/beta/manifest.json'), 'utf8'));
+const conformanceCorpus = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/cleaning-conformance-v1.json'), 'utf8'));
 const engine = URLStrip.createEngine(clearRules, supplementaryRules);
 const betaEngine = URLStrip.createEngine(betaClearRules, betaSupplementaryRules);
 
@@ -107,6 +108,15 @@ test('generic UTM and fbclid cleanup', () => {
   assert.equal(result.status, 'cleaned');
   assert.equal(result.cleanedUrl, 'https://example.com/article?page=1');
   assert.deepEqual(result.removedQueryParameters, ['utm_source', 'utm_medium', 'utm_campaign', 'fbclid']);
+});
+
+test('cross-engine conformance corpus matches browser JavaScript', () => {
+  assert.equal(conformanceCorpus.schemaVersion, 1);
+  for (const fixture of conformanceCorpus.cases) {
+    const result = clean(fixture.input);
+    assert.equal(result.cleanedUrl || result.originalUrl, fixture.expected, `${fixture.name}: output mismatch`);
+    assert.deepEqual(result.removedQueryParameters || [], fixture.removed, `${fixture.name}: removed mismatch`);
+  }
 });
 
 test('unchanged clean URL', () => {
