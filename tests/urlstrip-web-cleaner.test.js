@@ -4,8 +4,8 @@ const path = require('node:path');
 const URLStrip = require('../static/urlstrip/cleaner.js');
 
 const root = path.resolve(__dirname, '..');
-const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.1/data.min.json'), 'utf8'));
-const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.1/urlstrip-supplementary.json'), 'utf8'));
+const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.3/data.min.json'), 'utf8'));
+const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.3/urlstrip-supplementary.json'), 'utf8'));
 const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.3/data.min.json'), 'utf8'));
 const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.3/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
@@ -53,8 +53,8 @@ test('public rule manifests remain compatible with released iOS builds', () => {
   }
 });
 
-test('beta publishes the global and scoped audited tracker batches without promoting stable', () => {
-  assert.equal(stableManifest.currentVersion, '2026.08.23.1');
+test('stable and beta publish the promoted global and scoped audited tracker batches', () => {
+  assert.equal(stableManifest.currentVersion, '2026.08.23.3');
   assert.equal(betaManifest.currentVersion, '2026.08.23.3');
 
   const result = cleanBeta('https://example.com/deal?at_recipient_id=5336&adjust_campaign=summer&mt_campaign=launch&ranMID=13275&sfmc_id=subscriber&tgclid=click&keep=1');
