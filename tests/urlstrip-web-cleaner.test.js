@@ -6,8 +6,8 @@ const URLStrip = require('../static/urlstrip/cleaner.js');
 const root = path.resolve(__dirname, '..');
 const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.3/data.min.json'), 'utf8'));
 const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.3/urlstrip-supplementary.json'), 'utf8'));
-const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.31.1/data.min.json'), 'utf8'));
-const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.31.1/urlstrip-supplementary.json'), 'utf8'));
+const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.31.2/data.min.json'), 'utf8'));
+const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.31.2/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
 const betaManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/beta/manifest.json'), 'utf8'));
 const engine = URLStrip.createEngine(clearRules, supplementaryRules);
@@ -53,9 +53,9 @@ test('public rule manifests remain compatible with released iOS builds', () => {
   }
 });
 
-test('stable remains on the promoted scoped batch while beta adds exact vendor identifiers', () => {
+test('stable remains isolated while beta carries the current cumulative rule batches', () => {
   assert.equal(stableManifest.currentVersion, '2026.08.23.3');
-  assert.equal(betaManifest.currentVersion, '2026.08.31.1');
+  assert.equal(betaManifest.currentVersion, '2026.08.31.2');
 
   const result = cleanBeta('https://example.com/deal?at_recipient_id=5336&adjust_campaign=summer&mt_campaign=launch&ranMID=13275&sfmc_id=subscriber&tgclid=click&keep=1');
   assert.equal(result.status, 'cleaned');
@@ -68,6 +68,13 @@ test('stable remains on the promoted scoped batch while beta adds exact vendor i
     'sfmc_id',
     'tgclid',
   ]);
+
+  const scoped = cleanBeta('https://dailyshincho.jp/article?ui_campaign=c&ui_medium=m&ui_source=s&keep=1');
+  assert.equal(scoped.status, 'cleaned');
+  assert.equal(scoped.cleanedUrl, 'https://dailyshincho.jp/article?keep=1');
+
+  const unrelatedScopedNames = cleanBeta('https://example.com/?in=keep&input=keep&media=keep&fr=keep&anc=keep&ui_source=keep');
+  assert.equal(unrelatedScopedNames.status, 'unchanged');
 
   const deferred = cleanBeta('https://example.com/article?_bhlid=keep&sms_click=keep&oft_id=keep&sc_uid=keep&external_click_id=keep');
   assert.equal(deferred.status, 'unchanged');
