@@ -6,8 +6,8 @@ const URLStrip = require('../static/urlstrip/cleaner.js');
 const root = path.resolve(__dirname, '..');
 const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.3/data.min.json'), 'utf8'));
 const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.3/urlstrip-supplementary.json'), 'utf8'));
-const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.3/data.min.json'), 'utf8'));
-const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.3/urlstrip-supplementary.json'), 'utf8'));
+const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.31.1/data.min.json'), 'utf8'));
+const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.31.1/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
 const betaManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/beta/manifest.json'), 'utf8'));
 const engine = URLStrip.createEngine(clearRules, supplementaryRules);
@@ -53,9 +53,9 @@ test('public rule manifests remain compatible with released iOS builds', () => {
   }
 });
 
-test('stable and beta publish the promoted global and scoped audited tracker batches', () => {
+test('stable remains on the promoted scoped batch while beta adds exact vendor identifiers', () => {
   assert.equal(stableManifest.currentVersion, '2026.08.23.3');
-  assert.equal(betaManifest.currentVersion, '2026.08.23.3');
+  assert.equal(betaManifest.currentVersion, '2026.08.31.1');
 
   const result = cleanBeta('https://example.com/deal?at_recipient_id=5336&adjust_campaign=summer&mt_campaign=launch&ranMID=13275&sfmc_id=subscriber&tgclid=click&keep=1');
   assert.equal(result.status, 'cleaned');
@@ -85,6 +85,14 @@ test('stable and beta publish the promoted global and scoped audited tracker bat
 
   const unrelated = cleanBeta('https://example.com/?_x_ads_account=keep&trk=keep&wprov=keep');
   assert.equal(unrelated.status, 'unchanged');
+
+  const vendorIdentifiers = cleanBeta('https://example.com/article?adobe_mc_ref=referrer&adobe_mc_sdid=session&admitad_uid=user&vgo_ee=encrypted_contact&keep=1');
+  assert.equal(vendorIdentifiers.status, 'cleaned');
+  assert.equal(vendorIdentifiers.cleanedUrl, 'https://example.com/article?keep=1');
+  assert.deepEqual(vendorIdentifiers.removedQueryParameters, ['adobe_mc_ref', 'adobe_mc_sdid', 'admitad_uid', 'vgo_ee']);
+
+  const stableVendorIdentifiers = clean('https://example.com/article?adobe_mc_ref=keep&adobe_mc_sdid=keep&admitad_uid=keep&vgo_ee=keep');
+  assert.equal(stableVendorIdentifiers.status, 'unchanged');
 });
 
 test('generic UTM and fbclid cleanup', () => {
