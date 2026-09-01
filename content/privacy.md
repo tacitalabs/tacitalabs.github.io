@@ -10,7 +10,7 @@ Tacita Labs apps do their work on your device. We do not require
 accounts, and we do not collect your browsing history or link history.
 This page covers URLStrip and this website.
 
-*Last updated: July 23, 2026*
+*Last updated: August 31, 2026*
 
 {{% card %}}
 ## Infobreaker
@@ -42,10 +42,12 @@ tracking](/tracking-methodology.html).
 
 Normal URL cleaning does not make a network request with your link. If
 URLStrip recognizes an opaque Instagram or Threads share wrapper, it may
-offer a separate action labeled as a network operation. URLStrip only
-contacts that social service after you choose the action. The request goes
-directly from your device to the service using an ephemeral, cookie-free
-session. Tacita Labs does not receive or retain the link.
+offer a separate action labeled as a network operation. URLStrip contacts
+that social service only after you choose the action or explicitly enable
+automatic share-link resolution in Settings. Automatic resolution is off by
+default. The request goes directly from your device to the service using an
+ephemeral, cookie-free session. Tacita Labs does not receive or retain the
+link.
 
 {{% /card %}}
 {{% card %}}
@@ -95,8 +97,9 @@ links from Safari and other apps. Their purpose is to clean URLs on
 device and return the cleaned result to you. Tacita Labs does not
 receive your Safari browsing history from these extensions.
 
-The Share Extension may offer the same explicit Instagram or Threads
-network-resolution action described above. It does not run automatically.
+The Share Extension uses the same Instagram or Threads network-resolution
+policy and the same user-controlled automatic-resolution setting described
+above.
 
 {{% /card %}}
 {{% card %}}
