@@ -155,11 +155,11 @@ Get the public URLStrip release from the App Store. TestFlight stays open for be
 {{% card %}}
 **macOS - Universal (Apple Silicon + Intel)**
 
-[Download URLStrip 1.1 (Build 18) for macOS](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1-build18-command-guard/URLStrip-1.1-build18-macOS-universal.dmg)
+[Download URLStrip 1.2 (Build 20) for macOS](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/URLStrip-1.2-build20-macOS-universal.dmg)
 
-SHA-256: `8173d94523bf769e61794200d4459b208d4532e96423a58de7f1b90427256b65`
+SHA-256: `ae74a3fd85533425e11e71e55c9a9162a07d90774adee949a51f992b971ea04b`
 
-Verify: `shasum -a 256 URLStrip-1.1-build18-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.2-build20-macOS-universal.dmg`
 
 Includes Command Guard and an optional macOS command-line tool. Install the
 CLI from **Advanced Settings** in the app.
@@ -168,15 +168,15 @@ CLI from **Advanced Settings** in the app.
 {{% card %}}
 **Windows - x64**
 
-[Download URLStrip 1.1 (Build 18) for Windows](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1-build18-command-guard/URLStrip-1.1-build18-Windows-x64-setup.exe)
+[Download URLStrip 1.2 (Build 20) for Windows](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/URLStrip-1.2-build20-Windows-x64-setup.exe)
 
-SHA-256: `0ccf390162f3139dedfdee9f8942436cca4ed63858901e8294e6913bb1cfd221`
+SHA-256: `131400dfa418a2d62578e45ea690cec2a43915fc809375309c93699667dc377f`
 
-Verify: `certutil -hashfile URLStrip-1.1-build18-Windows-x64-setup.exe sha256`
+Verify: `certutil -hashfile URLStrip-1.2-build20-Windows-x64-setup.exe sha256`
 {{% /card %}}
 ---
 
-Full checksum file: [checksums/1.1.sha256](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1-build18-command-guard/1.1.sha256)
+Full checksum file: [checksums/1.2.sha256](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/1.2.sha256)
 
 {{< eyebrow >}}Screenshots{{< /eyebrow >}}
 
