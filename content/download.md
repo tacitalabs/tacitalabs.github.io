@@ -56,11 +56,11 @@ Native macOS desktop build for Apple Silicon and Intel Macs. Includes URL
 cleaning, local Command Guard warnings for risky terminal commands copied to
 the clipboard, and an optional command-line tool.
 
-[Download URLStrip 1.1 (Build 19) for macOS](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1-build19-retire-x-redirect/URLStrip-1.1-build19-macOS-universal.dmg)
+[Download URLStrip 1.2 (Build 20) for macOS](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/URLStrip-1.2-build20-macOS-universal.dmg)
 
-SHA-256: `308e94e86425b38fd9dd846dd5a1dd7f02d4fa6566e1d835c0450d5e3358d1e9`
+SHA-256: `ae74a3fd85533425e11e71e55c9a9162a07d90774adee949a51f992b971ea04b`
 
-Verify: `shasum -a 256 URLStrip-1.1-build19-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.2-build20-macOS-universal.dmg`
 
 Includes an optional macOS command-line tool. Install it from **Advanced
 Settings** in the app, then run `urlstrip --help`.
@@ -72,11 +72,11 @@ Settings** in the app, then run `urlstrip --help`.
 
 Windows desktop release with the same local-cleaning model.
 
-[Download URLStrip 1.1 (Build 19) for Windows](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1-build19-retire-x-redirect/URLStrip-1.1-build19-Windows-x64-setup.exe)
+[Download URLStrip 1.2 (Build 20) for Windows](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/URLStrip-1.2-build20-Windows-x64-setup.exe)
 
-SHA-256: `0cfc4db1a9df52fb5eecd58dcd5bdf941ca936602a9c6f4993a9f84b6b5d3001`
+SHA-256: `131400dfa418a2d62578e45ea690cec2a43915fc809375309c93699667dc377f`
 
-Verify: `certutil -hashfile URLStrip-1.1-build19-Windows-x64-setup.exe sha256`
+Verify: `certutil -hashfile URLStrip-1.2-build20-Windows-x64-setup.exe sha256`
 
 Command Guard watches copied shell, PowerShell, and command-line snippets for
 risky patterns such as remote download-and-execute chains, encoded payloads,
@@ -109,4 +109,4 @@ Want to try URLStrip before installing? Use the [browser-based URL cleaner](/cle
 Beta testing URLStrip? See the [tester guide](/beta-testing.html) for
 what to try and what to report.
 
-Full checksum file: [checksums/1.1.sha256](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.1-build19-retire-x-redirect/1.1.sha256)
+Full checksum file: [checksums/1.2.sha256](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/1.2.sha256)
