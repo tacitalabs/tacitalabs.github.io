@@ -1,0 +1,3 @@
+- Add 13 exact domain-scoped tracking rules discovered in the upstream privacy list.
+- Cover attribution parameters on nine news, search, and content hosts without stripping generic names globally.
+- Preserve unrelated query parameters and keep Stable unchanged during the Beta soak.

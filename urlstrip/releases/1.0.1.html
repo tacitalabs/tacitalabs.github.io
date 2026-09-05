@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URLStrip 1.0.1 Release Notes - Tacita Labs</title>
+    <meta
+      name="description"
+      content="Release notes for URLStrip 1.0.1 Build 11 desktop beta."
+    />
+    <meta property="og:site_name" content="Tacita Labs" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/tacita-favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/tacita-favicon-16.png" />
+    <link rel="apple-touch-icon" href="/assets/tacita-apple-touch-icon.png" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page subpage">
+      <header class="site-header">
+        <a class="site-brand" href="/index.html" aria-label="Tacita Labs home">
+          <img
+            class="brand-lockup"
+            src="/assets/tacita-horizontal-lockup.png"
+            alt="Tacita Labs"
+            width="1200"
+            height="240"
+          />
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/index.html#why">Why it matters</a>
+          <a href="/index.html#how">How it works</a>
+          <a href="/index.html#trust">Trust</a>
+          <a href="/download.html">Download</a>
+          <a href="/about.html">About</a>
+          <a href="/privacy.html">Privacy</a>
+        </nav>
+      </header>
+
+      <section class="section page-intro">
+        <p class="eyebrow">Release notes</p>
+        <h1>URLStrip 1.0.1 (Build 11)</h1>
+        <p class="lede">
+          Desktop beta refresh for macOS and Windows, focused on rules-window readability fixes,
+          build alignment across platforms, and refreshed published release metadata.
+        </p>
+      </section>
+
+      <section class="section prose-section">
+        <div class="prose-grid single-column">
+          <article class="card prose-card">
+            <h2>What changed</h2>
+            <ul class="check-list compact-list">
+              <li>Windows Rules tab now keeps long category names readable instead of clipping them mid-character when the preferences window gets narrow.</li>
+              <li>Windows rules list now scrolls correctly on short windows instead of crushing every category row down to a few pixels of text.</li>
+              <li>Hovering a Rules category now shows the full category name in a tooltip.</li>
+              <li>Windows Preferences now enforce a 420×480px minimum size so casual resizing cannot break the layout.</li>
+              <li>Per-category rule counts now hide below 480px width so the category label has room to stay readable.</li>
+              <li>macOS and Windows desktop metadata are now aligned on <strong>URLStrip 1.0.1 (Build 11)</strong> for clean update checks against the shared release JSON.</li>
+              <li>macOS release asset was rebuilt, notarized, and republished alongside the updated Windows installer and checksum file.</li>
+            </ul>
+          </article>
+
+          <article class="card prose-card">
+            <h2>Downloads</h2>
+            <p>
+              Download the current desktop beta from the
+              <a href="/download.html">URLStrip download page</a>.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

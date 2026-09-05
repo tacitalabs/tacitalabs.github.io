@@ -1,0 +1,46 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.07.05.2",
+  "publishedAt": "2026-07-06T00:32:00.000Z",
+  "minAppVersion": "1.1",
+  "sourceSummary": {
+    "clearurls": {
+      "source": "https://github.com/ClearURLs/Rules",
+      "upstreamCommit": null,
+      "reviewedAt": "2026-07-06T00:32:00.000Z"
+    },
+    "urlstripSupplementary": {
+      "version": "2026.06.24.1"
+    }
+  },
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.07.05.2/data.min.json",
+      "sha256": "b328d2a5b95b1b23bac2c91342a8deee3f9a3826a5950bf9e28e332ffd94cd2f",
+      "bytes": 106070
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.07.05.2/urlstrip-supplementary.json",
+      "sha256": "11363b75f5f4b5cac574a1cd7f1013d5ebcbea7187f18bddb6193162a18d52d6",
+      "bytes": 8254
+    },
+    {
+      "kind": "command-guard",
+      "path": "command-guard-rules.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.07.05.2/command-guard-rules.json",
+      "sha256": "ead87e9f792c560175d733827632efe7465d4b8a5d208f34d821ffa2cc3b8051",
+      "bytes": 5887
+    }
+  ],
+  "notes": [
+    "Add Command Guard detection for PowerShell WebClient DownloadString payloads executed through Invoke-Expression.",
+    "Catches forms such as Invoke-Expression (New-Object Net.WebClient).DownloadString(...) and DownloadString(...) | iex.",
+    "No app binary update is required for URLStrip 1.1 Build 18 users."
+  ]
+}
