@@ -155,14 +155,15 @@ Get the public URLStrip release from the App Store. TestFlight stays open for be
 {{% card %}}
 **macOS - Universal (Apple Silicon + Intel)**
 
-[Download URLStrip 1.2 (Build 20) for macOS](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/URLStrip-1.2-build20-macOS-universal.dmg)
+[Download URLStrip 1.3 (Build 22) for macOS](/urlstrip/releases/1.3-build22/URLStrip-1.3-build22-macOS-universal.dmg)
 
-SHA-256: `ae74a3fd85533425e11e71e55c9a9162a07d90774adee949a51f992b971ea04b`
+SHA-256: `d42b9f4f283f5f40fcd19de8876f1ab9272eca68e85e6db04f0715f80ff3801c`
 
-Verify: `shasum -a 256 URLStrip-1.2-build20-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.3-build22-macOS-universal.dmg`
 
-Includes Command Guard and an optional macOS command-line tool. Install the
-CLI from **Advanced Settings** in the app.
+Developer ID signed, Apple notarized, and stapled. Includes Command Guard and
+an optional macOS command-line tool. Install the CLI from **Advanced Settings**
+in the app. [Read the macOS 1.3 release notes](/urlstrip/releases/1.3.html).
 {{% /card %}}
 
 {{% card %}}
@@ -176,7 +177,9 @@ Verify: `certutil -hashfile URLStrip-1.2-build20-Windows-x64-setup.exe sha256`
 {{% /card %}}
 ---
 
-Full checksum file: [checksums/1.2.sha256](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/1.2.sha256)
+macOS checksum file: [URLStrip 1.3 Build 22 SHA256SUMS](/urlstrip/releases/1.3-build22/SHA256SUMS)
+
+Windows checksum file: [checksums/1.2.sha256](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/1.2.sha256)
 
 {{< eyebrow >}}Screenshots{{< /eyebrow >}}
 

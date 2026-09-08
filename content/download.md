@@ -29,13 +29,13 @@ reports: [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com).
 
 ## URLStrip - free to download and use.
 
-[URLStrip 1.3 (Build 21) desktop test downloads](/urlstrip/releases/1.3-build21.html) are separate from the stable downloads below.
+The current desktop releases are URLStrip 1.3 (Build 22) for macOS and
+URLStrip 1.2 (Build 20) for Windows. Windows remains on Build 20 while its next
+release completes native verification.
 
 URLStrip for iOS and iPadOS is available on the App Store. TestFlight
-remains available for people who want the newest beta builds. Current
-desktop releases are published through the [public URLStrip
-release repository](https://github.com/tacitalabs/urlstrip/releases) with direct
-GitHub Release asset links and published SHA-256 hashes so people can verify the
+remains available for people who want the newest beta builds. Desktop releases
+are published with direct links and SHA-256 hashes so people can verify the
 integrity of what they've downloaded.
 
 {{% card %}}
@@ -58,14 +58,15 @@ Native macOS desktop build for Apple Silicon and Intel Macs. Includes URL
 cleaning, local Command Guard warnings for risky terminal commands copied to
 the clipboard, and an optional command-line tool.
 
-[Download URLStrip 1.2 (Build 20) for macOS](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/URLStrip-1.2-build20-macOS-universal.dmg)
+[Download URLStrip 1.3 (Build 22) for macOS](/urlstrip/releases/1.3-build22/URLStrip-1.3-build22-macOS-universal.dmg)
 
-SHA-256: `ae74a3fd85533425e11e71e55c9a9162a07d90774adee949a51f992b971ea04b`
+SHA-256: `d42b9f4f283f5f40fcd19de8876f1ab9272eca68e85e6db04f0715f80ff3801c`
 
-Verify: `shasum -a 256 URLStrip-1.2-build20-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.3-build22-macOS-universal.dmg`
 
-Includes an optional macOS command-line tool. Install it from **Advanced
-Settings** in the app, then run `urlstrip --help`.
+Developer ID signed, Apple notarized, and stapled. Includes an optional macOS
+command-line tool. Install it from **Advanced Settings** in the app, then run
+`urlstrip --help`. [Read the macOS 1.3 release notes](/urlstrip/releases/1.3.html).
 
 {{% /card %}}
 {{% card %}}
@@ -111,4 +112,6 @@ Want to try URLStrip before installing? Use the [browser-based URL cleaner](/cle
 Beta testing URLStrip? See the [tester guide](/beta-testing.html) for
 what to try and what to report.
 
-Full checksum file: [checksums/1.2.sha256](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/1.2.sha256)
+macOS checksum file: [URLStrip 1.3 Build 22 SHA256SUMS](/urlstrip/releases/1.3-build22/SHA256SUMS)
+
+Windows checksum file: [checksums/1.2.sha256](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/1.2.sha256)
