@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URLStrip 1.3 Build 22 macOS Release Notes - Tacita Labs</title>
+    <meta name="description" content="Release notes for URLStrip 1.3 Build 22 on macOS." />
+    <meta property="og:site_name" content="Tacita Labs" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page subpage">
+      <header class="site-header">
+        <a class="site-brand" href="/index.html" aria-label="Tacita Labs home">
+          <img class="brand-lockup" src="/assets/tacita-horizontal-lockup.png" alt="Tacita Labs" width="1200" height="240" />
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/index.html#why">Why it matters</a>
+          <a href="/index.html#how">How it works</a>
+          <a href="/index.html#trust">Trust</a>
+          <a href="/download.html">Download</a>
+          <a href="/about.html">About</a>
+          <a href="/privacy.html">Privacy</a>
+        </nav>
+      </header>
+
+      <section class="section page-intro">
+        <p class="eyebrow">macOS release notes</p>
+        <h1>URLStrip 1.3 (Build 22)</h1>
+        <p class="lede">More control over privacy rules and sharing, plus the corrected macOS application icon.</p>
+      </section>
+
+      <section class="section prose-section">
+        <div class="prose-grid single-column">
+          <article class="card prose-card">
+            <h2>What changed</h2>
+            <ul class="check-list compact-list">
+              <li>Restored optional X and Twitter privacy redirects through XCancel. The redirect remains off by default.</li>
+              <li>Added optional daily rule checks and a verified automatic rule installation. These proactive controls are off by default and run only while URLStrip is active, not as a hidden background service.</li>
+              <li>Added conservative local alerts for unknown URL parameters so people can review possible tracking without automatic removal.</li>
+              <li>Added exact-name custom parameter blocklists with undo.</li>
+              <li>Improved Reddit short-link resolution and sharing while keeping network-assisted resolution explicit.</li>
+              <li>Repaired the missing application icon from the earlier Build 21 test package. Build 22 is Developer ID signed, Apple notarized, and stapled.</li>
+            </ul>
+          </article>
+
+          <article class="card prose-card">
+            <h2>Platform status</h2>
+            <p>This release is for macOS. The stable Windows download remains URLStrip 1.2 (Build 20) while the next Windows build completes native verification. The shared legacy desktop update feed therefore remains at 1.2 (Build 20) so Windows users are not offered a macOS-only update.</p>
+          </article>
+
+          <article class="card prose-card">
+            <h2>Download</h2>
+            <p>Download the signed macOS release and verify its published SHA-256 hash on the <a href="/download.html">URLStrip download page</a>.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
