@@ -30,8 +30,7 @@ reports: [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com).
 ## URLStrip - free to download and use.
 
 The current desktop releases are URLStrip 1.3 (Build 22) for macOS and
-URLStrip 1.2 (Build 20) for Windows. Windows remains on Build 20 while its next
-release completes native verification.
+URLStrip 1.3 (Build 21) for Windows.
 
 URLStrip for iOS and iPadOS is available on the App Store. TestFlight
 remains available for people who want the newest beta builds. Desktop releases
@@ -75,11 +74,11 @@ command-line tool. Install it from **Advanced Settings** in the app, then run
 
 Windows desktop release with the same local-cleaning model.
 
-[Download URLStrip 1.2 (Build 20) for Windows](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/URLStrip-1.2-build20-Windows-x64-setup.exe)
+[Download URLStrip 1.3 (Build 21) for Windows](/urlstrip/releases/1.3-build21/URLStrip-1.3-build21-Windows-x64-setup.exe)
 
-SHA-256: `131400dfa418a2d62578e45ea690cec2a43915fc809375309c93699667dc377f`
+SHA-256: `4fe60632d58e21bafff52e12e85aac7f0efd1d615dc7ce1197d71d3e6d3b853c`
 
-Verify: `certutil -hashfile URLStrip-1.2-build20-Windows-x64-setup.exe sha256`
+Verify: `certutil -hashfile URLStrip-1.3-build21-Windows-x64-setup.exe sha256`
 
 Command Guard watches copied shell, PowerShell, and command-line snippets for
 risky patterns such as remote download-and-execute chains, encoded payloads,
@@ -114,4 +113,4 @@ what to try and what to report.
 
 macOS checksum file: [URLStrip 1.3 Build 22 SHA256SUMS](/urlstrip/releases/1.3-build22/SHA256SUMS)
 
-Windows checksum file: [checksums/1.2.sha256](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/1.2.sha256)
+Windows checksum file: [URLStrip 1.3 Build 21 SHA256SUMS](/urlstrip/releases/1.3-build21/SHA256SUMS)
