@@ -29,6 +29,8 @@ reports: [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com).
 
 ## URLStrip - free to download and use.
 
+[URLStrip 1.3 (Build 21) desktop test downloads](/urlstrip/releases/1.3-build21.html) are separate from the stable downloads below.
+
 URLStrip for iOS and iPadOS is available on the App Store. TestFlight
 remains available for people who want the newest beta builds. Current
 desktop releases are published through the [public URLStrip
