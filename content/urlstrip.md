@@ -169,17 +169,21 @@ in the app. [Read the macOS 1.3 release notes](/urlstrip/releases/1.3.html).
 {{% card %}}
 **Windows - x64**
 
-[Download URLStrip 1.2 (Build 20) for Windows](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/URLStrip-1.2-build20-Windows-x64-setup.exe)
+[Download URLStrip 1.3 (Build 21) for Windows](/urlstrip/releases/1.3-build21/URLStrip-1.3-build21-Windows-x64-setup.exe)
 
-SHA-256: `131400dfa418a2d62578e45ea690cec2a43915fc809375309c93699667dc377f`
+SHA-256: `4fe60632d58e21bafff52e12e85aac7f0efd1d615dc7ce1197d71d3e6d3b853c`
 
-Verify: `certutil -hashfile URLStrip-1.2-build20-Windows-x64-setup.exe sha256`
+Verify: `certutil -hashfile URLStrip-1.3-build21-Windows-x64-setup.exe sha256`
+
+Azure Trusted Signing verified. Includes the new opt-in proactive privacy controls,
+XCancel support, conservative unknown-parameter alerts, personal blocklists,
+and improved Reddit link resolution and sharing.
 {{% /card %}}
 ---
 
 macOS checksum file: [URLStrip 1.3 Build 22 SHA256SUMS](/urlstrip/releases/1.3-build22/SHA256SUMS)
 
-Windows checksum file: [checksums/1.2.sha256](https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.2-build20-network-resolution/1.2.sha256)
+Windows checksum file: [URLStrip 1.3 Build 21 SHA256SUMS](/urlstrip/releases/1.3-build21/SHA256SUMS)
 
 {{< eyebrow >}}Screenshots{{< /eyebrow >}}
 
