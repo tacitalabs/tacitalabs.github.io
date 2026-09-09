@@ -6,11 +6,12 @@ url: "/privacy.html"
 
 # Short version: Tacita Labs tools are local first.
 
-Tacita Labs apps do their work on your device. We do not require
-accounts, and we do not collect your browsing history or link history.
+Normal URL cleaning happens on your device. Some optional, user-controlled
+features make limited network requests, as described below. We do not require
+accounts, and we do not collect your browsing history or cleaned-link history.
 This page covers URLStrip and this website.
 
-*Last updated: August 31, 2026*
+*Last updated: September 8, 2026*
 
 {{% card %}}
 ## Infobreaker
@@ -27,7 +28,8 @@ reports work. Read the
 
 URLStrip is designed to clean links locally on your iPhone, iPad, Mac,
 or Windows device. When you paste, share, scan, or open a URL in
-URLStrip, the cleaning process happens on your device.
+URLStrip, the normal cleaning process happens on your device. The optional
+network features below are separate from that normal cleaning.
 
 For the public explanation of URLStrip's Monetization Impact and
 Confidence labels, see [how URLStrip classifies
@@ -38,16 +40,63 @@ tracking](/tracking-methodology.html).
 - We do not use URLStrip to track you across apps or websites.
 - We do not collect your browsing history.
 - We do not collect a history of the links you clean.
-- We do not use third-party advertising SDKs in URLStrip.
+- URLStrip has no ads.
+- We do not use third-party advertising or tracking SDKs in URLStrip.
 
-Normal URL cleaning does not make a network request with your link. If
-URLStrip recognizes an opaque Instagram or Threads share wrapper, it may
-offer a separate action labeled as a network operation. URLStrip contacts
-that social service only after you choose the action or explicitly enable
-automatic share-link resolution in Settings. Automatic resolution is off by
-default. The request goes directly from your device to the service using an
-ephemeral, cookie-free session. Tacita Labs does not receive or retain the
-link.
+{{% /card %}}
+{{% card %}}
+
+## Optional link resolution and sharing context
+
+URLStrip for iOS and iPadOS 1.3 Build 39 includes user-controlled features
+that can make limited requests for public link or post information:
+
+- If URLStrip recognizes a supported Instagram, Threads, or Reddit share
+  wrapper, it may offer a separate action labeled as a network operation.
+  URLStrip contacts the service identified by that link only after you choose
+  the action or explicitly enable automatic share-link resolution in Settings.
+  Automatic resolution is off by default. The request follows the redirect to
+  recover the direct destination.
+- When you share a public X/Twitter or Reddit post, URLStrip may load limited
+  public post context so the share includes useful text or a title. For an
+  X/Twitter post, URLStrip tries Twitter's oEmbed service first, followed by
+  bounded fallbacks to FxTwitter and XCancel. If the content is private,
+  challenged, missing, malformed, or otherwise unavailable, URLStrip falls
+  back to sharing links only.
+
+These limited lookups go directly from your device through ephemeral,
+cookie-free network sessions. A service contacted for one of these requests
+receives the requested public post or share link and necessarily sees
+connection metadata such as your IP address and request time. Tacita Labs does
+not receive or retain the link or post request.
+
+{{% /card %}}
+{{% card %}}
+
+## Optional privacy redirects
+
+URLStrip can optionally rewrite X/Twitter links to XCancel and Reddit links to
+a Redlib-compatible privacy frontend. These redirects are opt-in. XCancel and
+Redlib-compatible frontends are independent third-party services, not Tacita
+Labs services. If you enable and open one of these rewritten links, the chosen
+frontend receives the requested public link or post and necessarily sees
+connection metadata such as your IP address and request time. Its own privacy
+practices apply.
+
+{{% /card %}}
+{{% card %}}
+
+## Optional rules updates
+
+You can manually check a static rules manifest hosted by Tacita Labs. You can
+also opt in to a daily check. If an eligible rules update is available, you
+may optionally download it; URLStrip verifies the downloaded rules before
+using them.
+
+Manifest checks and rule downloads do not contain your cleaned links, URLStrip
+settings, usage statistics, or a device identifier. The Tacita Labs update
+host necessarily sees ordinary connection metadata such as your IP address
+and request time.
 
 {{% /card %}}
 {{% card %}}
@@ -97,9 +146,9 @@ links from Safari and other apps. Their purpose is to clean URLs on
 device and return the cleaned result to you. Tacita Labs does not
 receive your Safari browsing history from these extensions.
 
-The Share Extension uses the same Instagram or Threads network-resolution
-policy and the same user-controlled automatic-resolution setting described
-above.
+The Share Extension uses the same Instagram, Threads, and Reddit
+network-resolution policy, public-post context policy, and user-controlled
+automatic-resolution setting described above.
 
 {{% /card %}}
 {{% card %}}
