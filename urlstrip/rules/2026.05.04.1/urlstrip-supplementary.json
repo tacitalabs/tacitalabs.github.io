@@ -1,0 +1,313 @@
+{
+  "name": "URLStrip Supplementary Rules",
+  "version": "1.0.0",
+  "lastUpdated": "2026-04-19",
+  "source": "Independently researched from primary platform documentation",
+  "license": "MIT",
+  "providers": {
+    "globalGoogleAds": {
+      "urlPattern": ".*",
+      "completeProvider": false,
+      "rules": [
+        "gad_source",
+        "gad_campaignid",
+        "gbraid",
+        "wbraid",
+        "gclsrc"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "globalMetaExtended": {
+      "urlPattern": ".*",
+      "completeProvider": false,
+      "rules": [
+        "fb_comment_id",
+        "fbadid"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "globalAffiliateNetworks": {
+      "urlPattern": ".*",
+      "completeProvider": false,
+      "rules": [
+        "cjevent",
+        "cjdata",
+        "awc",
+        "irclickid",
+        "irgwc",
+        "sscid",
+        "tduid",
+        "btag"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "globalOracleEloqua": {
+      "urlPattern": ".*",
+      "completeProvider": false,
+      "rules": [
+        "elqTrackId",
+        "elq",
+        "elqaid",
+        "elqat",
+        "elqCampaignId",
+        "elqak",
+        "elq_ck",
+        "elqchannel",
+        "elqcname",
+        "elqct",
+        "elqoffer"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "globalBlueshift": {
+      "urlPattern": ".*",
+      "completeProvider": false,
+      "rules": [
+        "bsft_aaid",
+        "bsft_clkid",
+        "bsft_eid",
+        "bsft_ek",
+        "bsft_mid",
+        "bsft_uid",
+        "bsft_txnid",
+        "bsft_utid",
+        "bsft_mime_type",
+        "bsft_tv",
+        "bsft_lx"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "globalSalesforceMarketing": {
+      "urlPattern": ".*",
+      "completeProvider": false,
+      "rules": [
+        "_clde",
+        "_cldee"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "globalMindbox": {
+      "urlPattern": ".*",
+      "completeProvider": false,
+      "rules": [
+        "mindbox-click-id",
+        "mindbox-message-key"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "globalHubSpotAds": {
+      "urlPattern": ".*",
+      "completeProvider": false,
+      "rules": [
+        "hsa_acc",
+        "hsa_ad",
+        "hsa_cam",
+        "hsa_grp",
+        "hsa_kw",
+        "hsa_la",
+        "hsa_mt",
+        "hsa_net",
+        "hsa_ol",
+        "hsa_src",
+        "hsa_tgt",
+        "hsa_ver"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "globalYandexExtended": {
+      "urlPattern": ".*",
+      "completeProvider": false,
+      "rules": [
+        "ysclid"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "globalMatomo": {
+      "urlPattern": ".*",
+      "completeProvider": false,
+      "rules": [
+        "pk_campaign",
+        "pk_medium",
+        "pk_source",
+        "pk_vid",
+        "pk_cid"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "globalChartbeat": {
+      "urlPattern": ".*",
+      "completeProvider": false,
+      "rules": [
+        "cx_click",
+        "cx_recsOrder",
+        "cx_recsWidget"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "globalPianoAnalytics": {
+      "urlPattern": ".*",
+      "completeProvider": false,
+      "rules": [
+        "xtor"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "globalMobileAttribution": {
+      "urlPattern": ".*",
+      "completeProvider": false,
+      "rules": [
+        "af_ad",
+        "af_adset",
+        "af_click_lookback",
+        "af_force_deeplink",
+        "af_xp",
+        "af_sub1",
+        "af_sub2",
+        "af_sub3",
+        "af_sub4",
+        "af_sub5",
+        "_branch_match_id",
+        "_branch_referrer"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "globalMiscTracking": {
+      "urlPattern": ".*",
+      "completeProvider": false,
+      "rules": [
+        "iclid",
+        "rtkcid",
+        "ldtag_cl",
+        "_io_session_id",
+        "analytics_context",
+        "analytics_trace_id",
+        "usqp"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "youtubeExtended": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:youtube\\.com|youtu\\.be)",
+      "completeProvider": false,
+      "rules": [
+        "is"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "threadsExtended": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*?(?:threads\\.com|threads\\.net)",
+      "completeProvider": false,
+      "rules": [
+        "xmt",
+        "slof"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "pinterestExtended": {
+      "urlPattern": ".*",
+      "completeProvider": false,
+      "rules": [
+        "epik",
+        "ssp_iabi"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "substackExtended": {
+      "urlPattern": "^https?:\\/\\/(?:[a-z0-9-]+\\.)*substack\\.com",
+      "completeProvider": false,
+      "rules": [
+        "publication_id",
+        "isFreemail",
+        "triedRedirect",
+        "r"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    },
+    "substackCustomDomain": {
+      "urlPattern": "^https?:\\/\\/(?![^\\/?#]*substack\\.com)(?:[^\\/?#]+)\\/p\\/[^?#]+\\?[^#]*(?:\\bpublication_id=|\\bisFreemail=|\\btriedRedirect=)[^#]*$",
+      "completeProvider": false,
+      "rules": [
+        "publication_id",
+        "isFreemail",
+        "triedRedirect",
+        "r"
+      ],
+      "rawRules": [],
+      "referralMarketing": [],
+      "exceptions": [],
+      "redirections": [],
+      "forceRedirection": false
+    }
+  }
+}
