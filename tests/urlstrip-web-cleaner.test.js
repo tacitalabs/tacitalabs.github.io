@@ -4,8 +4,8 @@ const path = require('node:path');
 const URLStrip = require('../static/urlstrip/cleaner.js');
 
 const root = path.resolve(__dirname, '..');
-const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.3/data.min.json'), 'utf8'));
-const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.23.3/urlstrip-supplementary.json'), 'utf8'));
+const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.31.2/data.min.json'), 'utf8'));
+const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.31.2/urlstrip-supplementary.json'), 'utf8'));
 const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.07.1/data.min.json'), 'utf8'));
 const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.07.1/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
@@ -54,8 +54,8 @@ test('public rule manifests remain compatible with released iOS builds', () => {
   }
 });
 
-test('stable remains isolated while beta carries the current cumulative rule batches', () => {
-  assert.equal(stableManifest.currentVersion, '2026.08.23.3');
+test('stable carries the mature August batches while beta keeps newer rules isolated', () => {
+  assert.equal(stableManifest.currentVersion, '2026.08.31.2');
   assert.equal(betaManifest.currentVersion, '2026.09.07.1');
 
   const result = cleanBeta('https://example.com/deal?at_recipient_id=5336&adjust_campaign=summer&mt_campaign=launch&ranMID=13275&sfmc_id=subscriber&tgclid=click&keep=1');
@@ -136,8 +136,16 @@ test('stable remains isolated while beta carries the current cumulative rule bat
   assert.equal(vendorIdentifiers.cleanedUrl, 'https://example.com/article?keep=1');
   assert.deepEqual(vendorIdentifiers.removedQueryParameters, ['adobe_mc_ref', 'adobe_mc_sdid', 'admitad_uid', 'vgo_ee']);
 
-  const stableVendorIdentifiers = clean('https://example.com/article?adobe_mc_ref=keep&adobe_mc_sdid=keep&admitad_uid=keep&vgo_ee=keep');
-  assert.equal(stableVendorIdentifiers.status, 'unchanged');
+  const stableVendorIdentifiers = clean('https://example.com/article?adobe_mc_ref=referrer&adobe_mc_sdid=session&admitad_uid=user&vgo_ee=encrypted_contact&keep=1');
+  assert.equal(stableVendorIdentifiers.status, 'cleaned');
+  assert.equal(stableVendorIdentifiers.cleanedUrl, 'https://example.com/article?keep=1');
+
+  const stableScoped = clean('https://dailyshincho.jp/article?ui_campaign=c&ui_medium=m&ui_source=s&keep=1');
+  assert.equal(stableScoped.status, 'cleaned');
+  assert.equal(stableScoped.cleanedUrl, 'https://dailyshincho.jp/article?keep=1');
+
+  const stableKeepsNewerRules = clean('https://www.instagram.com/reel/example/?stkn=keep&invite=keep&e9s=keep&extpf=keep');
+  assert.equal(stableKeepsNewerRules.status, 'unchanged');
 });
 
 test('generic UTM and fbclid cleanup', () => {
