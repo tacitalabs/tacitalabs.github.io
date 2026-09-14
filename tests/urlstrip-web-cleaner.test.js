@@ -6,8 +6,8 @@ const URLStrip = require('../static/urlstrip/cleaner.js');
 const root = path.resolve(__dirname, '..');
 const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.31.2/data.min.json'), 'utf8'));
 const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.31.2/urlstrip-supplementary.json'), 'utf8'));
-const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.07.1/data.min.json'), 'utf8'));
-const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.07.1/urlstrip-supplementary.json'), 'utf8'));
+const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.14.1/data.min.json'), 'utf8'));
+const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.14.1/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
 const betaManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/beta/manifest.json'), 'utf8'));
 const conformanceCorpus = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/cleaning-conformance-v1.json'), 'utf8'));
@@ -56,7 +56,7 @@ test('public rule manifests remain compatible with released iOS builds', () => {
 
 test('stable carries the mature August batches while beta keeps newer rules isolated', () => {
   assert.equal(stableManifest.currentVersion, '2026.08.31.2');
-  assert.equal(betaManifest.currentVersion, '2026.09.07.1');
+  assert.equal(betaManifest.currentVersion, '2026.09.14.1');
 
   const result = cleanBeta('https://example.com/deal?at_recipient_id=5336&adjust_campaign=summer&mt_campaign=launch&ranMID=13275&sfmc_id=subscriber&tgclid=click&keep=1');
   assert.equal(result.status, 'cleaned');
@@ -111,6 +111,41 @@ test('stable carries the mature August batches while beta keeps newer rules isol
     'https://golfdigest.co.jp/?ctid=keep',
   ];
   for (const input of septemberLookalikes) {
+    assert.equal(cleanBeta(input).status, 'unchanged', input);
+  }
+
+  const september14ScopedCases = [
+    ['https://jisin.jp/article?rf=tracking&keep=1', 'https://jisin.jp/article?keep=1'],
+    ['https://newsdig.tbs.co.jp/article?ex_position=top&ex_id=id&keep=1', 'https://newsdig.tbs.co.jp/article?keep=1'],
+    ['https://jprime.jp/article?display=feed&from=share&keep=1', 'https://jprime.jp/article?keep=1'],
+    ['https://ck12.org/lesson?_eid=email&_mid=message&keep=1', 'https://ck12.org/lesson?keep=1'],
+    ['https://newspicks.com/news?invoker=share&keep=1', 'https://newspicks.com/news?keep=1'],
+    ['https://spotfund.com/story?source=share&share_location=button&SFID=id&keep=1', 'https://spotfund.com/story?keep=1'],
+    ['https://canadapost-postescanada.ca/track?abid=a&bid=b&rid=r&keep=1', 'https://canadapost-postescanada.ca/track?keep=1'],
+    ['https://minkara.carview.co.jp/article?cid=campaign&keep=1', 'https://minkara.carview.co.jp/article?keep=1'],
+    ['https://note.com/article?external_type=share&external_position=footer&rt=ref&keep=1', 'https://note.com/article?keep=1'],
+    ['https://myfans.jp/post?aff=partner&keep=1', 'https://myfans.jp/post?keep=1'],
+    ['https://asahi.com/article?oai=tracking&keep=1', 'https://asahi.com/article?keep=1'],
+    ['https://yomiuri.co.jp/article?from=share&keep=1', 'https://yomiuri.co.jp/article?keep=1'],
+    ['https://sponichi.co.jp/article?nid=tracking&keep=1', 'https://sponichi.co.jp/article?keep=1'],
+    ['https://allabout.co.jp/article?af_type=share&af_id=id&keep=1', 'https://allabout.co.jp/article?keep=1'],
+    ['https://yahoo.co.jp/article?cpt_n=n&cpt_s=s&cpt_m=m&cpt_c=c&fr=ref&keep=1', 'https://yahoo.co.jp/article?keep=1'],
+  ];
+  for (const [input, expected] of september14ScopedCases) {
+    assert.equal(cleanBeta(input).cleanedUrl, expected, input);
+  }
+  for (const host of ['khb-tv.co.jp', 'kab.co.jp', 'kfb.co.jp', 'maidonanews.jp', 'ncctv.co.jp', 'yorozoonews.jp', 'news.ksb.co.jp']) {
+    assert.equal(cleanBeta(`https://${host}/news?ro=referrer&ri=id&keep=1`).cleanedUrl, `https://${host}/news?keep=1`, host);
+  }
+
+  const september14HostileCases = [
+    'https://example.com/?from=keep&source=keep&cid=keep&display=keep&fr=keep&rt=keep&rid=keep&bid=keep&ro=keep&ri=keep',
+    'https://news.ksb.co.jp.example.com/?ro=keep&ri=keep',
+    'https://tbs.co.jp/?ex_position=keep&ex_id=keep',
+    'https://ksb.co.jp/?ro=keep&ri=keep',
+    'https://carview.co.jp/?cid=keep',
+  ];
+  for (const input of september14HostileCases) {
     assert.equal(cleanBeta(input).status, 'unchanged', input);
   }
 
