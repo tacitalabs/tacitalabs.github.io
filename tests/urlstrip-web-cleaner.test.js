@@ -6,8 +6,8 @@ const URLStrip = require('../static/urlstrip/cleaner.js');
 const root = path.resolve(__dirname, '..');
 const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.31.2/data.min.json'), 'utf8'));
 const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.31.2/urlstrip-supplementary.json'), 'utf8'));
-const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.14.2/data.min.json'), 'utf8'));
-const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.14.2/urlstrip-supplementary.json'), 'utf8'));
+const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.18.1/data.min.json'), 'utf8'));
+const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.18.1/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
 const betaManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/beta/manifest.json'), 'utf8'));
 const conformanceCorpus = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/cleaning-conformance-v1.json'), 'utf8'));
@@ -56,7 +56,12 @@ test('public rule manifests remain compatible with released iOS builds', () => {
 
 test('stable carries the mature August batches while beta keeps newer rules isolated', () => {
   assert.equal(stableManifest.currentVersion, '2026.08.31.2');
-  assert.equal(betaManifest.currentVersion, '2026.09.14.2');
+  assert.equal(betaManifest.currentVersion, '2026.09.18.1');
+
+  const youtubeShare = cleanBeta('https://youtu.be/u8iqKpVSRJg?is=xB5pJwZ-hshpOXJw');
+  assert.equal(youtubeShare.status, 'cleaned');
+  assert.equal(youtubeShare.cleanedUrl, 'https://youtu.be/u8iqKpVSRJg');
+  assert.deepEqual(youtubeShare.removedQueryParameters, ['is']);
 
   const result = cleanBeta('https://example.com/deal?at_recipient_id=5336&adjust_campaign=summer&mt_campaign=launch&ranMID=13275&sfmc_id=subscriber&tgclid=click&keep=1');
   assert.equal(result.status, 'cleaned');
