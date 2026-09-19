@@ -75,10 +75,10 @@ not receive or retain the link or post request.
 
 ## Optional privacy redirects
 
-URLStrip can optionally rewrite X/Twitter links to XCancel and Reddit links to
-a Redlib-compatible privacy frontend. These redirects are opt-in. XCancel and
-Redlib-compatible frontends are independent third-party services, not Tacita
-Labs services. If you enable and open one of these rewritten links, the chosen
+URLStrip can optionally rewrite supported public X/Twitter links to a selected
+Nitter instance in newer versions, or XCancel in older versions, and Reddit
+links to a Redlib-compatible privacy frontend. These redirects are opt-in.
+These frontends are independent third-party services, not Tacita Labs services. If you enable and open one of these rewritten links, the chosen
 frontend receives the requested public link or post and necessarily sees
 connection metadata such as your IP address and request time. Its own privacy
 practices apply.
@@ -86,17 +86,25 @@ practices apply.
 {{% /card %}}
 {{% card %}}
 
-## Optional rules updates
+## Update checks
 
-You can manually check a static rules manifest hosted by Tacita Labs. You can
-also opt in to a daily check. If an eligible rules update is available, you
-may optionally download it; URLStrip verifies the downloaded rules before
-using them.
+Versions with visible update awareness check fixed Tacita Labs metadata URLs
+for app, rule, and signed Privacy Services catalog updates at launch and when
+returning to the foreground, at most once per update type every 24 hours.
+Automatic checks are on by default and can be turned off in Settings.
+Manual checks remain available. Earlier versions use manual or opt-in checks.
+Checking for updates never enables privacy redirects or installs an update.
 
-Manifest checks and rule downloads do not contain your cleaned links, URLStrip
-settings, usage statistics, or a device identifier. The Tacita Labs update
-host necessarily sees ordinary connection metadata such as your IP address
-and request time.
+Installing rules or catalog updates is your choice. URLStrip verifies downloaded
+rules and validates catalog hashes and signatures before using them. The public
+iOS app manifest describes only public App Store releases; TestFlight remains
+responsible for TestFlight update delivery.
+
+Metadata checks and update downloads never upload clipboard URLs, cleaned links,
+rules, settings, usage statistics, or device identifiers. The Tacita Labs update
+host receives ordinary HTTP request metadata, including your IP address and
+request time. Downloading an app update through Apple or another published
+download destination is a separate action subject to that service's practices.
 
 {{% /card %}}
 {{% card %}}
