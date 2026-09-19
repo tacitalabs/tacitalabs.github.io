@@ -31,6 +31,14 @@ The first release attempt proved canonical desktop `main` at `04218eed3c85cbc366
 
 A provenance-preserving two-parent merge is now authorized on the isolated desktop release branch. Preserve the reviewed candidate source tree, take the four rule-promotion evidence files from canonical main, record both parents without force-push, rerun the complete desktop verification matrix, and obtain fresh exact-tree review before updating canonical main. If any other path changes, conflict cannot be resolved mechanically, or the reviewed behavior/tree changes outside those four evidence files plus release identity/evidence, stop under history blocker 2.
 
+## Canonical website history adjudication
+
+The resumed release proved canonical website `main` at `d8e7615b78947f0894ed71cb98e4356179cba9d4` adds four URLStrip rule-publication commits after the reviewed endpoint branch point `8fe9998e8bb97ebac7e41414b53c1950468223bd`. Those 21 main-only paths are limited to versioned URLStrip rule assets, stable/Beta manifests, and the web-cleaner test. They do not overlap the reviewed endpoint candidate's `static/privacy-services/`, endpoint test, operator docs, or contract paths.
+
+A clean provenance-preserving two-parent website merge is authorized on the isolated release branch. Preserve all canonical rule-publication commits and the reviewed endpoint candidate exactly, require the merged tree to differ from the reviewed endpoint tree only by the documented 21 canonical main paths plus release evidence/contract files, run endpoint/web/Hugo tests, and obtain fresh exact-tree review before updating website `main`. Stop if merge conflicts appear or any other path changes.
+
+The blanket force-push prohibition applies to source and release branches. The repository's pre-existing deployment workflow may replace the generated orphan `gh-pages` output branch exactly as already reviewed, but it must not rewrite `main`, tags, source branches, or release branches. Require a successful deployment workflow and exact live-byte verification before claiming publication.
+
 ## Release identities
 
 - iOS: marketing version `1.3.1`, build `42`, all app and extension targets aligned.
