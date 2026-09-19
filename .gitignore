@@ -8,3 +8,5 @@
 # IDE / editor
 .idea/
 .vscode/
+
+/artifacts/nitter-completion-20260919/
