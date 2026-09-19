@@ -1,0 +1,3 @@
+- Add 31 exact uBO source rules across 22 domains, including `ro` and `ri` on all seven explicitly scoped news domains.
+- Keep generic names such as `from`, `source`, `cid`, `display`, `fr`, `rt`, `rid`, `bid`, `ro`, and `ri` unchanged outside their exact upstream scopes.
+- Preserve Stable 2026.08.31.2 and all existing Beta rules while this batch completes its 14-day soak.
