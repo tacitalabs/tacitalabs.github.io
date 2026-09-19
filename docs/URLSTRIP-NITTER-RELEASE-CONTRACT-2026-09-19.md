@@ -115,7 +115,7 @@ Stop only when:
 1. A required signing/account/provisioning credential is unavailable or authentication fails.
 2. Canonical history cannot be integrated without force-push or overwriting unrelated work.
 3. A reviewed-candidate repair exceeds two bounded source repair cycles or fails fresh review.
-4. Apple/Windows/native/deployment infrastructure remains unavailable after one bounded retry and exact evidence is recorded.
+4. Apple/Windows/native/deployment infrastructure remains unavailable after one bounded retry and exact evidence is recorded. This stops only the dependent platform phase: preserve its checkpoint and continue already-authorized independent endpoint, source-integration, and TestFlight phases while overall completion ownership remains open. Do not claim full release until the unavailable phase is restored and passes.
 5. A release gate reveals a user-visible or trust-boundary product decision not resolved by this contract.
 6. Three release/resume attempts or ten wall-clock hours are exhausted.
 
