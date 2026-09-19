@@ -25,6 +25,12 @@ Run root: `/Volumes/TacitaFast/OpenClaw-Fast/urlstrip-nitter-release-20260919`
 
 The release contract commit in each repository becomes the release execution baseline. Source behavior changes after the reviewed commits are forbidden unless required to repair a release-gate defect. Any repair requires focused RED/GREEN evidence, cumulative reruns, fresh review of the exact changed source/test tree, and a logical commit before release continues.
 
+## Canonical desktop history adjudication
+
+The first release attempt proved canonical desktop `main` at `04218eed3c85cbc3667d78a5b5c60d45e7eeaea5` diverges from the reviewed candidate at common ancestor `5a2043cd344d8d324d451d7c238940e3277fc54d`. This is not an unrelated-work conflict: main commit `55c8750` is patch-identical to candidate commit `4ce20fc`; main commit `04218ee` changes only four September 14 rule-promotion evidence files.
+
+A provenance-preserving two-parent merge is now authorized on the isolated desktop release branch. Preserve the reviewed candidate source tree, take the four rule-promotion evidence files from canonical main, record both parents without force-push, rerun the complete desktop verification matrix, and obtain fresh exact-tree review before updating canonical main. If any other path changes, conflict cannot be resolved mechanically, or the reviewed behavior/tree changes outside those four evidence files plus release identity/evidence, stop under history blocker 2.
+
 ## Release identities
 
 - iOS: marketing version `1.3.1`, build `42`, all app and extension targets aligned.
