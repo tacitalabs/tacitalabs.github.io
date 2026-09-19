@@ -9,8 +9,8 @@ Release the exact reviewed Nitter candidate across its required delivery surface
 
 1. Publish and live-verify the immutable signed Privacy Services catalog endpoint.
 2. Integrate and push the exact reviewed source plus release-only identity/evidence commits to the canonical iOS and desktop repositories without rewriting unrelated history.
-3. Upload URLStrip iOS 1.3.1 Build 42 to TestFlight and prove App Store Connect acceptance/processing status.
-4. Build, sign, notarize, and publish URLStrip desktop 1.3.1 Build 23 for macOS and Windows only after native/signing gates pass; update normal website downloads, versioned manifests/checksums/release notes, and the desktop updater feed truthfully.
+3. Upload URLStrip iOS 1.3.1 Build 43 to TestFlight and prove App Store Connect acceptance/processing status.
+4. Build, sign, notarize, and publish URLStrip desktop 1.3.1 Build 24 for macOS and Windows only after native/signing gates pass; update normal website downloads, versioned manifests/checksums/release notes, and the desktop updater feed truthfully.
 5. Preserve evidence and report remaining physical-device, tester-selectability, or platform gates accurately.
 
 This authorization does not include public App Store submission, App Review submission, App Store phased release, external TestFlight group/public-link changes, broad marketing announcements, production signing-key rotation/export, deleting older releases, or unrelated cleanup.
@@ -39,14 +39,27 @@ A clean provenance-preserving two-parent website merge is authorized on the isol
 
 The blanket force-push prohibition applies to source and release branches. The repository's pre-existing deployment workflow may replace the generated orphan `gh-pages` output branch exactly as already reviewed, but it must not rewrite `main`, tags, source branches, or release branches. Require a successful deployment workflow and exact live-byte verification before claiming publication.
 
+## Update-awareness product completion
+
+Jim clarified before desktop publication that update discovery must be visible outside buried manual Settings checks. Complete this before final release:
+
+- Check app, rule, and Privacy Services catalog availability asynchronously at launch and when returning to the foreground, rate-limited to at most one automatic network check per update class per 24 hours. Preserve explicit manual checks. Fail quietly without blocking cleaning or startup.
+- Persist last successful check, available version/build, and installed state so indicators survive relaunch and clear immediately after installation or when the installed app/rules/catalog catches up.
+- macOS: when any update is available, change the menu-bar symbol to an update-badged variant unless a Command Guard warning has higher priority. Add explicit menu items naming each available app/rule/catalog update and opening the relevant Preferences pane. Keep readable status in Preferences.
+- Windows: when any update is available, use an alternate update-badged tray icon and tooltip, add explicit tray menu items naming available app/rule/catalog updates and opening the relevant Settings section, and retain the in-window status/actions.
+- iOS: show an accessible badge on the Settings tab when any rule/catalog/app update is available, plus an in-Settings summary with the specific available updates and actions. Use a Tacita-hosted static iOS release manifest for public App Store releases. Do not advertise an unavailable TestFlight-only build to public users; TestFlight itself remains responsible for TestFlight update delivery.
+- Add truthful privacy copy: automatic checks contact only fixed Tacita Labs metadata URLs and send ordinary HTTP request metadata, never clipboard URLs, rules/settings, or device identifiers. Provide an automatic-check toggle defaulting on if product conventions require user control.
+- Add focused RED/GREEN tests for aggregation, rate limiting, persistence/clearing, app-version comparison, menu/tray precedence, iOS badge accessibility, hostile/malformed manifests, and cross-platform parity. Add visually inspectable alternate tray assets and build/snapshot evidence where platform tooling permits.
+- Treat the already uploaded iOS Build 42 and signed/unpublished desktop Build 23 as superseded prereleases. Bump the completed update-awareness release to iOS `1.3.1` Build `43` and desktop `1.3.1` Build `24`; rebuild, resign, re-notarize, re-upload, and run all prior gates. Never relabel or publish the superseded artifacts.
+
 ## Release identities
 
-- iOS: marketing version `1.3.1`, build `42`, all app and extension targets aligned.
-- macOS: marketing version `1.3.1`, build `23`, all app/CLI/extension identities aligned where applicable.
-- Windows: product version `1.3.1`, build `23`, app/CLI/installer aligned.
+- iOS: marketing version `1.3.1`, build `43`, all app and extension targets aligned.
+- macOS: marketing version `1.3.1`, build `24`, all app/CLI/extension identities aligned where applicable.
+- Windows: product version `1.3.1`, build `24`, app/CLI/installer aligned.
 - Catalog endpoint: schema/version `2` exact payload/signature/public-key hashes from the reviewed candidate. Publish immutable versioned assets first and the current pointer last.
 
-If App Store Connect proves Build 42 is already used or the 1.3.1 train is closed, follow the TestFlight skill’s bounded next-build/next-patch recovery, record the evidence, and rebuild from a fresh committed identity. Do not relabel an existing archive.
+If App Store Connect proves Build 43 is already used or the 1.3.1 train is closed, follow the TestFlight skill’s bounded next-build/next-patch recovery, record the evidence, and rebuild from a fresh committed identity. Do not relabel an existing archive.
 
 ## Required sequence and gates
 
@@ -68,7 +81,7 @@ If App Store Connect proves Build 42 is already used or the 1.3.1 train is close
 ### C. iOS TestFlight
 
 - Add the canonical iOS remote only after ancestry proof. Fetch and push a provenance-preserving release branch; update canonical main only by clean fast-forward if policy and history allow.
-- Set 1.3.1 Build 42 in source-of-truth project configuration for every app/extension target, regenerate, verify, and commit before archive.
+- Set 1.3.1 Build 43 in source-of-truth project configuration for every app/extension target, regenerate, verify, and commit before archive.
 - Record the exact reviewed feature and release-identity commits as ancestors of the archive source.
 - Run cumulative Swift/core/catalog/Node tests and a signing-disabled simulator test/build with package updates disabled.
 - Create a signed Release archive for generic iOS with Xcode-managed provisioning. Verify app path, strict codesign, bundle/team/version/build, and every embedded extension build.
@@ -79,7 +92,7 @@ If App Store Connect proves Build 42 is already used or the 1.3.1 train is close
 ### D. macOS and Windows desktop release
 
 - Add/fetch the canonical desktop remote only after ancestry proof. Push a provenance-preserving release branch; update canonical main only by clean fast-forward if policy/history allow.
-- Set macOS and Windows release identity to 1.3.1 Build 23 everywhere, regenerate, verify, and commit.
+- Set macOS and Windows release identity to 1.3.1 Build 24 everywhere, regenerate, verify, and commit.
 - Re-run cumulative Swift/core/catalog/Node tests, offline Rust library/CLI tests, Windows settings tests, and unsigned macOS Release build.
 - Produce universal macOS app/CLI/Safari artifacts, sign with the existing Developer ID identities, strict-verify nested code, notarize, staple, and Gatekeeper-verify both app and final DMG.
 - Produce the Windows x64 installer from the exact release source, sign app/CLI/installer with the existing Azure Trusted Signing workflow, and verify hashes/signatures.
