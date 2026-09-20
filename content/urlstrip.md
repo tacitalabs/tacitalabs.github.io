@@ -157,7 +157,7 @@ Get the public URLStrip release from the App Store. TestFlight stays open for be
 
 [Download URLStrip 1.3.1 (Build 25) for macOS](/urlstrip/releases/1.3.1-build25/URLStrip-1.3.1-build25-macOS-universal.dmg)
 
-SHA-256: `ca0190f7f461d4f08db0020cfe05df3e85d3e5951bd76fc3c09cb953502ec569`
+SHA-256: `040bc7d0f2518394a7bad139761d4eafbce8e9388d91e068206ab9c9873df80b`
 
 Verify: `shasum -a 256 URLStrip-1.3.1-build25-macOS-universal.dmg`
 

@@ -4,8 +4,11 @@
   "version": "1.3.1",
   "build": 25,
   "productSource": "e8f7d1b6f3811df294497fc3e50405b2e2ec00da",
-  "releaseRepositoryCommit": "659ac7164822076c2f9d647fe0d9fd12bd199b81",
+  "releaseRepositoryCommit": "6dd1d56846fba2bb21b65ebda1cbd3265344a028",
   "macOS": {
+    "source": "b68083b2e0481d538c2885b1106307ddff74a441",
+    "releaseTag": "urlstrip-1.3.1-build25-macos-correction",
+    "releaseAssetUrl": "https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.3.1-build25-macos-correction/URLStrip-1.3.1-build25-macOS-universal.dmg",
     "version": "1.3.1",
     "build": 25,
     "status": "released",
@@ -14,12 +17,12 @@
       "x86_64"
     ],
     "url": "https://www.tacitalabs.com/urlstrip/releases/1.3.1-build25/URLStrip-1.3.1-build25-macOS-universal.dmg",
-    "bytes": 5099202,
-    "sha256": "ca0190f7f461d4f08db0020cfe05df3e85d3e5951bd76fc3c09cb953502ec569",
+    "bytes": 6683229,
+    "sha256": "040bc7d0f2518394a7bad139761d4eafbce8e9388d91e068206ab9c9873df80b",
     "signing": "Developer ID Application",
     "notarization": "Accepted",
-    "appSubmissionId": "e0c9e25b-43b5-47ec-bf80-36b4a7222275",
-    "dmgSubmissionId": "9610aab3-12e2-4993-8f69-ee0f2bbad314",
+    "appSubmissionId": "8e836539-3b56-4481-8200-50cb61638c77",
+    "dmgSubmissionId": "fbcaff6b-0127-4185-853f-10e9b945ab4f",
     "stapled": true
   },
   "windows": {
