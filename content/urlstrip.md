@@ -140,7 +140,7 @@ Want to try it without installing anything? Use the [browser-based URL cleaner](
 
 ## Free to download and use. {#downloads}
 
-URLStrip for iOS and iPadOS is available on the App Store. The TestFlight beta remains available for people who want the newest builds before they reach the public release. Current desktop releases are published through the [public URLStrip release repository](https://github.com/tacitalabs/urlstrip/releases) with direct GitHub Release asset links and published SHA-256 hashes so people can verify the integrity of what they've downloaded.
+URLStrip for iOS and iPadOS is available on the App Store. The TestFlight beta remains available for people who want the newest builds before they reach the public release. Current desktop releases are available here and mirrored in the [public URLStrip release repository](https://github.com/tacitalabs/urlstrip/releases), with published SHA-256 hashes so people can verify the integrity of what they've downloaded.
 
 {{% card %}}
 **iOS / iPadOS - App Store**
@@ -155,35 +155,32 @@ Get the public URLStrip release from the App Store. TestFlight stays open for be
 {{% card %}}
 **macOS - Universal (Apple Silicon + Intel)**
 
-[Download URLStrip 1.3 (Build 22) for macOS](/urlstrip/releases/1.3-build22/URLStrip-1.3-build22-macOS-universal.dmg)
+[Download URLStrip 1.3.1 (Build 25) for macOS](/urlstrip/releases/1.3.1-build25/URLStrip-1.3.1-build25-macOS-universal.dmg)
 
-SHA-256: `d42b9f4f283f5f40fcd19de8876f1ab9272eca68e85e6db04f0715f80ff3801c`
+SHA-256: `ca0190f7f461d4f08db0020cfe05df3e85d3e5951bd76fc3c09cb953502ec569`
 
-Verify: `shasum -a 256 URLStrip-1.3-build22-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.3.1-build25-macOS-universal.dmg`
 
 Developer ID signed, Apple notarized, and stapled. Includes Command Guard and
 an optional macOS command-line tool. Install the CLI from **Advanced Settings**
-in the app. [Read the macOS 1.3 release notes](/urlstrip/releases/1.3.html).
+in the app. [Read the 1.3.1 release notes](/urlstrip/releases/1.3.1.html).
 {{% /card %}}
 
 {{% card %}}
 **Windows - x64**
 
-[Download URLStrip 1.3 (Build 21) for Windows](/urlstrip/releases/1.3-build21/URLStrip-1.3-build21-Windows-x64-setup.exe)
+[Download URLStrip 1.3.1 (Build 25) for Windows](/urlstrip/releases/1.3.1-build25/URLStrip-1.3.1-build25-Windows-x64-setup.exe)
 
-SHA-256: `4fe60632d58e21bafff52e12e85aac7f0efd1d615dc7ce1197d71d3e6d3b853c`
+SHA-256: `942dda0e966efe654ca419c7e324a98eba92e0e683813c687fb616c82891a68d`
 
-Verify: `certutil -hashfile URLStrip-1.3-build21-Windows-x64-setup.exe sha256`
+Verify: `certutil -hashfile URLStrip-1.3.1-build25-Windows-x64-setup.exe sha256`
 
-Azure Trusted Signing verified. Includes the new opt-in proactive privacy controls,
-XCancel support, conservative unknown-parameter alerts, personal blocklists,
-and improved Reddit link resolution and sharing.
+Azure Trusted Signing verified. Includes visible app, rules, and Privacy Services
+update awareness plus explicit, off-by-default privacy-friendly viewer controls.
 {{% /card %}}
 ---
 
-macOS checksum file: [URLStrip 1.3 Build 22 SHA256SUMS](/urlstrip/releases/1.3-build22/SHA256SUMS)
-
-Windows checksum file: [URLStrip 1.3 Build 21 SHA256SUMS](/urlstrip/releases/1.3-build21/SHA256SUMS)
+Desktop checksum file: [URLStrip 1.3.1 Build 25 SHA256SUMS](/urlstrip/releases/1.3.1-build25/SHA256SUMS)
 
 {{< eyebrow >}}Screenshots{{< /eyebrow >}}
 
