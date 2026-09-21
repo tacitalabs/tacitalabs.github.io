@@ -4,8 +4,8 @@ const path = require('node:path');
 const URLStrip = require('../static/urlstrip/cleaner.js');
 
 const root = path.resolve(__dirname, '..');
-const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.31.2/data.min.json'), 'utf8'));
-const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.08.31.2/urlstrip-supplementary.json'), 'utf8'));
+const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/data.min.json'), 'utf8'));
+const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/urlstrip-supplementary.json'), 'utf8'));
 const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.18.1/data.min.json'), 'utf8'));
 const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.18.1/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
@@ -54,8 +54,8 @@ test('public rule manifests remain compatible with released iOS builds', () => {
   }
 });
 
-test('stable carries the mature August batches while beta keeps newer rules isolated', () => {
-  assert.equal(stableManifest.currentVersion, '2026.08.31.2');
+test('stable carries the mature September 7 batch while beta keeps newer rules isolated', () => {
+  assert.equal(stableManifest.currentVersion, '2026.09.21.1');
   assert.equal(betaManifest.currentVersion, '2026.09.18.1');
 
   const youtubeShare = cleanBeta('https://youtu.be/u8iqKpVSRJg?is=xB5pJwZ-hshpOXJw');
@@ -105,6 +105,10 @@ test('stable carries the mature August batches while beta keeps newer rules isol
     const result = cleanBeta(input);
     assert.equal(result.status, 'cleaned', input);
     assert.equal(result.cleanedUrl, expected, input);
+
+    const stableResult = clean(input);
+    assert.equal(stableResult.status, 'cleaned', `stable: ${input}`);
+    assert.equal(stableResult.cleanedUrl, expected, `stable: ${input}`);
   }
 
   const septemberGenericNames = cleanBeta('https://example.com/?invite=keep&e9s=keep&sci=keep&ui_campaign=keep&ui_medium=keep&ui_source=keep&source=keep&abm=keep&adid=keep&cid=keep&placement=keep&share_id=keep&ctid=keep&smclient=keep&extpf=keep');
@@ -117,6 +121,7 @@ test('stable carries the mature August batches while beta keeps newer rules isol
   ];
   for (const input of septemberLookalikes) {
     assert.equal(cleanBeta(input).status, 'unchanged', input);
+    assert.equal(clean(input).status, 'unchanged', `stable: ${input}`);
   }
 
   const september14ScopedCases = [
@@ -184,8 +189,11 @@ test('stable carries the mature August batches while beta keeps newer rules isol
   assert.equal(stableScoped.status, 'cleaned');
   assert.equal(stableScoped.cleanedUrl, 'https://dailyshincho.jp/article?keep=1');
 
-  const stableKeepsNewerRules = clean('https://www.instagram.com/reel/example/?stkn=keep&invite=keep&e9s=keep&extpf=keep');
-  assert.equal(stableKeepsNewerRules.status, 'unchanged');
+  const stableKeepsInstagramStkn = clean('https://www.instagram.com/reel/example/?stkn=keep');
+  assert.equal(stableKeepsInstagramStkn.status, 'unchanged');
+
+  const stableKeepsSeptember14Rule = clean('https://jisin.jp/article?rf=keep');
+  assert.equal(stableKeepsSeptember14Rule.status, 'unchanged');
 });
 
 test('generic UTM and fbclid cleanup', () => {
