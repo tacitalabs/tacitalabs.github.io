@@ -1,0 +1,38 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.07.24.1",
+  "publishedAt": "2026-07-24T18:46:04.723Z",
+  "minAppVersion": "1.1",
+  "sourceSummary": {
+    "clearurls": {
+      "source": "https://github.com/ClearURLs/Rules",
+      "upstreamCommit": null,
+      "reviewedAt": "2026-07-24T18:46:04.723Z"
+    },
+    "urlstripSupplementary": {
+      "version": "2026.07.24.1"
+    }
+  },
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.07.24.1/data.min.json",
+      "sha256": "b328d2a5b95b1b23bac2c91342a8deee3f9a3826a5950bf9e28e332ffd94cd2f",
+      "bytes": 106070
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.07.24.1/urlstrip-supplementary.json",
+      "sha256": "663d221f4965aff481c05196c9b4743149a2d65eb3757861598f58e9987a9fb4",
+      "bytes": 8642
+    }
+  ],
+  "notes": [
+    "Strip Yahoo consent and referral metadata parameters `guccounter`, `guce_referrer`, and `guce_referrer_sig` from Yahoo links.",
+    "Keep the rule scoped to Yahoo domains so identically named parameters on unrelated sites remain untouched."
+  ]
+}
