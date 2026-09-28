@@ -49,6 +49,24 @@
     }
   }
 
+  function decodeQueryComponent(value) {
+    try {
+      return decodeURIComponent(value.replace(/\+/g, ' '));
+    } catch (_) {
+      return value;
+    }
+  }
+
+  function rawQueryEntries(url) {
+    if (!url.search || url.search.length <= 1) return [];
+    return url.search.slice(1).split('&').map((rawToken) => {
+      const separator = rawToken.indexOf('=');
+      const rawName = separator >= 0 ? rawToken.slice(0, separator) : rawToken;
+      const rawValue = separator >= 0 ? rawToken.slice(separator + 1) : '';
+      return [decodeQueryComponent(rawName), decodeQueryComponent(rawValue), rawToken];
+    });
+  }
+
   function compile(pattern, flags = 'i') {
     try {
       return new RegExp(pattern, flags);
@@ -361,13 +379,13 @@
       return null;
     }
 
-    const entries = Array.from(url.searchParams.entries());
+    const entries = rawQueryEntries(url);
     const redditChallengeParams = redditJSChallengeParamsToStrip(url, entries);
     const googleSearchParams = googleSearchParamsToStrip(url);
     const filtered = [];
     const removedQueryParameters = [];
 
-    for (const [name, value] of entries) {
+    for (const [name, value, rawToken] of entries) {
       let strip = null;
 
       if (redditChallengeParams.has(name)) {
@@ -393,14 +411,12 @@
         matchedCategories.add(strip.category);
         removedQueryParameters.push(name);
       } else {
-        filtered.push([name, value]);
+        filtered.push(rawToken);
       }
     }
 
     if (entries.length > 0) {
-      const nextParams = new URLSearchParams();
-      for (const [name, value] of filtered) nextParams.append(name, value);
-      url.search = filtered.length > 0 ? nextParams.toString() : '';
+      url.search = filtered.length > 0 ? filtered.join('&') : '';
     }
 
     const googleLocalFragmentRemoved = hasGoogleLocalResultFragment(url);
