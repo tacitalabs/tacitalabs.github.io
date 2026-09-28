@@ -6,8 +6,8 @@ const URLStrip = require('../static/urlstrip/cleaner.js');
 const root = path.resolve(__dirname, '..');
 const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/data.min.json'), 'utf8'));
 const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/urlstrip-supplementary.json'), 'utf8'));
-const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.18.1/data.min.json'), 'utf8'));
-const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.18.1/urlstrip-supplementary.json'), 'utf8'));
+const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.28.2/data.min.json'), 'utf8'));
+const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.28.2/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
 const betaManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/beta/manifest.json'), 'utf8'));
 const conformanceCorpus = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/cleaning-conformance-v1.json'), 'utf8'));
@@ -56,7 +56,7 @@ test('public rule manifests remain compatible with released iOS builds', () => {
 
 test('stable carries the mature September 7 batch while beta keeps newer rules isolated', () => {
   assert.equal(stableManifest.currentVersion, '2026.09.21.1');
-  assert.equal(betaManifest.currentVersion, '2026.09.18.1');
+  assert.equal(betaManifest.currentVersion, '2026.09.28.2');
 
   const youtubeShare = cleanBeta('https://youtu.be/u8iqKpVSRJg?is=xB5pJwZ-hshpOXJw');
   assert.equal(youtubeShare.status, 'cleaned');
@@ -196,11 +196,49 @@ test('stable carries the mature September 7 batch while beta keeps newer rules i
   assert.equal(stableKeepsSeptember14Rule.status, 'unchanged');
 });
 
+test('beta applies Guardian and NYT exact-host rules without rewriting preserved bytes', () => {
+  const guardian = cleanBeta('https://www.theguardian.com/world/article?CMP=share_btn_url&keep=%2f%41%20%2b&dup=one&dup=two+words#section%2fraw');
+  assert.equal(guardian.status, 'cleaned');
+  assert.equal(
+    guardian.cleanedUrl,
+    'https://www.theguardian.com/world/article?keep=%2f%41%20%2b&dup=one&dup=two+words#section%2fraw'
+  );
+  assert.deepEqual(guardian.removedQueryParameters, ['CMP']);
+
+  const nyt = cleanBeta('https://www.nytimes.com/article?SMID=url-share&unlocked_article_code=gift%2Bcode&gift=keep+this&unknown=%2fraw#comments%2fraw');
+  assert.equal(nyt.status, 'cleaned');
+  assert.equal(
+    nyt.cleanedUrl,
+    'https://www.nytimes.com/article?unlocked_article_code=gift%2Bcode&gift=keep+this&unknown=%2fraw#comments%2fraw'
+  );
+  assert.deepEqual(nyt.removedQueryParameters, ['SMID']);
+
+  for (const input of [
+    'https://news.theguardian.com/article?CMP=keep',
+    'https://theguardian.com.example.com/article?CMP=keep',
+    'https://www.nytimes.com.example.com/article?smid=keep',
+    'https://example.com/article?smid=keep&cmp=keep',
+  ]) {
+    assert.equal(cleanBeta(input).status, 'unchanged', input);
+  }
+});
+
 test('generic UTM and fbclid cleanup', () => {
   const result = clean('https://example.com/article?page=1&utm_source=twitter&utm_medium=social&utm_campaign=spring&fbclid=abc123');
   assert.equal(result.status, 'cleaned');
   assert.equal(result.cleanedUrl, 'https://example.com/article?page=1');
   assert.deepEqual(result.removedQueryParameters, ['utm_source', 'utm_medium', 'utm_campaign', 'fbclid']);
+});
+
+test('cleaning preserves untouched query bytes, duplicates, plus characters, and fragments', () => {
+  const input = 'https://example.com/article?utm_source=tracking&keep=%2f%41%20%2b&dup=one&dup=two+words&unknown=a%2Bb#section%2fraw';
+  const result = clean(input);
+  assert.equal(result.status, 'cleaned');
+  assert.equal(
+    result.cleanedUrl,
+    'https://example.com/article?keep=%2f%41%20%2b&dup=one&dup=two+words&unknown=a%2Bb#section%2fraw'
+  );
+  assert.deepEqual(result.removedQueryParameters, ['utm_source']);
 });
 
 test('cross-engine conformance corpus matches browser JavaScript', () => {
