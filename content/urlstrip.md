@@ -96,6 +96,16 @@ what triggered the warning. An optional neutralize setting can make risky
 commands inert before paste, but it is off by default.
 {{% /card %}}
 
+{{% card %}}
+**Privacy-friendly viewers for desktop**
+
+For supported public X/Twitter links, choose Off, a compatible
+Nitter service from the signed Privacy Services catalog, or experimental
+TwitterViewer. The choice is explicit and defaults to Off. URLStrip fails
+closed when the selected service is unavailable or the link shape is
+unsupported. It never silently switches to another service.
+{{% /card %}}
+
 {{< eyebrow >}}How it works{{< /eyebrow >}}
 
 ## Simple on purpose. {#how}
@@ -155,11 +165,11 @@ Get the public URLStrip release from the App Store. TestFlight stays open for be
 {{% card %}}
 **macOS - Universal (Apple Silicon + Intel)**
 
-[Download URLStrip 1.3.1 (Build 25) for macOS](/urlstrip/releases/1.3.1-build25/URLStrip-1.3.1-build25-macOS-universal.dmg)
+[Download URLStrip 1.3.1 (Build 26) for macOS](/urlstrip/releases/1.3.1-build26/URLStrip-1.3.1-build26-macOS-universal.dmg)
 
-SHA-256: `040bc7d0f2518394a7bad139761d4eafbce8e9388d91e068206ab9c9873df80b`
+SHA-256: `6624a1eedfc34e3bd0f5e5b628a90e9cf905d89ea80c948b403c1af881bf71cf`
 
-Verify: `shasum -a 256 URLStrip-1.3.1-build25-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.3.1-build26-macOS-universal.dmg`
 
 Developer ID signed, Apple notarized, and stapled. Includes Command Guard and
 an optional macOS command-line tool. Install the CLI from **Advanced Settings**
@@ -169,18 +179,19 @@ in the app. [Read the 1.3.1 release notes](/urlstrip/releases/1.3.1.html).
 {{% card %}}
 **Windows - x64**
 
-[Download URLStrip 1.3.1 (Build 25) for Windows](/urlstrip/releases/1.3.1-build25/URLStrip-1.3.1-build25-Windows-x64-setup.exe)
+[Download URLStrip 1.3.1 (Build 26) for Windows](/urlstrip/releases/1.3.1-build26/URLStrip-1.3.1-build26-Windows-x64-setup.exe)
 
-SHA-256: `942dda0e966efe654ca419c7e324a98eba92e0e683813c687fb616c82891a68d`
+SHA-256: `fbe652d3861082f948e7511769a0043fb2e1e20abc125883221cf7bd9a396fc0`
 
-Verify: `certutil -hashfile URLStrip-1.3.1-build25-Windows-x64-setup.exe sha256`
+Verify: `certutil -hashfile URLStrip-1.3.1-build26-Windows-x64-setup.exe sha256`
 
-Azure Trusted Signing verified. Includes visible app, rules, and Privacy Services
-update awareness plus explicit, off-by-default privacy-friendly viewer controls.
+Azure Trusted Signing verified. Includes signed Privacy Services catalog v3,
+cleaner rules `2026.09.28.2`, visible app/rules/catalog update awareness, and
+explicit, off-by-default privacy-friendly viewer controls.
 {{% /card %}}
 ---
 
-Desktop checksum file: [URLStrip 1.3.1 Build 25 SHA256SUMS](/urlstrip/releases/1.3.1-build25/SHA256SUMS)
+Desktop checksum file: [URLStrip 1.3.1 Build 26 SHA256SUMS](/urlstrip/releases/1.3.1-build26/SHA256SUMS)
 
 {{< eyebrow >}}Screenshots{{< /eyebrow >}}
 
@@ -229,7 +240,10 @@ max-height="650px" >}}
 {{% split-card %}}
 **Does URLStrip send my links anywhere?**
 
-No. The point is to clean links locally instead of routing browsing data through another service.
+Normal URL cleaning stays on your device. If you explicitly use a
+privacy-friendly viewer or network-resolution feature, URLStrip contacts that
+selected service. Static update checks contact Tacita Labs but do not include
+the URL being cleaned.
 
 {{% /split-card %}}
 {{% split-card %}}
