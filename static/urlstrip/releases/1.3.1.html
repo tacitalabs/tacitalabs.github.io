@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>URLStrip 1.3.1 Build 25 Release Notes - Tacita Labs</title>
-    <meta name="description" content="Release notes for URLStrip 1.3.1 Build 25 on macOS and Windows." />
+    <title>URLStrip 1.3.1 Build 26 Release Notes - Tacita Labs</title>
+    <meta name="description" content="Release notes for URLStrip 1.3.1 Build 26 on macOS and Windows." />
     <meta property="og:site_name" content="Tacita Labs" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
@@ -31,8 +31,8 @@
 
       <section class="section page-intro">
         <p class="eyebrow">Desktop release notes</p>
-        <h1>URLStrip 1.3.1 (Build 25)</h1>
-        <p class="lede">Clearer desktop controls, visible update awareness, and verified Privacy Services updates.</p>
+        <h1>URLStrip 1.3.1 (Build 26)</h1>
+        <p class="lede">Explicit privacy-viewer choices, signed catalog v3, current cleaner rules, and synchronized signed desktop releases.</p>
       </section>
 
       <section class="section prose-section">
@@ -40,18 +40,19 @@
           <article class="card prose-card">
             <h2>What changed</h2>
             <ul class="check-list compact-list">
-              <li>Makes available app, rules, and Privacy Services updates visible from the macOS menu bar and Windows system tray.</li>
-              <li>Adds signed Privacy Services catalog updates with explicit check and install controls.</li>
-              <li>Adds clear, off-by-default controls for opening supported public X/Twitter and Reddit links with a selected privacy-friendly viewer.</li>
-              <li>Preserves explicit local choices and fails closed instead of silently switching services when a selected viewer becomes ineligible.</li>
-              <li>Simplifies the desktop Privacy Redirects screens while keeping advanced catalog controls available.</li>
-              <li>Aligns macOS and Windows on version 1.3.1 Build 25.</li>
+              <li>Adds a clear three-way choice for supported public X/Twitter links: Off, a compatible Nitter service, or experimental TwitterViewer.</li>
+              <li>Defaults privacy-friendly viewer routing to Off and fails closed for unsupported links or ineligible services. URLStrip does not silently fail over to another service.</li>
+              <li>Ships signed Privacy Services catalog v3 with explicit check and install controls.</li>
+              <li>Makes available app, cleaner-rules, and Privacy Services catalog updates visible from the macOS menu bar and Windows system tray.</li>
+              <li>Ships cleaner rules 2026.09.28.2, including current Guardian, New York Times, and new global tracker coverage.</li>
+              <li>Preserves supported destination paths while rejecting malformed, hostile, and unsupported TwitterViewer routes.</li>
+              <li>Aligns the signed macOS and Windows releases on version 1.3.1 Build 26.</li>
             </ul>
           </article>
 
           <article class="card prose-card">
             <h2>Privacy and network behavior</h2>
-            <p>Normal URL cleaning stays local. Opening a privacy-friendly viewer contacts the selected service. Update checks request static version metadata from Tacita Labs and do not include the URL being cleaned.</p>
+            <p>Normal URL cleaning stays local. Opening a privacy-friendly viewer contacts only the service you selected. Network resolution runs only when requested or explicitly enabled. Update checks request static version metadata from Tacita Labs and do not include the URL being cleaned.</p>
           </article>
 
           <article class="card prose-card">
