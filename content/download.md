@@ -29,13 +29,19 @@ reports: [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com).
 
 ## URLStrip - free to download and use.
 
-The current desktop release is URLStrip 1.3.1 (Build 26) for macOS and
-Windows.
+The current website downloads are URLStrip 1.3.1 Build 27 for macOS and
+Build 26 for Windows.
 
 Build 26 adds explicit Off, Nitter-compatible, and experimental
 TwitterViewer choices for supported public X/Twitter links, signed Privacy
 Services catalog v3, visible update awareness, and cleaner rules
 `2026.09.28.2`.
+
+
+The macOS Build 27 hotfix restores the packaged app icon and refines the
+update settings layout. The shared desktop updater remains at Build 26, so
+existing macOS clients will not receive an in-app Build 27 offer. Build 27 is
+available from this website and GitHub only.
 
 URLStrip for iOS and iPadOS is available on the App Store. TestFlight
 remains available for people who want the newest beta builds. Desktop releases
@@ -62,11 +68,11 @@ Native macOS desktop build for Apple Silicon and Intel Macs. Includes URL
 cleaning, local Command Guard warnings for risky terminal commands copied to
 the clipboard, and an optional command-line tool.
 
-[Download URLStrip 1.3.1 (Build 26) for macOS](/urlstrip/releases/1.3.1-build26/URLStrip-1.3.1-build26-macOS-universal.dmg)
+[Download URLStrip 1.3.1 (Build 27) for macOS](/urlstrip/releases/1.3.1-build27/URLStrip-1.3.1-build27-macOS-universal.dmg)
 
-SHA-256: `6624a1eedfc34e3bd0f5e5b628a90e9cf905d89ea80c948b403c1af881bf71cf`
+SHA-256: `b7e46d858e9eaa0f9d0cb2831ac19e2d069f30129aae9efb7a5d17da51896387`
 
-Verify: `shasum -a 256 URLStrip-1.3.1-build26-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.3.1-build27-macOS-universal.dmg`
 
 Developer ID signed, Apple notarized, and stapled. Includes an optional macOS
 command-line tool. Install it from **Advanced Settings** in the app, then run
@@ -116,4 +122,5 @@ Want to try URLStrip before installing? Use the [browser-based URL cleaner](/cle
 Beta testing URLStrip? See the [tester guide](/beta-testing.html) for
 what to try and what to report.
 
-Desktop checksum file: [URLStrip 1.3.1 Build 26 SHA256SUMS](/urlstrip/releases/1.3.1-build26/SHA256SUMS)
+Checksums: [macOS Build 27 SHA256SUMS](/urlstrip/releases/1.3.1-build27/SHA256SUMS) ·
+[Windows Build 26 SHA256SUMS](/urlstrip/releases/1.3.1-build26/SHA256SUMS)

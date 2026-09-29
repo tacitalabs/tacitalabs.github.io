@@ -165,15 +165,19 @@ Get the public URLStrip release from the App Store. TestFlight stays open for be
 {{% card %}}
 **macOS - Universal (Apple Silicon + Intel)**
 
-[Download URLStrip 1.3.1 (Build 26) for macOS](/urlstrip/releases/1.3.1-build26/URLStrip-1.3.1-build26-macOS-universal.dmg)
+[Download URLStrip 1.3.1 (Build 27) for macOS](/urlstrip/releases/1.3.1-build27/URLStrip-1.3.1-build27-macOS-universal.dmg)
 
-SHA-256: `6624a1eedfc34e3bd0f5e5b628a90e9cf905d89ea80c948b403c1af881bf71cf`
+SHA-256: `b7e46d858e9eaa0f9d0cb2831ac19e2d069f30129aae9efb7a5d17da51896387`
 
-Verify: `shasum -a 256 URLStrip-1.3.1-build26-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.3.1-build27-macOS-universal.dmg`
 
 Developer ID signed, Apple notarized, and stapled. Includes Command Guard and
 an optional macOS command-line tool. Install the CLI from **Advanced Settings**
 in the app. [Read the 1.3.1 release notes](/urlstrip/releases/1.3.1.html).
+
+Build 27 is a website-only macOS hotfix. The shared desktop updater remains at
+Build 26, so existing macOS clients will not receive an in-app Build 27 offer.
+It is available from this website and GitHub only.
 {{% /card %}}
 
 {{% card %}}
@@ -191,7 +195,8 @@ explicit, off-by-default privacy-friendly viewer controls.
 {{% /card %}}
 ---
 
-Desktop checksum file: [URLStrip 1.3.1 Build 26 SHA256SUMS](/urlstrip/releases/1.3.1-build26/SHA256SUMS)
+Checksums: [macOS Build 27 SHA256SUMS](/urlstrip/releases/1.3.1-build27/SHA256SUMS) ·
+[Windows Build 26 SHA256SUMS](/urlstrip/releases/1.3.1-build26/SHA256SUMS)
 
 {{< eyebrow >}}Screenshots{{< /eyebrow >}}
 
