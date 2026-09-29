@@ -11,7 +11,7 @@ features make limited network requests, as described below. We do not require
 accounts, and we do not collect your browsing history or cleaned-link history.
 This page covers URLStrip and this website.
 
-*Last updated: September 8, 2026*
+*Last updated: September 29, 2026*
 
 {{% card %}}
 ## Infobreaker
@@ -48,7 +48,7 @@ tracking](/tracking-methodology.html).
 
 ## Optional link resolution and sharing context
 
-URLStrip for iOS and iPadOS 1.3 Build 39 includes user-controlled features
+URLStrip for iOS and iPadOS 1.3.1 Build 49 includes user-controlled features
 that can make limited requests for public link or post information:
 
 - If URLStrip recognizes a supported Instagram, Threads, or Reddit share
@@ -76,12 +76,18 @@ not receive or retain the link or post request.
 ## Optional privacy redirects
 
 URLStrip can optionally rewrite supported public X/Twitter links to a selected
-Nitter instance in newer versions, or XCancel in older versions, and Reddit
-links to a Redlib-compatible privacy frontend. These redirects are opt-in.
-These frontends are independent third-party services, not Tacita Labs services. If you enable and open one of these rewritten links, the chosen
-frontend receives the requested public link or post and necessarily sees
-connection metadata such as your IP address and request time. Its own privacy
-practices apply.
+Nitter-compatible service or to TwitterViewer, and Reddit links to a
+Redlib-compatible privacy frontend. These redirects are opt-in and are off by
+default. The signed Privacy Services catalog provides reviewed service facts
+and availability states; installing a catalog update never enables a redirect.
+
+These frontends are independent third-party services, not Tacita Labs services.
+If you enable and open one of these rewritten links, the chosen frontend
+receives the requested public link or post and necessarily sees connection
+metadata such as your IP address and request time. Its own privacy practices
+apply. TwitterViewer states that it uses anonymized analytics and keeps server
+logs; URLStrip identifies that service as experimental and links to its privacy
+policy before you choose it.
 
 {{% /card %}}
 {{% card %}}
