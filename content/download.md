@@ -29,19 +29,11 @@ reports: [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com).
 
 ## URLStrip - free to download and use.
 
-The current website downloads are URLStrip 1.3.1 Build 27 for macOS and
-Build 26 for Windows.
+The current desktop release is URLStrip 1.3.2 Build 28 for macOS and Windows.
 
-Build 26 adds explicit Off, Nitter-compatible, and experimental
-TwitterViewer choices for supported public X/Twitter links, signed Privacy
-Services catalog v3, visible update awareness, and cleaner rules
-`2026.09.28.2`.
-
-
-The macOS Build 27 hotfix restores the packaged app icon and refines the
-update settings layout. The shared desktop updater remains at Build 26, so
-existing macOS clients will not receive an in-app Build 27 offer. Build 27 is
-available from this website and GitHub only.
+Build 28 expands supported Amazon app <code>a.co</code> share links into clean,
+canonical product URLs. Automatic resolution remains opt-in, while an explicit
+<strong>Clean Clipboard Now</strong> action resolves eligible short links on demand.
 
 URLStrip for iOS and iPadOS is available on the App Store. TestFlight
 remains available for people who want the newest beta builds. Desktop releases
@@ -68,15 +60,15 @@ Native macOS desktop build for Apple Silicon and Intel Macs. Includes URL
 cleaning, local Command Guard warnings for risky terminal commands copied to
 the clipboard, and an optional command-line tool.
 
-[Download URLStrip 1.3.1 (Build 27) for macOS](/urlstrip/releases/1.3.1-build27/URLStrip-1.3.1-build27-macOS-universal.dmg)
+[Download URLStrip 1.3.2 (Build 28) for macOS](/urlstrip/releases/1.3.2-build28/URLStrip-1.3.2-build28-macOS-universal.dmg)
 
-SHA-256: `b7e46d858e9eaa0f9d0cb2831ac19e2d069f30129aae9efb7a5d17da51896387`
+SHA-256: `ee67a4d355a833021524de86fe570558fdb2f65f29d0d200df6ac84b80893679`
 
-Verify: `shasum -a 256 URLStrip-1.3.1-build27-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.3.2-build28-macOS-universal.dmg`
 
 Developer ID signed, Apple notarized, and stapled. Includes an optional macOS
 command-line tool. Install it from **Advanced Settings** in the app, then run
-`urlstrip --help`. [Read the 1.3.1 release notes](/urlstrip/releases/1.3.1.html).
+`urlstrip --help`. [Read the 1.3.2 release notes](/urlstrip/releases/1.3.2.html).
 
 {{% /card %}}
 {{% card %}}
@@ -85,11 +77,11 @@ command-line tool. Install it from **Advanced Settings** in the app, then run
 
 Windows desktop release with the same local-cleaning model.
 
-[Download URLStrip 1.3.1 (Build 26) for Windows](/urlstrip/releases/1.3.1-build26/URLStrip-1.3.1-build26-Windows-x64-setup.exe)
+[Download URLStrip 1.3.2 (Build 28) for Windows](/urlstrip/releases/1.3.2-build28/URLStrip-1.3.2-build28-Windows-x64-setup.exe)
 
-SHA-256: `fbe652d3861082f948e7511769a0043fb2e1e20abc125883221cf7bd9a396fc0`
+SHA-256: `922ea5bc068f26ca2019b8bd0dd02555a08b55129c812ffd13faf62149aebf78`
 
-Verify: `certutil -hashfile URLStrip-1.3.1-build26-Windows-x64-setup.exe sha256`
+Verify: `certutil -hashfile URLStrip-1.3.2-build28-Windows-x64-setup.exe sha256`
 
 Command Guard watches copied shell, PowerShell, and command-line snippets for
 risky patterns such as remote download-and-execute chains, encoded payloads,
@@ -122,5 +114,4 @@ Want to try URLStrip before installing? Use the [browser-based URL cleaner](/cle
 Beta testing URLStrip? See the [tester guide](/beta-testing.html) for
 what to try and what to report.
 
-Checksums: [macOS Build 27 SHA256SUMS](/urlstrip/releases/1.3.1-build27/SHA256SUMS) ·
-[Windows Build 26 SHA256SUMS](/urlstrip/releases/1.3.1-build26/SHA256SUMS)
+Checksums: [URLStrip 1.3.2 Build 28 SHA256SUMS](/urlstrip/releases/1.3.2-build28/SHA256SUMS)

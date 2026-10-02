@@ -165,38 +165,33 @@ Get the public URLStrip release from the App Store. TestFlight stays open for be
 {{% card %}}
 **macOS - Universal (Apple Silicon + Intel)**
 
-[Download URLStrip 1.3.1 (Build 27) for macOS](/urlstrip/releases/1.3.1-build27/URLStrip-1.3.1-build27-macOS-universal.dmg)
+[Download URLStrip 1.3.2 (Build 28) for macOS](/urlstrip/releases/1.3.2-build28/URLStrip-1.3.2-build28-macOS-universal.dmg)
 
-SHA-256: `b7e46d858e9eaa0f9d0cb2831ac19e2d069f30129aae9efb7a5d17da51896387`
+SHA-256: `ee67a4d355a833021524de86fe570558fdb2f65f29d0d200df6ac84b80893679`
 
-Verify: `shasum -a 256 URLStrip-1.3.1-build27-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.3.2-build28-macOS-universal.dmg`
 
 Developer ID signed, Apple notarized, and stapled. Includes Command Guard and
 an optional macOS command-line tool. Install the CLI from **Advanced Settings**
-in the app. [Read the 1.3.1 release notes](/urlstrip/releases/1.3.1.html).
-
-Build 27 is a website-only macOS hotfix. The shared desktop updater remains at
-Build 26, so existing macOS clients will not receive an in-app Build 27 offer.
-It is available from this website and GitHub only.
+in the app. [Read the 1.3.2 release notes](/urlstrip/releases/1.3.2.html).
 {{% /card %}}
 
 {{% card %}}
 **Windows - x64**
 
-[Download URLStrip 1.3.1 (Build 26) for Windows](/urlstrip/releases/1.3.1-build26/URLStrip-1.3.1-build26-Windows-x64-setup.exe)
+[Download URLStrip 1.3.2 (Build 28) for Windows](/urlstrip/releases/1.3.2-build28/URLStrip-1.3.2-build28-Windows-x64-setup.exe)
 
-SHA-256: `fbe652d3861082f948e7511769a0043fb2e1e20abc125883221cf7bd9a396fc0`
+SHA-256: `922ea5bc068f26ca2019b8bd0dd02555a08b55129c812ffd13faf62149aebf78`
 
-Verify: `certutil -hashfile URLStrip-1.3.1-build26-Windows-x64-setup.exe sha256`
+Verify: `certutil -hashfile URLStrip-1.3.2-build28-Windows-x64-setup.exe sha256`
 
-Azure Trusted Signing verified. Includes signed Privacy Services catalog v3,
-cleaner rules `2026.09.28.2`, visible app/rules/catalog update awareness, and
-explicit, off-by-default privacy-friendly viewer controls.
+Azure Trusted Signing verified. Supports explicit and opt-in automatic
+resolution of eligible Amazon app short links, with strict destination
+validation and fail-closed behavior.
 {{% /card %}}
 ---
 
-Checksums: [macOS Build 27 SHA256SUMS](/urlstrip/releases/1.3.1-build27/SHA256SUMS) ·
-[Windows Build 26 SHA256SUMS](/urlstrip/releases/1.3.1-build26/SHA256SUMS)
+Checksums: [URLStrip 1.3.2 Build 28 SHA256SUMS](/urlstrip/releases/1.3.2-build28/SHA256SUMS)
 
 {{< eyebrow >}}Screenshots{{< /eyebrow >}}
 
