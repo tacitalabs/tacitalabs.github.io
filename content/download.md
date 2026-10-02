@@ -29,11 +29,14 @@ reports: [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com).
 
 ## URLStrip - free to download and use.
 
-The current desktop release is URLStrip 1.3.2 Build 28 for macOS and Windows.
+The current macOS release is URLStrip 1.3.2 Build 29. Windows remains
+on URLStrip 1.3.2 Build 28.
 
-Build 28 expands supported Amazon app <code>a.co</code> share links into clean,
-canonical product URLs. Automatic resolution remains opt-in, while an explicit
-<strong>Clean Clipboard Now</strong> action resolves eligible short links on demand.
+Build 29 is a macOS-only correction that restores the URLStrip app icon and the
+intended Advanced Updates layout. It preserves Build 28's Amazon short-link
+support. Because the desktop updater currently has one shared build number for
+macOS and Windows, Build 29 is not offered through in-app update checks and must
+be downloaded here.
 
 URLStrip for iOS and iPadOS is available on the App Store. TestFlight
 remains available for people who want the newest beta builds. Desktop releases
@@ -60,15 +63,15 @@ Native macOS desktop build for Apple Silicon and Intel Macs. Includes URL
 cleaning, local Command Guard warnings for risky terminal commands copied to
 the clipboard, and an optional command-line tool.
 
-[Download URLStrip 1.3.2 (Build 28) for macOS](/urlstrip/releases/1.3.2-build28/URLStrip-1.3.2-build28-macOS-universal.dmg)
+[Download URLStrip 1.3.2 (Build 29) for macOS](/urlstrip/releases/1.3.2-build29/URLStrip-1.3.2-build29-macOS-universal.dmg)
 
-SHA-256: `ee67a4d355a833021524de86fe570558fdb2f65f29d0d200df6ac84b80893679`
+SHA-256: `67553197619a38327c71df0524729eee8c18a7a679cce3a354774777a71ea4d8`
 
-Verify: `shasum -a 256 URLStrip-1.3.2-build28-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.3.2-build29-macOS-universal.dmg`
 
 Developer ID signed, Apple notarized, and stapled. Includes an optional macOS
 command-line tool. Install it from **Advanced Settings** in the app, then run
-`urlstrip --help`. [Read the 1.3.2 release notes](/urlstrip/releases/1.3.2.html).
+`urlstrip --help`. [Read the Build 29 macOS correction notes](/urlstrip/releases/1.3.2-build29-macos.html).
 
 {{% /card %}}
 {{% card %}}
@@ -114,4 +117,4 @@ Want to try URLStrip before installing? Use the [browser-based URL cleaner](/cle
 Beta testing URLStrip? See the [tester guide](/beta-testing.html) for
 what to try and what to report.
 
-Checksums: [URLStrip 1.3.2 Build 28 SHA256SUMS](/urlstrip/releases/1.3.2-build28/SHA256SUMS)
+Checksums: [macOS Build 29 SHA256SUMS](/urlstrip/releases/1.3.2-build29/SHA256SUMS) and [Windows Build 28 SHA256SUMS](/urlstrip/releases/1.3.2-build28/SHA256SUMS)

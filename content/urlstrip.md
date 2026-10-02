@@ -165,15 +165,17 @@ Get the public URLStrip release from the App Store. TestFlight stays open for be
 {{% card %}}
 **macOS - Universal (Apple Silicon + Intel)**
 
-[Download URLStrip 1.3.2 (Build 28) for macOS](/urlstrip/releases/1.3.2-build28/URLStrip-1.3.2-build28-macOS-universal.dmg)
+[Download URLStrip 1.3.2 (Build 29) for macOS](/urlstrip/releases/1.3.2-build29/URLStrip-1.3.2-build29-macOS-universal.dmg)
 
-SHA-256: `ee67a4d355a833021524de86fe570558fdb2f65f29d0d200df6ac84b80893679`
+SHA-256: `67553197619a38327c71df0524729eee8c18a7a679cce3a354774777a71ea4d8`
 
-Verify: `shasum -a 256 URLStrip-1.3.2-build28-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.3.2-build29-macOS-universal.dmg`
 
-Developer ID signed, Apple notarized, and stapled. Includes Command Guard and
-an optional macOS command-line tool. Install the CLI from **Advanced Settings**
-in the app. [Read the 1.3.2 release notes](/urlstrip/releases/1.3.2.html).
+Developer ID signed, Apple notarized, and stapled. Build 29 restores the app
+icon and Advanced Updates layout while preserving Build 28's Amazon support.
+It is not offered through the shared desktop updater, so existing macOS users
+must download it here. Includes Command Guard and an optional macOS
+command-line tool. [Read the Build 29 macOS correction notes](/urlstrip/releases/1.3.2-build29-macos.html).
 {{% /card %}}
 
 {{% card %}}
@@ -191,7 +193,7 @@ validation and fail-closed behavior.
 {{% /card %}}
 ---
 
-Checksums: [URLStrip 1.3.2 Build 28 SHA256SUMS](/urlstrip/releases/1.3.2-build28/SHA256SUMS)
+Checksums: [macOS Build 29 SHA256SUMS](/urlstrip/releases/1.3.2-build29/SHA256SUMS) and [Windows Build 28 SHA256SUMS](/urlstrip/releases/1.3.2-build28/SHA256SUMS)
 
 {{< eyebrow >}}Screenshots{{< /eyebrow >}}
 
