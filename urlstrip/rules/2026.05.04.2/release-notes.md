@@ -1,0 +1,3 @@
+- Test-only rules update for validating hosted rule bundle installation on Windows.
+- Adds a harmless diagnostic parameter rule: urlstrip_update_test.
+- No app binary update is required to consume this rules bundle.

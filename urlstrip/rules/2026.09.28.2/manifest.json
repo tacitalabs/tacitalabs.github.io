@@ -1,0 +1,42 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.09.28.2",
+  "publishedAt": "2026-09-28T20:41:10.818Z",
+  "sourceSummary": {
+    "clearurls": {
+      "source": "https://github.com/ClearURLs/Rules",
+      "upstreamCommit": null,
+      "reviewedAt": "2026-09-28T20:41:10.818Z"
+    },
+    "urlstripSupplementary": {
+      "version": "2026.09.28.2"
+    }
+  },
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.09.28.2/data.min.json",
+      "sha256": "a6ccf52b371e8a7fc14365baf2f3fde0fefeed3c5ed27b9a1268f7be490619e7",
+      "bytes": 106100
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.09.28.2/urlstrip-supplementary.json",
+      "sha256": "df3d2e1b78f15e44cdc7f1fdae1f567ea1527c2c1e953d95e605f3f8de6c8a60",
+      "bytes": 24861
+    }
+  ],
+  "notes": [
+    "Remove `CMP` case-insensitively only on `theguardian.com` and `www.theguardian.com`, rejecting subdomains, lookalikes, unrelated hosts, and deceptive credential authorities.",
+    "Remove `smid` case-insensitively only on `nytimes.com` and `www.nytimes.com` while preserving subscriber access codes, gift-link state, unknown parameters, duplicates, raw percent encoding, plus characters, ordering, and fragments byte-for-byte.",
+    "Add exact case-insensitive coverage for `utm_source_platform`, `utm_creative_format`, `utm_marketing_tactic`, `gad_campaignid`, `srsltid`, `ttclid`, `li_fat_id`, `sccid`, `rdt_cid`, `ef_id`, `s_kwcid`, and `__hsfp` without broadening to lookalike names such as `ttclid_extra` or `my_srsltid`.",
+    "Reconfirm Instagram and Threads cleanup for `stkn`, `igsi`, `igsh`, `igshid`, and `ig_rid` while retaining `img_index`.",
+    "Preserve existing YouTube and YouTube Music cleanup for `si` and `is`, including `youtu.be`, while retaining functional video, playlist, radio, timestamp, unknown-query, encoding, and fragment state.",
+    "Supersede unpublished candidate `2026.09.28.1`, which unintentionally narrowed `is` cleanup to YouTube Music.",
+    "Keep Stable unchanged. URL transformation and cross-engine parity were verified deterministically; live Guardian, NYT, Meta, and YouTube destination or playback access was not tested."
+  ]
+}

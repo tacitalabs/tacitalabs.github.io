@@ -1,0 +1,3 @@
+- Add 15 exact, host-scoped tracking parameters across Medal, Rumble, BookBang, Viva Real, U-NEXT, SmartNews, Golf Digest, GOG, and Nikkei links.
+- Keep the new parameter names unchanged on unrelated and lookalike domains.
+- Preserve all existing Beta coverage and leave Stable unchanged during the 14-day soak.

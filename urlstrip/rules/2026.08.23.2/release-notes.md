@@ -1,0 +1,3 @@
+- Add 42 exact, evidence-backed tracking parameters across AT Internet, Adjust, MyTracker, Rakuten Advertising, Salesforce Marketing Cloud, and Telegram Ads.
+- Keep ambiguous or collision-prone audit candidates unchanged, including `_bhlid`, `sms_*`, `oft_*`, generic `sc_*`, and `external_click_id`.
+- Add a reproducible AdGuard, Brave, Firefox, and Dandelion Sprout source-audit command for future rule maintenance.
