@@ -29,6 +29,7 @@ test('static catalog manifest binds exact reviewed signed production bytes', () 
     assert.equal(envelope.algorithm, 'Ed25519');
     assert.ok(verify(null, bytes.payload, key, Buffer.from(envelope.signature, 'base64')));
     assert.equal(createHash('sha256').update(bytes.payload).digest('hex'), readFileSync(path.join(root, 'tests/fixtures/privacy-services.sha256'),'utf8').trim());
-    assert.equal(catalog.services.find(s => s.id === 'nitter-click').state, 'active');
+    assert.equal(catalog.services.find(s => s.id === 'nitter-click').state, 'paused');
+    assert.deepEqual(catalog.services.find(s => s.id === 'nitter-click').shapes, []);
     assert.equal(catalog.services.find(s => s.id === 'xcancel').state, 'paused');
 });
