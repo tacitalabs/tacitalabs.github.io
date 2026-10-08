@@ -6,8 +6,8 @@ const URLStrip = require('../static/urlstrip/cleaner.js');
 const root = path.resolve(__dirname, '..');
 const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/data.min.json'), 'utf8'));
 const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/urlstrip-supplementary.json'), 'utf8'));
-const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.28.2/data.min.json'), 'utf8'));
-const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.28.2/urlstrip-supplementary.json'), 'utf8'));
+const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.1/data.min.json'), 'utf8'));
+const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.1/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
 const betaManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/beta/manifest.json'), 'utf8'));
 const conformanceCorpus = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/cleaning-conformance-v1.json'), 'utf8'));
@@ -56,7 +56,7 @@ test('public rule manifests remain compatible with released iOS builds', () => {
 
 test('stable carries the mature September 7 batch while beta keeps newer rules isolated', () => {
   assert.equal(stableManifest.currentVersion, '2026.09.21.1');
-  assert.equal(betaManifest.currentVersion, '2026.09.28.2');
+  assert.equal(betaManifest.currentVersion, '2026.10.08.1');
 
   const youtubeShare = cleanBeta('https://youtu.be/u8iqKpVSRJg?is=xB5pJwZ-hshpOXJw');
   assert.equal(youtubeShare.status, 'cleaned');
@@ -87,8 +87,23 @@ test('stable carries the mature September 7 batch while beta keeps newer rules i
   assert.equal(instagramShare.cleanedUrl, 'https://www.instagram.com/reel/example/');
   assert.deepEqual(instagramShare.removedQueryParameters, ['stkn']);
 
+  const instagramXtok = cleanBeta('https://www.instagram.com/reel/SyNtHeTiC01/?xtok=synthetic-xtok');
+  assert.equal(instagramXtok.status, 'cleaned');
+  assert.equal(instagramXtok.cleanedUrl, 'https://www.instagram.com/reel/SyNtHeTiC01/');
+  assert.deepEqual(instagramXtok.removedQueryParameters, ['xtok']);
+
+  const instagramXtokPreservesState = cleanBeta(
+    'https://www.instagram.com/p/example/?img_index=2&xtok=first&keep=a%2Bb&xtok=second#media'
+  );
+  assert.equal(
+    instagramXtokPreservesState.cleanedUrl,
+    'https://www.instagram.com/p/example/?img_index=2&keep=a%2Bb#media'
+  );
+  assert.deepEqual(instagramXtokPreservesState.removedQueryParameters, ['xtok', 'xtok']);
+
   const unrelatedInstagramName = cleanBeta('https://example.com/article?stkn=keep');
   assert.equal(unrelatedInstagramName.status, 'unchanged');
+  assert.equal(cleanBeta('https://instagram.com.example.com/reel/example/?xtok=keep').status, 'unchanged');
 
   const septemberScopedCases = [
     ['https://medal.tv/clips/example?invite=tracking&keep=1', 'https://medal.tv/clips/example?keep=1'],

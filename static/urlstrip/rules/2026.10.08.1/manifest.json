@@ -1,0 +1,39 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.10.08.1",
+  "publishedAt": "2026-10-08T18:54:54.642Z",
+  "sourceSummary": {
+    "clearurls": {
+      "source": "https://github.com/ClearURLs/Rules",
+      "upstreamCommit": null,
+      "reviewedAt": "2026-10-08T18:54:54.642Z"
+    },
+    "urlstripSupplementary": {
+      "version": "2026.10.08.1"
+    }
+  },
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.08.1/data.min.json",
+      "sha256": "a6ccf52b371e8a7fc14365baf2f3fde0fefeed3c5ed27b9a1268f7be490619e7",
+      "bytes": 106100
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.08.1/urlstrip-supplementary.json",
+      "sha256": "1e1be5dfb8a7964116e150f0d1625aee1318ae12edb6544504caf79e9ae511f8",
+      "bytes": 24877
+    }
+  ],
+  "notes": [
+    "Remove `xtok` only on parsed `instagram.com` hosts, including the reported Reel share URL, while preserving `img_index`, unknown parameters, duplicate non-tracker values, raw encoding, ordering, and fragments.",
+    "Reject Instagram lookalikes and unrelated hosts so `xtok` remains untouched outside the existing Instagram-scoped supplementary provider.",
+    "Preserve the complete pre-existing Beta `2026.09.28.2` rule set and leave Stable `2026.09.21.1` unchanged.",
+    "Treat `xtok` semantics as undocumented but removability as high confidence: the reported and stripped URLs resolve to the same canonical Instagram Reel, and arbitrary `xtok` values do not change the destination."
+  ]
+}
