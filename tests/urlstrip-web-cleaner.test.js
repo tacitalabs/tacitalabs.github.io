@@ -6,8 +6,8 @@ const URLStrip = require('../static/urlstrip/cleaner.js');
 const root = path.resolve(__dirname, '..');
 const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/data.min.json'), 'utf8'));
 const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/urlstrip-supplementary.json'), 'utf8'));
-const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.4/data.min.json'), 'utf8'));
-const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.4/urlstrip-supplementary.json'), 'utf8'));
+const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.5/data.min.json'), 'utf8'));
+const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.5/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
 const betaManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/beta/manifest.json'), 'utf8'));
 const conformanceCorpus = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/cleaning-conformance-v1.json'), 'utf8'));
@@ -56,7 +56,7 @@ test('public rule manifests remain compatible with released iOS builds', () => {
 
 test('stable carries the mature September 7 batch while beta keeps newer rules isolated', () => {
   assert.equal(stableManifest.currentVersion, '2026.09.21.1');
-  assert.equal(betaManifest.currentVersion, '2026.10.08.4');
+  assert.equal(betaManifest.currentVersion, '2026.10.08.5');
 
   const youtubeShare = cleanBeta('https://youtu.be/u8iqKpVSRJg?is=xB5pJwZ-hshpOXJw');
   assert.equal(youtubeShare.status, 'cleaned');
@@ -128,6 +128,18 @@ test('stable carries the mature September 7 batch while beta keeps newer rules i
     'https://www.instagram.com/reel/example/?img_index=2&hl=en#media'
   );
   assert.deepEqual(instagramPslnPreservesState.removedQueryParameters, ['psln', 'psln']);
+
+  const reportedVrfl = cleanBeta(
+    'https://www.instagram.com/reel/SyNtHeTiC04/?vrfl=synthetic-vrfl'
+  );
+  assert.equal(reportedVrfl.cleanedUrl, 'https://www.instagram.com/reel/SyNtHeTiC04/');
+  assert.deepEqual(reportedVrfl.removedQueryParameters, ['vrfl']);
+
+  const mixedVrfl = cleanBeta(
+    'https://www.instagram.com/reel/SyNtHeTiC04/?img_index=2&vrfl=synthetic-vrfl&hl=en'
+  );
+  assert.equal(mixedVrfl.cleanedUrl, 'https://www.instagram.com/reel/SyNtHeTiC04/?img_index=2&hl=en');
+  assert.deepEqual(mixedVrfl.removedQueryParameters, ['vrfl']);
 
   const instagramHybrid = cleanBeta(
     'https://www.instagram.com/p/example/?xtok=x&img_index=2&rotate_20261008=unseen&hl=en&exln=e&psln=p#media'
