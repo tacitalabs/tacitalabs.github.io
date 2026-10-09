@@ -32,7 +32,7 @@
   ],
   "notes": [
     "Correct the Instagram hybrid path matcher so mixed-case post, Reel, and profile identifiers behave identically in Swift, Rust, and the browser cleaner.",
-    "Remove the newly reported `vrfl` query parameter from `https://www.instagram.com/reel/SyNtHeTiC04/` through the generalized unknown-parameter rule, while preserving `img_index` and `hl` in mixed queries.",
+    "Remove a newly reported `vrfl` query parameter through the generalized unknown-parameter rule, while preserving `img_index` and `hl` in mixed queries. Public examples use synthetic Instagram identifiers.",
     "Retain exact `instagram.com` and `www.instagram.com` host boundaries, the approved post/Reel/profile path scope, hostile-host rejection, and unrelated-path exclusions.",
     "Supersede Beta `2026.10.08.4`; leave Stable `2026.09.21.1` unchanged."
   ]
