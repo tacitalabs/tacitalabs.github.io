@@ -1,0 +1,39 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.10.08.3",
+  "publishedAt": "2026-10-09T02:57:43.341Z",
+  "sourceSummary": {
+    "clearurls": {
+      "source": "https://github.com/ClearURLs/Rules",
+      "upstreamCommit": null,
+      "reviewedAt": "2026-10-09T02:57:43.341Z"
+    },
+    "urlstripSupplementary": {
+      "version": "2026.10.08.3"
+    }
+  },
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.08.3/data.min.json",
+      "sha256": "a6ccf52b371e8a7fc14365baf2f3fde0fefeed3c5ed27b9a1268f7be490619e7",
+      "bytes": 106100
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.08.3/urlstrip-supplementary.json",
+      "sha256": "f271ee5676c7eeb83cf4982943fb82fc3b208320b58cc08b6cd6a747fd5569d6",
+      "bytes": 24909
+    }
+  ],
+  "notes": [
+    "Remove `psln` only on parsed `instagram.com` hosts, including the reported Reel share URL, while preserving `img_index`, unknown parameters, duplicate/source order, raw encoding, and fragments.",
+    "Reject Instagram lookalikes, deceptive credential authorities, and unrelated hosts so `psln` remains untouched outside the existing Instagram-scoped supplementary provider.",
+    "Preserve the complete Beta `2026.10.08.2` rule set, including Instagram `xtok` and `exln`, and leave Stable `2026.09.21.1` unchanged.",
+    "Treat `psln` semantics and naming motive as undocumented; removability is high confidence because the reported, stripped, and arbitrary-token URLs resolve to the same canonical Instagram Reel."
+  ]
+}
