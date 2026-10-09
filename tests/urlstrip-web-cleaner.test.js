@@ -6,8 +6,8 @@ const URLStrip = require('../static/urlstrip/cleaner.js');
 const root = path.resolve(__dirname, '..');
 const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/data.min.json'), 'utf8'));
 const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/urlstrip-supplementary.json'), 'utf8'));
-const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.2/data.min.json'), 'utf8'));
-const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.2/urlstrip-supplementary.json'), 'utf8'));
+const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.3/data.min.json'), 'utf8'));
+const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.3/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
 const betaManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/beta/manifest.json'), 'utf8'));
 const conformanceCorpus = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/cleaning-conformance-v1.json'), 'utf8'));
@@ -56,7 +56,7 @@ test('public rule manifests remain compatible with released iOS builds', () => {
 
 test('stable carries the mature September 7 batch while beta keeps newer rules isolated', () => {
   assert.equal(stableManifest.currentVersion, '2026.09.21.1');
-  assert.equal(betaManifest.currentVersion, '2026.10.08.2');
+  assert.equal(betaManifest.currentVersion, '2026.10.08.3');
 
   const youtubeShare = cleanBeta('https://youtu.be/u8iqKpVSRJg?is=xB5pJwZ-hshpOXJw');
   assert.equal(youtubeShare.status, 'cleaned');
@@ -115,11 +115,27 @@ test('stable carries the mature September 7 batch while beta keeps newer rules i
   );
   assert.deepEqual(instagramExlnPreservesState.removedQueryParameters, ['exln']);
 
+  const instagramPsln = cleanBeta('https://www.instagram.com/reel/SyNtHeTiC03/?psln=synthetic-psln');
+  assert.equal(instagramPsln.status, 'cleaned');
+  assert.equal(instagramPsln.cleanedUrl, 'https://www.instagram.com/reel/SyNtHeTiC03/');
+  assert.deepEqual(instagramPsln.removedQueryParameters, ['psln']);
+
+  const instagramPslnPreservesState = cleanBeta(
+    'https://www.instagram.com/reel/example/?img_index=2&psln=first&keep=a%2Bb&psln=second#media'
+  );
+  assert.equal(
+    instagramPslnPreservesState.cleanedUrl,
+    'https://www.instagram.com/reel/example/?img_index=2&keep=a%2Bb#media'
+  );
+  assert.deepEqual(instagramPslnPreservesState.removedQueryParameters, ['psln', 'psln']);
+
   const unrelatedInstagramName = cleanBeta('https://example.com/article?stkn=keep');
   assert.equal(unrelatedInstagramName.status, 'unchanged');
   assert.equal(cleanBeta('https://instagram.com.example.com/reel/example/?xtok=keep').status, 'unchanged');
   assert.equal(cleanBeta('https://instagram.com.example.com/p/example/?exln=keep').status, 'unchanged');
   assert.equal(cleanBeta('https://instagram.com@example.com/p/example/?exln=keep').status, 'unchanged');
+  assert.equal(cleanBeta('https://instagram.com.example.com/reel/example/?psln=keep').status, 'unchanged');
+  assert.equal(cleanBeta('https://instagram.com@example.com/reel/example/?psln=keep').status, 'unchanged');
 
   const septemberScopedCases = [
     ['https://medal.tv/clips/example?invite=tracking&keep=1', 'https://medal.tv/clips/example?keep=1'],
