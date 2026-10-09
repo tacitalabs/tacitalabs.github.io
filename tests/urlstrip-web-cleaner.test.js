@@ -6,8 +6,8 @@ const URLStrip = require('../static/urlstrip/cleaner.js');
 const root = path.resolve(__dirname, '..');
 const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/data.min.json'), 'utf8'));
 const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/urlstrip-supplementary.json'), 'utf8'));
-const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.3/data.min.json'), 'utf8'));
-const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.3/urlstrip-supplementary.json'), 'utf8'));
+const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.4/data.min.json'), 'utf8'));
+const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.4/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
 const betaManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/beta/manifest.json'), 'utf8'));
 const conformanceCorpus = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/cleaning-conformance-v1.json'), 'utf8'));
@@ -56,7 +56,7 @@ test('public rule manifests remain compatible with released iOS builds', () => {
 
 test('stable carries the mature September 7 batch while beta keeps newer rules isolated', () => {
   assert.equal(stableManifest.currentVersion, '2026.09.21.1');
-  assert.equal(betaManifest.currentVersion, '2026.10.08.3');
+  assert.equal(betaManifest.currentVersion, '2026.10.08.4');
 
   const youtubeShare = cleanBeta('https://youtu.be/u8iqKpVSRJg?is=xB5pJwZ-hshpOXJw');
   assert.equal(youtubeShare.status, 'cleaned');
@@ -93,11 +93,11 @@ test('stable carries the mature September 7 batch while beta keeps newer rules i
   assert.deepEqual(instagramXtok.removedQueryParameters, ['xtok']);
 
   const instagramXtokPreservesState = cleanBeta(
-    'https://www.instagram.com/p/example/?img_index=2&xtok=first&keep=a%2Bb&xtok=second#media'
+    'https://www.instagram.com/p/example/?img_index=2&xtok=first&hl=en&xtok=second#media'
   );
   assert.equal(
     instagramXtokPreservesState.cleanedUrl,
-    'https://www.instagram.com/p/example/?img_index=2&keep=a%2Bb#media'
+    'https://www.instagram.com/p/example/?img_index=2&hl=en#media'
   );
   assert.deepEqual(instagramXtokPreservesState.removedQueryParameters, ['xtok', 'xtok']);
 
@@ -107,11 +107,11 @@ test('stable carries the mature September 7 batch while beta keeps newer rules i
   assert.deepEqual(instagramExln.removedQueryParameters, ['exln']);
 
   const instagramExlnPreservesState = cleanBeta(
-    'https://www.instagram.com/p/example/?img_index=2&exln=share&keep=a%2Bb#media'
+    'https://www.instagram.com/p/example/?img_index=2&exln=share&hl=en#media'
   );
   assert.equal(
     instagramExlnPreservesState.cleanedUrl,
-    'https://www.instagram.com/p/example/?img_index=2&keep=a%2Bb#media'
+    'https://www.instagram.com/p/example/?img_index=2&hl=en#media'
   );
   assert.deepEqual(instagramExlnPreservesState.removedQueryParameters, ['exln']);
 
@@ -121,13 +121,40 @@ test('stable carries the mature September 7 batch while beta keeps newer rules i
   assert.deepEqual(instagramPsln.removedQueryParameters, ['psln']);
 
   const instagramPslnPreservesState = cleanBeta(
-    'https://www.instagram.com/reel/example/?img_index=2&psln=first&keep=a%2Bb&psln=second#media'
+    'https://www.instagram.com/reel/example/?img_index=2&psln=first&hl=en&psln=second#media'
   );
   assert.equal(
     instagramPslnPreservesState.cleanedUrl,
-    'https://www.instagram.com/reel/example/?img_index=2&keep=a%2Bb#media'
+    'https://www.instagram.com/reel/example/?img_index=2&hl=en#media'
   );
   assert.deepEqual(instagramPslnPreservesState.removedQueryParameters, ['psln', 'psln']);
+
+  const instagramHybrid = cleanBeta(
+    'https://www.instagram.com/p/example/?xtok=x&img_index=2&rotate_20261008=unseen&hl=en&exln=e&psln=p#media'
+  );
+  assert.equal(instagramHybrid.cleanedUrl, 'https://www.instagram.com/p/example/?img_index=2&hl=en#media');
+  assert.deepEqual(instagramHybrid.removedQueryParameters, ['xtok', 'rotate_20261008', 'exln', 'psln']);
+  assert.equal(cleanBeta(instagramHybrid.cleanedUrl).status, 'unchanged');
+
+  for (const [input, expected] of [
+    ['https://www.instagram.com/reel/example/?future_rotator=one&hl=fr', 'https://www.instagram.com/reel/example/?hl=fr'],
+    ['https://instagram.com/example.profile/?future_rotator=two&img_index=4', 'https://instagram.com/example.profile/?img_index=4'],
+  ]) {
+    assert.equal(cleanBeta(input).cleanedUrl, expected, input);
+  }
+
+  for (const input of [
+    'https://www.instagram.com/explore/?future_rotator=keep',
+    'https://www.instagram.com/accounts/edit/?future_rotator=keep',
+    'https://www.instagram.com/stories/example/?future_rotator=keep',
+    'https://www.instagram.com/p/?future_rotator=keep',
+    'https://www.instagram.com/p/example/comments/?future_rotator=keep',
+    'https://m.instagram.com/p/example/?future_rotator=keep',
+    'https://instagram.com.example.com/p/example/?future_rotator=keep',
+    'https://instagram.com@example.com/p/example/?future_rotator=keep',
+  ]) {
+    assert.equal(cleanBeta(input).status, 'unchanged', input);
+  }
 
   const unrelatedInstagramName = cleanBeta('https://example.com/article?stkn=keep');
   assert.equal(unrelatedInstagramName.status, 'unchanged');
