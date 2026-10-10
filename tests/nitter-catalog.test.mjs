@@ -29,7 +29,20 @@ test('static catalog manifest binds exact reviewed signed production bytes', () 
     assert.equal(envelope.algorithm, 'Ed25519');
     assert.ok(verify(null, bytes.payload, key, Buffer.from(envelope.signature, 'base64')));
     assert.equal(createHash('sha256').update(bytes.payload).digest('hex'), readFileSync(path.join(root, 'tests/fixtures/privacy-services.sha256'),'utf8').trim());
-    assert.equal(catalog.services.find(s => s.id === 'nitter-click').state, 'paused');
-    assert.deepEqual(catalog.services.find(s => s.id === 'nitter-click').shapes, []);
-    assert.equal(catalog.services.find(s => s.id === 'xcancel').state, 'paused');
+    const byID = Object.fromEntries(catalog.services.map(service => [service.id, service]));
+    const active = ['nitter-kareem-one','nitter-meowing-monster','nitter-netbub-com','nitter-pp-ua','nitter-tiekoetter-com','shitter-thepixora-com','xnologin-com'];
+    for (const id of active) {
+        assert.equal(byID[id].state, 'active', id);
+        assert.deepEqual(byID[id].shapes, ['profile', 'status'], id);
+    }
+    for (const id of ['nitter-click','nitter-jaydenha-uk','nitter-miningtcup-me','nitter-xitter-cc','nuku-trabun-org']) {
+        assert.equal(byID[id].state, 'paused', id);
+        assert.deepEqual(byID[id].shapes, [], id);
+    }
+    for (const id of ['nitter-net','nitter-privacyredirect-com','xcancel']) {
+        assert.equal(byID[id].state, 'retired', id);
+        assert.deepEqual(byID[id].shapes, [], id);
+    }
+    assert.equal(byID['bird-makeup'].state, 'active');
+    assert.deepEqual(byID['bird-makeup'].shapes, []);
 });
