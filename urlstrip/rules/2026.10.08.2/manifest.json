@@ -1,0 +1,39 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.10.08.2",
+  "publishedAt": "2026-10-09T02:02:36.772Z",
+  "sourceSummary": {
+    "clearurls": {
+      "source": "https://github.com/ClearURLs/Rules",
+      "upstreamCommit": null,
+      "reviewedAt": "2026-10-09T02:02:36.772Z"
+    },
+    "urlstripSupplementary": {
+      "version": "2026.10.08.2"
+    }
+  },
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.08.2/data.min.json",
+      "sha256": "a6ccf52b371e8a7fc14365baf2f3fde0fefeed3c5ed27b9a1268f7be490619e7",
+      "bytes": 106100
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.08.2/urlstrip-supplementary.json",
+      "sha256": "d08b9216fc075953495be08e26784d0805d2c5be19daa14e0a720d7a98c614d6",
+      "bytes": 24893
+    }
+  ],
+  "notes": [
+    "Remove `exln` only on parsed `instagram.com` hosts, including the reported Post share URL, while preserving `img_index`, unknown parameters, raw encoding, ordering, and fragments.",
+    "Reject Instagram lookalikes, deceptive credential authorities, and unrelated hosts so `exln` remains untouched outside the existing Instagram-scoped supplementary provider.",
+    "Preserve the complete Beta `2026.10.08.1` rule set, including Instagram `xtok`, and leave Stable `2026.09.21.1` unchanged.",
+    "Treat `exln` semantics as undocumented share attribution but removability as high confidence: the reported, stripped, and arbitrary-token URLs resolve to the same canonical Instagram post."
+  ]
+}
