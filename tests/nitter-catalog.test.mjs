@@ -7,6 +7,7 @@ const root = path.resolve(import.meta.dirname, '..');
 test('static catalog manifest binds exact reviewed signed production bytes', () => {
     const raw = readFileSync(path.join(root, 'static/privacy-services/current.json'));
     const manifest = JSON.parse(raw);
+    assert.equal(JSON.stringify(manifest), raw.toString('utf8'));
     assert.equal(manifest.product, 'URLStrip');
     assert.equal(manifest.kind, 'privacy-services-update');
     assert.equal(manifest.schema, 1);
