@@ -6,8 +6,8 @@ const URLStrip = require('../static/urlstrip/cleaner.js');
 const root = path.resolve(__dirname, '..');
 const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/data.min.json'), 'utf8'));
 const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/urlstrip-supplementary.json'), 'utf8'));
-const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.5/data.min.json'), 'utf8'));
-const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.08.5/urlstrip-supplementary.json'), 'utf8'));
+const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.11.1/data.min.json'), 'utf8'));
+const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.11.1/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
 const betaManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/beta/manifest.json'), 'utf8'));
 const conformanceCorpus = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/cleaning-conformance-v1.json'), 'utf8'));
@@ -56,7 +56,42 @@ test('public rule manifests remain compatible with released iOS builds', () => {
 
 test('stable carries the mature September 7 batch while beta keeps newer rules isolated', () => {
   assert.equal(stableManifest.currentVersion, '2026.09.21.1');
-  assert.equal(betaManifest.currentVersion, '2026.10.08.5');
+  assert.equal(betaManifest.currentVersion, '2026.10.11.1');
+
+  const xVideoShare = cleanBeta(
+    'https://x.com/Synthetic_User/status/1234567890123456789/video/1?first=alpha%2fbeta&s=synthetic-share&literal=a+b&bare&last=%7e#clip'
+  );
+  assert.equal(xVideoShare.status, 'cleaned');
+  assert.equal(
+    xVideoShare.cleanedUrl,
+    'https://x.com/Synthetic_User/status/1234567890123456789/video/1?first=alpha%2fbeta&literal=a+b&bare&last=%7e#clip'
+  );
+  assert.deepEqual(xVideoShare.removedQueryParameters, ['s']);
+  assert.equal(cleanBeta(xVideoShare.cleanedUrl).status, 'unchanged');
+
+  const duplicateXShare = cleanBeta(
+    'https://x.com/synthetic/status/987654321098765432/video/1?s=first&keep=1&s=second#watch'
+  );
+  assert.equal(
+    duplicateXShare.cleanedUrl,
+    'https://x.com/synthetic/status/987654321098765432/video/1?keep=1#watch'
+  );
+  assert.deepEqual(duplicateXShare.removedQueryParameters, ['s', 's']);
+
+  for (const input of [
+    'https://www.x.com/synthetic/status/1234567890123456789/video/1?s=keep',
+    'https://mobile.x.com/synthetic/status/1234567890123456789/video/1?s=keep',
+    'https://x.com.example/synthetic/status/1234567890123456789/video/1?s=keep',
+    'https://x.com@evil.example/synthetic/status/1234567890123456789/video/1?s=keep',
+    'http://x.com/synthetic/status/1234567890123456789/video/1?s=keep',
+    'https://x.com/synthetic/status/1234567890123456789?s=keep',
+    'https://x.com/synthetic/status/1234567890123456789/video/2?s=keep',
+    'https://x.com/synthetic/status/not-a-number/video/1?s=keep',
+    'https://example.com/synthetic/status/1234567890123456789/video/1?s=keep',
+    'https://x.com/synthetic/status/1234567890123456789/video/1?ss=keep',
+  ]) {
+    assert.equal(cleanBeta(input).status, 'unchanged', input);
+  }
 
   const youtubeShare = cleanBeta('https://youtu.be/u8iqKpVSRJg?is=xB5pJwZ-hshpOXJw');
   assert.equal(youtubeShare.status, 'cleaned');
