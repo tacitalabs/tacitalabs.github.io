@@ -2,37 +2,38 @@
   "product": "URLStrip",
   "kind": "rules",
   "schemaVersion": 1,
-  "currentVersion": "2026.09.21.1",
-  "publishedAt": "2026-09-21T14:46:31.229Z",
+  "currentVersion": "2026.10.11.1",
+  "publishedAt": "2026-10-11T14:24:17.011Z",
   "sourceSummary": {
     "clearurls": {
       "source": "https://github.com/ClearURLs/Rules",
       "upstreamCommit": null,
-      "reviewedAt": "2026-09-21T14:46:31.229Z"
+      "reviewedAt": "2026-10-11T14:24:17.011Z"
     },
     "urlstripSupplementary": {
-      "version": "2026.09.21.1"
+      "version": "2026.10.11.1"
     }
   },
   "files": [
     {
       "kind": "clearurls",
       "path": "data.min.json",
-      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.09.21.1/data.min.json",
-      "sha256": "b328d2a5b95b1b23bac2c91342a8deee3f9a3826a5950bf9e28e332ffd94cd2f",
-      "bytes": 106070
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.11.1/data.min.json",
+      "sha256": "793d76ad72308d96b12707a98306959f35d7b8d6aea29cb97bef74f35a4bb0f6",
+      "bytes": 106079
     },
     {
       "kind": "urlstrip-supplementary",
       "path": "urlstrip-supplementary.json",
-      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.09.21.1/urlstrip-supplementary.json",
-      "sha256": "a7b6c5b36f0b94dc8ce53e83891aec67e41be5916481aafcc94df240b43e1e49",
-      "bytes": 18080
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.11.1/urlstrip-supplementary.json",
+      "sha256": "94bdaeaf79dc849c4d3b817036e0334e9e87f78279efea3cd0f68599a89c6e79",
+      "bytes": 25981
     }
   ],
   "notes": [
-    "Promote the mature September 7 batch: 15 exact, host-scoped tracking parameters across Medal, Rumble, BookBang, Viva Real, U-NEXT, SmartNews, Golf Digest, GOG, and Nikkei links.",
-    "Preserve unrelated parameters, exact host boundaries, subdomain behavior where explicitly supported, and functional URL state.",
-    "Keep the September 5 Instagram `stkn` batch and all September 14 and September 18 batches Beta-only; leave the live Beta pointer on `2026.09.18.1`."
+    "Remove the `s` share-attribution query key from exact `x.com` status-video links using a narrowly bounded host and path rule.",
+    "Preserve functional and unknown query parameters, their source order and untouched raw encoding, bare tokens, literal plus signs, and fragments.",
+    "Reject adjacent paths, similarly named parameters, alternate and lookalike hosts, credential tricks, and non-HTTPS links. Public examples use synthetic account and status identifiers.",
+    "Supersede Beta `2026.10.08.5`; leave Stable `2026.09.21.1` unchanged."
   ]
 }
