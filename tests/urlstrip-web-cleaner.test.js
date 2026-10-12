@@ -4,8 +4,8 @@ const path = require('node:path');
 const URLStrip = require('../static/urlstrip/cleaner.js');
 
 const root = path.resolve(__dirname, '..');
-const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/data.min.json'), 'utf8'));
-const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.09.21.1/urlstrip-supplementary.json'), 'utf8'));
+const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.11.1/data.min.json'), 'utf8'));
+const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.11.1/urlstrip-supplementary.json'), 'utf8'));
 const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.11.1/data.min.json'), 'utf8'));
 const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.11.1/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
@@ -54,9 +54,10 @@ test('public rule manifests remain compatible with released iOS builds', () => {
   }
 });
 
-test('stable carries the mature September 7 batch while beta keeps newer rules isolated', () => {
-  assert.equal(stableManifest.currentVersion, '2026.09.21.1');
+test('stable and beta carry the exact immutable promoted candidate', () => {
+  assert.equal(stableManifest.currentVersion, '2026.10.11.1');
   assert.equal(betaManifest.currentVersion, '2026.10.11.1');
+  assert.deepEqual(stableManifest, betaManifest);
 
   const xVideoShare = cleanBeta(
     'https://x.com/Synthetic_User/status/1234567890123456789/video/1?first=alpha%2fbeta&s=synthetic-share&literal=a+b&bare&last=%7e#clip'
@@ -310,11 +311,13 @@ test('stable carries the mature September 7 batch while beta keeps newer rules i
   assert.equal(stableScoped.status, 'cleaned');
   assert.equal(stableScoped.cleanedUrl, 'https://dailyshincho.jp/article?keep=1');
 
-  const stableKeepsInstagramStkn = clean('https://www.instagram.com/reel/example/?stkn=keep');
-  assert.equal(stableKeepsInstagramStkn.status, 'unchanged');
+  const stableAppliesInstagramStkn = clean('https://www.instagram.com/reel/example/?stkn=synthetic');
+  assert.equal(stableAppliesInstagramStkn.status, 'cleaned');
+  assert.equal(stableAppliesInstagramStkn.cleanedUrl, 'https://www.instagram.com/reel/example/');
 
-  const stableKeepsSeptember14Rule = clean('https://jisin.jp/article?rf=keep');
-  assert.equal(stableKeepsSeptember14Rule.status, 'unchanged');
+  const stableAppliesSeptember14Rule = clean('https://jisin.jp/article?rf=synthetic');
+  assert.equal(stableAppliesSeptember14Rule.status, 'cleaned');
+  assert.equal(stableAppliesSeptember14Rule.cleanedUrl, 'https://jisin.jp/article');
 });
 
 test('beta applies Guardian and NYT exact-host rules without rewriting preserved bytes', () => {
@@ -419,11 +422,11 @@ test('YouTube shared link cleanup', () => {
   assert.equal(result.cleanedUrl, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ');
 });
 
-test('Instagram igsi cleanup stays scoped to Instagram', () => {
-  const result = clean('https://www.instagram.com/p/example/?igsi=abc123&keep=1');
+test('Instagram shareable-route cleanup stays scoped to Instagram', () => {
+  const result = clean('https://www.instagram.com/p/example/?igsi=synthetic&unknown=synthetic');
   assert.equal(result.status, 'cleaned');
-  assert.equal(result.cleanedUrl, 'https://www.instagram.com/p/example/?keep=1');
-  assert.deepEqual(result.removedQueryParameters, ['igsi']);
+  assert.equal(result.cleanedUrl, 'https://www.instagram.com/p/example/');
+  assert.deepEqual(result.removedQueryParameters, ['igsi', 'unknown']);
 
   const unrelated = clean('https://example.com/article?igsi=keep');
   assert.equal(unrelated.status, 'unchanged');
