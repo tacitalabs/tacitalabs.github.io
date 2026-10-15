@@ -1,0 +1,38 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.08.31.1",
+  "publishedAt": "2026-08-31T14:27:38.144Z",
+  "sourceSummary": {
+    "clearurls": {
+      "source": "https://github.com/ClearURLs/Rules",
+      "upstreamCommit": null,
+      "reviewedAt": "2026-08-31T14:27:38.144Z"
+    },
+    "urlstripSupplementary": {
+      "version": "2026.08.31.1"
+    }
+  },
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.08.31.1/data.min.json",
+      "sha256": "b328d2a5b95b1b23bac2c91342a8deee3f9a3826a5950bf9e28e332ffd94cd2f",
+      "bytes": 106070
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.08.31.1/urlstrip-supplementary.json",
+      "sha256": "61040ff7d2a295a4f4ef1af049391ea1948d5d8104dae24d85d7a0d14fc66b70",
+      "bytes": 11991
+    }
+  ],
+  "notes": [
+    "Strip Adobe Experience Cloud cross-domain referrer and supplemental visitor identifiers.",
+    "Strip Admitad attribution identifiers and ActiveCampaign encrypted contact identifiers.",
+    "Keep the new batch limited to four evidence-reviewed exact parameter names."
+  ]
+}

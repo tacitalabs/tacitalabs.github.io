@@ -1,0 +1,4 @@
+- Strip Instagram's `igsi` share identifier from Instagram links.
+- Keep `igsi` scoped to Instagram domains so identically named parameters on unrelated sites remain untouched.
+- Preserve the existing Command Guard rules from stable release 2026.07.05.3.
+- No app binary update is required for URLStrip 1.1 Build 18 users.

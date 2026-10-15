@@ -1,0 +1,2 @@
+- Strip YouTube watch-page playlist context parameters `list` and `index` from shareable video links.
+- Preserve YouTube playlist URLs such as `/playlist?list=...` so intentional playlist shares still work.

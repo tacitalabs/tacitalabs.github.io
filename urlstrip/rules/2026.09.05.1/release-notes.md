@@ -1,0 +1,3 @@
+- Strip Instagram's `stkn` share token from Instagram links.
+- Keep `stkn` unchanged on non-Instagram sites.
+- Preserve the reel destination and all unrelated query parameters.

@@ -1,0 +1,3 @@
+- Promote the mature September 7 batch: 15 exact, host-scoped tracking parameters across Medal, Rumble, BookBang, Viva Real, U-NEXT, SmartNews, Golf Digest, GOG, and Nikkei links.
+- Preserve unrelated parameters, exact host boundaries, subdomain behavior where explicitly supported, and functional URL state.
+- Keep the September 5 Instagram `stkn` batch and all September 14 and September 18 batches Beta-only; leave the live Beta pointer on `2026.09.18.1`.
