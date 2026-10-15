@@ -11,7 +11,7 @@ features make limited network requests, as described below. We do not require
 accounts, and we do not collect your browsing history or cleaned-link history.
 This page covers URLStrip and this website.
 
-*Last updated: September 29, 2026*
+*Last updated: October 15, 2026*
 
 {{% card %}}
 ## Infobreaker
@@ -101,10 +101,20 @@ Automatic checks are on by default and can be turned off in Settings.
 Manual checks remain available. Earlier versions use manual or opt-in checks.
 Checking for updates never enables privacy redirects or installs an update.
 
-Installing rules or catalog updates is your choice. URLStrip verifies downloaded
-rules and validates catalog hashes and signatures before using them. The public
-iOS app manifest describes only public App Store releases; TestFlight remains
-responsible for TestFlight update delivery.
+URLStrip 1.4 for iOS and iPadOS also offers opt-in automatic installation of
+verified cleaning-rule updates. **Never** is the default. If you choose Daily,
+Weekly, or Monthly, URLStrip may ask iOS to perform a best-effort background
+rule check and installation. iOS decides whether and when the background task
+runs, so URLStrip also checks when the app next opens or returns to the
+foreground. Turning the setting back to Never cancels URLStrip's pending
+background request.
+
+Installing catalog updates remains a separate choice. Rule updates are installed
+manually or on the cadence you explicitly select. URLStrip verifies signed rule
+manifests, file hashes, and catalog hashes and signatures before using downloaded
+content. Invalid, expired, interrupted, or older rule packages do not replace the
+active verified rules. The public iOS app manifest describes only public App
+Store releases; TestFlight remains responsible for TestFlight update delivery.
 
 Metadata checks and update downloads never upload clipboard URLs, cleaned links,
 rules, settings, usage statistics, or device identifiers. The Tacita Labs update
