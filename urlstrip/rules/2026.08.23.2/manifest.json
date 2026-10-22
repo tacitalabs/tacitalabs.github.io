@@ -1,0 +1,38 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.08.23.2",
+  "publishedAt": "2026-08-23T20:22:11.742Z",
+  "sourceSummary": {
+    "clearurls": {
+      "source": "https://github.com/ClearURLs/Rules",
+      "upstreamCommit": null,
+      "reviewedAt": "2026-08-23T20:22:11.742Z"
+    },
+    "urlstripSupplementary": {
+      "version": "2026.08.23.2"
+    }
+  },
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.08.23.2/data.min.json",
+      "sha256": "b328d2a5b95b1b23bac2c91342a8deee3f9a3826a5950bf9e28e332ffd94cd2f",
+      "bytes": 106070
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.08.23.2/urlstrip-supplementary.json",
+      "sha256": "f6deab2f1f82b012da82d12724d03e8c981f4fea65efc7ea264be4f5b1a74e14",
+      "bytes": 10175
+    }
+  ],
+  "notes": [
+    "Add 42 exact, evidence-backed tracking parameters across AT Internet, Adjust, MyTracker, Rakuten Advertising, Salesforce Marketing Cloud, and Telegram Ads.",
+    "Keep ambiguous or collision-prone audit candidates unchanged, including `_bhlid`, `sms_*`, `oft_*`, generic `sc_*`, and `external_click_id`.",
+    "Add a reproducible AdGuard, Brave, Firefox, and Dandelion Sprout source-audit command for future rule maintenance."
+  ]
+}

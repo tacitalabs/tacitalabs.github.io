@@ -1,0 +1,3 @@
+- Strip Adobe Experience Cloud cross-domain referrer and supplemental visitor identifiers.
+- Strip Admitad attribution identifiers and ActiveCampaign encrypted contact identifiers.
+- Keep the new batch limited to four evidence-reviewed exact parameter names.
