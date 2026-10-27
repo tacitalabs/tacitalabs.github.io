@@ -6,8 +6,8 @@ const URLStrip = require('../static/urlstrip/cleaner.js');
 const root = path.resolve(__dirname, '..');
 const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.11.1/data.min.json'), 'utf8'));
 const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.11.1/urlstrip-supplementary.json'), 'utf8'));
-const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.11.1/data.min.json'), 'utf8'));
-const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.11.1/urlstrip-supplementary.json'), 'utf8'));
+const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.26.2/data.min.json'), 'utf8'));
+const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.26.2/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
 const betaManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/beta/manifest.json'), 'utf8'));
 const conformanceCorpus = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/cleaning-conformance-v1.json'), 'utf8'));
@@ -54,10 +54,20 @@ test('public rule manifests remain compatible with released iOS builds', () => {
   }
 });
 
-test('stable and beta carry the exact immutable promoted candidate', () => {
+test('stable remains pinned while beta carries the exact immutable candidate', () => {
   assert.equal(stableManifest.currentVersion, '2026.10.11.1');
-  assert.equal(betaManifest.currentVersion, '2026.10.11.1');
-  assert.deepEqual(stableManifest, betaManifest);
+  assert.equal(betaManifest.currentVersion, '2026.10.26.2');
+
+  const xStatusShare = cleanBeta(
+    'https://x.com/Synthetic_User/status/1234567890123456789?first=alpha%2fbeta&s=synthetic-share&literal=a+b&bare&last=%7e#post'
+  );
+  assert.equal(xStatusShare.status, 'cleaned');
+  assert.equal(
+    xStatusShare.cleanedUrl,
+    'https://x.com/Synthetic_User/status/1234567890123456789?first=alpha%2fbeta&literal=a+b&bare&last=%7e#post'
+  );
+  assert.deepEqual(xStatusShare.removedQueryParameters, ['s']);
+  assert.equal(cleanBeta(xStatusShare.cleanedUrl).status, 'unchanged');
 
   const xVideoShare = cleanBeta(
     'https://x.com/Synthetic_User/status/1234567890123456789/video/1?first=alpha%2fbeta&s=synthetic-share&literal=a+b&bare&last=%7e#clip'
@@ -80,13 +90,19 @@ test('stable and beta carry the exact immutable promoted candidate', () => {
   assert.deepEqual(duplicateXShare.removedQueryParameters, ['s', 's']);
 
   for (const input of [
+    'https://www.x.com/synthetic/status/1234567890123456789?s=keep',
+    'https://mobile.x.com/synthetic/status/1234567890123456789?s=keep',
     'https://www.x.com/synthetic/status/1234567890123456789/video/1?s=keep',
     'https://mobile.x.com/synthetic/status/1234567890123456789/video/1?s=keep',
     'https://x.com.example/synthetic/status/1234567890123456789/video/1?s=keep',
     'https://x.com@evil.example/synthetic/status/1234567890123456789/video/1?s=keep',
     'http://x.com/synthetic/status/1234567890123456789/video/1?s=keep',
-    'https://x.com/synthetic/status/1234567890123456789?s=keep',
+    'https://x.com/synthetic/status/1234567890123456789/photo/1?s=keep',
     'https://x.com/synthetic/status/1234567890123456789/video/2?s=keep',
+    'https://x.com/synthetic/status/1234567890123456789/analytics?s=keep',
+    'https://x.com/synthetic/status/1234567890123456789/?s=keep',
+    'https://x.com/synthetic/status/1234567890123456789s?s=keep',
+    'https://x.com/synthetic/status/123456789012345678901?s=keep',
     'https://x.com/synthetic/status/not-a-number/video/1?s=keep',
     'https://example.com/synthetic/status/1234567890123456789/video/1?s=keep',
     'https://x.com/synthetic/status/1234567890123456789/video/1?ss=keep',
