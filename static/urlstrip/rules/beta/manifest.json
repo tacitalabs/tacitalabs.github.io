@@ -2,38 +2,38 @@
   "product": "URLStrip",
   "kind": "rules",
   "schemaVersion": 1,
-  "currentVersion": "2026.10.11.1",
-  "publishedAt": "2026-10-11T14:24:17.011Z",
+  "currentVersion": "2026.10.26.2",
+  "publishedAt": "2026-10-27T02:37:40.964Z",
   "sourceSummary": {
     "clearurls": {
       "source": "https://github.com/ClearURLs/Rules",
       "upstreamCommit": null,
-      "reviewedAt": "2026-10-11T14:24:17.011Z"
+      "reviewedAt": "2026-10-27T02:37:40.964Z"
     },
     "urlstripSupplementary": {
-      "version": "2026.10.11.1"
+      "version": "2026.10.26.2"
     }
   },
   "files": [
     {
       "kind": "clearurls",
       "path": "data.min.json",
-      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.11.1/data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.26.2/data.min.json",
       "sha256": "793d76ad72308d96b12707a98306959f35d7b8d6aea29cb97bef74f35a4bb0f6",
       "bytes": 106079
     },
     {
       "kind": "urlstrip-supplementary",
       "path": "urlstrip-supplementary.json",
-      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.11.1/urlstrip-supplementary.json",
-      "sha256": "94bdaeaf79dc849c4d3b817036e0334e9e87f78279efea3cd0f68599a89c6e79",
-      "bytes": 25981
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.26.2/urlstrip-supplementary.json",
+      "sha256": "41c7eda6a4d24adc0206e60b6d654003b033ce9a0c2417c3ae728989901cc410",
+      "bytes": 25986
     }
   ],
   "notes": [
-    "Remove the `s` share-attribution query key from exact `x.com` status-video links using a narrowly bounded host and path rule.",
+    "Remove the `s` share-attribution query key from exact `x.com` status links and the existing `/video/1` status variant.",
     "Preserve functional and unknown query parameters, their source order and untouched raw encoding, bare tokens, literal plus signs, and fragments.",
-    "Reject adjacent paths, similarly named parameters, alternate and lookalike hosts, credential tricks, and non-HTTPS links. Public examples use synthetic account and status identifiers.",
-    "Supersede Beta `2026.10.08.5`; leave Stable `2026.09.21.1` unchanged."
+    "Reject alternate and lookalike hosts, credential tricks, non-HTTPS links, trailing-slash forms, other status suffixes, oversized status identifiers, and similarly named parameters.",
+    "Supersede Beta `2026.10.11.1`; leave Stable `2026.10.11.1` unchanged."
   ]
 }
