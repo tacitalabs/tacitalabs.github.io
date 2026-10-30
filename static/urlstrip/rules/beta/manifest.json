@@ -2,38 +2,39 @@
   "product": "URLStrip",
   "kind": "rules",
   "schemaVersion": 1,
-  "currentVersion": "2026.10.26.2",
-  "publishedAt": "2026-10-27T02:37:40.964Z",
+  "currentVersion": "2026.10.29.1",
+  "publishedAt": "2026-10-30T00:44:40.611Z",
   "sourceSummary": {
     "clearurls": {
       "source": "https://github.com/ClearURLs/Rules",
       "upstreamCommit": null,
-      "reviewedAt": "2026-10-27T02:37:40.964Z"
+      "reviewedAt": "2026-10-30T00:44:40.611Z"
     },
     "urlstripSupplementary": {
-      "version": "2026.10.26.2"
+      "version": "2026.10.29.1"
     }
   },
   "files": [
     {
       "kind": "clearurls",
       "path": "data.min.json",
-      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.26.2/data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.29.1/data.min.json",
       "sha256": "793d76ad72308d96b12707a98306959f35d7b8d6aea29cb97bef74f35a4bb0f6",
       "bytes": 106079
     },
     {
       "kind": "urlstrip-supplementary",
       "path": "urlstrip-supplementary.json",
-      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.26.2/urlstrip-supplementary.json",
-      "sha256": "41c7eda6a4d24adc0206e60b6d654003b033ce9a0c2417c3ae728989901cc410",
-      "bytes": 25986
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.29.1/urlstrip-supplementary.json",
+      "sha256": "6b66089dbb2a529dc4a7a4cca55c9e50145ee8b78f1462f4b9f416d18b713e84",
+      "bytes": 26370
     }
   ],
   "notes": [
-    "Remove the `s` share-attribution query key from exact `x.com` status links and the existing `/video/1` status variant.",
-    "Preserve functional and unknown query parameters, their source order and untouched raw encoding, bare tokens, literal plus signs, and fragments.",
-    "Reject alternate and lookalike hosts, credential tricks, non-HTTPS links, trailing-slash forms, other status suffixes, oversized status identifiers, and similarly named parameters.",
-    "Supersede Beta `2026.10.11.1`; leave Stable `2026.10.11.1` unchanged."
+    "Remove the optional `a` query key only on exact HTTPS `x.com` ordinary numeric-status links, excluding `/i/status`, trailing slashes and status suffixes.",
+    "Preserve other query state, duplicate order, raw percent escapes, literal plus signs, bare tokens and fragments; clean the original URL before an optional privacy redirect.",
+    "Retain the published `2026.10.26.2` status/video `s` behavior. Public regression examples are synthetic.",
+    "The sampled post text was unchanged without `a`; its attribution purpose and direct TwitterViewer removability remain unestablished. No rule is added for TwitterViewer or alternate hosts.",
+    "Publish to Beta only. Stable remains `2026.10.26.2`; no app or engine release."
   ]
 }
