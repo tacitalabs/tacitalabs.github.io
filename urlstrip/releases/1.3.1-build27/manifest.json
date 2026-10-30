@@ -1,0 +1,45 @@
+{
+  "product": "URLStrip",
+  "channel": "desktop",
+  "platform": "macOS",
+  "version": "1.3.1",
+  "build": 27,
+  "releaseDate": "2026-09-28",
+  "publicationMode": "website-only",
+  "releaseRepositoryCommit": "289d7853e6746a3e5c678c7c7dbb94e588987d5e",
+  "rulesVersion": "2026.09.28.2",
+  "privacyServicesCatalogVersion": 3,
+  "macOS": {
+    "sourceCommit": "ae695fb96f9e21268fa21f2e3cb5dc602d3fa6f8",
+    "sourceTree": "3563419ca12aa4d2cb772b82bf59d7958a2513b0",
+    "releaseTag": "urlstrip-1.3.1-build27",
+    "releaseAssetUrl": "https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.3.1-build27/URLStrip-1.3.1-build27-macOS-universal.dmg",
+    "url": "https://www.tacitalabs.com/urlstrip/releases/1.3.1-build27/URLStrip-1.3.1-build27-macOS-universal.dmg",
+    "bytes": 5685004,
+    "sha256": "b7e46d858e9eaa0f9d0cb2831ac19e2d069f30129aae9efb7a5d17da51896387",
+    "architectures": [
+      "arm64",
+      "x86_64"
+    ],
+    "signing": "Developer ID Application",
+    "notarization": "Accepted",
+    "appSubmissionId": "590c250e-fa47-4317-8fd7-d49a180585f8",
+    "dmgSubmissionId": "487fc50c-3517-426c-bcc1-f9740a70fd2f",
+    "stapled": true
+  },
+  "sharedDesktopUpdater": {
+    "version": "1.3.1",
+    "build": 26,
+    "url": "https://www.tacitalabs.com/urlstrip/releases/desktop.json",
+    "sha256": "c474adbb949eec7714ce8be48afb125b55e61a86dceca870c09fb4ca7258a918",
+    "limitation": "Existing macOS clients receive no in-app Build 27 offer."
+  },
+  "windowsUnchanged": {
+    "version": "1.3.1",
+    "build": 26,
+    "url": "https://www.tacitalabs.com/urlstrip/releases/1.3.1-build26/URLStrip-1.3.1-build26-Windows-x64-setup.exe",
+    "bytes": 4410568,
+    "sha256": "fbe652d3861082f948e7511769a0043fb2e1e20abc125883221cf7bd9a396fc0",
+    "releaseTag": "urlstrip-1.3.1-build26"
+  }
+}

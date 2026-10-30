@@ -1,0 +1,38 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.08.31.2",
+  "publishedAt": "2026-08-31T16:56:46.922Z",
+  "sourceSummary": {
+    "clearurls": {
+      "source": "https://github.com/ClearURLs/Rules",
+      "upstreamCommit": null,
+      "reviewedAt": "2026-08-31T16:56:46.922Z"
+    },
+    "urlstripSupplementary": {
+      "version": "2026.08.31.2"
+    }
+  },
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.08.31.2/data.min.json",
+      "sha256": "b328d2a5b95b1b23bac2c91342a8deee3f9a3826a5950bf9e28e332ffd94cd2f",
+      "bytes": 106070
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.08.31.2/urlstrip-supplementary.json",
+      "sha256": "36d5a7bc0e74121a65e3f5c7b95d0068f6349a29744d90aa006cdeb008c03c14",
+      "bytes": 15032
+    }
+  ],
+  "notes": [
+    "Add 13 exact domain-scoped tracking rules discovered in the upstream privacy list.",
+    "Cover attribution parameters on nine news, search, and content hosts without stripping generic names globally.",
+    "Preserve unrelated query parameters and keep Stable unchanged during the Beta soak."
+  ]
+}

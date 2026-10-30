@@ -1,0 +1,10 @@
+{
+  "product": "URLStrip",
+  "desktop": {
+    "currentVersion": "1.4.0",
+    "currentBuild": 30,
+    "releaseDate": "2026-10-19",
+    "notesUrl": "https://www.tacitalabs.com/urlstrip/releases/1.4.0.html",
+    "downloadUrl": "https://www.tacitalabs.com/download.html"
+  }
+}
