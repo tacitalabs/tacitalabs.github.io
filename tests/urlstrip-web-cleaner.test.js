@@ -4,8 +4,8 @@ const path = require('node:path');
 const URLStrip = require('../static/urlstrip/cleaner.js');
 
 const root = path.resolve(__dirname, '..');
-const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.26.2/data.min.json'), 'utf8'));
-const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.26.2/urlstrip-supplementary.json'), 'utf8'));
+const clearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.29.1/data.min.json'), 'utf8'));
+const supplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.29.1/urlstrip-supplementary.json'), 'utf8'));
 const betaClearRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.29.1/data.min.json'), 'utf8'));
 const betaSupplementaryRules = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/2026.10.29.1/urlstrip-supplementary.json'), 'utf8'));
 const stableManifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/manifest.json'), 'utf8'));
@@ -39,14 +39,14 @@ function test(name, fn) {
 console.log(`compiled providers: ${engine.providers.length}; skipped: ${engine.skippedProviders.length}`);
 assert.ok(engine.providers.length > 200, 'should compile the bundled provider set');
 
-test('Beta optional X status a is scoped and preserves raw state', () => {
+test('Stable and Beta optional X status a is scoped and preserves raw state', () => {
   const input = "https://x.com/Synthetic_User/status/1234567890123456789?first=alpha%2fbeta&a=synthetic-one&literal=a+b&bare&a=synthetic-two&keep=1&keep=2&last=%7e#post";
   const expected = "https://x.com/Synthetic_User/status/1234567890123456789?first=alpha%2fbeta&literal=a+b&bare&keep=1&keep=2&last=%7e#post";
   const result = cleanBeta(input);
   assert.equal(result.cleanedUrl, expected);
   assert.deepEqual(result.removedQueryParameters, ['a', 'a']);
   assert.equal(cleanBeta(expected).status, 'unchanged');
-  assert.equal(clean(input).status, 'unchanged', 'Stable must not acquire the new a policy');
+  assert.deepEqual(clean(input), result, 'Stable must match the exact phone-tested Beta package');
   const adjacent = cleanBeta('https://x.com/synthetic/status/1234567890123456789?s=synthetic&a=synthetic&keep=1');
   assert.equal(adjacent.cleanedUrl, 'https://x.com/synthetic/status/1234567890123456789?keep=1');
   assert.deepEqual(adjacent.removedQueryParameters, ['s', 'a']);
@@ -69,6 +69,7 @@ test('Beta optional X status a is scoped and preserves raw state', () => {
   "https://x.com/synthetic/status/1234567890123456789/?a=keep"
 ]) {
     assert.equal(cleanBeta(input).status, 'unchanged', input);
+    assert.equal(clean(input).status, 'unchanged', input);
   }
 });
 
@@ -87,8 +88,9 @@ test('public rule manifests remain compatible with released iOS builds', () => {
   }
 });
 
-test('Beta preserves the published status-share baseline while Stable stays pinned', () => {
-  assert.equal(stableManifest.currentVersion, '2026.10.26.2');
+test('Stable promotes the exact tested Beta and preserves the status-share baseline', () => {
+  assert.deepEqual(stableManifest, betaManifest);
+  assert.equal(stableManifest.currentVersion, '2026.10.29.1');
   assert.equal(betaManifest.currentVersion, '2026.10.29.1');
 
   const xStatusShare = cleanBeta(
