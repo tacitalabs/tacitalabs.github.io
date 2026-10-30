@@ -45,6 +45,9 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      - name: Verify signed URLStrip rule channels
+        run: node tests/urlstrip-rule-feed.test.js
+
       - name: Run URLStrip web cleaner tests
         run: node tests/urlstrip-web-cleaner.test.js
 
