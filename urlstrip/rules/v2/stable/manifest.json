@@ -1,0 +1,29 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 2,
+  "channel": "stable",
+  "currentVersion": "2026.10.31.5",
+  "publishedAt": "2026-10-31T18:19:38.646Z",
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/v2/stable/2026.10.31.5/data.min.json",
+      "sha256": "5edecb154aa023560c78a580e71014cc5631f2bc66efa1440cdf750aa21a07a3",
+      "bytes": 137744
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/v2/stable/2026.10.31.5/urlstrip-supplementary.json",
+      "sha256": "420dd0eb00c2bc2f9010a5bcdfc33755b1682f07ce7b35144e85541ec2dd154a",
+      "bytes": 43170
+    }
+  ],
+  "notes": [
+    "Bootstrap extensible v2 feeds from reviewed 2026.10.29.1 baseline rules, with no new rule content.",
+    "Whole-rule capability gating and generation/channel-isolated verified caches require URLStrip 1.5.1 or newer.",
+    "Provisional Rockchasing and unverified attribution additions are excluded; existing v1 endpoints and bytes remain unchanged."
+  ]
+}

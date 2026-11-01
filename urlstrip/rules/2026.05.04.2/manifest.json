@@ -1,0 +1,38 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.05.04.2",
+  "publishedAt": "2026-05-04T20:00:51.614Z",
+  "sourceSummary": {
+    "clearurls": {
+      "source": "https://github.com/ClearURLs/Rules",
+      "upstreamCommit": null,
+      "reviewedAt": "2026-05-04T20:00:51.614Z"
+    },
+    "urlstripSupplementary": {
+      "version": "2026.05.04.2"
+    }
+  },
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.05.04.2/data.min.json",
+      "sha256": "b328d2a5b95b1b23bac2c91342a8deee3f9a3826a5950bf9e28e332ffd94cd2f",
+      "bytes": 106070
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.05.04.2/urlstrip-supplementary.json",
+      "sha256": "7582d3304c59410b1a8796f5dc7a9d87d1486932d10f6b6480aebcfeb47bd2b5",
+      "bytes": 7543
+    }
+  ],
+  "notes": [
+    "Test-only rules update for validating hosted rule bundle installation on Windows.",
+    "Adds a harmless diagnostic parameter rule: urlstrip_update_test.",
+    "No app binary update is required to consume this rules bundle."
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "product": "URLStrip",
+  "channel": "desktop",
+  "version": "1.5.1",
+  "build": 31,
+  "releaseDate": "2026-10-31",
+  "macOS": {
+    "sourceCommit": "032377405c069a73fb8f6ef849a1664e25806b47",
+    "sourceTree": "f5fab06bfd52890fee018fefbeb61e60684d760b",
+    "version": "1.5.1",
+    "build": 31,
+    "bytes": 8084382,
+    "sha256": "272be833c83d3d6b014c267c29af5915135d7d58cbd84aee23781f69cb0db4d7",
+    "url": "https://www.tacitalabs.com/urlstrip/releases/1.5.1-build31/URLStrip-1.5.1-Build31-macOS-universal.dmg",
+    "releaseTag": "urlstrip-1.5.1-build31",
+    "releaseAssetUrl": "https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.5.1-build31/URLStrip-1.5.1-Build31-macOS-universal.dmg"
+  },
+  "windows": {
+    "sourceCommit": "aef4056a64e90ed61cffe5f67f170a4b38b1b592",
+    "sourceTree": "1056ad50432fb39bbf3456124c2e78af7b55a12a",
+    "version": "1.5.1",
+    "build": 31,
+    "bytes": 4489056,
+    "sha256": "225b4758e46099c4b497454fdd815d8a7017358126114253efb59fb9e6ad8cee",
+    "url": "https://www.tacitalabs.com/urlstrip/releases/1.5.1-build31/URLStrip-1.5.1-Build31-windows-x64-setup.exe",
+    "releaseTag": "urlstrip-1.5.1-build31",
+    "releaseAssetUrl": "https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.5.1-build31/URLStrip-1.5.1-Build31-windows-x64-setup.exe"
+  }
+}

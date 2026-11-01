@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URLStrip 1.4.0 Build 30 Release Notes - Tacita Labs</title>
+    <meta name="description" content="Release notes for URLStrip 1.4.0 Build 30 on macOS and Windows." />
+    <meta property="og:site_name" content="Tacita Labs" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.tacitalabs.com/assets/tacita-social-preview.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page subpage">
+      <header class="site-header">
+        <a class="site-brand" href="/index.html" aria-label="Tacita Labs home">
+          <img class="brand-lockup" src="/assets/tacita-horizontal-lockup.png" alt="Tacita Labs" width="1200" height="240" />
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/index.html#why">Why it matters</a>
+          <a href="/index.html#how">How it works</a>
+          <a href="/index.html#trust">Trust</a>
+          <a href="/download.html">Download</a>
+          <a href="/about.html">About</a>
+          <a href="/privacy.html">Privacy</a>
+        </nav>
+      </header>
+
+      <section class="section page-intro">
+        <p class="eyebrow">Desktop release notes</p>
+        <h1>URLStrip 1.4.0 (Build 30)</h1>
+        <p class="lede">Clean URLs inside copied text while preserving the content around them.</p>
+      </section>
+
+      <section class="section prose-section">
+        <div class="prose-grid single-column">
+          <article class="card prose-card">
+            <h2>What changed</h2>
+            <ul class="check-list compact-list">
+              <li>Cleans supported URLs inside multi-line text while preserving prose, punctuation, wrappers, Unicode, and line endings.</li>
+              <li>Preserves native clipboard representations on macOS and native Unicode text on Windows.</li>
+              <li>Keeps Command Guard ahead of clipboard modification and preserves exact restore behavior.</li>
+              <li>Adds fail-closed signed rule-feed verification and visible rule, catalog, and app update status.</li>
+              <li>Preserves supported Amazon short-link resolution and adds tested Airbnb query-boundary handling.</li>
+              <li>Keeps privacy redirects explicit and fail-closed.</li>
+            </ul>
+          </article>
+
+          <article class="card prose-card">
+            <h2>Privacy, signing, and verification</h2>
+            <p>Normal URL cleaning stays local. Network resolution and privacy redirects remain explicit or opt-in and fail closed. The universal macOS DMG is Developer ID signed, Apple notarized, and stapled. The Windows x64 installer is Azure Trusted Signing signed and timestamped.</p>
+          </article>
+
+          <article class="card prose-card">
+            <h2>Verification limitations</h2>
+            <p>Windows catalog tray navigation and the transient live pending indicator were waived and remain unverified for this release. They are not recorded as passing checks, and no product defect was confirmed. Rules tray navigation and the observed Command Guard warning-priority scenario passed.</p>
+          </article>
+
+          <article class="card prose-card">
+            <h2>Downloads</h2>
+            <p>Download the signed macOS or Windows release and verify its published SHA-256 hash on the <a href="/download.html">URLStrip download page</a>.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

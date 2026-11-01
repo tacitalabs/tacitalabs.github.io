@@ -1,0 +1,39 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.10.08.4",
+  "publishedAt": "2026-10-09T03:26:05.794Z",
+  "sourceSummary": {
+    "clearurls": {
+      "source": "https://github.com/ClearURLs/Rules",
+      "upstreamCommit": null,
+      "reviewedAt": "2026-10-09T03:26:05.794Z"
+    },
+    "urlstripSupplementary": {
+      "version": "2026.10.08.4"
+    }
+  },
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.08.4/data.min.json",
+      "sha256": "a6ccf52b371e8a7fc14365baf2f3fde0fefeed3c5ed27b9a1268f7be490619e7",
+      "bytes": 106100
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.08.4/urlstrip-supplementary.json",
+      "sha256": "dd92dba116f05dc06d671a573920d2b4a49c19029699ee9f0fb8ab373c13316c",
+      "bytes": 25634
+    }
+  ],
+  "notes": [
+    "Replace the Instagram one-off parameter chase with a narrow hybrid rule on exact `instagram.com` and `www.instagram.com` hosts.",
+    "Remove every query parameter from shareable post, reel, and profile routes except the evidenced functional parameters `img_index` and `hl`.",
+    "Preserve the explicit `igsi`, `stkn`, `ig_rid`, `xtok`, `exln`, and `psln` cleanup on the same exact hosts while rejecting subdomains, lookalikes, credential tricks, unrelated domains, and unrelated Instagram paths.",
+    "Preserve the complete Beta `2026.10.08.3` rule set and leave Stable `2026.09.21.1` unchanged."
+  ]
+}

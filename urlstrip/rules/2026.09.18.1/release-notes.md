@@ -1,0 +1,2 @@
+- Remove YouTube's `is` share-attribution parameter on exact `youtube.com` subdomains and `youtu.be`, including the reported short-link form, while preserving video, playlist, timestamp, and unrelated query state.
+- Keep the rule fail-closed for credential tricks, lookalike domains, and unrelated hosts.

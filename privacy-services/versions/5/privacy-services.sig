@@ -1,0 +1,1 @@
+{"algorithm":"Ed25519","keyID":"urlstrip-catalog-2026-09","signature":"hNP6QZV2Hc+LgMRLXSvY/WOALHr8DceYs8s8hbjHM1lnYLJhKE1wh0si550wwse8hkxPjcahW0q9CWoctBzMDA=="}

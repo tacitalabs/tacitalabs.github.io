@@ -1,0 +1,49 @@
+{
+  "product": "URLStrip",
+  "channel": "desktop",
+  "version": "1.4.0",
+  "build": 30,
+  "releaseDate": "2026-10-19",
+  "releaseRepositoryCommit": "052257fa94433ae075bcfcf16c4e83ca22f412a4",
+  "rulesVersion": "2026.10.11.1",
+  "privacyServicesCatalogVersion": 5,
+  "macOS": {
+    "sourceCommit": "92307a1b1d183e2d9f28bed3f58fc980062b2756",
+    "sourceTree": "75237d89f0f35f4b6ec16364b7fa6b9d9715920d",
+    "releaseTag": "urlstrip-1.4.0-build30",
+    "releaseAssetUrl": "https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.4.0-build30/URLStrip-1.4.0-Build30-macOS-universal.dmg",
+    "version": "1.4.0",
+    "build": 30,
+    "status": "released",
+    "architectures": ["arm64", "x86_64"],
+    "url": "https://www.tacitalabs.com/urlstrip/releases/1.4.0-build30/URLStrip-1.4.0-Build30-macOS-universal.dmg",
+    "bytes": 6185189,
+    "sha256": "5b7831c06d04a02a1a02729e8f90b9f3e081a8b4898df1fcf2e5a6b73ac0113b",
+    "signing": "Developer ID Application",
+    "notarization": "Accepted",
+    "stapled": true,
+    "nativeVerification": "passed"
+  },
+  "windows": {
+    "sourceCommit": "92307a1b1d183e2d9f28bed3f58fc980062b2756",
+    "sourceTree": "75237d89f0f35f4b6ec16364b7fa6b9d9715920d",
+    "releaseTag": "urlstrip-1.4.0-build30",
+    "releaseAssetUrl": "https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.4.0-build30/URLStrip-1.4.0-Build30-windows-x64-setup.exe",
+    "version": "1.4.0",
+    "build": 30,
+    "status": "released",
+    "architecture": "x86_64",
+    "url": "https://www.tacitalabs.com/urlstrip/releases/1.4.0-build30/URLStrip-1.4.0-Build30-windows-x64-setup.exe",
+    "bytes": 4446768,
+    "sha256": "77ac47e1f61a6b33d780b2a4f695fa99108be3759c72b5ca5bbeac77493a3182",
+    "signing": "Azure Trusted Signing",
+    "publisher": "James O'Gorman",
+    "authenticode": "Valid",
+    "timestamped": true,
+    "nativeVerification": "passed",
+    "verificationLimitations": [
+      "Catalog tray navigation was waived and remains unverified.",
+      "The transient live pending indicator was waived and remains unverified."
+    ]
+  }
+}

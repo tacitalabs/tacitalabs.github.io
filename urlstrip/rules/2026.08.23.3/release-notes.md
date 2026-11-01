@@ -1,0 +1,2 @@
+- Adds reviewed, domain-scoped removal for Temu advertising attribution, AWS marketing `trk`, and Wikimedia `wprov` provenance.
+- Expands the source audit to the joint AdGuard/uBlock Origin scoped list while preserving exception warnings and deferring ambiguous functional parameters.
