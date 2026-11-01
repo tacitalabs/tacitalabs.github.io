@@ -29,13 +29,12 @@ reports: [infobreaker@tacitalabs.com](mailto:infobreaker@tacitalabs.com).
 
 ## URLStrip - free to download and use.
 
-The current synchronized desktop release is URLStrip 1.4.0 Build 30 for macOS
+The current synchronized desktop release is URLStrip 1.5.1 Build 31 for macOS
 and Windows.
 
-Build 30 cleans supported URLs inside multi-line clipboard text while preserving
-the surrounding prose, punctuation, wrappers, Unicode, and line endings. It also
-adds fail-closed signed rule-feed verification and visible rule, catalog, and app
-update status.
+Build 31 adds extensible signed rule feeds with separate Stable and Beta
+channels. Windows Status now shows a meaningful empty state before any
+activity. Existing URL-cleaning and privacy controls remain available.
 
 URLStrip for iOS and iPadOS is available on the App Store. TestFlight
 remains available for people who want the newest beta builds. Desktop releases
@@ -62,15 +61,15 @@ Native macOS desktop build for Apple Silicon and Intel Macs. Includes URL
 cleaning, local Command Guard warnings for risky terminal commands copied to
 the clipboard, and an optional command-line tool.
 
-[Download URLStrip 1.4.0 (Build 30) for macOS](/urlstrip/releases/1.4.0-build30/URLStrip-1.4.0-Build30-macOS-universal.dmg)
+[Download URLStrip 1.5.1 (Build 31) for macOS](/urlstrip/releases/1.5.1-build31/URLStrip-1.5.1-Build31-macOS-universal.dmg)
 
-SHA-256: `5b7831c06d04a02a1a02729e8f90b9f3e081a8b4898df1fcf2e5a6b73ac0113b`
+SHA-256: `272be833c83d3d6b014c267c29af5915135d7d58cbd84aee23781f69cb0db4d7`
 
-Verify: `shasum -a 256 URLStrip-1.4.0-Build30-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.5.1-Build31-macOS-universal.dmg`
 
 Developer ID signed, Apple notarized, and stapled. Includes an optional macOS
 command-line tool. Install it from **Advanced Settings** in the app, then run
-`urlstrip --help`. [Read the Build 30 release notes](/urlstrip/releases/1.4.0.html).
+`urlstrip --help`. [Read the Build 31 release notes](/urlstrip/releases/1.5.1.html).
 
 {{% /card %}}
 {{% card %}}
@@ -79,11 +78,11 @@ command-line tool. Install it from **Advanced Settings** in the app, then run
 
 Windows desktop release with the same local-cleaning model.
 
-[Download URLStrip 1.4.0 (Build 30) for Windows](/urlstrip/releases/1.4.0-build30/URLStrip-1.4.0-Build30-windows-x64-setup.exe)
+[Download URLStrip 1.5.1 (Build 31) for Windows](/urlstrip/releases/1.5.1-build31/URLStrip-1.5.1-Build31-windows-x64-setup.exe)
 
-SHA-256: `77ac47e1f61a6b33d780b2a4f695fa99108be3759c72b5ca5bbeac77493a3182`
+SHA-256: `225b4758e46099c4b497454fdd815d8a7017358126114253efb59fb9e6ad8cee`
 
-Verify: `certutil -hashfile URLStrip-1.4.0-Build30-windows-x64-setup.exe sha256`
+Verify: `certutil -hashfile URLStrip-1.5.1-Build31-windows-x64-setup.exe sha256`
 
 Command Guard watches copied shell, PowerShell, and command-line snippets for
 risky patterns such as remote download-and-execute chains, encoded payloads,
@@ -116,4 +115,4 @@ Want to try URLStrip before installing? Use the [browser-based URL cleaner](/cle
 Beta testing URLStrip? See the [tester guide](/beta-testing.html) for
 what to try and what to report.
 
-Checksums: [URLStrip 1.4.0 Build 30 SHA256SUMS](/urlstrip/releases/1.4.0-build30/SHA256SUMS)
+Checksums: [URLStrip 1.5.1 Build 31 SHA256SUMS](/urlstrip/releases/1.5.1-build31/SHA256SUMS)
