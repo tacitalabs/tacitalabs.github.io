@@ -320,7 +320,13 @@
     };
   }
 
+  function isEncryptedRedirect(input) {
+    const prefix = 'https://search.brave.com/go/v1#';
+    return input.startsWith(prefix) && input.length > prefix.length;
+  }
+
   function performClean(engine, trimmed, depth, options = {}) {
+    if (isEncryptedRedirect(trimmed)) return null;
     let currentURL = trimmed;
     const matchedRuleIDs = [];
     const matchedCategories = new Set();
@@ -451,7 +457,7 @@
     const parsed = parseInput(input);
     if (parsed.error) return { status: 'invalid', input: parsed.trimmed, reason: parsed.error };
 
-    if (/^https:\/\/search\.brave\.com\/go\/v1#.+$/.test(parsed.trimmed)) {
+    if (isEncryptedRedirect(parsed.trimmed)) {
       return { status: 'unchanged', originalUrl: parsed.trimmed,
         classification: 'encrypted_redirect', message: 'Open this result, then clean the destination URL.' };
     }
