@@ -73,11 +73,11 @@
     resultPanel.hidden = false;
     resultPanel.className = 'tool-result is-unchanged';
     resultUrlWrap.hidden = false;
-    resultLabel.textContent = 'No known tracking found';
+    resultLabel.textContent = result.classification === 'encrypted_redirect' ? 'Encrypted redirect' : 'No known tracking found';
     output.value = result.originalUrl;
     lastCleanedUrl = result.originalUrl;
     resultDetails.replaceChildren();
-    appendText(resultDetails, 'p', 'URLStrip did not find known tracking parameters, supported redirect wrappers, or enabled privacy rewrites in this link.');
+    appendText(resultDetails, 'p', result.message || 'URLStrip did not find known tracking parameters, supported redirect wrappers, or enabled privacy rewrites in this link.');
   }
 
   function showCleaned(result) {

@@ -3,39 +3,347 @@
   "description": "Portable local-cleaning cases shared by the Swift, Rust, and browser JavaScript engines.",
   "cases": [
     {
+      "name": "generic cleanup preserves opaque raw query state on any host",
+      "input": "https://example.org/synthetic?first=%2f%2F&u%74m_source=synthetic&literal=a+b&bare&keep=1&&keep=2&empty=&unknown=%FF%7e&utm_source=repeat#frag%2f",
+      "expected": "https://example.org/synthetic?first=%2f%2F&literal=a+b&bare&keep=1&&keep=2&empty=&unknown=%FF%7e#frag%2f",
+      "removed": [
+        "utm_source",
+        "utm_source"
+      ]
+    },
+    {
+      "name": "generic no-op preserves raw query spelling and fragment",
+      "input": "https://example.net/synthetic?state=%2f%7e&literal=a+b&bare&&state=2#frag%2f",
+      "expected": "https://example.net/synthetic?state=%2f%7e&literal=a+b&bare&&state=2#frag%2f",
+      "removed": []
+    },
+    {
       "name": "generic UTM removal",
       "input": "https://example.com/article?page=1&utm_source=news&utm_medium=email",
       "expected": "https://example.com/article?page=1",
-      "removed": ["utm_source", "utm_medium"]
+      "removed": [
+        "utm_source",
+        "utm_medium"
+      ]
     },
     {
       "name": "YouTube share attribution",
       "input": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&si=share-token&feature=shared",
       "expected": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      "removed": ["si", "feature"]
+      "removed": [
+        "si",
+        "feature"
+      ]
     },
     {
       "name": "Threads share attribution",
       "input": "https://www.threads.com/@account/post/example?xmt=AQG-test&slof=1",
       "expected": "https://www.threads.com/@account/post/example",
-      "removed": ["xmt", "slof"]
+      "removed": [
+        "xmt",
+        "slof"
+      ]
     },
     {
       "name": "Google search client",
       "input": "https://www.google.com/search?q=privacy&client=safari",
       "expected": "https://www.google.com/search?q=privacy",
-      "removed": ["client"]
+      "removed": [
+        "client"
+      ]
     },
     {
       "name": "Wikipedia share provenance",
       "input": "https://en.wikipedia.org/wiki/Privacy?wprov=sfti1&oldid=123",
       "expected": "https://en.wikipedia.org/wiki/Privacy?oldid=123",
-      "removed": ["wprov"]
+      "removed": [
+        "wprov"
+      ]
     },
     {
       "name": "functional parameters remain",
       "input": "https://example.com/page?id=42&lang=en",
       "expected": "https://example.com/page?id=42&lang=en",
+      "removed": []
+    },
+    {
+      "name": "Airbnb established cleanup preserves booking and unproven attribution fields",
+      "input": "https://www.airbnb.com/rooms/SyntheticRoom?viralityEntryPoint=synthetic&unique_share_id=synthetic&slcid=synthetic&s=keep&channel=keep&source_impression_id=synthetic&feature=share&_branch_match_id=synthetic&_branch_referrer=synthetic&adults=2&children=1&infants=0&check_in=2099-01-02&check_out=2099-01-03&locale=en&slug=synthetic-stay",
+      "expected": "https://www.airbnb.com/rooms/SyntheticRoom?viralityEntryPoint=synthetic&unique_share_id=synthetic&slcid=synthetic&s=keep&channel=keep&adults=2&children=1&infants=0&check_in=2099-01-02&check_out=2099-01-03&locale=en&slug=synthetic-stay",
+      "removed": [
+        "source_impression_id",
+        "feature",
+        "_branch_match_id",
+        "_branch_referrer"
+      ]
+    },
+    {
+      "name": "Airbnb unknown and booking bytes preserve spelling order duplicates plus bare and fragment",
+      "input": "https://www.airbnb.com/rooms/SyntheticRoom?adults=2&source_impression_id=synthetic&s=a%2fb&s=a%2Fb&channel=a+b&bare&locale=en%2dUS&unknown=%7e#synthetic",
+      "expected": "https://www.airbnb.com/rooms/SyntheticRoom?adults=2&s=a%2fb&s=a%2Fb&channel=a+b&bare&locale=en%2dUS&unknown=%7e#synthetic",
+      "removed": [
+        "source_impression_id"
+      ]
+    },
+    {
+      "name": "Airbnb search preserves encoded names empty tokens delimiters and fragment",
+      "input": "https://airbnb.com/s/SyntheticPlace/homes?source%5fimpression_id=synthetic&%73=one%26two%3dthree&channel=%252f+%2B&&bare=&bare&unknown=%23%3f&source_impression_id=synthetic2#frag%2f",
+      "expected": "https://airbnb.com/s/SyntheticPlace/homes?%73=one%26two%3dthree&channel=%252f+%2B&&bare=&bare&unknown=%23%3f#frag%2f",
+      "removed": [
+        "source_impression_id",
+        "source_impression_id"
+      ]
+    },
+    {
+      "name": "Airbnb lookalike leaves high risk candidate names untouched",
+      "input": "https://www.airbnb.com.evil.test/rooms/SyntheticRoom?s=keep&channel=keep&viralityEntryPoint=keep&unique_share_id=keep&slcid=keep&adults=2",
+      "expected": "https://www.airbnb.com.evil.test/rooms/SyntheticRoom?s=keep&channel=keep&viralityEntryPoint=keep&unique_share_id=keep&slcid=keep&adults=2",
+      "removed": []
+    },
+    {
+      "name": "Nov16 encoding invalidUTF8",
+      "input": "https://example.org/synthetic?state=%FF%FE%C3%28&utm_source=synthetic#frag%2f",
+      "expected": "https://example.org/synthetic?state=%FF%FE%C3%28#frag%2f",
+      "removed": [
+        "utm_source"
+      ]
+    },
+    {
+      "name": "Nov16 encoding shiftJISLike",
+      "input": "https://example.org/synthetic?state=%82%A0%82%a2&utm_source=synthetic#frag%2f",
+      "expected": "https://example.org/synthetic?state=%82%A0%82%a2#frag%2f",
+      "removed": [
+        "utm_source"
+      ]
+    },
+    {
+      "name": "Nov16 encoding literalPlus",
+      "input": "https://example.org/synthetic?state=a+b%2Bc&utm_source=synthetic#frag%2f",
+      "expected": "https://example.org/synthetic?state=a+b%2Bc#frag%2f",
+      "removed": [
+        "utm_source"
+      ]
+    },
+    {
+      "name": "Nov16 encoding encodedSeparators",
+      "input": "https://example.org/synthetic?state=a%26b%3Dc%3fd%23e&utm_source=synthetic#frag%2f",
+      "expected": "https://example.org/synthetic?state=a%26b%3Dc%3fd%23e#frag%2f",
+      "removed": [
+        "utm_source"
+      ]
+    },
+    {
+      "name": "Nov16 encoding duplicates",
+      "input": "https://example.org/synthetic?state=one&state=two&utm_source=synthetic#frag%2f",
+      "expected": "https://example.org/synthetic?state=one&state=two#frag%2f",
+      "removed": [
+        "utm_source"
+      ]
+    },
+    {
+      "name": "Nov16 encoding emptyBare",
+      "input": "https://example.org/synthetic?empty=&bare&&last=&utm_source=synthetic#frag%2f",
+      "expected": "https://example.org/synthetic?empty=&bare&&last=#frag%2f",
+      "removed": [
+        "utm_source"
+      ]
+    },
+    {
+      "name": "Nov16 encoding mixedCaseEscapes",
+      "input": "https://example.org/synthetic?state=%2f%2F%7e%7E&utm_source=synthetic#frag%2f",
+      "expected": "https://example.org/synthetic?state=%2f%2F%7e%7E#frag%2f",
+      "removed": [
+        "utm_source"
+      ]
+    },
+    {
+      "name": "Nov16 encoding nonLatinPath",
+      "input": "https://example.org/%E6%97%A5%E6%9C%AC/%D9%85%D8%B3%D8%A7%D8%B1?state=%E6%97%A5&utm_source=synthetic#frag%2f",
+      "expected": "https://example.org/%E6%97%A5%E6%9C%AC/%D9%85%D8%B3%D8%A7%D8%B1?state=%E6%97%A5#frag%2f",
+      "removed": [
+        "utm_source"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram cplk p/SyNtHeTiC01",
+      "input": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&cplk=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&hl=en#media",
+      "removed": [
+        "cplk"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram cplk reel/SyNtHeTiC02",
+      "input": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&cplk=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&hl=en#media",
+      "removed": [
+        "cplk"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram dlrf p/SyNtHeTiC01",
+      "input": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&dlrf=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&hl=en#media",
+      "removed": [
+        "dlrf"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram dlrf reel/SyNtHeTiC02",
+      "input": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&dlrf=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&hl=en#media",
+      "removed": [
+        "dlrf"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram exln p/SyNtHeTiC01",
+      "input": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&exln=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&hl=en#media",
+      "removed": [
+        "exln"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram exln reel/SyNtHeTiC02",
+      "input": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&exln=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&hl=en#media",
+      "removed": [
+        "exln"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram mdxt p/SyNtHeTiC01",
+      "input": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&mdxt=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&hl=en#media",
+      "removed": [
+        "mdxt"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram mdxt reel/SyNtHeTiC02",
+      "input": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&mdxt=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&hl=en#media",
+      "removed": [
+        "mdxt"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram obrf p/SyNtHeTiC01",
+      "input": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&obrf=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&hl=en#media",
+      "removed": [
+        "obrf"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram obrf reel/SyNtHeTiC02",
+      "input": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&obrf=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&hl=en#media",
+      "removed": [
+        "obrf"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram psln p/SyNtHeTiC01",
+      "input": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&psln=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&hl=en#media",
+      "removed": [
+        "psln"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram psln reel/SyNtHeTiC02",
+      "input": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&psln=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&hl=en#media",
+      "removed": [
+        "psln"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram rpxt p/SyNtHeTiC01",
+      "input": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&rpxt=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&hl=en#media",
+      "removed": [
+        "rpxt"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram rpxt reel/SyNtHeTiC02",
+      "input": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&rpxt=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&hl=en#media",
+      "removed": [
+        "rpxt"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram srtk p/SyNtHeTiC01",
+      "input": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&srtk=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&hl=en#media",
+      "removed": [
+        "srtk"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram srtk reel/SyNtHeTiC02",
+      "input": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&srtk=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&hl=en#media",
+      "removed": [
+        "srtk"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram vrfl p/SyNtHeTiC01",
+      "input": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&vrfl=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&hl=en#media",
+      "removed": [
+        "vrfl"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram vrfl reel/SyNtHeTiC02",
+      "input": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&vrfl=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&hl=en#media",
+      "removed": [
+        "vrfl"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram xtok p/SyNtHeTiC01",
+      "input": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&xtok=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&hl=en#media",
+      "removed": [
+        "xtok"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram xtok reel/SyNtHeTiC02",
+      "input": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&xtok=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&hl=en#media",
+      "removed": [
+        "xtok"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram stkn p/SyNtHeTiC01",
+      "input": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&stkn=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/p/SyNtHeTiC01/?img_index=2&hl=en#media",
+      "removed": [
+        "stkn"
+      ]
+    },
+    {
+      "name": "Nov16 Instagram stkn reel/SyNtHeTiC02",
+      "input": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&stkn=synthetic&hl=en#media",
+      "expected": "https://www.instagram.com/reel/SyNtHeTiC02/?img_index=2&hl=en#media",
+      "removed": [
+        "stkn"
+      ]
+    },
+    {
+      "name": "Nov16 Google goto opaque payload is not decoded as Brave",
+      "input": "https://www.google.com/goto#synthetic%2f+%FF",
+      "expected": "https://www.google.com/goto#synthetic%2f+%FF",
       "removed": []
     }
   ]

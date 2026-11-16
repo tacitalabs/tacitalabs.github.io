@@ -451,6 +451,10 @@
     const parsed = parseInput(input);
     if (parsed.error) return { status: 'invalid', input: parsed.trimmed, reason: parsed.error };
 
+    if (/^https:\/\/search\.brave\.com\/go\/v1#.+$/.test(parsed.trimmed)) {
+      return { status: 'unchanged', originalUrl: parsed.trimmed,
+        classification: 'encrypted_redirect', message: 'Open this result, then clean the destination URL.' };
+    }
     const result = performClean(engine, parsed.trimmed, 0, options);
     if (!result) return { status: 'unchanged', originalUrl: parsed.trimmed };
     return result;
