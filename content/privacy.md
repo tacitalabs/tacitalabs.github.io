@@ -11,7 +11,7 @@ features make limited network requests, as described below. We do not require
 accounts, and we do not collect your browsing history or cleaned-link history.
 This page covers URLStrip and this website.
 
-*Last updated: September 29, 2026*
+*Last updated: October 22, 2026*
 
 {{% card %}}
 ## Infobreaker
@@ -48,15 +48,23 @@ tracking](/tracking-methodology.html).
 
 ## Optional link resolution and sharing context
 
-URLStrip for iOS and iPadOS 1.3.1 Build 49 includes user-controlled features
-that can make limited requests for public link or post information:
+URLStrip for iOS and iPadOS includes user-controlled features that can make
+limited requests for public link or post information:
 
-- If URLStrip recognizes a supported Instagram, Threads, or Reddit share
-  wrapper, it may offer a separate action labeled as a network operation.
-  URLStrip contacts the service identified by that link only after you choose
-  the action or explicitly enable automatic share-link resolution in Settings.
-  Automatic resolution is off by default. The request follows the redirect to
-  recover the direct destination.
+- If URLStrip recognizes a supported Instagram, Threads, Reddit, or Amazon
+  share wrapper, it may offer a separate action labeled as a network
+  operation. URLStrip contacts the service identified by that link only after
+  you choose the action or explicitly enable automatic share-link resolution
+  in Settings. Automatic resolution is off by default. The request follows a
+  bounded redirect path to recover the direct destination.
+- In **Preview a URL**, URLStrip 1.4.2 can recognize HTTPS links from `bit.ly`,
+  `tinyurl.com`, `www.tinyurl.com`, and `t.co`. Expansion happens only after
+  you choose **Expand Link (Network)**. It is not used by Clipboard Quick Clean
+  or the widget. URLStrip uses an ephemeral, cookie-free, cache-free session,
+  follows only a bounded chain of recognized shortener redirects, and stops
+  before requesting the final non-shortener destination. It then validates and
+  cleans that destination locally. Insecure, malformed, looping, local, and
+  private-network destinations are rejected.
 - When you share a public X/Twitter or Reddit post, URLStrip may load limited
   public post context so the share includes useful text or a title. For an
   X/Twitter post, URLStrip tries Twitter's oEmbed service first, followed by
@@ -66,9 +74,11 @@ that can make limited requests for public link or post information:
 
 These limited lookups go directly from your device through ephemeral,
 cookie-free network sessions. A service contacted for one of these requests
-receives the requested public post or share link and necessarily sees
-connection metadata such as your IP address and request time. Tacita Labs does
-not receive or retain the link or post request.
+receives the requested public post, share link, or short-link token and
+necessarily sees connection metadata such as your IP address and request time.
+Tacita Labs does not receive or retain the link or post request. During manual
+short-link expansion, URLStrip does not request the final non-shortener
+destination unless you later choose to open it.
 
 {{% /card %}}
 {{% card %}}
@@ -101,10 +111,20 @@ Automatic checks are on by default and can be turned off in Settings.
 Manual checks remain available. Earlier versions use manual or opt-in checks.
 Checking for updates never enables privacy redirects or installs an update.
 
-Installing rules or catalog updates is your choice. URLStrip verifies downloaded
-rules and validates catalog hashes and signatures before using them. The public
-iOS app manifest describes only public App Store releases; TestFlight remains
-responsible for TestFlight update delivery.
+URLStrip 1.4 for iOS and iPadOS also offers opt-in automatic installation of
+verified cleaning-rule updates. **Never** is the default. If you choose Daily,
+Weekly, or Monthly, URLStrip may ask iOS to perform a best-effort background
+rule check and installation. iOS decides whether and when the background task
+runs, so URLStrip also checks when the app next opens or returns to the
+foreground. Turning the setting back to Never cancels URLStrip's pending
+background request.
+
+Installing catalog updates remains a separate choice. Rule updates are installed
+manually or on the cadence you explicitly select. URLStrip verifies signed rule
+manifests, file hashes, and catalog hashes and signatures before using downloaded
+content. Invalid, expired, interrupted, or older rule packages do not replace the
+active verified rules. The public iOS app manifest describes only public App
+Store releases; TestFlight remains responsible for TestFlight update delivery.
 
 Metadata checks and update downloads never upload clipboard URLs, cleaned links,
 rules, settings, usage statistics, or device identifiers. The Tacita Labs update

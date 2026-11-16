@@ -165,35 +165,35 @@ Get the public URLStrip release from the App Store. TestFlight stays open for be
 {{% card %}}
 **macOS - Universal (Apple Silicon + Intel)**
 
-[Download URLStrip 1.3.2 (Build 29) for macOS](/urlstrip/releases/1.3.2-build29/URLStrip-1.3.2-build29-macOS-universal.dmg)
+[Download URLStrip 1.4.0 (Build 30) for macOS](/urlstrip/releases/1.4.0-build30/URLStrip-1.4.0-Build30-macOS-universal.dmg)
 
-SHA-256: `67553197619a38327c71df0524729eee8c18a7a679cce3a354774777a71ea4d8`
+SHA-256: `5b7831c06d04a02a1a02729e8f90b9f3e081a8b4898df1fcf2e5a6b73ac0113b`
 
-Verify: `shasum -a 256 URLStrip-1.3.2-build29-macOS-universal.dmg`
+Verify: `shasum -a 256 URLStrip-1.4.0-Build30-macOS-universal.dmg`
 
-Developer ID signed, Apple notarized, and stapled. Build 29 restores the app
-icon and Advanced Updates layout while preserving Build 28's Amazon support.
-It is not offered through the shared desktop updater, so existing macOS users
-must download it here. Includes Command Guard and an optional macOS
-command-line tool. [Read the Build 29 macOS correction notes](/urlstrip/releases/1.3.2-build29-macos.html).
+Developer ID signed, Apple notarized, and stapled. Build 30 cleans supported
+URLs inside multi-line clipboard text while preserving the surrounding content,
+and adds signed rule-feed verification plus visible update status. Includes
+Command Guard and an optional macOS command-line tool. [Read the Build 30
+release notes](/urlstrip/releases/1.4.0.html).
 {{% /card %}}
 
 {{% card %}}
 **Windows - x64**
 
-[Download URLStrip 1.3.2 (Build 28) for Windows](/urlstrip/releases/1.3.2-build28/URLStrip-1.3.2-build28-Windows-x64-setup.exe)
+[Download URLStrip 1.4.0 (Build 30) for Windows](/urlstrip/releases/1.4.0-build30/URLStrip-1.4.0-Build30-windows-x64-setup.exe)
 
-SHA-256: `922ea5bc068f26ca2019b8bd0dd02555a08b55129c812ffd13faf62149aebf78`
+SHA-256: `77ac47e1f61a6b33d780b2a4f695fa99108be3759c72b5ca5bbeac77493a3182`
 
-Verify: `certutil -hashfile URLStrip-1.3.2-build28-Windows-x64-setup.exe sha256`
+Verify: `certutil -hashfile URLStrip-1.4.0-Build30-windows-x64-setup.exe sha256`
 
-Azure Trusted Signing verified. Supports explicit and opt-in automatic
-resolution of eligible Amazon app short links, with strict destination
-validation and fail-closed behavior.
+Azure Trusted Signing verified. Build 30 adds generalized clipboard text
+cleaning, signed rule-feed verification, and visible update status while
+preserving strict, fail-closed network resolution and privacy redirects.
 {{% /card %}}
 ---
 
-Checksums: [macOS Build 29 SHA256SUMS](/urlstrip/releases/1.3.2-build29/SHA256SUMS) and [Windows Build 28 SHA256SUMS](/urlstrip/releases/1.3.2-build28/SHA256SUMS)
+Checksums: [URLStrip 1.4.0 Build 30 SHA256SUMS](/urlstrip/releases/1.4.0-build30/SHA256SUMS)
 
 {{< eyebrow >}}Screenshots{{< /eyebrow >}}
 
