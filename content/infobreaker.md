@@ -56,6 +56,12 @@ The rule the app is built around: **if Infobreaker cannot prove something, it do
 
 Want to work one broker at a time? Use the [broker-specific removal guides](/data-broker-removal-guides.html) for current requirements, human checkpoints, and verification advice.
 
+## Data broker opt-out agent pack {#agent-pack}
+
+Using an AI agent to help with opt-outs? Our [Data Broker Opt-Out Pack](https://github.com/tacitalabs/data-broker-opt-out-pack) shares broker-specific routes, requirements, human checkpoints, and removal-verification rules. A submitted request is not a verified removal.
+
+The pack is free for non-commercial use under CC BY-NC-SA 4.0. It contains guidance, not personal data or the Infobreaker app source. Review what your agent will send, and complete sensitive or human-only steps yourself.
+
 {{< eyebrow >}}Coverage{{< /eyebrow >}}
 
 ## Honest numbers, generated from evidence. {#coverage}

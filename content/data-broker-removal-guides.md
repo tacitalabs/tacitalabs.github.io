@@ -30,6 +30,10 @@ broker only when you choose to scan or submit a request.
 > differs from the guide, stop and follow the broker's current instructions.
 > Do not force a request through a page you cannot confidently identify.
 
+## Using an AI agent?
+
+The [Data Broker Opt-Out Pack](https://github.com/tacitalabs/data-broker-opt-out-pack) provides broker-specific opt-out routes, requirements, human checkpoints, and verification rules for agents. Free for non-commercial use under CC BY-NC-SA 4.0. Review any information before it is sent; a submitted request is not proof of removal.
+
 ## What these guides do not promise
 
 No guide can guarantee that a broker will accept a request, remove every
