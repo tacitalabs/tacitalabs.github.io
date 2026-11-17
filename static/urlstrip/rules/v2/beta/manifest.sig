@@ -1,1 +1,1 @@
-{"algorithm":"Ed25519","keyID":"urlstrip-rule-feed-2026-10","signature":"/MnSrDr7uHabbQk60Chlf+r0pt60soVxC96GkKYcg2XqUtAzjmMYPiLwHedPZfQ/vL6sG8hL9RBH66tcjZRFCA=="}
+{"algorithm":"Ed25519","keyID":"urlstrip-rule-feed-2026-10","signature":"J5crf78P7C1hWF20LIORj4qqzO3wElu/7kQck54hrf20CZ942V5L6aaIoPZMLW9WwwpsOhj+Jv9/YQ093r1yDQ=="}

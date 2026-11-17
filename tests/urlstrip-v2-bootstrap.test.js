@@ -5,8 +5,8 @@ const crypto = require('node:crypto');
 const trust = JSON.parse(fs.readFileSync(path.join(__dirname,'fixtures/rule-feed-keys.json')));
 const root = path.join(__dirname,'../static/urlstrip/rules');
 const sha = b => crypto.createHash('sha256').update(b).digest('hex');
-const version = '2026.10.31.5';
 for (const channel of ['stable','beta']) {
+ const version = channel === 'beta' ? '2026.11.17.1' : '2026.10.31.5';
  const dir=path.join(root,'v2',channel), immutable=path.join(dir,version);
  const raw=fs.readFileSync(path.join(dir,'manifest.json')), sigraw=fs.readFileSync(path.join(dir,'manifest.sig'));
  assert.deepEqual(raw,fs.readFileSync(path.join(immutable,'manifest.json')));
@@ -23,11 +23,12 @@ for (const channel of ['stable','beta']) {
   assert.equal(file.url,`https://www.tacitalabs.com/urlstrip/rules/v2/${channel}/${version}/${file.path}`);
   const bytes=fs.readFileSync(path.join(immutable,file.path));assert.equal(bytes.length,file.bytes);assert.equal(sha(bytes),file.sha256);
   const doc=JSON.parse(bytes), baseline=JSON.parse(fs.readFileSync(path.join(root,'2026.10.29.1',file.path))).providers;
-  assert.equal(doc.schemaVersion,2);assert.equal(doc.rules.length,Object.keys(baseline).length);
+  const additions = channel === 'beta' && file.kind === 'urlstrip-supplementary' ? ['globalAttributionIDs'] : [];
+  assert.equal(doc.schemaVersion,2);assert.equal(doc.rules.length,Object.keys(baseline).length + additions.length);
   assert(!bytes.toString().toLowerCase().includes('rockchasing'));
-  assert.deepEqual(doc.rules.map(r=>r.id).sort(),Object.keys(baseline).sort());
+  assert.deepEqual(doc.rules.map(r=>r.id).sort(),[...Object.keys(baseline),...additions].sort());
   for(const rule of doc.rules) {
-   const old=baseline[rule.id]; assert.equal(rule.type,'provider');assert.deepEqual(rule.dependsOn,[]);
+   const old=rule.id === 'globalAttributionIDs' ? {urlPattern:'.*',rules:['campaign_id','ad_id']} : baseline[rule.id]; assert.equal(rule.type,'provider');assert.deepEqual(rule.dependsOn,[]);
    assert.deepEqual(rule.requires,['provider.regex.v1','query.raw.v1','authority.strict.v1']);
    assert.deepEqual(rule.match,{urlPattern:old.urlPattern,exceptions:old.exceptions||[]});
    for(const field of ['rules','rawRules','referralMarketing','redirections']) assert.deepEqual(rule.action[field],old[field]||[]);
@@ -36,5 +37,5 @@ for (const channel of ['stable','beta']) {
    assert.deepEqual(rule.unknownLegacySemantics||{},unknown);
   }
  }
- console.log(`ok - v2 ${channel}: production signature, immutable pointers, exact reviewed baseline content, no provisional rules`);
+ console.log(`ok - v2 ${channel}: production signature, immutable pointers, reviewed baseline plus exact authorized Beta delta, no provisional rules`);
 }

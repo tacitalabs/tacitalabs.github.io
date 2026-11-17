@@ -44,6 +44,8 @@ for (const channel of ['', 'beta']) {
   assert.throws(() => verify(Buffer.concat([raw, Buffer.from('\n')]), sidecar));
   console.log(`ok - ${channel || 'stable'} ${m.currentVersion}: production signature, immutable parity, assets, tamper rejection`);
 }
+// Keep generation-2 channel signatures and exact bounded content in the deployment gate too.
+require('./urlstrip-v2-bootstrap.test.js');
 const stableSig = fs.readFileSync(path.join(root, 'manifest.sig'));
 const betaRaw = fs.readFileSync(path.join(root, 'beta/manifest.json'));
 if (!betaRaw.equals(fs.readFileSync(path.join(root, 'manifest.json')))) {

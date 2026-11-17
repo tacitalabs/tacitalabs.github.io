@@ -36,6 +36,32 @@ function test(name, fn) {
   }
 }
 
+// v2 Beta feed-only policy proof with the existing shipped cleaner implementation.
+// This does not change the production browser's v1 feed selection.
+test('v2 Beta global attribution IDs preserve functional state and raw query bytes', () => {
+  const manifest = JSON.parse(fs.readFileSync(path.join(root, 'static/urlstrip/rules/v2/beta/manifest.json')));
+  const dir = path.join(root, 'static/urlstrip/rules/v2/beta', manifest.currentVersion);
+  const project = name => {
+    const doc = JSON.parse(fs.readFileSync(path.join(dir, name)));
+    return {providers:Object.fromEntries(doc.rules.map(rule => {
+      assert.equal(rule.type, 'provider');
+      assert.deepEqual(rule.requires, ['provider.regex.v1','query.raw.v1','authority.strict.v1']);
+      assert.deepEqual(rule.dependsOn, []);
+      return [rule.id, {...rule.match, ...rule.action}];
+    }))};
+  };
+  const engine = URLStrip.createEngine(project('data.min.json'), project('urlstrip-supplementary.json'));
+  for (const origin of ['https://shop.example','https://unrelated.example:8443','http://another.example']) {
+    const preserved = 'filter.v.availability=1&keep=alpha%2fbeta&literal=a+b&bare&keep=%7e&campaign_ids=keep&my_ad_id=keep&ad_id_extra=keep';
+    const input = origin + '/synthetic?ad_id=synthetic-first&' + preserved + '&campaign_id=synthetic-second&ad_id=synthetic-third&campaign_id=synthetic-fourth#section';
+    const expected = origin + '/synthetic?' + preserved + '#section';
+    const result = URLStrip.cleanUrl(engine,input);
+    assert.equal(result.cleanedUrl,expected);
+    assert.deepEqual(result.removedQueryParameters,['ad_id','campaign_id','ad_id','campaign_id']);
+    assert.equal(URLStrip.cleanUrl(engine,expected).status,'unchanged');
+  }
+});
+
 console.log(`compiled providers: ${engine.providers.length}; skipped: ${engine.skippedProviders.length}`);
 assert.ok(engine.providers.length > 200, 'should compile the bundled provider set');
 
