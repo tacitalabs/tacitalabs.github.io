@@ -432,7 +432,10 @@
       matchedCategories.add(CATEGORIES.analytics);
     }
 
-    const cleanedString = url.toString();
+    // Parsing alone is not a cleaning action: serialization can erase empty
+    // userinfo, explicit default ports, or other untouched URL spelling.
+    const cleanedString = removedQueryParameters.length > 0 || googleLocalFragmentRemoved
+      ? url.toString() : currentURL;
     const privacyRedirect = applyPrivacyRedirect(cleanedString, options.privacyRedirectSettings || {});
     const finalString = privacyRedirect ? privacyRedirect.redirectedUrl : cleanedString;
     const rawRulesApplied = currentURL !== trimmed && removedQueryParameters.length === 0 ? 1 : 0;

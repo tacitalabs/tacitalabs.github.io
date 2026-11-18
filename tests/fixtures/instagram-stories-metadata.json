@@ -1,0 +1,91 @@
+{
+  "positives": [
+    {
+      "input": "https://www.instagram.com/stories/Synthetic.Profile_01/1234567890123456789/?hvrq=synthetic-one&img_index=2&hl=en&keep=alpha%2fbeta&literal=a+b&bare&keep=%7e&hvrq_extra=keep&my_hvrq=keep&hvrq=synthetic-two#story",
+      "expected": "https://www.instagram.com/stories/Synthetic.Profile_01/1234567890123456789/?img_index=2&hl=en&keep=alpha%2fbeta&literal=a+b&bare&keep=%7e&hvrq_extra=keep&my_hvrq=keep#story",
+      "removed": [
+        "hvrq",
+        "hvrq"
+      ]
+    },
+    {
+      "input": "https://www.instagram.com/stories/Synthetic.Profile_01/1234567890123456789/?hvrq=synthetic",
+      "expected": "https://www.instagram.com/stories/Synthetic.Profile_01/1234567890123456789/",
+      "removed": [
+        "hvrq"
+      ]
+    },
+    {
+      "input": "https://www.instagram.com/stories/Synthetic.Profile_01/1234567890123456789?hvrq=synthetic-one&img_index=2&hl=en&keep=alpha%2fbeta&literal=a+b&bare&keep=%7e&hvrq_extra=keep&my_hvrq=keep&hvrq=synthetic-two#story",
+      "expected": "https://www.instagram.com/stories/Synthetic.Profile_01/1234567890123456789?img_index=2&hl=en&keep=alpha%2fbeta&literal=a+b&bare&keep=%7e&hvrq_extra=keep&my_hvrq=keep#story",
+      "removed": [
+        "hvrq",
+        "hvrq"
+      ]
+    },
+    {
+      "input": "https://www.instagram.com/stories/Synthetic.Profile_01/1234567890123456789?hvrq=synthetic",
+      "expected": "https://www.instagram.com/stories/Synthetic.Profile_01/1234567890123456789",
+      "removed": [
+        "hvrq"
+      ]
+    },
+    {
+      "input": "https://instagram.com/stories/Synthetic.Profile_01/1234567890123456789/?hvrq=synthetic-one&img_index=2&hl=en&keep=alpha%2fbeta&literal=a+b&bare&keep=%7e&hvrq_extra=keep&my_hvrq=keep&hvrq=synthetic-two#story",
+      "expected": "https://instagram.com/stories/Synthetic.Profile_01/1234567890123456789/?img_index=2&hl=en&keep=alpha%2fbeta&literal=a+b&bare&keep=%7e&hvrq_extra=keep&my_hvrq=keep#story",
+      "removed": [
+        "hvrq",
+        "hvrq"
+      ]
+    },
+    {
+      "input": "https://instagram.com/stories/Synthetic.Profile_01/1234567890123456789/?hvrq=synthetic",
+      "expected": "https://instagram.com/stories/Synthetic.Profile_01/1234567890123456789/",
+      "removed": [
+        "hvrq"
+      ]
+    },
+    {
+      "input": "https://instagram.com/stories/Synthetic.Profile_01/1234567890123456789?hvrq=synthetic-one&img_index=2&hl=en&keep=alpha%2fbeta&literal=a+b&bare&keep=%7e&hvrq_extra=keep&my_hvrq=keep&hvrq=synthetic-two#story",
+      "expected": "https://instagram.com/stories/Synthetic.Profile_01/1234567890123456789?img_index=2&hl=en&keep=alpha%2fbeta&literal=a+b&bare&keep=%7e&hvrq_extra=keep&my_hvrq=keep#story",
+      "removed": [
+        "hvrq",
+        "hvrq"
+      ]
+    },
+    {
+      "input": "https://instagram.com/stories/Synthetic.Profile_01/1234567890123456789?hvrq=synthetic",
+      "expected": "https://instagram.com/stories/Synthetic.Profile_01/1234567890123456789",
+      "removed": [
+        "hvrq"
+      ]
+    },
+    {
+      "input": "https://www.instagram.com/stories/Synthetic.Profile_01/1234567890123456789/?utm_source=ig_story_item_share&hvrq=synthetic",
+      "expected": "https://www.instagram.com/stories/Synthetic.Profile_01/1234567890123456789/",
+      "removed": [
+        "utm_source",
+        "hvrq"
+      ]
+    }
+  ],
+  "negatives": [
+    "https://m.instagram.com/stories/Synthetic/123/?hvrq=keep",
+    "https://instagram.com.example/stories/Synthetic/123/?hvrq=keep",
+    "https://notinstagram.com/stories/Synthetic/123/?hvrq=keep",
+    "https://instagram.com@evil.example/stories/Synthetic/123/?hvrq=keep",
+    "https://user@instagram.com/stories/Synthetic/123/?hvrq=keep",
+    "https://@instagram.com/stories/Synthetic/123/?hvrq=keep",
+    "https://instagram.com:443/stories/Synthetic/123/?hvrq=keep",
+    "https://instagram.com:8443/stories/Synthetic/123/?hvrq=keep",
+    "http://instagram.com/stories/Synthetic/123/?hvrq=keep",
+    "https://www.instagram.com/stories/Synthetic/?hvrq=keep",
+    "https://www.instagram.com/stories/Synthetic/not-numeric/?hvrq=keep",
+    "https://www.instagram.com/stories/Synthetic/123/extra/?hvrq=keep",
+    "https://www.instagram.com/stories/highlights/123/?hvrq=keep",
+    "https://www.instagram.com/accounts/edit/?hvrq=keep",
+    "https://www.instagram.com/share/Synthetic/?hvrq=keep",
+    "https://other.example/stories/Synthetic/123/?hvrq=keep",
+    "https://www.instagram.com/stories/Synthetic/123/?hvrq_extra=keep&my_hvrq=keep&hl=en#hvrq=fragment"
+  ]
+}

@@ -6,7 +6,7 @@ const trust = JSON.parse(fs.readFileSync(path.join(__dirname,'fixtures/rule-feed
 const root = path.join(__dirname,'../static/urlstrip/rules');
 const sha = b => crypto.createHash('sha256').update(b).digest('hex');
 for (const channel of ['stable','beta']) {
- const version = channel === 'beta' ? '2026.11.17.1' : '2026.10.31.5';
+ const version = channel === 'beta' ? '2026.11.18.2' : '2026.10.31.5';
  const dir=path.join(root,'v2',channel), immutable=path.join(dir,version);
  const raw=fs.readFileSync(path.join(dir,'manifest.json')), sigraw=fs.readFileSync(path.join(dir,'manifest.sig'));
  assert.deepEqual(raw,fs.readFileSync(path.join(immutable,'manifest.json')));
@@ -23,12 +23,12 @@ for (const channel of ['stable','beta']) {
   assert.equal(file.url,`https://www.tacitalabs.com/urlstrip/rules/v2/${channel}/${version}/${file.path}`);
   const bytes=fs.readFileSync(path.join(immutable,file.path));assert.equal(bytes.length,file.bytes);assert.equal(sha(bytes),file.sha256);
   const doc=JSON.parse(bytes), baseline=JSON.parse(fs.readFileSync(path.join(root,'2026.10.29.1',file.path))).providers;
-  const additions = channel === 'beta' && file.kind === 'urlstrip-supplementary' ? ['globalAttributionIDs'] : [];
+  const additions = channel === 'beta' && file.kind === 'urlstrip-supplementary' ? ['globalAttributionIDs','instagramStorySharingMetadata'] : [];
   assert.equal(doc.schemaVersion,2);assert.equal(doc.rules.length,Object.keys(baseline).length + additions.length);
   assert(!bytes.toString().toLowerCase().includes('rockchasing'));
   assert.deepEqual(doc.rules.map(r=>r.id).sort(),[...Object.keys(baseline),...additions].sort());
   for(const rule of doc.rules) {
-   const old=rule.id === 'globalAttributionIDs' ? {urlPattern:'.*',rules:['campaign_id','ad_id']} : baseline[rule.id]; assert.equal(rule.type,'provider');assert.deepEqual(rule.dependsOn,[]);
+   const old=rule.id === "instagramStorySharingMetadata" ? {"urlPattern":"^https:\\/\\/(?:www\\.)?instagram\\.com\\/stories\\/[A-Za-z0-9._]+\\/[0-9]+\\/?\\?","completeProvider":false,"rules":["hvrq"],"rawRules":[],"referralMarketing":[],"exceptions":["^https:\\/\\/(?:www\\.)?instagram\\.com\\/stories\\/highlights\\/"],"redirections":[],"forceRedirection":false} : rule.id === 'globalAttributionIDs' ? {urlPattern:'.*',rules:['campaign_id','ad_id']} : baseline[rule.id]; assert.equal(rule.type,'provider');assert.deepEqual(rule.dependsOn,[]);
    assert.deepEqual(rule.requires,['provider.regex.v1','query.raw.v1','authority.strict.v1']);
    assert.deepEqual(rule.match,{urlPattern:old.urlPattern,exceptions:old.exceptions||[]});
    for(const field of ['rules','rawRules','referralMarketing','redirections']) assert.deepEqual(rule.action[field],old[field]||[]);
@@ -38,4 +38,13 @@ for (const channel of ['stable','beta']) {
   }
  }
  console.log(`ok - v2 ${channel}: production signature, immutable pointers, reviewed baseline plus exact authorized Beta delta, no provisional rules`);
+}
+
+// Prove every existing v2 Beta envelope unchanged; only one new provider.
+{
+ const previous=JSON.parse(fs.readFileSync(root+"/v2/beta/2026.11.17.1/urlstrip-supplementary.json"));
+ const next=JSON.parse(fs.readFileSync(root+"/v2/beta/2026.11.18.2/urlstrip-supplementary.json"));
+ assert.deepEqual(next.rules.slice(0,-1),previous.rules);
+ assert.equal(next.rules.at(-1).id,"instagramStorySharingMetadata");
+ assert.deepEqual(fs.readFileSync(root+"/v2/beta/2026.11.18.2/data.min.json"),fs.readFileSync(root+"/v2/beta/2026.11.17.1/data.min.json"));
 }

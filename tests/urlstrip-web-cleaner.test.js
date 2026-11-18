@@ -575,3 +575,40 @@ test('Reddit privacy rewrite uses Redlib and skips redd.it shortlinks', () => {
   });
   assert.equal(shortlink.status, 'unchanged');
 });
+
+test("v2 Beta Stories hvrq exact scope and preserved bytes", () => {
+ const manifest=JSON.parse(fs.readFileSync(path.join(root,"static/urlstrip/rules/v2/beta/manifest.json")));
+ assert.equal(manifest.currentVersion,"2026.11.18.2");
+ const dir=path.join(root,"static/urlstrip/rules/v2/beta",manifest.currentVersion);
+ const project=name=>({providers:Object.fromEntries(JSON.parse(fs.readFileSync(path.join(dir,name))).rules.map(r=>[r.id,{...r.match,...r.action}]))});
+ const e=URLStrip.createEngine(project("data.min.json"),project("urlstrip-supplementary.json"));
+ const cases=JSON.parse(fs.readFileSync(path.join(__dirname,"fixtures/instagram-stories-metadata.json")));
+ for(const c of cases.positives) {
+  const result=URLStrip.cleanUrl(e,c.input);
+  assert.equal(result.cleanedUrl,c.expected);
+  assert.deepEqual(result.removedQueryParameters,c.removed);
+  assert.equal(URLStrip.cleanUrl(e,c.expected).status,"unchanged");
+ }
+ for(const input of cases.negatives) {
+  const result=URLStrip.cleanUrl(e,input);
+  assert.equal(result.status,"unchanged",input);
+  assert.equal(result.originalUrl,input);
+  assert.equal(result.cleanedUrl,undefined);
+  assert.deepEqual(result.removedQueryParameters || [],[]);
+ }
+});
+
+test("Parsing alone preserves complete URL spelling and no-op status", () => {
+ for(const input of [
+  "https://@example.com/path?keep=a%2fb+z&bare#part",
+  "https://EXAMPLE.com:443/path?keep=%7e",
+  "http://example.com:80/path?keep=one&keep=two",
+  "https://example.com",
+  "https://example.com/%7eSynthetic?hl=en",
+ ]) {
+  const result=clean(input);
+  assert.equal(result.status,"unchanged",input);
+  assert.equal(result.originalUrl,input);
+  assert.equal(result.cleanedUrl,undefined);
+ }
+});
