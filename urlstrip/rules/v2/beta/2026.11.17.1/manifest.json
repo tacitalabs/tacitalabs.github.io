@@ -1,0 +1,30 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 2,
+  "channel": "beta",
+  "currentVersion": "2026.11.17.1",
+  "publishedAt": "2026-11-17T14:25:04.846Z",
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/v2/beta/2026.11.17.1/data.min.json",
+      "sha256": "5edecb154aa023560c78a580e71014cc5631f2bc66efa1440cdf750aa21a07a3",
+      "bytes": 137744
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/v2/beta/2026.11.17.1/urlstrip-supplementary.json",
+      "sha256": "604eb505e53c2cd9bfb0e2afdcd5684736591b0ca65fcea31e4d8da4946aa694",
+      "bytes": 43712
+    }
+  ],
+  "notes": [
+    "Owner-authorized global removal of campaign_id and ad_id.",
+    "Preserve filter.v.availability, other functional query state and untouched query bytes.",
+    "One provider added to the authenticated 2026.10.31.5 v2 Beta baseline; no other existing rules changed.",
+    "V2-capable clients only. Stable and legacy v1 feeds are unchanged. No app release."
+  ]
+}

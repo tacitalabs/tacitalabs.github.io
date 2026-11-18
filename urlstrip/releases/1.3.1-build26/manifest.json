@@ -1,0 +1,55 @@
+{
+  "product": "URLStrip",
+  "channel": "desktop",
+  "version": "1.3.1",
+  "build": 26,
+  "releaseDate": "2026-09-28",
+  "releaseRepositoryCommit": "c16e239d61ee0341072bfa828c9fdeb5ab5af3bd",
+  "rulesVersion": "2026.09.28.2",
+  "privacyServicesCatalogVersion": 3,
+  "macOS": {
+    "sourceCommit": "452fe0d1614a972157ceba4c4e003045d381f7e6",
+    "sourceTree": "2e705e1981f8dc5836aa7c54c6910cea44031eb9",
+    "sourceNote": "Includes the macOS-only Safari WebExtension manifest repair.",
+    "releaseTag": "urlstrip-1.3.1-build26",
+    "releaseAssetUrl": "https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.3.1-build26/URLStrip-1.3.1-build26-macOS-universal.dmg",
+    "version": "1.3.1",
+    "build": 26,
+    "status": "released",
+    "architectures": [
+      "arm64",
+      "x86_64"
+    ],
+    "url": "https://www.tacitalabs.com/urlstrip/releases/1.3.1-build26/URLStrip-1.3.1-build26-macOS-universal.dmg",
+    "bytes": 4172266,
+    "sha256": "6624a1eedfc34e3bd0f5e5b628a90e9cf905d89ea80c948b403c1af881bf71cf",
+    "signing": "Developer ID Application",
+    "notarization": "Accepted",
+    "appSubmissionId": "659acacc-0996-4d73-ae25-959637ddf3d1",
+    "dmgSubmissionId": "c1c9a3bf-c0f5-4107-9a62-6cd06e03b91d",
+    "stapled": true
+  },
+  "windows": {
+    "sourceCommit": "d5fb5665de3f79fcdca9237b334bbb6d9392f7f4",
+    "sourceTree": "040df7bc0cb228c9ae6c038880035f4991154bfe",
+    "sourceNote": "Built from the shared frozen source before the macOS-only Safari manifest repair.",
+    "releaseTag": "urlstrip-1.3.1-build26",
+    "releaseAssetUrl": "https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.3.1-build26/URLStrip-1.3.1-build26-Windows-x64-setup.exe",
+    "version": "1.3.1",
+    "build": 26,
+    "status": "released",
+    "architecture": "x86_64",
+    "url": "https://www.tacitalabs.com/urlstrip/releases/1.3.1-build26/URLStrip-1.3.1-build26-Windows-x64-setup.exe",
+    "bytes": 4410568,
+    "sha256": "fbe652d3861082f948e7511769a0043fb2e1e20abc125883221cf7bd9a396fc0",
+    "signing": "Azure Trusted Signing",
+    "publisher": "James O'Gorman",
+    "authenticode": "Valid",
+    "timestamped": true,
+    "nativeVerification": "passed",
+    "acceptedPayloadSha256": {
+      "app": "2c6aafe1ff21fb06c3128b04e3ffedda55f0001b051a4cca27fdb779fc8127da",
+      "cli": "a500e7862231abd38c20c410f3cdfb598cfaeaef38fd83f45678d727df8918b0"
+    }
+  }
+}

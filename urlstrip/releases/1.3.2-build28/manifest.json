@@ -1,0 +1,53 @@
+{
+  "product": "URLStrip",
+  "channel": "desktop",
+  "version": "1.3.2",
+  "build": 28,
+  "releaseDate": "2026-10-01",
+  "releaseRepositoryCommit": "289d7853e6746a3e5c678c7c7dbb94e588987d5e",
+  "rulesVersion": "2026.09.14.2",
+  "privacyServicesCatalogVersion": 2,
+  "macOS": {
+    "sourceCommit": "f4ad1d9727f6d39e0a9583a00016f423cd14411f",
+    "sourceTree": "0e35ba74f644ebd7b73528c2f627b4c2c1ba5ed4",
+    "releaseTag": "urlstrip-1.3.2-build28",
+    "releaseAssetUrl": "https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.3.2-build28/URLStrip-1.3.2-build28-macOS-universal.dmg",
+    "version": "1.3.2",
+    "build": 28,
+    "status": "released",
+    "architectures": [
+      "arm64",
+      "x86_64"
+    ],
+    "url": "https://www.tacitalabs.com/urlstrip/releases/1.3.2-build28/URLStrip-1.3.2-build28-macOS-universal.dmg",
+    "bytes": 5181076,
+    "sha256": "ee67a4d355a833021524de86fe570558fdb2f65f29d0d200df6ac84b80893679",
+    "signing": "Developer ID Application",
+    "notarization": "Accepted",
+    "stapled": true,
+    "nativeVerification": "passed"
+  },
+  "windows": {
+    "sourceCommit": "1bd5ddfe1a8b750027280007f9d02e755f822737",
+    "sourceTree": "6e102e27d6588232af8fef4a9b1008526fd318fa",
+    "sourceNote": "Includes the Windows explicit manual-clean resolver correction.",
+    "releaseTag": "urlstrip-1.3.2-build28",
+    "releaseAssetUrl": "https://github.com/tacitalabs/urlstrip/releases/download/urlstrip-1.3.2-build28/URLStrip-1.3.2-build28-Windows-x64-setup.exe",
+    "version": "1.3.2",
+    "build": 28,
+    "status": "released",
+    "architecture": "x86_64",
+    "url": "https://www.tacitalabs.com/urlstrip/releases/1.3.2-build28/URLStrip-1.3.2-build28-Windows-x64-setup.exe",
+    "bytes": 4414384,
+    "sha256": "922ea5bc068f26ca2019b8bd0dd02555a08b55129c812ffd13faf62149aebf78",
+    "signing": "Azure Trusted Signing",
+    "publisher": "James O'Gorman",
+    "authenticode": "Valid",
+    "timestamped": true,
+    "nativeVerification": "passed",
+    "acceptedPayloadSha256": {
+      "app": "d094a0aa0dcab186c5db02622fc6eeda7cc443564bb0b89b01c6dbec2de7a841",
+      "cli": "afa8b2d949a0d1e5be3a727c015e511e95cb65e9768874173a68429119d77641"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.10.08.5",
+  "publishedAt": "2026-10-09T03:30:54.436Z",
+  "sourceSummary": {
+    "clearurls": {
+      "source": "https://github.com/ClearURLs/Rules",
+      "upstreamCommit": null,
+      "reviewedAt": "2026-10-09T03:30:54.436Z"
+    },
+    "urlstripSupplementary": {
+      "version": "2026.10.08.5"
+    }
+  },
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.08.5/data.min.json",
+      "sha256": "a6ccf52b371e8a7fc14365baf2f3fde0fefeed3c5ed27b9a1268f7be490619e7",
+      "bytes": 106100
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.10.08.5/urlstrip-supplementary.json",
+      "sha256": "27e8fae87a1022f06e24e4847fb1bd47202cf4fd04198470835f7513318c3082",
+      "bytes": 25643
+    }
+  ],
+  "notes": [
+    "Correct the Instagram hybrid path matcher so mixed-case post, Reel, and profile identifiers behave identically in Swift, Rust, and the browser cleaner.",
+    "Remove a newly reported `vrfl` query parameter through the generalized unknown-parameter rule, while preserving `img_index` and `hl` in mixed queries. Public examples use synthetic Instagram identifiers.",
+    "Retain exact `instagram.com` and `www.instagram.com` host boundaries, the approved post/Reel/profile path scope, hostile-host rejection, and unrelated-path exclusions.",
+    "Supersede Beta `2026.10.08.4`; leave Stable `2026.09.21.1` unchanged."
+  ]
+}

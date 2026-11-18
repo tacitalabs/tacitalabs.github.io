@@ -1,0 +1,40 @@
+{
+  "product": "URLStrip",
+  "kind": "rules",
+  "schemaVersion": 1,
+  "currentVersion": "2026.09.14.2",
+  "publishedAt": "2026-09-14T20:21:49.148Z",
+  "sourceSummary": {
+    "clearurls": {
+      "source": "https://github.com/ClearURLs/Rules",
+      "upstreamCommit": null,
+      "reviewedAt": "2026-09-14T20:21:49.148Z"
+    },
+    "urlstripSupplementary": {
+      "version": "2026.09.14.2"
+    }
+  },
+  "files": [
+    {
+      "kind": "clearurls",
+      "path": "data.min.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.09.14.2/data.min.json",
+      "sha256": "b328d2a5b95b1b23bac2c91342a8deee3f9a3826a5950bf9e28e332ffd94cd2f",
+      "bytes": 106070
+    },
+    {
+      "kind": "urlstrip-supplementary",
+      "path": "urlstrip-supplementary.json",
+      "url": "https://www.tacitalabs.com/urlstrip/rules/2026.09.14.2/urlstrip-supplementary.json",
+      "sha256": "30a842768402deed12f080e48caf357a6f8ad86fadda237e60d2e653585ae981",
+      "bytes": 23901
+    }
+  ],
+  "notes": [
+    "Add Instagram `ig_rid` cleanup alongside the existing `stkn`, `igsi`, `igsh`, and `igshid` coverage, with exact Instagram-domain boundaries.",
+    "Add `stkn` cleanup on the supported `threads.com` and `threads.net` domains without applying it to lookalike or unrelated hosts.",
+    "Scope URLStrip's supplementary `is` cleanup to exact `music.youtube.com` links while preserving song, playlist, radio, index, timestamp, unknown query, encoding, order, and fragment context.",
+    "Preserve Stable `2026.08.31.2` and all earlier Beta rules. No duplicate `si` rule was added because existing client fallback behavior already removes `si` globally and the shared ClearURLs base removes it on broader YouTube hosts; changing those behaviors is outside this Beta rule update.",
+    "Limitation: URL transformation was verified with hostile regression fixtures, but actual YouTube Music audio playback was not directly verified."
+  ]
+}

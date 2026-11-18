@@ -1,0 +1,5 @@
+- Add Instagram `ig_rid` cleanup alongside the existing `stkn`, `igsi`, `igsh`, and `igshid` coverage, with exact Instagram-domain boundaries.
+- Add `stkn` cleanup on the supported `threads.com` and `threads.net` domains without applying it to lookalike or unrelated hosts.
+- Scope URLStrip's supplementary `is` cleanup to exact `music.youtube.com` links while preserving song, playlist, radio, index, timestamp, unknown query, encoding, order, and fragment context.
+- Preserve Stable `2026.08.31.2` and all earlier Beta rules. No duplicate `si` rule was added because existing client fallback behavior already removes `si` globally and the shared ClearURLs base removes it on broader YouTube hosts; changing those behaviors is outside this Beta rule update.
+- Limitation: URL transformation was verified with hostile regression fixtures, but actual YouTube Music audio playback was not directly verified.
